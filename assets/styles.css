@@ -1,28 +1,4 @@
-/* Шрифты: GOST A (для заголовков/интерфейса) и GOST B (основной текст) */
-@font-face {
-  font-family: 'GOST A';
-  src:
-    local('GOST type A'),
-    local('GOST A'),
-    url('../assets/fonts/GOST-A.woff2') format('woff2'),
-    url('../assets/fonts/GOST-A.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'GOST B';
-  src:
-    local('GOST type B'),
-    local('GOST B'),
-    url('../assets/fonts/GOST-B.woff2') format('woff2'),
-    url('../assets/fonts/GOST-B.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Base */
+/* Системные шрифты */
 :root {
   --bg: #f4f5f7;
   --surface: #ffffff;
@@ -39,8 +15,10 @@
   --radius-s: 6px;
   --radius-m: 8px;
 
-  --font-ui: 'GOST B', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-head: 'GOST A', 'GOST B', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  /* системный стек */
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+             Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-head: var(--font-ui);
 
   --focus: 0 0 0 2px color-mix(in oklab, var(--primary) 45%, transparent);
 }
@@ -74,6 +52,17 @@ body {
   font-synthesis: none;
   font-size: 17px;
   line-height: 1.55;
+}
+
+/* Моноширинный стек для кодовых фрагментов (если появятся) */
+code, pre, kbd, samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+               "Liberation Mono", "DejaVu Sans Mono", monospace;
+}
+
+/* Принудительно для текста в SVG (перебьет inline style) */
+svg text {
+  font-family: var(--font-head) !important;
 }
 
 /* Контрастная сетка фона (еле заметная, hi‑tech) */
