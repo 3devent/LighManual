@@ -1414,48 +1414,50 @@
             });
           }
 
-          // =========
-          // TEMP CALC
-          // =========
-          (function initTemp(){
-            const form = root.querySelector('[data-lg-calc="temp"]'); if (!form) return;
-            const c = form.querySelector('#lg-temp-c');
-            const k = form.querySelector('#lg-temp-k');
-            const f = form.querySelector('#lg-temp-f');
+// =========
+// TEMP CALC
+// =========
+(function initTemp(){
+  const form = root.querySelector('[data-lg-calc="temp"]'); if (!form) return;
+  const c = form.querySelector('#lg-temp-c');
+  const k = form.querySelector('#lg-temp-k');
+  const f = form.querySelector('#lg-temp-f');
 
-            function updateFrom(source){
-              const Cv = parseFloat(c.value);
-              const Kv = parseFloat(k.value);
-              const Fv = parseFloat(f.value);
-              if (source==='C' && !Number.isNaN(Cv)){
-                k.value = fmt(Cv + 273.15, 2);
-                f.value = fmt(Cv*9/5 + 32, 2);
-              } else if (source==='K' && !Number.isNaN(Kv)){
-                const C2 = Kv - 273.15;
-                c.value = fmt(C2, 2);
-                f.value = fmt(C2*9/5 + 32, 2);
-              } else if (source==='F' && !Number.isNaN(Fv)){
-                const C2 = (Fv - 32)*5/9;
-                c.value = fmt(C2, 2);
-                k.value = fmt(C2 + 273.15, 2);
-              }
-            }
+  function updateFrom(source){
+    const Cv = c.valueAsNumber;
+    const Kv = k.valueAsNumber;
+    const Fv = f.valueAsNumber;
 
-            c.addEventListener('input', ()=>updateFrom('C'));
-            k.addEventListener('input', ()=>updateFrom('K'));
-            f.addEventListener('input', ()=>updateFrom('F'));
+    if (source==='C' && !Number.isNaN(Cv)){
+      k.valueAsNumber = +(Cv + 273.15).toFixed(2);
+      f.valueAsNumber = +(Cv*9/5 + 32).toFixed(2);
+    } else if (source==='K' && !Number.isNaN(Kv)){
+      const C2 = Kv - 273.15;
+      c.valueAsNumber = +C2.toFixed(2);
+      f.valueAsNumber = +(C2*9/5 + 32).toFixed(2);
+    } else if (source==='F' && !Number.isNaN(Fv)){
+      const C2 = (Fv - 32)*5/9;
+      c.valueAsNumber = +C2.toFixed(2);
+      k.valueAsNumber = +(C2 + 273.15).toFixed(2);
+    }
+  }
 
-            form.addEventListener('click', function(e){
-              const a = e.target.closest('button[data-action]');
-              if (!a) return;
-              const act = a.dataset.action;
-              if (act==='example'){
-                c.value = '25'; updateFrom('C');
-              } else if (act==='reset'){
-                c.value = ''; k.value=''; f.value='';
-              }
-            });
-          })();
+  c.addEventListener('input', ()=>updateFrom('C'));
+  k.addEventListener('input', ()=>updateFrom('K'));
+  f.addEventListener('input', ()=>updateFrom('F'));
+
+  form.addEventListener('click', function(e){
+    const a = e.target.closest('button[data-action]');
+    if (!a) return;
+    const act = a.dataset.action;
+    if (act==='example'){
+      c.valueAsNumber = 25;
+      updateFrom('C');
+    } else if (act==='reset'){
+      c.value = ''; k.value=''; f.value='';
+    }
+  });
+})();
 
           // ==========
 // CTO / CTB
@@ -1928,4 +1930,5 @@
 
   <script src="../assets/main.js" defer></script>
 </body>
+
 </html>
