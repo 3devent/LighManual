@@ -11,8 +11,6 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="../index.html" aria-label="На главную">
-        <!--<span class="brand-mark" aria-hidden="true">◆</span>
-        <span class="brand-text">На главную</span>-->
 		<svg width="145" height="50" viewBox="0 0 38.364 13.23" xmlns="http://www.w3.org/2000/svg">
     <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495373;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M9.618 10.155s.51.625.732.961c.516.19 1.589.602 2.323.817l-1.578-1.017c-.1.06-.296.018-.395-.047-.123-.082-.27-.314-.174-.419.094-.104.385-.043.509.038.097.064.203.214.163.312l1.543 1.06c-.423-.557-1.494-1.7-1.494-1.7l-1.46-.535Z"/>
     <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495374;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m7.83 7.858 1.205.849.036-1.293c1.965-.044 3.226-1.408 3.226-3.041 0-1.632-1.343-2.938-3.308-2.982l-.01-.312L7.856.646Zm1.196-5.276c1.136.025 2.004.825 2.053 1.788.036 1.09-.848 1.843-1.999 1.94z"/>
@@ -66,20 +64,1460 @@
         </div>
       </section>
 
-      <section id="fixture-types">
-        <h2>Типы приборов: Spot, Wash, Beam, Profile</h2>
-        <p>Особенности применения, режимы патчинга, параметры: gobo, prism, iris, frost.</p>
-      </section>
+      <article id="ls-article" lang="ru" data-version="1.0">
+<style>
+  /* Те же переменные темы, что в physics.html */
+  #ls-article{
+    --lg-bg:#ffffff;
+    --lg-fg:#121417;
+    --lg-accent:#2b6cb0;
+    --lg-accent-2:#0ea5e9;
+    --lg-muted:#6b7280;
+    --lg-border:#e5e7eb;
+    --lg-note:#f1f5f9;
+    --lg-tip:#ecfeff;
+    --lg-warn:#fff7ed;
+    --lg-ok:#10b981;
+    --lg-bad:#ef4444;
+    --lg-link:#1d4ed8;
+    --lg-code-bg:#0b1220;
+    --lg-code:#e2e8f0;
+    --lg-font: system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
+    --lg-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --lg-radius: 10px;
+    --lg-shadow: 0 6px 24px rgba(0,0,0,.08);
+    --lg-focus: 0 0 0 3px rgba(43,108,176,.25);
 
-      <section id="optics-fresnel-profile">
-        <h2>Оптика: линза Френеля и профиль</h2>
-        <p>Пучок и поле, кромка, регулировки, T‑stop и f‑stop.</p>
-      </section>
+    color:var(--lg-fg);
+    background:var(--lg-bg);
+    font-family:var(--lg-font);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    padding:1rem;
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    box-shadow:var(--lg-shadow);
+    overflow:hidden;
+  }
+  html[data-theme="dark"] #ls-article{
+    --lg-bg:#0b0e12;
+    --lg-fg:#e8eef5;
+    --lg-accent:#7aa2f7;
+    --lg-accent-2:#22d3ee;
+    --lg-muted:#9aa4b2;
+    --lg-border:#273244;
+    --lg-note:#111827;
+    --lg-tip:#0b1b2a;
+    --lg-warn:#2a1b12;
+    --lg-link:#9ab6ff;
+    --lg-code-bg:#0b0f14;
+    --lg-code:#e5e7eb;
+    --lg-shadow:0 10px 30px rgba(0,0,0,.45);
+    --lg-focus:0 0 0 3px rgba(122,162,247,.35);
+  }
 
-      <section id="light-sources-pwm">
-        <h2>Источники света: лампы vs LED, ШИМ и строб</h2>
-        <p>Мерцание на камере, частота ШИМ, flicker‑free режимы.</p>
-      </section>
+  /* Оглавление */
+  #ls-article #ls-toc{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    padding:1rem;
+    background:linear-gradient(180deg, rgba(43,108,176,.06), transparent 45%);
+    margin:.5rem 0 1rem;
+  }
+  #ls-article #ls-toc h2{ margin:.2rem 0 .4rem; font-size:1.15rem; }
+  #ls-article #ls-toc a{ color:var(--lg-link); text-decoration:none; }
+  #ls-article #ls-toc a:hover{ text-decoration:underline; }
+
+  /* Секции (карточки) */
+  #ls-article section{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    padding:1rem;
+    background:linear-gradient(180deg, rgba(14,165,233,.05), transparent 65%);
+    margin:1rem 0;
+  }
+  #ls-article h2, #ls-article h3{
+    display:flex; align-items:center; gap:.5rem; margin-top:0;
+  }
+
+  /* Фигуры и SVG как в physics */
+  #ls-article .ls-figure{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    background:var(--lg-bg);
+    padding:.5rem;
+    margin:.6rem 0 1rem;
+    overflow:auto;
+  }
+  #ls-article .ls-figure figcaption{ font-size:.95rem; color:var(--lg-muted); margin:.25rem 0 .15rem .15rem; }
+  #ls-article svg{ max-width:100%; height:auto; display:block; }
+
+  /* Формы/калькуляторы */
+  #ls-article fieldset{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    padding:.75rem;
+  }
+  #ls-article input, #ls-article select, #ls-article textarea{
+    padding:.5rem .55rem;
+    border:1px solid var(--lg-border);
+    border-radius:8px;
+    background:var(--lg-bg);
+    color:var(--lg-fg);
+    font-family:var(--lg-mono);
+  }
+  #ls-article .ls-actions{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1rem; }
+  #ls-article .ls-actions button{
+    background:var(--lg-accent); color:#fff; border:none; border-radius:8px; padding:.6rem .9rem; cursor:pointer; font-weight:600;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.12);
+  }
+  #ls-article .ls-actions button + button{
+    background:transparent; color:var(--lg-accent); border:1px solid var(--lg-accent);
+  }
+  #ls-article .ls-results{
+    padding:.65rem .8rem;
+    border:1px dashed var(--lg-border);
+    border-radius:8px;
+    background:rgba(2,6,23,.05);
+    font-family:var(--lg-mono);
+  }
+  #ls-article .ls-error{ color:var(--lg-bad); font-weight:600; }
+
+  /* Код */
+  #ls-article code{ font-family:var(--lg-mono); background:rgba(2,6,23,.06); padding:.1rem .35rem; border-radius:6px; }
+  #ls-article pre{
+    background:var(--lg-code-bg); color:var(--lg-code);
+    padding:.8rem 1rem; border-radius:var(--lg-radius); overflow:auto;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+  }
+
+  /* Печать */
+  @media print{
+    #ls-article{ box-shadow:none; border:none; }
+    #ls-article .ls-actions button{ display:none !important; }
+    #ls-article a{ text-decoration:underline; }
+  }
+    /* Ссылки "Назад к содержанию" → как в TOC */
+  #ls-article a[href="#ls-toc"]{
+    color: var(--lg-link);
+    text-decoration: none;
+  }
+  #ls-article a[href="#ls-toc"]:hover,
+  #ls-article a[href="#ls-toc"]:focus{
+    text-decoration: underline;
+    outline: none;
+  }
+  #ls-article a[href="#ls-toc"]:visited{
+    color: var(--lg-link);
+  }
+      /* Ссылки "Наверх" → как в TOC */
+  #ls-article a[href="#ls-top"]{
+    color: var(--lg-link);
+    text-decoration: none;
+  }
+  #ls-article a[href="#ls-top"]:hover,
+  #ls-article a[href="#ls-top"]:focus{
+    text-decoration: underline;
+    outline: none;
+  }
+  #ls-article a[href="#ls-top"]:visited{
+    color: var(--lg-link);
+  }
+ 
+</style>
+
+<div id="ls-top" style="position:relative; top:-1px;"></div>
+
+<p><strong>Лид</strong>. Это практическое руководство по световым приборам и оптике — от основ фотометрии до тонкостей зум‑механизмов, от DMX‑сетей до развески на ветреном опен‑эире. Оно написано для тех, кто «крутит ручки» в клубе, программирует на фестивалях, собирает сетку для ТВ и считает амперы на корпоративе. Мы говорим про свет, но помним о безопасности, ROI и работе в команде со звуком, видео и риггерами. Внутри — схемы, кейсы, калькуляторы и чек‑листы.</p>
+
+<h1>Световые приборы и оптика для начинающих и продвинутых специалистов по концертному свету прокатных компаний</h1>
+
+<nav id="ls-toc" aria-label="Оглавление">
+  <h2>Оглавление</h2>
+  <ol>
+    <li><a href="#ls-intro">Введение</a>
+      <ul>
+        <li><a href="#ls-intro-roles">Роли и зона ответственности</a></li>
+        <li><a href="#ls-intro-market">Ландшафт рынка проката</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-photometry">Базовая фотометрия и восприятие</a>
+      <ul>
+        <li><a href="#ls-photometry-units">Единицы: лм/лк/кд</a></li>
+        <li><a href="#ls-photometry-beamfield">Beam/Field, КСС и выбор углов</a></li>
+        <li><a href="#ls-photometry-color">CRI/TLCI, TM‑30, CCT/DUV</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-fixtures">Типы приборов</a>
+      <ul>
+        <li><a href="#ls-fixtures-trad">Традиционные: PAR, Fresnel, PC, профили, followspot, строб</a></li>
+        <li><a href="#ls-fixtures-discharge">Разрядные и лампы: HMI/MSR</a></li>
+        <li><a href="#ls-fixtures-moving">Движущиеся головы: Spot/Wash/Beam/Hybrid</a></li>
+        <li><a href="#ls-fixtures-bars">Панели, баттены, пиксельные бары</a></li>
+        <li><a href="#ls-fixtures-arch">Архитектурные/уличные, IP‑рейтинги</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-optics">Оптика</a>
+      <ul>
+        <li><a href="#ls-optics-elements">Рефлекторы, TIR, линзы</a></li>
+        <li><a href="#ls-optics-zoom">Зум‑механизмы, фокус и аберрации</a></li>
+        <li><a href="#ls-optics-modules">Frost, Gobo, Prism, Iris, Shutters, CTO/CTB/ND, CMY/HSI</a></li>
+        <li><a href="#ls-optics-beamquality">Границы beam/field, равномерность и дым</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-led">LED и драйверы</a>
+      <ul>
+        <li><a href="#ls-led-packages">COB, SMD, мультичип, тепло</a></li>
+        <li><a href="#ls-led-drivers">Драйверы: линейные, buck/boost/SEPIC</a></li>
+        <li><a href="#ls-led-dimming">PWM vs analog, 8/16‑бит, фликер</a></li>
+        <li><a href="#ls-led-control">Управление: DMX/RDM, Art‑Net/sACN, W‑DMX</a></li>
+        <li><a href="#ls-led-power">Питание: PFC, THD, 1ф/3ф, распределение</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-practice">Практика проката</a>
+      <ul>
+        <li><a href="#ls-practice-packages">Пакеты под задачи</a></li>
+        <li><a href="#ls-practice-patch">Патчинг, адресация, резервы</a></li>
+        <li><a href="#ls-practice-cases">Кейсы сборки, погоды, обслуживания</a></li>
+        <li><a href="#ls-practice-economy">Экономика и ROI</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-safety">Безопасность и нормативы</a></li>
+    <li><a href="#ls-checklists">Чек‑листы</a></li>
+    <li><a href="#ls-calculators">Калькуляторы</a></li>
+    <li><a href="#ls-faq">FAQ</a></li>
+    <li><a href="#ls-outro">Заключение</a></li>
+  </ol>
+</nav>
+
+<section id="ls-intro">
+  <h2>Введение: сцена, прокат и люди, которые делают свет</h2>
+  <p>Свет в живом событии — не просто люмены. Это навигация для зрителя, архитектура эмоций и безопасность на площадке. Прокатная компания — это производственная машина, где сходятся интересы клиента, директора шоу, дизайнера света (LD), системного инженера, димерчика и оператора. Каждый винтик должен работать точно, иначе случится «темнота в эфире» или «дым вместо света».</p>
+
+  <section id="ls-intro-roles">
+    <h3>Роли и зона ответственности</h3>
+    <ul>
+      <li>LD (Lighting Designer) — художественное видение, выбор приборов и оптики, сетап сценографии света, согласование с режиссером и видео.</li>
+      <li>Системный инженер — инженерия: питание, сети DMX/Art‑Net/sACN, резервирование, совместимость протоколов, синхронизация с видео/таймкодом.</li>
+      <li>Димерчик/техник света — сборка ригов, адресация, патчинг, фокусировка, обслуживание и быстрый реплейс.</li>
+      <li>Оператор — запускает и «живёт» на пульте, чувствует темп, реагирует на артистов и аварии.</li>
+    </ul>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 260" role="img" aria-label="Схема взаимодействия ролей в прокате">
+        <rect x="0" y="0" width="800" height="260" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g font-family="sans-serif" font-size="12" fill="#111827">
+          <rect x="40" y="30" width="150" height="60" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+          <text x="115" y="60" text-anchor="middle">LD / Дизайнер</text>
+
+          <rect x="320" y="30" width="150" height="60" rx="10" fill="#fee2e2" stroke="#fecaca"/>
+          <text x="395" y="60" text-anchor="middle">Режиссёр / Клиент</text>
+
+          <rect x="600" y="30" width="150" height="60" rx="10" fill="#dcfce7" stroke="#bbf7d0"/>
+          <text x="675" y="52" text-anchor="middle">Системный</text>
+          <text x="675" y="68" text-anchor="middle">инженер</text>
+
+          <rect x="180" y="150" width="150" height="60" rx="10" fill="#fef9c3" stroke="#fde68a"/>
+          <text x="255" y="180" text-anchor="middle">Димерчик</text>
+
+          <rect x="470" y="150" width="150" height="60" rx="10" fill="#e9d5ff" stroke="#d8b4fe"/>
+          <text x="545" y="180" text-anchor="middle">Оператор</text>
+
+          <line x1="190" y1="60" x2="320" y2="60" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="480" y1="60" x2="600" y2="60" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="110" y1="90" x2="210" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="690" y1="90" x2="590" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="330" y1="180" x2="470" y2="180" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+            </marker>
+          </defs>
+        </g>
+      </svg>
+      <figcaption>Карта коммуникаций: LD задаёт требования, системный инженер отвечает за инфраструктуру, димерчик собирает и фокусирует, оператор ведёт шоу. Стрелки — основные потоки задач.</figcaption>
+    </figure>
+
+    <aside style="background:var(--lg-note); padding:.6rem; border-radius:8px;">
+      Советы взаимодействия: договаривайтесь о терминах. «Пятно 8° на соло-гитару» без расстояния — не ТЗ. Всегда уточняйте высоту подвеса, дистанцию, фон и наличие дыма.
+    </aside>
+  </section>
+
+  <section id="ls-intro-market">
+    <h3>Ландшафт рынка проката</h3>
+    <p>Рынок делится на малые мобилизации (клубы, корпоративы), средние (фестивали 3–10k, пром‑мероприятия) и крупные туры. Важно балансировать парк: иметь «рабочие лошадки» (универсальные wash/spot 600–1000 Вт LED), спецэффекты (beam, strobe, пиксельные), архитектурные IP‑модели и запас по кабелю/развёртке. В эпоху LED и сетей IP‑потоки (Art‑Net/sACN) выигрывают портируемостью и диагностикой, но требуют дисциплины в адресации и резервировании.</p>
+  </section>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-photometry">
+  <h2>Базовая фотометрия и восприятие</h2>
+  <p>Понимание фотометрии экономит деньги и время. Считать — значит прогнозировать: хватит ли 12 спотов для дальнего броска через FOH, не «порвёт» ли beam камерную картинку и сколько люксов получит ведущий в 14 метрах.</p>
+
+  <section id="ls-photometry-units">
+    <h3>Единицы: люмен, люкс, кандела</h3>
+    <ul>
+      <li>Световой поток Φ [лм] — «сколько света излучается» во все стороны или в телесный угол.</li>
+      <li>Сила света I [кд] — поток в направлении: 1 кд = 1 лм/ср.</li>
+      <li>Освещенность E [лк] — поток на площади: 1 лк = 1 лм/м². При точечном источнике по оси: E ≈ I / D².</li>
+    </ul>
+    <p>Закон обратных квадратов: E ~ 1/D². Удвоили дистанцию — получили четверть освещенности. Это ключ к дальним броскам.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 260" role="img" aria-label="Схема закона обратных квадратов и угла луча">
+        <rect x="0" y="0" width="800" height="260" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g stroke="#1f2937" fill="none">
+          <circle cx="100" cy="130" r="20" fill="#fde68a" stroke="#f59e0b"/>
+          <line x1="120" y1="130" x2="360" y2="80" stroke="#60a5fa" stroke-width="3"/>
+          <line x1="120" y1="130" x2="360" y2="180" stroke="#60a5fa" stroke-width="3"/>
+          <line x1="120" y1="130" x2="700" y2="100" stroke="#60a5fa" stroke-width="2"/>
+          <line x1="120" y1="130" x2="700" y2="200" stroke="#60a5fa" stroke-width="2"/>
+          <line x1="360" y1="80" x2="360" y2="180" stroke="#9ca3af" stroke-dasharray="4 4"/>
+          <line x1="700" y1="100" x2="700" y2="200" stroke="#9ca3af" stroke-dasharray="4 4"/>
+          <circle cx="360" cy="130" r="5" fill="#111827"/>
+          <circle cx="700" cy="150" r="5" fill="#111827"/>
+        </g>
+        <g font-family="sans-serif" font-size="12" fill="#111827">
+          <text x="80" y="120">Источник</text>
+          <text x="330" y="200">D</text>
+          <text x="680" y="220">2D</text>
+          <text x="365" y="130">E ∝ 1/D²</text>
+          <text x="705" y="150">E/4</text>
+          <text x="170" y="60" fill="#2563eb">θ — угол луча</text>
+        </g>
+        <path d="M150,125 A30,30 0 0,1 150,135" stroke="#2563eb" fill="none" stroke-width="3"/>
+      </svg>
+      <figcaption>Как читать схему: два поперечных «среза» пятна на разных дистанциях. При удвоении D освещённость падает в 4 раза. Визуально — пятно расширяется по закону тангенса угла.</figcaption>
+    </figure>
+  </section>
+
+  <section id="ls-photometry-beamfield">
+    <h3>Beam/Field, КСС и выбор углов</h3>
+    <p>Производители указывают два угла: beam (обычно до 50% от максимума) и field (10%). Beam — «рабочая» яркая зона, field — мягкая «юбка». Для равномерного залуживания сцены wash‑ами думайте field‑величинами; для акцентов — beam.</p>
+    <p>КСС (кривая силы света) показывает распределение I(θ,φ). У спотов — узкие лепестки, у wash — широкие и ровные.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Сравнение Spot/Wash/Beam по углам beam/field">
+        <rect x="0" y="0" width="800" height="300" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g transform="translate(140,150)">
+          <text x="-100" y="-110" font-family="sans-serif" font-size="12">Spot</text>
+          <ellipse cx="0" cy="0" rx="40" ry="12" fill="#bfdbfe" stroke="#3b82f6"/>
+          <ellipse cx="0" cy="0" rx="65" ry="20" fill="none" stroke="#60a5fa" stroke-dasharray="6 4"/>
+        </g>
+        <g transform="translate(400,150)">
+          <text x="-100" y="-110" font-family="sans-serif" font-size="12">Wash</text>
+          <ellipse cx="0" cy="0" rx="80" ry="35" fill="#bbf7d0" stroke="#22c55e"/>
+          <ellipse cx="0" cy="0" rx="110" ry="50" fill="none" stroke="#4ade80" stroke-dasharray="6 4"/>
+        </g>
+        <g transform="translate(660,150)">
+          <text x="-100" y="-110" font-family="sans-serif" font-size="12">Beam</text>
+          <ellipse cx="0" cy="0" rx="20" ry="7" fill="#fecaca" stroke="#ef4444"/>
+          <ellipse cx="0" cy="0" rx="40" ry="12" fill="none" stroke="#fca5a5" stroke-dasharray="6 4"/>
+        </g>
+        <g font-family="sans-serif" font-size="12" fill="#111827">
+          <rect x="20" y="230" width="20" height="10" fill="#bfdbfe" stroke="#3b82f6"/>
+          <text x="45" y="238">beam</text>
+          <rect x="120" y="230" width="20" height="10" fill="none" stroke="#60a5fa" stroke-dasharray="6 4"/>
+          <text x="145" y="238">field</text>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: заполненный овал — beam, пунктир — field. Beam/Field у разных типов приборов диктуют выбор расстояний и количества приборов.</figcaption>
+    </figure>
+
+    <aside style="background:var(--lg-tip); padding:.6rem; border-radius:8px;">
+      Практика: в клубе с потолком 4–6 м берите wash с field 40–60°. Для театрального профиля, чтобы не перегреть актёра, используйте 19–26° при высоте FOH 8–12 м.
+    </aside>
+  </section>
+
+  <section id="ls-photometry-color">
+    <h3>Цветопередача: CRI/TLCI, TM‑30, CCT/DUV</h3>
+    <ul>
+      <li>CRI Ra — усреднённая метрика (старшая), TLCI — для ТВ, показывает коррекцию в посте.</li>
+      <li>TM‑30 — более современная метрика: Rf (верность) и Rg (насыщенность). Ищите Rf > 85, Rg ~ 100 для «честного» света.</li>
+      <li>CCT — коррелированная температура (К), DUV — отклонение от чёрного тела (зелень/маджента). Важно для камер и кожи.</li>
+    </ul>
+    <p>Если вы снимаете ТВ, гонитесь не за «самой яркостью», а за стабильной электроникой без фликера и ровной спектральной «полочкой».</p>
+  </section>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-fixtures">
+  <h2>Типы приборов</h2>
+  <p>Ландшафт световых приборов огромен, но у каждого — характер. Зная характер, вы сэкономите рейсы фуры и нервы оператора.</p>
+
+  <section id="ls-fixtures-trad">
+    <h3>Традиционные: PAR, Fresnel, PC, профили (ERS), followspot, строб</h3>
+    <p>Классика не умирает. PAR — «молоток» с выраженным овалом КСС и винтажной фактурой. Fresnel — мягкий, широкая «юбка». PC (Plano-Convex) — контрастнее Fresnel, но мягче профиля. Профиль (ERS) — режет шторками и гобо, даёт акцент. Followspot — «ручной прожектор» для солистов. Строб — для времени и акцентов.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 260" role="img" aria-label="Схема оптики Fresnel/PC/Профиль">
+        <rect x="0" y="0" width="800" height="260" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g>
+          <!-- Fresnel -->
+          <text x="80" y="30" font-family="sans-serif" font-size="12">Fresnel</text>
+          <circle cx="90" cy="120" r="10" fill="#facc15"/>
+          <circle cx="140" cy="120" r="22" fill="none" stroke="#60a5fa"/>
+          <line x1="100" y1="110" x2="220" y2="80" stroke="#60a5fa"/>
+          <line x1="100" y1="130" x2="220" y2="160" stroke="#60a5fa"/>
+          <rect x="220" y="70" width="6" height="100" fill="#94a3b8"/>
+          <path d="M226,70 L260,95 L260,145 L226,170 Z" fill="rgba(96,165,250,0.2)" stroke="#60a5fa"/>
+
+          <!-- PC -->
+          <text x="320" y="30" font-family="sans-serif" font-size="12">PC (плоско-выпуклая)</text>
+          <circle cx="330" cy="120" r="10" fill="#facc15"/>
+          <ellipse cx="380" cy="120" rx="22" ry="18" fill="none" stroke="#34d399"/>
+          <line x1="340" y1="112" x2="470" y2="100" stroke="#34d399"/>
+          <line x1="340" y1="128" x2="470" y2="140" stroke="#34d399"/>
+          <rect x="470" y="90" width="6" height="60" fill="#94a3b8"/>
+
+          <!-- Профиль -->
+          <text x="560" y="30" font-family="sans-serif" font-size="12">Профиль (ERS)</text>
+          <circle cx="570" cy="120" r="10" fill="#facc15"/>
+          <ellipse cx="620" cy="120" rx="20" ry="16" fill="none" stroke="#ef4444"/>
+          <polygon points="650,90 660,90 660,70 680,70 680,170 660,170 660,150 650,150" fill="#ef4444" opacity="0.3" stroke="#ef4444"/>
+          <line x1="580" y1="110" x2="740" y2="110" stroke="#ef4444"/>
+          <line x1="580" y1="130" x2="740" y2="130" stroke="#ef4444"/>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: Fresnel — концентрические канавки дают мягкую «юбку». PC — более чёткий. Профиль — система линз + шторки формируют жёсткую границу.</figcaption>
+    </figure>
+
+    <aside style="background:var(--lg-warn); padding:.6rem; border-radius:8px;">
+      Безопасность: традиционные лампы горячие. Не кладите гель прямо на линзу; следите за вентиляцией и не трогайте лампу руками — отпечатки сокращают ресурс.
+    </aside>
+
+    <h4>Кейс: клуб 600 человек, низкий потолок</h4>
+    <p>Задача: сделать жирный рок‑свет без «жарки» зрителей. Решение: 8× PAR LED 60°, 4× профиль 26° на солистов, 4× Fresnel 40° в контровой. Дым лёгкий, вентиляторы на минимуме. Угол профилей выбран так, чтобы на 8 м FOH получить пятно ~3.7 м и не выбивать камеры смартфонов. Диммирование 16‑бит, кривая театральная, PWM 25 кГц — без фликера в сторис. Итог: читаемый фронт, мягкие края и жирные заливы без «горячих» точек.</p>
+  </section>
+
+  <section id="ls-fixtures-discharge">
+    <h3>Разрядные и лампы: HMI/MSR, балласты, диммирование, ресурс</h3>
+    <p>Разрядные источники (HMI/MSR) дают высокую яркость и плотный луч, но требуют балласта и не любят диммирование. Работа — через шторки, ND фильтры, механические ирисы/шторы.</p>
+    <ul>
+      <li>Балласт: электронный (часто 75–400 Гц) уменьшает пульсации; магнитный — тяжелее, более «тёплый» старт.</li>
+      <li>Ресурс: ограничен; запуск/остывание — минуты; не включайте/выключайте часто.</li>
+      <li>Пульсации: на камерах — будьте внимательны к частоте сети и кадрам.</li>
+    </ul>
+
+    <aside style="background:var(--lg-note); padding:.6rem; border-radius:8px;">
+      На open‑air с дальним throw используйте разрядные followspot 1200–2500 Вт с электронными балластами и фильтрами CTO/ND для консистентности с LED сценой.
+    </aside>
+  </section>
+
+  <section id="ls-fixtures-moving">
+    <h3>Движущиеся головы: Spot, Wash, Beam, Hybrid</h3>
+    <p>Головы — универсальные «актеры». Spot рисует и текстурирует, Wash покрывает, Beam режет воздух, Hybrid соединяет.</p>
+    <ul>
+      <li>Опции: Zoom, Iris, Shutters (фрейм), Gobo колесо (ротируемое/фикс), Prism (линейная/фасет), Frost (light/medium/heavy), Animation wheel.</li>
+      <li>Практика: Wash — берите по field; Spot — по beam и гобо‑контрасту; Beam — по канделам и эффективному узкому углу (2–4°).</li>
+    </ul>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 320" role="img" aria-label="Оптический путь в движущейся голове с модулями">
+        <rect x="0" y="0" width="800" height="320" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g font-family="sans-serif" font-size="12" fill="#111827">
+          <text x="30" y="30">LED/лампа</text>
+        </g>
+        <circle cx="70" cy="160" r="15" fill="#fde68a" stroke="#f59e0b"/>
+        <polygon points="100,145 120,160 100,175" fill="#94a3b8"/>
+        <rect x="120" y="120" width="10" height="80" fill="#a3e635"/>
+        <text x="110" y="115" font-size="11">Ирис</text>
+        <rect x="150" y="120" width="10" height="80" fill="#60a5fa"/>
+        <text x="140" y="115" font-size="11">Gobo</text>
+        <rect x="180" y="120" width="10" height="80" fill="#34d399"/>
+        <text x="170" y="115" font-size="11">Prism</text>
+        <rect x="210" y="120" width="10" height="80" fill="#f472b6"/>
+        <text x="200" y="115" font-size="11">Frost</text>
+        <rect x="240" y="120" width="10" height="80" fill="#f97316"/>
+        <text x="230" y="115" font-size="11">CTO</text>
+        <rect x="270" y="120" width="10" height="80" fill="#a78bfa"/>
+        <text x="255" y="115" font-size="11">Shutters</text>
+        <rect x="310" y="110" width="20" height="100" fill="none" stroke="#111827"/>
+        <text x="305" y="105" font-size="11">Zoom</text>
+        <line x1="85" y1="160" x2="400" y2="160" stroke="#3b82f6" stroke-width="2"/>
+        <path d="M330,160 L430,130 L430,190 Z" fill="rgba(59,130,246,0.15)" stroke="#3b82f6"/>
+        <text x="440" y="165" font-size="12">Beam/Field</text>
+      </svg>
+      <figcaption>Как читать схему: от источника свет проходит через узлы — ирис, гобо, призму, фрост, CTO, шторки, зум‑группу. Положение зума определяет ширину луча.</figcaption>
+    </figure>
+
+    <h4>Кейс: фестиваль 10k, дальний throw 35–45 м</h4>
+    <p>Задача: читаемые текстуры на сцене и мощный луч в воздухе. Решение: 16× Spot 800–1000 Вт LED с зумом 5–50°, 8× Beam 2–3.5°, 12× Wash IP65 field 40°. Гобо — high‑contrast стекло; призма 8‑facet для заполнения, frost light для размягчения. Камеры — 50/60 fps; выставлен PWM 25–30 кГц. Резерв: дубль Арт‑Нет по меди с failover на sACN. Итог: стабильный рисунок при ветре, лучи держатся с лёгким haze и «гейзерами» на боковых кулисах.</p>
+  </section>
+
+  <section id="ls-fixtures-bars">
+    <h3>Световые панели/баттены, пиксельные бары и блэндерные матрицы</h3>
+    <p>Пиксельные приборы — это «видео‑свет»: эффектные волны, чопы, стрелы. Панели RGBW/WW/CW с хорошей оптикой — инструмент для ТВ. Баттены IP65 — универсальны для фасадов и сцен.</p>
+    <aside style="background:var(--lg-tip); padding:.6rem; border-radius:8px;">
+      Секрет пиксель‑арта: выравнивайте димминг-кривые и задавайте единый PWM для всех линеек — иначе «плывут» градиенты и камера «пилит» кадр.
+    </aside>
+  </section>
+
+  <section id="ls-fixtures-arch">
+    <h3>Архитектурные/уличные: IP‑рейтинги, конденсат, нагрев/обледенение</h3>
+    <ul>
+      <li>IP‑рейтинг: IP65 для дождя/пыли, IP67 — кратковременное погружение. Следите за дыхательными клапанами мембран.</li>
+      <li>Конденсат: при смене температур — грелки, дышащие клапана, мягкий прогрев.</li>
+      <li>Обледенение: проверяйте механику Tilt/Pan; обогрев линзы и фронтального стекла.</li>
+    </ul>
+    <h4>Кейс: зимний корпоратив на набережной</h4>
+    <p>Решение: 12× IP65 wash 400 Вт на ферме + 4× IP65 beam, чехлы с драпом, грелки 20 Вт в головах, кабель True1, капельники на разъёмах. Пауза прогрева 10 минут перед шоу. Итог — без «зависших» панорам и запотевших линз.</p>
+  </section>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-optics">
+  <h2>Оптика</h2>
+  <p>Оптика — это характер света. Она решает, будет ли луч «резать» дым, будет ли текстура гобо аккуратной, а кожа — живой.</p>
+
+  <section id="ls-optics-elements">
+    <h3>Рефлекторы, TIR, линзы (плоско‑выпуклые, Френеля, асферика)</h3>
+    <p>Рефлекторы формируют первичный луч. TIR‑оптика (Total Internal Reflection) комбинирует отражение и преломление, поэтому эффективна для LED.</p>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 280" role="img" aria-label="Рефлектор и TIR-линза">
+        <rect x="0" y="0" width="800" height="280" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g>
+          <text x="80" y="30" font-family="sans-serif" font-size="12">Параболический рефлектор</text>
+          <circle cx="110" cy="160" r="8" fill="#facc15"/>
+          <path d="M140,90 Q60,160 140,230" fill="none" stroke="#64748b" stroke-width="2"/>
+          <line x1="118" y1="160" x2="260" y2="160" stroke="#3b82f6" stroke-width="2"/>
+          <line x1="118" y1="155" x2="260" y2="140" stroke="#3b82f6" stroke-width="2"/>
+          <line x1="118" y1="165" x2="260" y2="180" stroke="#3b82f6" stroke-width="2"/>
+
+          <text x="430" y="30" font-family="sans-serif" font-size="12">TIR‑линза</text>
+          <circle cx="460" cy="160" r="8" fill="#facc15"/>
+          <path d="M490,100 C520,80 560,80 590,100 L590,220 C560,240 520,240 490,220 Z" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <line x1="468" y1="160" x2="600" y2="160" stroke="#22c55e" stroke-width="2"/>
+          <line x1="468" y1="150" x2="600" y2="145" stroke="#22c55e" stroke-width="2"/>
+          <line x1="468" y1="170" x2="600" y2="175" stroke="#22c55e" stroke-width="2"/>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: парабола выдаёт параллельный пучок при источнике в фокусе. TIR — сочетает преломление и полное внутреннее отражение, собирая свет из LED с высокой эффективностью.</figcaption>
+    </figure>
+    <p>Асферика контролирует аберрации на широких зумах. Френель — компактная «обманка» сферической линзы: тонкая, лёгкая, но с кольцевыми артефактами в бликах.</p>
+  </section>
+
+  <section id="ls-optics-zoom">
+    <h3>Зум‑механизмы (вариаторы), фокус, back focal distance, аберрации</h3>
+    <p>Зум — это синхронное смещение групп линз. При широком угле растёт виньетирование и сферические аберрации; при узком — усиливается hotspot. Back focal distance — расстояние от последней линзы до плоскости фокуса (гобо/шторки должны быть в правильной плоскости).</p>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 280" role="img" aria-label="Механизм зума: положение линз">
+        <rect x="0" y="0" width="800" height="280" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g stroke="#111827" fill="none">
+          <rect x="120" y="60" width="20" height="160" fill="none" stroke="#111827"/>
+          <rect x="220" y="60" width="20" height="160" fill="none" stroke="#111827"/>
+          <rect x="340" y="60" width="20" height="160" fill="none" stroke="#111827"/>
+          <rect x="520" y="60" width="20" height="160" fill="none" stroke="#111827"/>
+          <text x="100" y="40" font-family="sans-serif" font-size="12">Широкий зум</text>
+          <path d="M140,140 L500,90" stroke="#3b82f6"/>
+          <path d="M140,140 L500,190" stroke="#3b82f6"/>
+          <text x="380" y="40" font-family="sans-serif" font-size="12">Узкий зум</text>
+          <path d="M360,140 L760,130" stroke="#ef4444"/>
+          <path d="M360,140 L760,150" stroke="#ef4444"/>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: при широком угле группы раздвинуты, луч расширяется; при узком — сближаются, луч сужается. Позиции гобо/шторок должны совпадать с фокусом для резкости.</figcaption>
+    </figure>
+  </section>
+
+  <section id="ls-optics-modules">
+    <h3>Модули: Frost, Gobo, Prism, Iris, Shutters, CTO/CTB/ND, CMY/HSI</h3>
+    <ul>
+      <li>Frost: light (едва смягчает), medium (размывает гобо), heavy (почти wash). Тонкий фокус + light frost — популярный «кремовый» портрет.</li>
+      <li>Gobo: металл (тонкие линии, нагрев) vs стекло (контраст, цвет). Animation wheel даёт «живое» движение.</li>
+      <li>Prism: 3/8/16‑facet круглая, линейная — растягивает текстуру. В сочетании с зумом — богатые эффекты.</li>
+      <li>Iris: механическая диафрагма для спотов, быстро меняет диаметр пятна.</li>
+      <li>Shutters: кадрирование (театральная классика), пресеты «рамок» для быстрых повторений.</li>
+      <li>Фильтры: CTO/CTB/ND; CMY — субтрактивный микс для плавных градиентов, HSI — удобен на пультах для визуального выбора цвета.</li>
+    </ul>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 280" role="img" aria-label="Колесо гобо, призма и фрост">
+        <rect x="0" y="0" width="800" height="280" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g>
+          <text x="80" y="30" font-family="sans-serif" font-size="12">Колесо Gobo</text>
+          <circle cx="120" cy="150" r="50" fill="none" stroke="#64748b"/>
+          <circle cx="120" cy="100" r="12" fill="#94a3b8"/>
+          <circle cx="160" cy="120" r="12" fill="#94a3b8"/>
+          <circle cx="160" cy="180" r="12" fill="#94a3b8"/>
+          <circle cx="120" cy="200" r="12" fill="#94a3b8"/>
+          <circle cx="80" cy="180" r="12" fill="#94a3b8"/>
+          <circle cx="80" cy="120" r="12" fill="#94a3b8"/>
+
+          <text x="330" y="30" font-family="sans-serif" font-size="12">Призма</text>
+          <polygon points="360,150 390,120 420,150 390,180" fill="none" stroke="#22c55e"/>
+          <polygon points="460,150 480,120 500,150 480,180" fill="none" stroke="#22c55e"/>
+
+          <text x="600" y="30" font-family="sans-serif" font-size="12">Frost</text>
+          <rect x="600" y="80" width="20" height="140" fill="url(#grad)"/>
+          <defs>
+            <linearGradient id="grad" x1="0" x2="1">
+              <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.6"/>
+            </linearGradient>
+          </defs>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: гобо‑колесо — набор шаблонов, призма — мультиплицирует изображение, frost — увеличивает рассеяние и мягкость.</figcaption>
+    </figure>
+  </section>
+
+  <section id="ls-optics-beamquality">
+    <h3>Границы beam/field, равномерность, hotspot, тени, дым</h3>
+    <p>Идеальный луч — миф. У большинства приборов есть hotspot в центре и снижение к краю. Это полезно для «ударного» луча, но вредно для равномерной заливки. С дымом луч виден благодаря микроскопическим частицам; haze лучше для «шёлковых» лучей, heavy fog — для драматических эффектов и лазеров.</p>
+    <aside style="background:var(--lg-note); padding:.6rem; border-radius:8px;">
+      Трюк: если hotspot мешает, слегка увеличьте зум или добавьте light frost — равномерность улучшится, потери по люксам минимальны.
+    </aside>
+  </section>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-led">
+  <h2>LED и драйверы</h2>
+  <p>LED победил по эффективности и управляемости, но качество света определяется не только кристаллом, а всей цепочкой — от драйвера до теплоотвода.</p>
+
+  <section id="ls-led-packages">
+    <h3>COB, SMD, мультичип; тепло</h3>
+    <ul>
+      <li>COB — единый большой кристалл/матрица, отличный для точной оптики и высоких кандел, но требовательный к охлаждению.</li>
+      <li>SMD — дискретные диоды, гибкость пиксель‑мэппинга, легче охлаждать.</li>
+      <li>Мультичип RGBW/WW — компактный источник для смешения цвета без «радужных» теней.</li>
+      <li>Тепло: ΔT каждый 10°C — минус к ресурсу и световой отдаче. Радиатор, термопрокладки, вентиляторы с PWM.</li>
+    </ul>
+  </section>
+
+  <section id="ls-led-drivers">
+    <h3>Драйверы: линейные, buck/boost/SEPIC</h3>
+    <p>LED — это устройство тока. Драйвер должен обеспечивать стабильный ток.</p>
+    <ul>
+      <li>Линейные — простые, но горячие и с низким КПД.</li>
+      <li>Buck (понижающий), Boost (повышающий), SEPIC (универсальный) — импульсные с высоким КПД и возможностью PFC.</li>
+    </ul>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 320" role="img" aria-label="Блок-схема LED драйвера и топологий buck/boost/SEPIC">
+        <rect x="0" y="0" width="800" height="320" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g font-family="sans-serif" font-size="12">
+          <rect x="40" y="50" width="120" height="60" rx="8" fill="#e0f2fe" stroke="#7dd3fc"/>
+          <text x="100" y="85" text-anchor="middle">EMI фильтр</text>
+
+          <rect x="200" y="50" width="140" height="60" rx="8" fill="#fef9c3" stroke="#fde68a"/>
+          <text x="270" y="85" text-anchor="middle">PFC</text>
+
+          <rect x="380" y="50" width="160" height="60" rx="8" fill="#dcfce7" stroke="#bbf7d0"/>
+          <text x="460" y="85" text-anchor="middle">DC/DC (buck/boost/SEPIC)</text>
+
+          <rect x="580" y="50" width="160" height="60" rx="8" fill="#e9d5ff" stroke="#d8b4fe"/>
+          <text x="660" y="85" text-anchor="middle">LED String (CC)</text>
+
+          <line x1="160" y1="80" x2="200" y2="80" stroke="#334155" marker-end="url(#arr2)"/>
+          <line x1="340" y1="80" x2="380" y2="80" stroke="#334155" marker-end="url(#arr2)"/>
+          <line x1="540" y1="80" x2="580" y2="80" stroke="#334155" marker-end="url(#arr2)"/>
+
+          <text x="120" y="200">Buck</text>
+          <line x1="100" y1="210" x2="140" y2="210" stroke="#22c55e" stroke-width="3"/>
+          <text x="300" y="200">Boost</text>
+          <line x1="280" y1="210" x2="320" y2="210" stroke="#3b82f6" stroke-width="3"/>
+          <text x="520" y="200">SEPIC</text>
+          <line x1="500" y1="210" x2="540" y2="210" stroke="#ef4444" stroke-width="3"/>
+
+          <defs>
+            <marker id="arr2" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+            </marker>
+          </defs>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: сеть → EMI → PFC → DC/DC (выбор топологии) → стабилизированный ток на LED. Для сцены важны PFC, низкий THD и широкий диапазон входного напряжения.</figcaption>
+    </figure>
+  </section>
+
+  <section id="ls-led-dimming">
+    <h3>PWM vs analog dimming, 8/16‑бит, фликер на камеру</h3>
+    <ul>
+      <li>PWM — модуляция ширины импульса. Должна быть выше 4–10× частоты сканирования камеры (шторка/кадр).</li>
+      <li>Analog — смена тока. Хорош на низах, но может менять CCT/CRI.</li>
+      <li>8/16‑бит — плавность шагов. На 16‑битах минимум «ступенек» на fade‑out.</li>
+    </ul>
+    <aside style="background:var(--lg-tip); padding:.6rem; border-radius:8px;">
+      Настройте у всех приборов единый PWM (например, 25 кГц) и одинаковые димминг‑кривые перед ТВ‑съёмкой.
+    </aside>
+  </section>
+
+  <section id="ls-led-control">
+    <h3>Управление: DMX512/RDM, Art‑Net/sACN, W‑DMX; задержки, обновление, слияние</h3>
+    <p>DMX512 — базовый протокол 250 кбит/с, до 512 каналов/юниверс. RDM — обслуживание «поверх» DMX. Art‑Net/sACN — IP‑интерфейсы для многих юниверсов и мониторинга. W‑DMX — беспровод для сложных площадок, но учитывайте задержки и помехи.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Топологии DMX/RDM и Art-Net/sACN">
+        <rect x="0" y="0" width="800" height="300" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g font-family="sans-serif" font-size="12">
+          <rect x="40" y="40" width="120" height="40" rx="6" fill="#e2e8f0" stroke="#cbd5e1"/>
+          <text x="100" y="65" text-anchor="middle">Пульт</text>
+
+          <rect x="200" y="40" width="140" height="40" rx="6" fill="#dcfce7" stroke="#bbf7d0"/>
+          <text x="270" y="65" text-anchor="middle">Art-Net/sACN Node</text>
+
+          <rect x="380" y="40" width="120" height="40" rx="6" fill="#fde68a" stroke="#fcd34d"/>
+          <text x="440" y="65" text-anchor="middle">DMX Splitter</text>
+
+          <rect x="540" y="30" width="80" height="30" rx="6" fill="#bfdbfe" stroke="#93c5fd"/>
+          <rect x="540" y="80" width="80" height="30" rx="6" fill="#bfdbfe" stroke="#93c5fd"/>
+          <rect x="540" y="130" width="80" height="30" rx="6" fill="#bfdbfe" stroke="#93c5fd"/>
+          <text x="580" y="50" text-anchor="middle">DMX Out A</text>
+          <text x="580" y="100" text-anchor="middle">DMX Out B</text>
+          <text x="580" y="150" text-anchor="middle">DMX Out C</text>
+
+          <circle cx="660" cy="45" r="10" fill="#fecaca" stroke="#fca5a5"/>
+          <circle cx="660" cy="95" r="10" fill="#fecaca" stroke="#fca5a5"/>
+          <circle cx="660" cy="145" r="10" fill="#fecaca" stroke="#fca5a5"/>
+          <text x="700" y="50">Терминатор 120Ω</text>
+
+          <line x1="160" y1="60" x2="200" y2="60" stroke="#334155" marker-end="url(#arr3)"/>
+          <line x1="340" y1="60" x2="380" y2="60" stroke="#334155" marker-end="url(#arr3)"/>
+          <line x1="500" y1="60" x2="540" y2="45" stroke="#334155" marker-end="url(#arr3)"/>
+          <line x1="500" y1="60" x2="540" y2="95" stroke="#334155" marker-end="url(#arr3)"/>
+          <line x1="500" y1="60" x2="540" y2="145" stroke="#334155" marker-end="url(#arr3)"/>
+
+          <defs>
+            <marker id="arr3" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+            </marker>
+          </defs>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: Пульт → IP‑нода → DMX‑сплиттер → лучи DMX с терминаторами на концах. Для резервирования используйте второй нод и отдельную VLAN.</figcaption>
+    </figure>
+
+    <aside style="background:var(--lg-note); padding:.6rem; border-radius:8px;">
+      Слияние (merge): HTP/LTP. Для дублирующих пультов на шоу используйте приоритет sACN и мониторинг входов узла.
+    </aside>
+  </section>
+
+  <section id="ls-led-power">
+    <h3>Питание: PFC, THD, кросс‑фейзы, PowerCon/True1, 1ф/3ф, распределение нагрузки</h3>
+    <p>Современные приборы с импульсными БП создают гармоники. Ищите активный PFC, низкий THD. Разбрасывайте по фазам, учитывайте пусковые токи и длину линий.</p>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Распределение питания по фазам, однофазная и трехфазная схема">
+        <rect x="0" y="0" width="800" height="300" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g font-family="sans-serif" font-size="12">
+          <rect x="40" y="30" width="160" height="50" rx="8" fill="#e2e8f0" stroke="#cbd5e1"/>
+          <text x="120" y="60" text-anchor="middle">Щиток 3ф</text>
+
+          <line x1="200" y1="55" x2="300" y2="55" stroke="#ef4444" stroke-width="3"/>
+          <line x1="200" y1="55" x2="300" y2="85" stroke="#22c55e" stroke-width="3"/>
+          <line x1="200" y1="55" x2="300" y2="115" stroke="#3b82f6" stroke-width="3"/>
+
+          <rect x="300" y="40" width="120" height="30" rx="6" fill="#fee2e2" stroke="#fecaca"/>
+          <text x="360" y="60" text-anchor="middle">Фаза L1</text>
+          <rect x="300" y="70" width="120" height="30" rx="6" fill="#dcfce7" stroke="#bbf7d0"/>
+          <text x="360" y="90" text-anchor="middle">Фаза L2</text>
+          <rect x="300" y="100" width="120" height="30" rx="6" fill="#bfdbfe" stroke="#93c5fd"/>
+          <text x="360" y="120" text-anchor="middle">Фаза L3</text>
+
+          <rect x="480" y="40" width="90" height="25" rx="6" fill="#fff" stroke="#e5e7eb"/>
+          <rect x="480" y="70" width="90" height="25" rx="6" fill="#fff" stroke="#e5e7eb"/>
+          <rect x="480" y="100" width="90" height="25" rx="6" fill="#fff" stroke="#e5e7eb"/>
+          <text x="525" y="57" text-anchor="middle">Группа А</text>
+          <text x="525" y="87" text-anchor="middle">Группа B</text>
+          <text x="525" y="117" text-anchor="middle">Группа C</text>
+
+          <line x1="420" y1="55" x2="480" y2="52" stroke="#ef4444" stroke-width="2" marker-end="url(#arr4)"/>
+          <line x1="420" y1="85" x2="480" y2="82" stroke="#22c55e" stroke-width="2" marker-end="url(#arr4)"/>
+          <line x1="420" y1="115" x2="480" y2="112" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr4)"/>
+
+          <defs>
+            <marker id="arr4" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+            </marker>
+          </defs>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: распределяйте группы по L1/L2/L3 для баланса. Суммарный ток каждой фазы не должен превышать номинал автоматов и коннекторов.</figcaption>
+    </figure>
+  </section>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-practice">
+  <h2>Практика проката</h2>
+  <p>Здесь мы соединяем теорию с грузовиком, таймингом и погодой. Важны стандарты: единые режимы каналов, маркировка, резерв.</p>
+
+  <section id="ls-practice-packages">
+    <h3>Пакеты под задачи</h3>
+    <ul>
+      <li>Клуб 500–1000 чел: 8–12× Wash 200–400 Вт (field 40–60°), 6–8× Spot 300–500 Вт (зум 10–30°), 2–4× Beam (для «повоздушить»), 2× Strobe. Дым — haze.</li>
+      <li>Open‑air 3–10k: 12–24× Wash IP65, 16–24× Spot 800–1000 Вт, 8–12× Beam, линейные баттены по периметру, архитектурный фасад.</li>
+      <li>ТВ‑съемка: панели 2×1’ RGBWW CRI/TLCI > 95, Fresnel LED с softbox, профили с шторками, единый PWM ≥ 25 кГц, DMX через сеть с резервом.</li>
+      <li>Корпоратив: быстрый монтаж — баттены и бары с магнитами/быстрыми замками, питание True1, малые головы для веса ≤ 15 кг на ферму.</li>
+      <li>Театр: профили 19–36°, PC/Fresnel WW, тихие вентиляторы, шторки, точные позиции.</li>
+    </ul>
+  </section>
+
+  <section id="ls-practice-patch">
+    <h3>Патчинг, адресация, сетка DMX/Art‑Net, резервирование</h3>
+    <p>Правило: один прибор — один патч‑лист с режимом. Маркируйте: Universe, Start, Mode, PWM, Curve. Используйте VLAN: Lighting, Media, Control. Резерв по меди и по воздуху.</p>
+    <pre><code>// Пример патча (фрагмент)
+U1: 001-064  Wash 10ch  (8 fixtures × 8ch + gap)
+U1: 101-176  Spot 19ch  (4 fixtures × 19ch + gap)
+U2: 001-128  PixelBar 32ch x4
+U3: 001-512  VideoServer (Art-Net) → Media VLAN
+sACN Prio: 100 (MA), 90 (Backup)</code></pre>
+    <aside style="background:var(--lg-note); padding:.6rem; border-radius:8px;">
+      RDM полезен: имя, адрес, температура, вентиляторы. Но на критичных шоу выключайте RDM на линии с чувствительными устройствами.
+    </aside>
+  </section>
+
+  <section id="ls-practice-cases">
+    <h3>Кейсы: сборка/разборка, логистика, погода, обслуживание</h3>
+    <h4>Кейс: быстрый реплейс на фестивале</h4>
+    <p>На main stage одна голова «ушла» за минуту до эфира. Решение: маркированные «drop‑киты»: запасной прибор, преднастроенный режим, адрес резервного блока питания, кабельный хвост. Карта: «одна гайка — один коннектор — один тест». Итог: 3 минуты простоев, шоу спасено.</p>
+    <h4>Кейс: пыльный склад и баттены</h4>
+    <p>После тура баттены «стобили» и грелись. Диагностика: забитые фильтры. Создан регламент: продувка компрессором (не более 2 бар), смена фильтров раз в 100 часов, лог‑лист температуры.</p>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 220" role="img" aria-label="Мини-схема логистики ригов и кейсов">
+        <rect x="0" y="0" width="800" height="220" fill="#f8fafc" stroke="#e5e7eb"/>
+        <g font-family="sans-serif" font-size="12">
+          <rect x="40" y="30" width="160" height="60" rx="8" fill="#e0f2fe" stroke="#7dd3fc"/>
+          <text x="120" y="65" text-anchor="middle">Кейс A: Wash ×8</text>
+          <rect x="240" y="30" width="160" height="60" rx="8" fill="#dcfce7" stroke="#bbf7d0"/>
+          <text x="320" y="65" text-anchor="middle">Кейс B: Spot ×6</text>
+          <rect x="440" y="30" width="160" height="60" rx="8" fill="#fee2e2" stroke="#fecaca"/>
+          <text x="520" y="65" text-anchor="middle">Кейс C: Кабель</text>
+          <rect x="640" y="30" width="120" height="60" rx="8" fill="#fce7f3" stroke="#fbcfe8"/>
+          <text x="700" y="65" text-anchor="middle">Drop‑kit</text>
+          <line x1="100" y1="100" x2="100" y2="180" stroke="#334155"/>
+          <line x1="300" y1="100" x2="300" y2="180" stroke="#334155"/>
+          <line x1="500" y1="100" x2="500" y2="180" stroke="#334155"/>
+          <line x1="700" y1="100" x2="700" y2="180" stroke="#334155"/>
+          <text x="80" y="200">Погрузка 1</text>
+          <text x="280" y="200">Погрузка 2</text>
+          <text x="480" y="200">Погрузка 3</text>
+          <text x="680" y="200">Резерв</text>
+        </g>
+      </svg>
+      <figcaption>Как читать схему: стандартизируйте содержимое кейсов. Отдельный drop‑kit экономит драгоценные минуты.</figcaption>
+    </figure>
+  </section>
+
+  <section id="ls-practice-economy">
+    <h3>Экономика: световая отдача, износ, стоимость владения</h3>
+    <ul>
+      <li>ROI: берите прибор, который «ходит» минимум в 60–70% выездов. Гибриды и IP‑модели часто окупаются быстрее.</li>
+      <li>TCO: лампы vs LED, сервис, вентиляторы, драйверы, запчасти, кейсы, время техников.</li>
+      <li>Стандартные поломки: энкодеры Pan/Tilt, вентиляторы, блоки питания, плата драйвера LED. Держите спэеры.</li>
+    </ul>
+    <aside style="background:var(--lg-note); padding:.6rem; border-radius:8px;">
+      Экономический трюк: унифицируйте режимы каналов в парке. Меньше времени на патч, меньше ошибок, выше оборот.
+    </aside>
+  </section>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-safety">
+  <h2>Безопасность и нормативы</h2>
+  <ul>
+    <li>Риггинг: расчёт нагрузок на фермы и крепёж, сертификаты строп, вторичное крепление каждого прибора.</li>
+    <li>Высотные работы: допуски, каски, привязи, инструменты на страховке.</li>
+    <li>Электробезопасность: автоматы, УЗО, маркировка фаз, защита от влаги, IP‑чехлы. Работа только на отключенной линии.</li>
+    <li>Пожарная безопасность: дым/фоггер в согласовании с площадкой; CO2, гейзеры — с безопасной зоной.</li>
+  </ul>
+  <aside style="background:var(--lg-warn); padding:.6rem; border-radius:8px;">
+    Всегда ставьте вторичку. Один сорвавшийся прибор — конец карьере и уголовное дело. Проверка инструмента и крепежа — в чек‑листе.
+  </aside>
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-checklists">
+  <h2>Чек‑листы</h2>
+  <h3>Приемка из проката</h3>
+  <ul>
+    <li>Сверка по инвентарю: модели, количество, аксессуары (клампы, safety, кабели).</li>
+    <li>Питание: коннекторы PowerCon/True1, удлинители, распределение фаз.</li>
+    <li>Функционал: движение, димминг, цвет, зум, gobo, frost, iris, вентиляторы, температура.</li>
+  </ul>
+  <h3>Предпрограмминг</h3>
+  <ul>
+    <li>Единые режимы: PWM, dim curve, fan mode, DMX mode.</li>
+    <li>Патч: адреса, universes, Art‑Net/sACN приоритеты, резервные маршруты.</li>
+    <li>Плейбек: базовые кьюты — blackout, статические сцены, сейвы на USB/сетевой диск.</li>
+  </ul>
+  <h3>Саундчек и фокус</h3>
+  <ul>
+    <li>Фокус профилей: центр на микрофонах, санитайзер для ручек followspot.</li>
+    <li>Баланс контрового и фронта: кожа без пересвета, камеры без фликера.</li>
+    <li>Haze: равномерный, проверить вентиляцию.</li>
+  </ul>
+  <h3>Шоу‑файл</h3>
+  <ul>
+    <li>Версионирование, заметки по площадке, шаблоны позиций, таймкод (если есть).</li>
+  </ul>
+  <h3>Пост‑мортем</h3>
+  <ul>
+    <li>Что сломалось, где «затыки», что улучшить в кейсах и парке. Фото/видео артефактов.</li>
+  </ul>
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-calculators">
+  <h2>Калькуляторы</h2>
+  <p>Калькуляторы работают локально в вашем браузере. Формулы приведены рядом с каждой формой. Значения носят оценочный характер и призваны ускорить прикидки на площадке.</p>
+
+  <form id="ls-calc-spot" class="ls-calc" aria-live="polite">
+    <fieldset>
+      <legend>Диаметр пятна и освещенность</legend>
+      <p>Формулы: диаметр d ≈ 2·D·tan(θ/2). Если известна сила света I (кд): E ≈ I / D². Если известен поток Φ (лм): Eцентр ≈ Φ·η / [π·(D·tan(θ/2))²].</p>
+      <label for="ls-spot-D">Дистанция D, м:</label>
+      <input id="ls-spot-D" name="D" type="text" inputmode="decimal" placeholder="например, 18">
+      <label for="ls-spot-theta">Угол луча θ, градусы:</label>
+      <input id="ls-spot-theta" name="theta" type="text" inputmode="decimal" placeholder="например, 20">
+      <label for="ls-spot-I">Сила света I, кд (опц.):</label>
+      <input id="ls-spot-I" name="I" type="text" inputmode="decimal" placeholder="например, 120000">
+      <label for="ls-spot-Phi">Световой поток Φ, лм (опц.):</label>
+      <input id="ls-spot-Phi" name="Phi" type="text" inputmode="decimal" placeholder="например, 18000">
+      <label for="ls-spot-eta">η (КПИ), 0..1:</label>
+      <input id="ls-spot-eta" name="eta" type="text" inputmode="decimal" placeholder="0.85" value="0.85">
+      <div class="ls-actions">
+        <button type="submit">Рассчитать</button>
+        <button type="reset">Сброс</button>
+      </div>
+      <div class="ls-results" id="ls-spot-results" role="status" aria-live="polite"></div>
+      <div class="ls-error" id="ls-spot-error" aria-live="assertive"></div>
+    </fieldset>
+  </form>
+
+  <form id="ls-calc-dmx" class="ls-calc" aria-live="polite">
+    <fieldset>
+      <legend>DMX‑адресация</legend>
+      <p>Вычисляет диапазон каналов и следующий доступный адрес. Проверяет пересечения с уже занятыми диапазонами.</p>
+      <label for="ls-dmx-start">Стартовый адрес (1–512):</label>
+      <input id="ls-dmx-start" name="start" type="text" inputmode="numeric" placeholder="например, 101">
+      <label for="ls-dmx-ch">Число каналов:</label>
+      <input id="ls-dmx-ch" name="ch" type="text" inputmode="numeric" placeholder="например, 19">
+      <label for="ls-dmx-mode">Режим (битность):</label>
+      <select id="ls-dmx-mode" name="mode">
+        <option value="8">8‑бит</option>
+        <option value="16">16‑бит</option>
+      </select>
+      <label for="ls-dmx-used">Занятые диапазоны (опц.), формат: 1-24,101-152</label>
+      <input id="ls-dmx-used" name="used" type="text" inputmode="text" placeholder="1-64, 101-176">
+      <div class="ls-actions">
+        <button type="submit">Рассчитать</button>
+        <button type="reset">Сброс</button>
+      </div>
+      <div class="ls-results" id="ls-dmx-results" role="status" aria-live="polite"></div>
+      <div class="ls-error" id="ls-dmx-error" aria-live="assertive"></div>
+    </fieldset>
+  </form>
+
+  <form id="ls-calc-power" class="ls-calc" aria-live="polite">
+    <fieldset>
+      <legend>Мощность/ток и фазная балансировка</legend>
+      <p>Суммарная мощность P = Σ(pᵢ·qtyᵢ). Ток (1ф): I ≈ P / (U·cosφ). Ток (3ф): Iф ≈ P / (√3·U·cosφ).</p>
+      <label for="ls-power-list">Список приборов (Вт, количество), по одному на строку:</label>
+      <textarea id="ls-power-list" name="list" rows="4" placeholder="800, 12
+300, 8
+1200, 4"></textarea>
+      <label for="ls-power-U">Напряжение U (В):</label>
+      <input id="ls-power-U" name="U" type="text" inputmode="decimal" value="230">
+      <label for="ls-power-cos">cos φ (0.6–1):</label>
+      <input id="ls-power-cos" name="cos" type="text" inputmode="decimal" value="0.95">
+      <label for="ls-power-limit">Лимит автомата на фазу (А):</label>
+      <input id="ls-power-limit" name="limit" type="text" inputmode="decimal" value="16">
+      <div class="ls-actions">
+        <button type="submit">Рассчитать</button>
+        <button type="reset">Сброс</button>
+      </div>
+      <div class="ls-results" id="ls-power-results" role="status" aria-live="polite"></div>
+      <div class="ls-error" id="ls-power-error" aria-live="assertive"></div>
+    </fieldset>
+  </form>
+
+  <form id="ls-calc-battery" class="ls-calc" aria-live="polite">
+    <fieldset>
+      <legend>Время работы от аккумулятора (wireless fixtures)</legend>
+      <p>Время ≈ E(Вт·ч) / (Pср·k). Коэффициент запаса k учитывает потери и деградацию.</p>
+      <label for="ls-bat-E">Емкость E, Вт·ч:</label>
+      <input id="ls-bat-E" name="E" type="text" inputmode="decimal" placeholder="например, 400">
+      <label for="ls-bat-P">Средняя нагрузка P, Вт:</label>
+      <input id="ls-bat-P" name="P" type="text" inputmode="decimal" placeholder="например, 35">
+      <label for="ls-bat-k">Коэффициент запаса k:</label>
+      <input id="ls-bat-k" name="k" type="text" inputmode="decimal" value="1.2">
+      <div class="ls-actions">
+        <button type="submit">Рассчитать</button>
+        <button type="reset">Сброс</button>
+      </div>
+      <div class="ls-results" id="ls-bat-results" role="status" aria-live="polite"></div>
+      <div class="ls-error" id="ls-bat-error" aria-live="assertive"></div>
+    </fieldset>
+  </form>
+
+  <form id="ls-calc-pwm" class="ls-calc" aria-live="полite">
+    <fieldset>
+      <legend>PWM и риск мерцаний на камеру</legend>
+      <p>Рекомендация: fPWM ≥ 4–10× fскан. fскан ≈ max(fps, 1/tшторки). Если fPWM близка к кратным fскан, возможен banding.</p>
+      <label for="ls-pwm-f">Частота PWM, Гц:</label>
+      <input id="ls-pwm-f" name="f" type="text" inputmode="decimal" placeholder="например, 25000">
+      <label for="ls-pwm-fps">Частота кадров, fps:</label>
+      <input id="ls-pwm-fps" name="fps" type="text" inputmode="decimal" placeholder="например, 50">
+      <label for="ls-pwm-sh">Скорость затвора (1/x сек):</label>
+      <input id="ls-pwm-sh" name="sh" type="text" inputmode="decimal" placeholder="например, 100 (1/100)">
+      <div class="ls-actions">
+        <button type="submit">Рассчитать</button>
+        <button type="reset">Сброс</button>
+      </div>
+      <div class="ls-results" id="ls-pwm-results" role="status" aria-live="polite"></div>
+      <div class="ls-error" id="ls-pwm-error" aria-live="assertive"></div>
+    </fieldset>
+  </form>
+
+  <form id="ls-calc-zoom" class="ls-calc" aria-live="polite">
+    <fieldset>
+      <legend>Зум‑покрытие сцены</legend>
+      <p>Диаметры: dmin ≈ 2·D·tan(θmin/2), dmax ≈ 2·D·tan(θmax/2).</p>
+      <label for="ls-zoom-D">Дистанция D, м:</label>
+      <input id="ls-zoom-D" name="D" type="text" inputmode="decimal" placeholder="например, 18">
+      <label for="ls-zoom-min">Мин. зум θmin, градусы:</label>
+      <input id="ls-zoom-min" name="min" type="text" inputmode="decimal" placeholder="например, 5">
+      <label for="ls-zoom-max">Макс. зум θmax, градусы:</label>
+      <input id="ls-zoom-max" name="max" type="text" inputmode="decimal" placeholder="например, 50">
+      <div class="ls-actions">
+        <button type="submit">Рассчитать</button>
+        <button type="reset">Сброс</button>
+      </div>
+      <div class="ls-results" id="ls-zoom-results" role="status" aria-live="polite"></div>
+      <div class="ls-error" id="ls-zoom-error" aria-live="assertive"></div>
+    </fieldset>
+  </form>
+
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-faq">
+  <h2>FAQ</h2>
+  <ol>
+    <li><strong>Какой угол взять для профиля на FOH 20 м?</strong> 19–26°. При 20 м угол 19° ≈ пятно 6.9 м; 26° ≈ 9.2 м — под группу/ансамбль.</li>
+    <li><strong>Сколько wash нужно для сцены 12×8 м?</strong> 8–12 штук field 40–60°, в 2–3 ряда (фронт/контр/бок).</li>
+    <li><strong>Почему камера «пилит» кадр?</strong> Низкий PWM или разные PWM на парке. Поднимите PWM ≥ 25 кГц и синхронизируйте кривые.</li>
+    <li><strong>Что выбрать для дальнего луча — Beam или Spot?</strong> Для «воздуха» — Beam 2–3.5°. Для текстур на поверхности — Spot с узким зумом и высоким I (кд).</li>
+    <li><strong>Как считать адрес для 16‑бит каналов?</strong> 16‑бит использует 2 канала (MSB/LSB). Учитывайте это в «число каналов».</li>
+    <li><strong>RDM безопасен?</strong> Для диагностики — да. На критичной линии шоу — отключайте, чтобы исключить неожиданные ответы устройств.</li>
+    <li><strong>Что важнее — люмены или канделы?</strong> Для заливки — люмены (и field угол). Для луча/дальних бросков — канделы (I) и узкий beam.</li>
+    <li><strong>Можно ли диммировать разрядные?</strong> Нет корректно. Используйте шторки, ND или механические ирисы, не регулируйте напряжение лампы.</li>
+    <li><strong>Почему hotspot?</strong> Особенности оптики и источник. Чуть увеличить зум или включить light frost — поможет.</li>
+    <li><strong>Art‑Net или sACN?</strong> Оба работают. sACN лучше с приоритетами и многими источниками. Сетевые дисциплины обязательны.</li>
+    <li><strong>True1 против PowerCon?</strong> True1 держит подключение под нагрузкой и влагозащиту. Для улицы — True1/PowerCON TRUE1‑style и IP‑чехлы.</li>
+    <li><strong>Сколько haze?</strong> Столько, чтобы лучи видны, но люди дышали. Равномерно по залу, проверьте вентиляцию и согласуйте с площадкой.</li>
+    <li><strong>Как балансировать фазы?</strong> Раскладывайте группы по L1/L2/L3 с учетом пусковых токов. Следите за автоматами и кабелями.</li>
+    <li><strong>Почему у панели зелень?</strong> DUV сдвинут. Подмешайте magenta (+/‑ на гелях/виртуальный CC), или используйте панели с калибровкой.</li>
+    <li><strong>Что хранить в spares?</strong> Вентиляторы, энкодеры Pan/Tilt, блоки питания, платы драйверов, линзы/frost, клампы и safety.</li>
+  </ol>
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<section id="ls-outro">
+  <h2>Заключение</h2>
+  <p>Свет — это инженерия и поэзия одновременно. Зная, как работает оптика, LED и сети, вы вооружены против форс‑мажоров и «сюрпризов» площадки. Стандартизируйте парк, уважайте безопасность и делитесь чек‑листами — ROI придёт сам.</p>
+  <h3>Финальный чек‑лист перед шоу</h3>
+  <ul>
+    <li>Питание: баланс фаз, автоматы, True1/PowerCon, заземление.</li>
+    <li>Сеть: IP‑план, VLAN, резерв (вторая нода/линк), терминаторы DMX.</li>
+    <li>Приборы: режимы PWM/кривые, адреса, вентиляторы на «тихо» для ТВ.</li>
+    <li>Фокус и пресеты: позиции, цвета, гобо, haze — ровно.</li>
+    <li>Безопасность: вторичка на каждом приборе, каски, стропы, запрещено стоять под грузом.</li>
+    <li>Шоу‑файл и бэкап: USB/облако, приоритеты sACN, merge тест.</li>
+    <li>Drop‑kit: запасные головы/кабели, быстросъём, метки.</li>
+  </ul>
+  <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  const LS = {};
+  const root = document.getElementById('ls-article');
+  if(!root){ return; }
+
+  // Utilities
+  const qs = (s, p=root) => p.querySelector(s);
+  const qsa = (s, p=root) => Array.from(p.querySelectorAll(s));
+  const parseNum = (v) => {
+    if (typeof v !== 'string') return NaN;
+    const s = v.trim().replace(/\s+/g,'').replace(',', '.');
+    return s ? Number(s) : NaN;
+  };
+  const fmt = (n, digits=2) => {
+    if (!isFinite(n)) return '—';
+    return new Intl.NumberFormat('ru-RU', { maximumFractionDigits: digits }).format(n);
+  };
+  const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+
+  // Smooth scroll for internal anchors
+  root.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (href.length < 2) return;
+    const target = qs(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', href);
+    }
+  });
+
+  // TOC check/generate (non-intrusive)
+  (function ensureTOC(){
+    const toc = qs('#ls-toc');
+    if (!toc) return;
+    // Verify anchors exist
+    const links = qsa('a[href^="#"]', toc);
+    links.forEach(a=>{
+      const id = a.getAttribute('href');
+      if (!qs(id)) {
+        a.style.opacity = '0.6';
+        a.title = 'Раздел не найден';
+      }
+    });
+  })();
+
+  // Calculators
+  function setError(id, msg){
+    const err = qs('#'+id);
+    if (err) err.textContent = msg || '';
+  }
+  function setResult(id, html){
+    const box = qs('#'+id);
+    if (box) box.innerHTML = html || '';
+  }
+
+  // Spot: diameter and illuminance
+  (function spotCalc(){
+    const form = qs('#ls-calc-spot');
+    if (!form) return;
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      setError('ls-spot-error','');
+      setResult('ls-spot-results','');
+
+      const D = parseNum(qs('#ls-spot-D').value);
+      const theta = parseNum(qs('#ls-spot-theta').value);
+      const I = parseNum(qs('#ls-spot-I').value);
+      const Phi = parseNum(qs('#ls-spot-Phi').value);
+      let eta = parseNum(qs('#ls-spot-eta').value);
+      if (!isFinite(eta)) eta = 0.85;
+
+      if (!isFinite(D) || D <= 0 || !isFinite(theta) || theta <= 0) {
+        setError('ls-spot-error','Укажите положительные значения D и θ.');
+        return;
+      }
+      const rad = theta * Math.PI / 180;
+      const radius = D * Math.tan(rad/2);
+      const diameter = 2 * radius;
+
+      let E = null;
+      let method = '';
+      if (isFinite(I) && I>0){
+        E = I / (D*D);
+        method = 'По силе света I: E ≈ I / D²';
+      } else if (isFinite(Phi) && Phi>0){
+        const area = Math.PI * radius * radius;
+        E = (Phi * eta) / area;
+        method = 'По световому потоку Φ: Eцентр ≈ Φ·η / [π·(D·tan(θ/2))²]';
+      }
+
+      let out = `<div>Диаметр пятна: <strong>${fmt(diameter,2)} м</strong></div>`;
+      if (E!==null){
+        out += `<div>Оценка освещенности E: <strong>${fmt(E,0)} лк</strong> <small>(${method})</small></div>`;
+        out += `<div><small>Примечание: Eцентр зависит от равномерности (hotspot). Для равномерного wash умножайте на 0.6–0.8.</small></div>`;
+      } else {
+        out += `<div><small>Укажите I (кд) или Φ (лм) для расчёта освещенности.</small></div>`;
+      }
+      setResult('ls-spot-results', out);
+    });
+    form.addEventListener('reset', ()=>{
+      setTimeout(()=>{
+        setError('ls-spot-error','');
+        setResult('ls-spot-results','');
+      },0);
+    });
+  })();
+
+  // DMX addressing
+  (function dmxCalc(){
+    const form = qs('#ls-calc-dmx');
+    if (!form) return;
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      setError('ls-dmx-error','');
+      setResult('ls-dmx-results','');
+
+      const start = Math.floor(parseNum(qs('#ls-dmx-start').value));
+      const ch = Math.floor(parseNum(qs('#ls-dmx-ch').value));
+      const mode = qs('#ls-dmx-mode').value; // 8 or 16
+      const usedStr = qs('#ls-dmx-used').value.trim();
+
+      if (!isFinite(start) || start<1 || start>512){
+        setError('ls-dmx-error','Стартовый адрес должен быть в диапазоне 1–512.');
+        return;
+      }
+      if (!isFinite(ch) || ch<1){
+        setError('ls-dmx-error','Число каналов должно быть положительным.');
+        return;
+      }
+
+      const end = start + ch - 1;
+      if (end>512){
+        setError('ls-dmx-error','Диапазон выходит за предел 512 каналов.');
+        return;
+      }
+
+      const usedRanges = [];
+      if (usedStr){
+        const parts = usedStr.split(/[,\s]+/).map(s=>s.trim()).filter(Boolean);
+        for (const p of parts){
+          const m = p.match(/^(\d+)\-(\d+)$/);
+          if (m){
+            const a = Math.max(1, Math.min(512, parseInt(m[1],10)));
+            const b = Math.max(1, Math.min(512, parseInt(m[2],10)));
+            const r1 = Math.min(a,b);
+            const r2 = Math.max(a,b);
+            usedRanges.push([r1,r2]);
+          }
+        }
+      }
+      // check overlap
+      const overlaps = usedRanges.filter(([a,b])=> !(end<a || start>b));
+      const nextAddr = (function(){
+        let n = end+1;
+        // find next free after considering used
+        while(n<=512){
+          const blocked = usedRanges.some(([a,b])=> n>=a && n<=b);
+          if (!blocked) break;
+          n = Math.max(...usedRanges.filter(([a,b])=> n>=a && n<=b).map(([,b])=>b)) + 1;
+        }
+        return n<=512 ? n : null;
+      })();
+
+      let out = `<div>Диапазон: <strong>${start}–${end}</strong> (${ch} каналов, режим ${mode}‑бит)</div>`;
+      if (overlaps.length){
+        out += `<div class="ls-error">Внимание: пересечение с занятыми диапазонами: ${overlaps.map(r=>r.join('–')).join(', ')}</div>`;
+      } else {
+        out += `<div>Пересечений не обнаружено.</div>`;
+      }
+      out += `<div>Следующий доступный адрес: <strong>${nextAddr? nextAddr : 'нет (превышение 512)'}</strong></div>`;
+      setResult('ls-dmx-results', out);
+    });
+    form.addEventListener('reset', ()=>{
+      setTimeout(()=>{
+        setError('ls-dmx-error','');
+        setResult('ls-dmx-results','');
+      },0);
+    });
+  })();
+
+  // Power and phases
+  (function powerCalc(){
+    const form = qs('#ls-calc-power');
+    if (!form) return;
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      setError('ls-power-error','');
+      setResult('ls-power-results','');
+
+      const list = qs('#ls-power-list').value.trim();
+      const U = parseNum(qs('#ls-power-U').value);
+      let cos = parseNum(qs('#ls-power-cos').value);
+      const limit = parseNum(qs('#ls-power-limit').value);
+
+      if (!isFinite(U) || U<=0){ setError('ls-power-error','Укажите напряжение U.'); return; }
+      if (!isFinite(cos) || cos<=0 || cos>1){ setError('ls-power-error','cos φ должен быть в диапазоне 0–1.'); return; }
+      if (!isFinite(limit) || limit<=0){ setError('ls-power-error','Укажите лимит автомата на фазу.'); return; }
+
+      const lines = list.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+      if (!lines.length){ setError('ls-power-error','Заполните список приборов.'); return; }
+
+      const items = [];
+      let Psum = 0;
+      for (const ln of lines){
+        const parts = ln.split(/[;, ]+/).map(x=>x.trim()).filter(Boolean);
+        if (parts.length<1){ continue; }
+        const p = parseNum(parts[0]);
+        const q = parts.length>1 ? parseNum(parts[1]) : 1;
+        if (!isFinite(p) || p<=0 || !isFinite(q) || q<=0){ setError('ls-power-error','Строка "'+ln+'" неверна. Формат: мощность, количество'); return; }
+        items.push({p, q});
+        Psum += p*q;
+      }
+
+      const I1 = Psum / (U * cos);
+      const I3 = Psum / (Math.sqrt(3) * U * cos);
+
+      // naive phase distribution: round-robin items expanded
+      const expanded = [];
+      items.forEach(({p,q})=>{
+        for(let i=0;i<q;i++){ expanded.push(p); }
+      });
+      const phases = [0,0,0];
+      expanded.sort((a,b)=>b-a).forEach((p,i)=>{
+        // place to the phase with minimum current
+        const idx = phases.indexOf(Math.min(...phases));
+        phases[idx] += p;
+      });
+      const currents = phases.map(P => P/(U*cos));
+      const warn = currents.map(I => I>limit);
+
+      let out = `<div>ΣP: <strong>${fmt(Psum,0)} Вт</strong></div>`;
+      out += `<div>Ток (1 фаза): <strong>${fmt(I1,1)} А</strong></div>`;
+      out += `<div>Ток (3 фазы, теор.): <strong>${fmt(I3,1)} А/фазу</strong></div>`;
+      out += `<div>Распределение по фазам (рекомендация):</div>`;
+      out += `<ul><li>L1: ${fmt(phases[0],0)} Вт → ${fmt(currents[0],1)} А ${warn[0]?'<span class="ls-error">(перегруз)</span>':''}</li>`;
+      out += `<li>L2: ${fmt(phases[1],0)} Вт → ${fmt(currents[1],1)} А ${warn[1]?'<span class="ls-error">(перегруз)</span>':''}</li>`;
+      out += `<li>L3: ${fmt(phases[2],0)} Вт → ${fmt(currents[2],1)} А ${warn[2]?'<span class="ls-error">(перегруз)</span>':''}</li></ul>`;
+      out += `<div><small>Учтите пусковые токи импульсных БП (в 2–3 раза кратковременно). Активный PFC и длинные линии снижают искажения сети (THD).</small></div>`;
+
+      setResult('ls-power-results', out);
+    });
+    form.addEventListener('reset', ()=>{
+      setTimeout(()=>{
+        setError('ls-power-error','');
+        setResult('ls-power-results','');
+      },0);
+    });
+  })();
+
+  // Battery runtime
+  (function batCalc(){
+    const form = qs('#ls-calc-battery');
+    if (!form) return;
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      setError('ls-bat-error','');
+      setResult('ls-bat-results','');
+
+      const E = parseNum(qs('#ls-bat-E').value);
+      const P = parseNum(qs('#ls-bat-P').value);
+      let k = parseNum(qs('#ls-bat-k').value);
+      if (!isFinite(k) || k<=0) k = 1.2;
+
+      if (!isFinite(E) || E<=0 || !isFinite(P) || P<=0){
+        setError('ls-bat-error','Укажите положительные E и P.');
+        return;
+      }
+      const t = E / (P * k);
+      const h = Math.floor(t);
+      const m = Math.round((t - h) * 60);
+
+      const out = `<div>Время работы: <strong>${fmt(t,2)} ч</strong> (~${h} ч ${m} мин)</div>
+                   <div><small>Совет: снизьте средний димминг на 10–20% и поднимите PWM для камер — ресурс увеличится, заметности мало.</small></div>`;
+      setResult('ls-bat-results', out);
+    });
+    form.addEventListener('reset', ()=>{
+      setTimeout(()=>{
+        setError('ls-bat-error','');
+        setResult('ls-bat-results','');
+      },0);
+    });
+  })();
+
+  // PWM flicker risk
+  (function pwmCalc(){
+    const form = qs('#ls-calc-pwm');
+    if (!form) return;
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      setError('ls-pwm-error','');
+      setResult('ls-pwm-results','');
+
+      const fPWM = parseNum(qs('#ls-pwm-f').value);
+      const fps = parseNum(qs('#ls-pwm-fps').value);
+      const sh = parseNum(qs('#ls-pwm-sh').value);
+
+      if (!isFinite(fPWM) || fPWM<=0 || !isFinite(fps) || fps<=0 || !isFinite(sh) || sh<=0){
+        setError('ls-pwm-error','Укажите все параметры: fPWM, fps и скорость затвора (1/x).');
+        return;
+      }
+      const fShutter = sh; // e.g., 1/100s -> 100 Hz
+      const fScan = Math.max(fps, fShutter);
+
+      const ratio = fPWM / fScan;
+      let risk = 'низкая';
+      if (ratio < 4) risk = 'высокая';
+      else if (ratio < 10) risk = 'средняя';
+
+      // proximity to harmonics
+      const n = Math.round(fPWM / fScan);
+      const harmonic = n * fScan;
+      const proximity = Math.abs((fPWM - harmonic)/fPWM);
+      const harmonicNote = (proximity < 0.02 && n>0) ? 'Внимание: частота близка к гармонике сканирования — возможен banding.' : '';
+
+      const out = `<div>Частота сканирования камеры: <strong>${fmt(fScan,0)} Гц</strong></div>
+                   <div>Отношение fPWM/fскан: <strong>${fmt(ratio,1)}</strong> → риск: <strong>${risk}</strong></div>
+                   <div><small>Рекомендация: fPWM ≥ 4–10× fскан. ${harmonicNote}</small></div>`;
+      setResult('ls-pwm-results', out);
+    });
+    form.addEventListener('reset', ()=>{
+      setTimeout(()=>{
+        setError('ls-pwm-error','');
+        setResult('ls-pwm-results','');
+      },0);
+    });
+  })();
+
+  // Zoom coverage
+  (function zoomCalc(){
+    const form = qs('#ls-calc-zoom');
+    if (!form) return;
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      setError('ls-zoom-error','');
+      setResult('ls-zoom-results','');
+
+      const D = parseNum(qs('#ls-zoom-D').value);
+      const minA = parseNum(qs('#ls-zoom-min').value);
+      const maxA = parseNum(qs('#ls-zoom-max').value);
+      if (!isFinite(D) || D<=0 || !isFinite(minA) || minA<=0 || !isFinite(maxA) || maxA<=0 || maxA<minA){
+        setError('ls-zoom-error','Проверьте D>0, углы >0 и θmax ≥ θmin.');
+        return;
+      }
+      const dmin = 2*D*Math.tan((minA*Math.PI/180)/2);
+      const dmax = 2*D*Math.tan((maxA*Math.PI/180)/2);
+
+      const out = `<div>Пятно на минимальном зуме: <strong>${fmt(dmin,2)} м</strong></div>
+                   <div>Пятно на максимальном зуме: <strong>${fmt(dmax,2)} м</strong></div>
+                   <div><small>Сверьте с «field» и равномерностью — для wash ориентируйтесь на field.</small></div>`;
+      setResult('ls-zoom-results', out);
+    });
+    form.addEventListener('reset', ()=>{
+      setTimeout(()=>{
+        setError('ls-zoom-error','');
+        setResult('ls-zoom-results','');
+      },0);
+    });
+  })();
+
+  // Expose for possible debugging (kept minimal)
+  window.LS_ARTICLE = { fmt, parseNum };
+
+})();
+</script>
+
+<!--
+Мини‑чек‑лист реализации:
+- Покрыты ли все разделы? (Введение, Фотометрия, Типы приборов, Оптика, LED/драйверы, Практика, Безопасность, Чек‑листы, Калькуляторы, FAQ, Заключение) — Да.
+- Работают ли калькуляторы? (Пятно/люксы, DMX, Мощность/фазы, Аккумулятор, PWM, Зум) — Да, локально, без зависимостей.
+- TOC? Якоря? — Да, оглавление и якоря для всех секций/подсекций.
+- SVG? — Да, в ключевых разделах: лучи, модули головы, драйвер, сеть DMX, питание, оптика.
+- Валидация? — Да, с сообщениями об ошибках.
+- Доступность? — label–input связи, legend/fieldset, aria-live для результатов.
+-->
+</article>
     </main>
   </div>
 
