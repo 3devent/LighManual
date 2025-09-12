@@ -6,8 +6,195 @@
   <title>Электрика и безопасность</title>
   <meta name="description" content="Распределение питания, защита персонала и оборудования, заземление и УЗО, кабели и IP-рейтинги." />
   <link rel="stylesheet" href="../assets/styles.css" />
+  <style>
+  /* Те же переменные темы, что в physics.html */
+  #ls-article{
+    --lg-bg:#ffffff;
+    --lg-fg:#121417;
+    --lg-accent:#2b6cb0;
+    --lg-accent-2:#0ea5e9;
+    --lg-muted:#6b7280;
+    --lg-border:#e5e7eb;
+    --lg-note:#f1f5f9;
+    --lg-tip:#ecfeff;
+    --lg-warn:#fff7ed;
+    --lg-ok:#10b981;
+    --lg-bad:#ef4444;
+    --lg-link:#1d4ed8;
+    --lg-code-bg:#0b1220;
+    --lg-code:#e2e8f0;
+    --lg-font: system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
+    --lg-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --lg-radius: 10px;
+    --lg-shadow: 0 6px 24px rgba(0,0,0,.08);
+    --lg-focus: 0 0 0 3px rgba(43,108,176,.25);
+
+    color:var(--lg-fg);
+    background:var(--lg-bg);
+    font-family:var(--lg-font);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    padding:1rem;
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    box-shadow:var(--lg-shadow);
+    overflow:hidden;
+  }
+  html[data-theme="dark"] #ls-article{
+    --lg-bg:#0b0e12;
+    --lg-fg:#e8eef5;
+    --lg-accent:#7aa2f7;
+    --lg-accent-2:#22d3ee;
+    --lg-muted:#9aa4b2;
+    --lg-border:#273244;
+    --lg-note:#111827;
+    --lg-tip:#0b1b2a;
+    --lg-warn:#2a1b12;
+    --lg-link:#9ab6ff;
+    --lg-code-bg:#0b0f14;
+    --lg-code:#e5e7eb;
+    --lg-shadow:0 10px 30px rgba(0,0,0,.45);
+    --lg-focus:0 0 0 3px rgba(122,162,247,.35);
+  }
+
+  /* Оглавление */
+  #ls-article #ls-toc{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    padding:1rem;
+    background:linear-gradient(180deg, rgba(43,108,176,.06), transparent 45%);
+    margin:.5rem 0 1rem;
+  }
+  #ls-article #ls-toc h2{ margin:.2rem 0 .4rem; font-size:1.15rem; }
+  #ls-article #ls-toc a{ color:var(--lg-link); text-decoration:none; }
+  #ls-article #ls-toc a:hover{ text-decoration:underline; }
+
+  /* Секции (карточки) */
+  #ls-article section{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    padding:1rem;
+    background:linear-gradient(180deg, rgba(14,165,233,.05), transparent 65%);
+    margin:1rem 0;
+  }
+  #ls-article h2, #ls-article h3{
+    display:flex; align-items:center; gap:.5rem; margin-top:0;
+  }
+
+  /* Фигуры и SVG как в physics */
+  #ls-article .ls-figure{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    background:var(--lg-bg);
+    padding:.5rem;
+    margin:.6rem 0 1rem;
+    overflow:auto;
+  }
+  #ls-article .ls-figure figcaption{ font-size:.95rem; color:var(--lg-muted); margin:.25rem 0 .15rem .15rem; }
+  #ls-article svg{ max-width:100%; height:auto; display:block; }
+
+  /* Формы/калькуляторы */
+  #ls-article fieldset{
+    border:1px solid var(--lg-border);
+    border-radius:var(--lg-radius);
+    padding:.75rem;
+  }
+  #ls-article input, #ls-article select{
+    padding:.5rem .55rem;
+    border:1px solid var(--lg-border);
+    border-radius:8px;
+    background:var(--lg-bg);
+    color:var(--lg-fg);
+    font-family:var(--lg-mono);
+  }
+  #ls-article .ls-actions{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1rem; }
+  #ls-article .ls-actions button{
+    background:var(--lg-accent); color:#fff; border:none; border-radius:8px; padding:.6rem .9rem; cursor:pointer; font-weight:600;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.12);
+  }
+  #ls-article .ls-actions button + button{
+    background:transparent; color:var(--lg-accent); border:1px solid var(--lg-accent);
+  }
+  #ls-article .ls-results{
+    padding:.65rem .8rem;
+    border:1px dashed var(--lg-border);
+    border-radius:8px;
+    background:rgba(2,6,23,.05);
+    font-family:var(--lg-mono);
+  }
+  #ls-article .ls-error{ color:var(--lg-bad); font-weight:600; }
+
+  /* Код */
+  #ls-article code{ font-family:var(--lg-mono); background:rgba(2,6,23,.06); padding:.1rem .35rem; border-radius:6px; }
+  #ls-article pre{
+    background:var(--lg-code-bg); color:var(--lg-code);
+    padding:.8rem 1rem; border-radius:var(--lg-radius); overflow:auto;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+  }
+
+  /* Печать */
+  @media print{
+    #ls-article{ box-shadow:none; border:none; }
+    #ls-article .ls-actions button{ display:none !important; }
+    #ls-article a{ text-decoration:underline; }
+  }
+    /* Ссылки "Назад к содержанию" → как в TOC */
+  #ls-article a[href="#ls-toc"]{
+    color: var(--lg-link);
+    text-decoration: none;
+  }
+  #ls-article a[href="#ls-toc"]:hover,
+  #ls-article a[href="#ls-toc"]:focus{
+    text-decoration: underline;
+    outline: none;
+  }
+  #ls-article a[href="#ls-toc"]:visited{
+    color: var(--lg-link);
+  }
+      /* Ссылки "Наверх" → как в TOC */
+  #ls-article a[href="#ls-top"]{
+    color: var(--lg-link);
+    text-decoration: none;
+  }
+  #ls-article a[href="#ls-top"]:hover,
+  #ls-article a[href="#ls-top"]:focus{
+    text-decoration: underline;
+    outline: none;
+  }
+  #ls-article a[href="#ls-top"]:visited{
+    color: var(--lg-link);
+  }
+ 
+</style>
+  <!--<style>
+    /* Scoped helpers for the embedded article to ensure good mobile/desktop layout */
+    #ls-article { padding-block: 1rem; }
+    #ls-article .ls-figure { margin: 1rem 0; }
+    #ls-article .ls-figure svg { width: 100%; height: auto; display: block; }
+    #ls-article svg[role="img"] { max-width: 100%; height: auto; }
+    #ls-article nav#ls-toc ol { padding-left: 1.25rem; }
+    #ls-article .ls-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 768px) {
+      #ls-article .ls-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    #ls-article fieldset { display: grid; grid-template-columns: 1fr; gap: 0.5rem; border: 1px solid #e6e6e6; border-radius: 8px; padding: 0.75rem; }
+    #ls-article legend { padding: 0 0.25rem; font-weight: 600; }
+    #ls-article label { font-size: 0.95rem; }
+    #ls-article input, #ls-article select { width: 100%; max-width: 100%; }
+    #ls-article .ls-actions { margin: 0.75rem 0 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    #ls-article .ls-results { padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; background: #fafafa; }
+    [data-theme="dark"] #ls-article .ls-results { background: #121212; border-color: #333; }
+    #ls-article .ls-error { color: #b00020; min-height: 1.2em; }
+    #ls-article ul, #ls-article ol { margin: 0.5rem 0 1rem; }
+    #ls-article dl { margin: 0.5rem 0 1rem; }
+    #ls-article dt { font-weight: 600; }
+    #ls-article dd { margin: 0 0 0.5rem 0; }
+	
+  </style>-->
 </head>
 <body>
+
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="../index.html" aria-label="На главную">
@@ -66,20 +253,981 @@
         </div>
       </section>
 
-      <section id="power-distribution">
-        <h2>Питание и распределение нагрузки</h2>
-        <p>Фазы, балансировка, автоматы защиты, PDU, powerCON/True1, мониторинг токов.</p>
-      </section>
+      <!-- Встроенная статья -->
+      <article id="ls-article" lang="ru">
+  <!-- ls: header -->
+  <header id="ls-top" role="banner">
+    <h1>Электрика и безопасность для концертного света: от новичка до профи</h1>
+    <p class="ls-sub">Практическое руководство для гаферов, диммер-техников, системных инженеров и электриков сцены. О том, как спланировать, собрать и безопасно эксплуатировать временные электросети и свет для массовых мероприятий.</p>
+    <p class="ls-disclaimer" role="note">Информация носит справочный характер; соблюдайте местные нормы (ПУЭ, ГОСТ, IEC) и привлекайте аттестованных специалистов.</p>
+    <nav id="ls-toc" aria-label="Содержание">
+      <h2>Содержание</h2>
+      <ol>
+        <li><a href="#ls-overview">Введение</a></li>
+        <li><a href="#ls-theory">Общая теория</a></li>
+        <li><a href="#ls-ip-weather">Степени IP и погода</a></li>
+        <li><a href="#ls-safety">Электробезопасность</a></li>
+        <li><a href="#ls-planning">Планирование питания шоу</a></li>
+        <li><a href="#ls-calculators">Калькуляторы</a></li>
+        <li><a href="#ls-cases">Практические кейсы</a></li>
+        <li><a href="#ls-checklists">Чеклисты и протоколы</a></li>
+        <li><a href="#ls-glossary">Глоссарий</a></li>
+        <li><a href="#ls-faq">FAQ</a></li>
+        <li><a href="#ls-refs">Нормативы и ссылки</a></li>
+      </ol>
+    </nav>
+  </header>
 
-      <section id="grounding-rcd">
-        <h2>Заземление, УЗО и селективность</h2>
-        <p>Контуры заземления, RCD/УЗО, измерения, протоколы испытаний.</p>
-      </section>
+  <!-- ls: section overview -->
+  <section id="ls-overview" aria-labelledby="ls-overview-title">
+    <h2 id="ls-overview-title">Введение: почему электричество — это режиссура безопасности</h2>
+    <p>На концерте мы привыкли думать светом: балет прожекторов, дыхание дым-машин, акценты стробов. Но весь этот спектакль держится на невидимой инфраструктуре — временной электросети. Там, за кулисами и под настилами, электричество не терпит импровизации. Оно любит проектирование, дисциплину и проверенные решения.</p>
+    <p>Эта статья — для тех, кто подключает световые приборы к реальному миру. Для гаферов и диммер-техников, которым нужно и вдохновение, и формулы. Для системных инженеров и электриков сцены, которые отвечают за надежность и безопасность. Мы пройдём путь от базовой теории до тонкостей селективности защит и расчёта генераторов, поговорим о погоде и степенях IP, о конденсате на дощатой сцене и утечках SMPS, о правильных кабелях и грамотной маркировке. И всё это — на языке сцены, но с точностью инженера.</p>
+    <p>Сразу оговоримся: в разных странах действуют разные нормы. В тексте мы будем ссылаться на ПУЭ, ГОСТ и IEC 60364/60529, но ваша практика должна соответствовать местным правилам и решениям аттестованных специалистов. Для ссылок на нормы и источники см. <a href="#ls-refs">раздел «Нормативы и ссылки»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-      <section id="cables-connectors">
-        <h2>Кабели, коннекторы и IP‑рейтинги</h2>
-        <p>Сечения, XLR, powerCON, True1, IP65/IP67, эксплуатация и хранение.</p>
-      </section>
+  <!-- ls: section theory -->
+  <section id="ls-theory" aria-labelledby="ls-theory-title">
+    <h2 id="ls-theory-title">Общая теория</h2>
+
+    <h3>Базовые величины и смысл, который они несут</h3>
+    <p>Напряжение U (В), ток I (А), сопротивление R (Ом), мощность P (Вт), полная мощность S (ВА), реактивная Q (вар), коэффициент мощности cos φ — это «азбука Морзе» для электрика сцены. Закон Ома (U = I·R) и закон Джоуля–Ленца (Q = I²·R·t) объясняют, почему тонкий провод греется, а длинный — «крадёт» вольты у прожекторов.</p>
+    <p>Переменный ток (AC) с частотой 50/60 Гц — стандарт для силовых цепей. Постоянный ток (DC) живёт внутри импульсных источников питания световых приборов, в системах UPS и аккумуляторах. Разница не только в математике, но и в поведении защиты, нагреве кабелей, наличии реактивной составляющей и гармоник.</p>
+
+    <h3>Однофазные и трёхфазные сети</h3>
+    <p>В большинстве стран сцена питается от 230 В однофазно и 400 В линейно трёхфазно (L1–L2–L3). Точки зрения на нейтраль и защитный проводник различаются:</p>
+    <ul>
+      <li>TN-S: отдельные N и PE по всей цепи; стандарт для новых установок.</li>
+      <li>TN-C-S: объединённый PEN до ввода и разделение на N и PE внутри объекта.</li>
+      <li>TT: независимый заземлитель объекта; защита обязательна через УЗО.</li>
+      <li>IT: изолированная нейтраль (редко на ивентах, но встречается с генераторами/UPS).</li>
+    </ul>
+
+    <h3>Типы нагрузок и пусковые токи</h3>
+    <p>Резистивные нагрузки (лампы накаливания, ТЭНы) покладисты: cos φ ≈ 1, пусковой ток умеренный, расчёты просты. Индуктивные (двигатели, трансформаторы) и емкостные (конденсаторные блоки, некоторые фильтры) — капризнее. Современные световые приборы — это импульсные БП (SMPS): они компактны и эффективны, но при включении тянут кратковременный пусковой ток и «рисуют» гармоники в сети.</p>
+
+    <h3>Гармоники и THD: когда нейтраль греется больше фаз</h3>
+    <p>Нелинейные нагрузки создают гармоники. Гармоники кратности 3 (3-я, 9-я…) складываются в нейтрали, повышая её ток. На ивентах, где много SMPS, это значит, что нейтраль может оказаться загруженнее фаз. Отсюда рекомендации: увеличенные сечения нейтрали в некоторых магистралях и строгий учёт гармоник при планировании (см. <a href="#ls-planning">раздел «Планирование питания шоу»</a>).</p>
+
+    <h3>Коммутация и защита</h3>
+    <p>Автоматы защиты (характеристики B/C/D), предохранители, УЗО/дифавтоматы — инструменты, которые спасают проводку и людей. Характеристика B — для «чистых» нагрузок и коротких трасс, C — универсальная, D — для больших пусковых токов. Селективность — искусство сделать так, чтобы при аварии отключился ближайший к проблеме автомат, а не весь фестиваль. Подробнее — в <a href="#ls-safety">разделе «Электробезопасность»</a>.</p>
+
+    <h3>Разъёмы и стандарты</h3>
+    <p>От евро-розеток Schuko до индустриальных CEE 16/32/63 A, от PowerCON/True1 до Cam-Lok — правильный разъём это часть безопасности. DMX по XLR5 — низковольтная связь, но её кабели и экраны не должны становиться частью силовой цепи или «обратного пути» утечек.</p>
+
+    <h3>Кабели: сечение, материал, маркировка</h3>
+    <p>Медь — стандарт для временных сценических магистралей. Алюминий допустим только в крупных сечениях и при правильной фурнитуре. Важны оболочки с низким дымо- и газовыделением (LSZH), стойкость к истиранию, влагозащита. Правильная маркировка и протоколы проверок — часть профессионализма.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 220" role="img" aria-labelledby="ls-svg-chain-title ls-svg-chain-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-chain-title">Энергетическая цепочка шоу</title>
+        <desc id="ls-svg-chain-desc">Схема потока энергии от генератора или ввода до приборов: ввод, главная панель, RCD/RCBO, дистрибьютор, кабель-раны, приборы</desc>
+        <rect x="10" y="50" width="120" height="60" fill="#e3f2fd" stroke="#1976d2"/>
+        <text x="70" y="85" text-anchor="middle" font-size="12">Генератор/Ввод</text>
+        <line x1="130" y1="80" x2="180" y2="80" stroke="#1976d2" marker-end="url(#ls-arrow)"/>
+        <rect x="180" y="50" width="120" height="60" fill="#e8f5e9" stroke="#2e7d32"/>
+        <text x="240" y="85" text-anchor="middle" font-size="12">Главная панель</text>
+        <line x1="300" y1="80" x2="350" y2="80" stroke="#2e7d32" marker-end="url(#ls-arrow)"/>
+        <rect x="350" y="50" width="120" height="60" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="410" y="75" text-anchor="middle" font-size="12">RCD/RCBO</text>
+        <text x="410" y="92" text-anchor="middle" font-size="10">селективность</text>
+        <line x1="470" y1="80" x2="520" y2="80" stroke="#ef6c00" marker-end="url(#ls-arrow)"/>
+        <rect x="520" y="50" width="120" height="60" fill="#f3e5f5" stroke="#6a1b9a"/>
+        <text x="580" y="85" text-anchor="middle" font-size="12">Дистро</text>
+        <line x1="640" y1="80" x2="690" y2="80" stroke="#6a1b9a" marker-end="url(#ls-arrow)"/>
+        <rect x="690" y="50" width="100" height="60" fill="#ffebee" stroke="#c62828"/>
+        <text x="740" y="75" text-anchor="middle" font-size="12">Приборы</text>
+        <text x="740" y="92" text-anchor="middle" font-size="10">SMPS/диммер</text>
+        <defs>
+          <marker id="ls-arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#424242"></path>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>Блок-схема «энергетической цепочки» шоу: где защищать, где распределять, где наблюдать за токами.</figcaption>
+    </figure>
+
+    <p><strong>Итого по разделу.</strong> Вы знаете «алфавит» электричества, видите разницу между сетями TN/TT, понимаете природу пусковых токов и гармоник, представляете типовые разъёмы и подход к кабелям. Впереди — реальность дождя, пыли и брызг, см. <a href="#ls-ip-weather">«Степени IP и погода»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section ip-weather -->
+  <section id="ls-ip-weather" aria-labelledby="ls-ip-title">
+    <h2 id="ls-ip-title">Степени IP и погода</h2>
+    <p>На открытом воздухе вода и пыль — полноценные участники команды. Они настойчивы и коварны: капля найдёт путь внутрь разъёма, конденсат замкнёт плату, а пыль превратит щит в «муку» для дуги. Степень защиты IP — ваш здравый смысл в цифрах. Первый индекс — защита от твердых предметов и пыли, второй — от воды.</p>
+    <ul>
+      <li>IP20 — только внутри помещений, без брызг.</li>
+      <li>IP44 — брызги со всех сторон: минимально для outdoor под укрытием.</li>
+      <li>IP54/IP55 — пыль и струи: типично для временных сцен, если ожидаются осадки.</li>
+      <li>IP65/IP66 — струи и пыль, IP67 — кратковременное погружение: для сложных условий и мойки.</li>
+    </ul>
+    <p>IK — стойкость к удару (например, гравий в дождь). Не забывайте про УФ-старение пластика и коррозию металла. Правильная высота щитов над грунтом, козырьки, дренаж, дыхательные клапаны — мелочи, которые спасают фестиваль.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 250" role="img" aria-labelledby="ls-svg-ip-title ls-svg-ip-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-ip-title">Иллюстрация степеней IP</title>
+        <desc id="ls-svg-ip-desc">Сечение корпуса с обозначением уровней защиты от воды и пыли с траекториями капель и частиц.</desc>
+        <rect x="50" y="40" width="220" height="160" fill="#fafafa" stroke="#616161"/>
+        <text x="160" y="30" text-anchor="middle" font-size="12">Корпус оборудования</text>
+        <circle cx="340" cy="60" r="5" fill="#90caf9"/>
+        <circle cx="360" cy="70" r="5" fill="#90caf9"/>
+        <circle cx="380" cy="85" r="5" fill="#90caf9"/>
+        <path d="M340,60 C320,90 300,110 270,120" stroke="#90caf9" fill="none" stroke-dasharray="4 2"/>
+        <path d="M380,85 C360,120 330,140 270,150" stroke="#90caf9" fill="none" stroke-dasharray="4 2"/>
+        <circle cx="340" cy="140" r="3" fill="#9e9e9e"/>
+        <circle cx="355" cy="150" r="3" fill="#9e9e9e"/>
+        <path d="M340,140 C320,150 300,160 270,160" stroke="#9e9e9e" fill="none" stroke-dasharray="4 2"/>
+        <text x="500" y="70" font-size="12">IPX4: защита от брызг</text>
+        <text x="500" y="90" font-size="12">IPX5: защита от струй</text>
+        <text x="500" y="110" font-size="12">IP6X: пыленепроницаемость</text>
+        <text x="160" y="220" text-anchor="middle" font-size="11">Каплеотводы, уплотнения, дыхательные клапаны</text>
+      </svg>
+      <figcaption>Схема демонстрирует как капли и пыль стремятся внутрь. Выбирайте IP по сценарию погоды, а не по каталогу.</figcaption>
+    </figure>
+
+    <p>Про молнию коротко: временные сцены — это конструкции в открытом ландшафте. Отдельная система молниезащиты, уравнивание потенциалов, понимание зон LPZ и путей тока — обязательны. Если нет стационарной системы, ограничьте работу при грозе и исключите опасные режимы (см. <a href="#ls-safety">«Электробезопасность»</a>).</p>
+
+    <p><strong>Итого по разделу.</strong> Под открытым небом важны IP, укрытие и дренаж, а ещё дисциплина по кабелям, разъёмам и щитам. Переходим к системам защиты и измерениям — <a href="#ls-safety">«Электробезопасность»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section safety -->
+  <section id="ls-safety" aria-labelledby="ls-safety-title">
+    <h2 id="ls-safety-title">Электробезопасность</h2>
+    <h3>Классы защиты и безопасные напряжения</h3>
+    <p>Класс I — металлический корпус и обязательный PE. Класс II — двойная изоляция, без PE. Класс III — SELV/PELV, безопасные цепи низкого напряжения. На сцене соседствуют все три. Обязанность техники — понимать, где PE жизненно важен, а где его нет и быть не должно.</p>
+
+    <h3>Заземление и уравнивание потенциалов</h3>
+    <p>На временной сцене все токопроводящие части, которые человек может одновременно коснуться, должны быть на одном потенциале. Это достигается уравниванием: шины PE, перемычки, соединение подиумов, металлических ферм и кожухов щитов. В TT — УЗО обязательно. В TN-S — PE отдельно от N, никогда не «усилять» PE синими шинами N.</p>
+
+    <h3>УЗО/дифавтоматы</h3>
+    <p>Типы: AC — синус, A — пульсирующий DC (SMPS), F — частотные приводы с искажениями, B — чистый DC (инверторы, зарядные). Уставки: 10/30 мА — защита людей; 100/300 мА — противопожарные и селективные цепи. На outdoor комбинируйте: 30 мА на конечные линии, 100–300 мА S-типа выше по иерархии.</p>
+
+    <h3>Пожарная безопасность</h3>
+    <p>Перегруз и КЗ — две стороны огня. Подбирайте автоматы сразу под сечение и реальный длительный ток кабеля, соблюдайте селективность, избегайте подгорания контактов в разъёмах (грязь и недовтык — враги). Кабели — вдали от источников тепла и трасс пиротехники, строго следуя маршрутам.</p>
+
+    <h3>Lockout/Tagout и протоколы</h3>
+    <p>Перед работой в щите — только снятое напряжение, замок на приводе, бирка с именем, контроль отсутствия напряжения прибором. Запрещены «времянки» без маркировки и подписи ответственного.</p>
+
+    <h3>Измерения</h3>
+    <p>Мегомметр для изоляции, измерение петли «фаза–ноль», тест УЗО, протокол PAT для переносного оборудования. Маркируйте даты, имена поверяющих, указывайте результаты. Повторяемость — ваша защита в спорной ситуации.</p>
+
+    <h3>Генераторы</h3>
+    <p>Генератор — автономная сеть. Решения о заземлении точки нейтрали и связи N–PE принимаются по инструкции производителя и местным нормам. Ошибки приводят к ложным срабатываниям УЗО или, хуже, к опасным потенциалам на корпусах. Используйте качественные АВР/ATS, следите за частотой, напряжением и кВА под гармониками.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 280" role="img" aria-labelledby="ls-svg-systems-title ls-svg-systems-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-systems-title">Схемы TN-S, TN-C-S и TT</title>
+        <desc id="ls-svg-systems-desc">Упрощённые схемы распределения с шинами PE/N и точками установки RCD</desc>
+        <defs>
+          <marker id="ls-arrow2" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#424242"></path>
+          </marker>
+        </defs>
+        <!-- TN-S -->
+        <rect x="20" y="20" width="240" height="80" fill="#e8f5e9" stroke="#2e7d32"/>
+        <text x="140" y="40" text-anchor="middle" font-size="12">TN-S</text>
+        <line x1="40" y1="70" x2="240" y2="70" stroke="#000"/>
+        <text x="40" y="65" font-size="10">L1 L2 L3</text>
+        <line x1="40" y1="85" x2="240" y2="85" stroke="#1e88e5"/>
+        <text x="40" y="80" font-size="10">N</text>
+        <line x1="40" y1="100" x2="240" y2="100" stroke="#43a047"/>
+        <text x="40" y="95" font-size="10">PE</text>
+        <rect x="240" y="45" width="40" height="30" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="260" y="63" text-anchor="middle" font-size="10">RCD</text>
+
+        <!-- TN-C-S -->
+        <rect x="280" y="20" width="240" height="80" fill="#e3f2fd" stroke="#1976d2"/>
+        <text x="400" y="40" text-anchor="middle" font-size="12">TN-C-S</text>
+        <line x1="300" y1="70" x2="420" y2="70" stroke="#000"/>
+        <line x1="300" y1="85" x2="420" y2="85" stroke="#8d6e63"/>
+        <text x="300" y="80" font-size="10">PEN</text>
+        <circle cx="420" cy="85" r="4" fill="#8d6e63"/>
+        <text x="445" y="90" font-size="10">разделение N/PE</text>
+        <line x1="420" y1="85" x2="500" y2="85" stroke="#1e88e5"/>
+        <line x1="420" y1="100" x2="500" y2="100" stroke="#43a047"/>
+        <rect x="500" y="45" width="40" height="30" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="520" y="63" text-anchor="middle" font-size="10">RCD</text>
+
+        <!-- TT -->
+        <rect x="540" y="20" width="240" height="80" fill="#fffde7" stroke="#f9a825"/>
+        <text x="660" y="40" text-anchor="middle" font-size="12">TT</text>
+        <line x1="560" y1="70" x2="740" y2="70" stroke="#000"/>
+        <line x1="560" y1="85" x2="740" y2="85" stroke="#1e88e5"/>
+        <line x1="560" y1="100" x2="740" y2="100" stroke="#43a047"/>
+        <rect x="740" y="45" width="40" height="30" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="760" y="63" text-anchor="middle" font-size="10">RCD</text>
+        <text x="660" y="110" text-anchor="middle" font-size="10">Обязательное УЗО</text>
+      </svg>
+      <figcaption>Где живёт нейтраль и где устанавливать УЗО: три типовые системы.</figcaption>
+    </figure>
+
+    <p><strong>Итого по разделу.</strong> Безопасность начинается с классов защиты, продолжается уравниванием потенциалов и завершается правильной селективностью и измерениями. Для практики — планируем питание и резервирование, см. <a href="#ls-planning">«Планирование питания шоу»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section planning -->
+  <section id="ls-planning" aria-labelledby="ls-planning-title">
+    <h2 id="ls-planning-title">Планирование питания шоу</h2>
+    <h3>Расчёт нагрузок, фазы и резервы</h3>
+    <p>Начинайте с списка приборов и реальной «паспорной» мощности. Балансируйте фазы: разница между фазами — это не только «косая» диаграмма, но и ток нейтрали (см. <a href="#ls-theory">«Общая теория»</a>). Резервы: минимум 20% на силе и 30% на генераторе при outdoor. Принцип N+1 для критичных узлов: дистро и генераторы, где простои недопустимы.</p>
+    <h3>Пусковые токи и группы запуска</h3>
+    <p>Стробы, движущиеся головы и SMPS при одновременном старте «дергают» сеть. Группируйте включение, используйте soft-start, отложенный запуск, давайте УЗО «успокоиться» перед следующей группой.</p>
+    <h3>Падение напряжения и кабельные трассы</h3>
+    <p>Длина — враг вольт. Рассчитывайте ΔU и подбирайте сечение с учётом материала и температуры (см. <a href="#ls-calculators">Калькуляторы</a>). Кольцевание временных линий недопустимо — только однозначные пути тока. Кабели укладывайте в ран-пути, защищайте от острых кромок, не «перешнуровывайте» силовые и сигнальные трассы.</p>
+    <h3>Генераторы, UPS и ATS</h3>
+    <p>Разделяйте силовые и критичные цепи: консоль, сетевые узлы, медиасерверы — на UPS с чистой синусоидой; сцена — отдельно. ATS — для плавного и предсказуемого переключения. Проверяйте cos φ и crest-factor генератора — не все киловатты одинаково полезны под гармониками.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 260" role="img" aria-labelledby="ls-svg-phases-title ls-svg-phases-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-phases-title">Разделение фаз L1/L2/L3</title>
+        <desc id="ls-svg-phases-desc">Мини-диаграмма столбиков по фазам с подписью дисбаланса и тока нейтрали</desc>
+        <line x1="100" y1="40" x2="100" y2="220" stroke="#9e9e9e"/>
+        <line x1="100" y1="220" x2="700" y2="220" stroke="#9e9e9e"/>
+        <rect x="140" y="120" width="80" height="100" fill="#ffccbc" stroke="#d84315"/>
+        <text x="180" y="235" text-anchor="middle" font-size="12">L1</text>
+        <rect x="300" y="80" width="80" height="140" fill="#c8e6c9" stroke="#2e7d32"/>
+        <text x="340" y="235" text-anchor="middle" font-size="12">L2</text>
+        <rect x="460" y="100" width="80" height="120" fill="#bbdefb" stroke="#1565c0"/>
+        <text x="500" y="235" text-anchor="middle" font-size="12">L3</text>
+        <text x="620" y="120" font-size="12">Дисбаланс ≈ 20%</text>
+        <text x="620" y="140" font-size="12">I нейтрали: см. калькулятор</text>
+      </svg>
+      <figcaption>Идеал — равные столбики. Реальность — близко к этому и под контролем.</figcaption>
+    </figure>
+
+    <p><strong>Итого по разделу.</strong> Планирование — это баланс, резервы и дисциплина. Дальше — инструменты, которые считают и подсказывают. Открывайте <a href="#ls-calculators">«Калькуляторы»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section calculators -->
+  <section id="ls-calculators" aria-labelledby="ls-calculators-title">
+    <h2 id="ls-calculators-title">Калькуляторы</h2>
+
+    <!-- Calculator 1: Current from Power -->
+    <section id="ls-calc-current-sec" aria-labelledby="ls-calc-current-title">
+      <h3 id="ls-calc-current-title">1) Ток по мощности</h3>
+      <p id="ls-calc-current-help">Формулы: I1ф = P / (U · cosφ · η); I3ф = P / (√3 · U · cosφ · η). Результат — расчетный ток и ближайший больший номинал автомата.</p>
+      <form id="ls-calc-current" data-ls-calc="current" aria-describedby="ls-calc-current-help">
+        <fieldset>
+          <legend>Исходные данные</legend>
+          <label for="ls-current-phase">Сеть</label>
+          <select id="ls-current-phase" name="phase">
+            <option value="1">Однофазная</option>
+            <option value="3">Трёхфазная</option>
+          </select>
+          <label for="ls-current-power">Мощность P</label>
+          <input id="ls-current-power" name="power" type="number" min="0" step="0.001" placeholder="например, 6" aria-describedby="ls-current-power-unit"/>
+          <select id="ls-current-power-unit">
+            <option value="kW">кВт</option>
+            <option value="W">Вт</option>
+          </select>
+          <label for="ls-current-voltage">Напряжение U (В)</label>
+          <input id="ls-current-voltage" name="voltage" type="number" min="1" step="1" placeholder="230 или 400"/>
+          <label for="ls-current-cos">cos φ</label>
+          <input id="ls-current-cos" name="cos" type="number" min="0.1" max="1" step="0.01" value="0.95"/>
+          <label for="ls-current-eta">КПД η</label>
+          <input id="ls-current-eta" name="eta" type="number" min="0.1" max="1" step="0.01" value="0.95"/>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-current-run">Рассчитать</button>
+          <button type="button" id="ls-current-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-current-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-current-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-current-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Пример: 12 кВт трёхфазной нагрузки, U=400 В, cosφ=0.95, η=0.92. I ≈ 12 000 / (1.732 · 400 · 0.95 · 0.92) ≈ 19.7 А. Рекомендация — автомат 25 А (характеристика C).</p>
+    </section>
+
+    <!-- Calculator 2: Phase balance -->
+    <section id="ls-calc-balance-sec" aria-labelledby="ls-calc-balance-title">
+      <h3 id="ls-calc-balance-title">2) Баланс фаз и нейтраль</h3>
+      <p id="ls-calc-balance-help">Жадный алгоритм распределяет приборы по наименее загруженной фазе. Нейтраль: I_N ≈ sqrt(I1²+I2²+I3² - I1·I2 - I2·I3 - I3·I1). Для нелинейных нагрузок (SMPS) учитываем упрощённый вклад 3-й гармоники.</p>
+      <form id="ls-calc-balance" data-ls-calc="balance" aria-describedby="ls-calc-balance-help">
+        <fieldset>
+          <legend>Приборы</legend>
+          <label for="ls-balance-name">Имя</label>
+          <input id="ls-balance-name" type="text" placeholder="например, Moving Head 470W"/>
+          <label for="ls-balance-power">Мощность (Вт)</label>
+          <input id="ls-balance-power" type="number" min="1" step="1" placeholder="например, 470"/>
+          <label for="ls-balance-cos">cos φ</label>
+          <input id="ls-balance-cos" type="number" min="0.3" max="1" step="0.01" value="0.95"/>
+          <label for="ls-balance-type">Тип</label>
+          <select id="ls-balance-type">
+            <option value="res">Резистивная</option>
+            <option value="ind">Индуктивная</option>
+            <option value="smps" selected>SMPS</option>
+          </select>
+          <button type="button" id="ls-balance-add">Добавить прибор</button>
+        </fieldset>
+        <div id="ls-balance-list" aria-live="polite" role="status"></div>
+        <fieldset>
+          <legend>Параметры сети</legend>
+          <label for="ls-balance-voltage">Напряжение линейное (В)</label>
+          <input id="ls-balance-voltage" type="number" min="100" step="1" value="400"/>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-balance-run">Распределить по фазам</button>
+          <button type="button" id="ls-balance-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-balance-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-balance-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-balance-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Подсказка: если нейтраль близка к сумме фаз — у вас много нелинейной нагрузки и дисбаланс. Переразведите фазы и сократите «гребёнки» SMPS на одной линии.</p>
+    </section>
+
+    <!-- Calculator 3: Voltage drop and cable sizing -->
+    <section id="ls-calc-drop-sec" aria-labelledby="ls-calc-drop-title">
+      <h3 id="ls-calc-drop-title">3) Падение напряжения и подбор сечения</h3>
+      <p id="ls-calc-drop-help">ΔU% однофаз = 100 · (2 · ρ · L · I) / (S · U). Трёхфаз = 100 · (√3 · ρ · L · I) / (S · U). ρ зависит от материала и температуры.</p>
+      <form id="ls-calc-drop" data-ls-calc="drop" aria-describedby="ls-calc-drop-help">
+        <fieldset>
+          <legend>Исходные данные</legend>
+          <label for="ls-drop-phase">Сеть</label>
+          <select id="ls-drop-phase">
+            <option value="1">Однофазная</option>
+            <option value="3" selected>Трёхфазная</option>
+          </select>
+          <label for="ls-drop-material">Материал</label>
+          <select id="ls-drop-material">
+            <option value="cu" selected>Медь</option>
+            <option value="al">Алюминий</option>
+          </select>
+          <label for="ls-drop-length">Длина трассы L (м, один путь)</label>
+          <input id="ls-drop-length" type="number" min="1" step="1" placeholder="например, 80"/>
+          <label for="ls-drop-current">Ток I (А)</label>
+          <input id="ls-drop-current" type="number" min="0.1" step="0.1" placeholder="например, 45"/>
+          <label for="ls-drop-voltage">U номинальное (В)</label>
+          <input id="ls-drop-voltage" type="number" min="100" step="1" value="400"/>
+          <label for="ls-drop-max">Допустимое ΔU (%)</label>
+          <input id="ls-drop-max" type="number" min="1" max="15" step="0.1" value="5"/>
+          <label for="ls-drop-temp">Температура кабеля (°C)</label>
+          <input id="ls-drop-temp" type="number" min="-20" max="90" step="1" value="30"/>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-drop-run">Рассчитать</button>
+          <button type="button" id="ls-drop-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-drop-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-drop-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-drop-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Интерпретация: 8% падение — это риск тусклых приборов, «ошибочных» перезапусков SMPS и перегрева. Увеличьте сечение или сократите длину.</p>
+    </section>
+
+    <!-- Calculator 4: Generator sizing -->
+    <section id="ls-calc-gen-sec" aria-labelledby="ls-calc-gen-title">
+      <h3 id="ls-calc-gen-title">4) Размер генератора</h3>
+      <p id="ls-calc-gen-help">Суммируем активную мощность, учитываем пусковые коэффициенты и cos φ. Резерв 20–30% для outdoor и нелинейных нагрузок.</p>
+      <form id="ls-calc-gen" data-ls-calc="gen" aria-describedby="ls-calc-gen-help">
+        <fieldset>
+          <legend>Приборы</legend>
+          <label for="ls-gen-name">Имя</label>
+          <input id="ls-gen-name" type="text" placeholder="например, 8x LED Wash 800W"/>
+          <label for="ls-gen-power">Мощность (Вт)</label>
+          <input id="ls-gen-power" type="number" min="1" step="1" placeholder="например, 800"/>
+          <label for="ls-gen-qty">Кол-во</label>
+          <input id="ls-gen-qty" type="number" min="1" step="1" value="1"/>
+          <label for="ls-gen-kstart">Пусковой коэффициент</label>
+          <input id="ls-gen-kstart" type="number" min="1" step="0.1" value="1.5"/>
+          <button type="button" id="ls-gen-add">Добавить</button>
+        </fieldset>
+        <fieldset>
+          <legend>Параметры сети</legend>
+          <label for="ls-gen-cos">cos φ (средний)</label>
+          <input id="ls-gen-cos" type="number" min="0.5" max="1" step="0.01" value="0.9"/>
+          <label for="ls-gen-reserve">Резерв (%)</label>
+          <input id="ls-gen-reserve" type="number" min="0" max="100" step="1" value="25"/>
+        </fieldset>
+        <div id="ls-gen-list" aria-live="polite" role="status"></div>
+        <div class="ls-actions">
+          <button type="button" id="ls-gen-run">Рассчитать</button>
+          <button type="button" id="ls-gen-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-gen-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-gen-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-gen-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Пример: 30 кВт активной, пусковые пики 45 кВт, cosφ=0.9, резерв 25% → Требуется ≈ max(30,45)/0.9·1.25 ≈ 62.5 кВА.</p>
+    </section>
+
+    <!-- Calculator 5: RCD selection -->
+    <section id="ls-calc-rcd-sec" aria-labelledby="ls-calc-rcd-title">
+      <h3 id="ls-calc-rcd-title">5) Подбор УЗО</h3>
+      <p id="ls-calc-rcd-help">Расчёт ориентировочный. Учитываем утечки SMPS, тип сети и селективность. Окончательное решение — по нормам и измерениям.</p>
+      <form id="ls-calc-rcd" data-ls-calc="rcd" aria-describedby="ls-calc-rcd-help">
+        <fieldset>
+          <legend>Исходные данные</legend>
+          <label for="ls-rcd-smps">SMPS-приборов (шт)</label>
+          <input id="ls-rcd-smps" type="number" min="0" step="1" value="12"/>
+          <label for="ls-rcd-linei">Ток линии (А)</label>
+          <input id="ls-rcd-linei" type="number" min="1" step="1" value="32"/>
+          <label for="ls-rcd-net">Тип сети</label>
+          <select id="ls-rcd-net">
+            <option value="tn" selected>TN</option>
+            <option value="tt">TT</option>
+          </select>
+          <label for="ls-rcd-sel">Нужна селективность?</label>
+          <select id="ls-rcd-sel">
+            <option value="no" selected>Нет</option>
+            <option value="yes">Да</option>
+          </select>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-rcd-run">Рассчитать</button>
+          <button type="button" id="ls-rcd-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-rcd-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-rcd-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-rcd-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- Calculator 6: IP helper -->
+    <section id="ls-calc-ip-sec" aria-labelledby="ls-calc-ip-title">
+      <h3 id="ls-calc-ip-title">6) IP-помощник</h3>
+      <p id="ls-calc-ip-help">Подбор минимального IP по сценарию площадки, с рекомендациями по укрытию и конденсату.</p>
+      <form id="ls-calc-ip" data-ls-calc="ip" aria-describedby="ls-calc-ip-help">
+        <fieldset>
+          <legend>Условия</legend>
+          <label for="ls-ip-venue">Тип площадки</label>
+          <select id="ls-ip-venue">
+            <option value="indoor">Indoor</option>
+            <option value="outdoor" selected>Outdoor</option>
+          </select>
+          <label for="ls-ip-exposure">Экспозиция</label>
+          <select id="ls-ip-exposure">
+            <option value="dry">Сухо, пыли мало</option>
+            <option value="dust">Пыль/песок</option>
+            <option value="spray" selected>Брызги/дождь</option>
+            <option value="jets">Струи воды</option>
+            <option value="salt">Морской бриз/соль</option>
+          </select>
+          <label for="ls-ip-wash">Мойка под давлением?</label>
+          <select id="ls-ip-wash">
+            <option value="no" selected>Нет</option>
+            <option value="yes">Да</option>
+          </select>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-ip-run">Подобрать</button>
+          <button type="button" id="ls-ip-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-ip-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-ip-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-ip-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section cases -->
+  <section id="ls-cases" aria-labelledby="ls-cases-title">
+    <h2 id="ls-cases-title">Практические кейсы</h2>
+
+    <article class="ls-case" id="ls-case-1" aria-labelledby="ls-case-1-title">
+      <h3 id="ls-case-1-title">1) Открытый фестиваль под дождём</h3>
+      <p><strong>Контекст.</strong> Поле, сцена 12×10 м, публика 15 000 чел., два генератора 125 кВА по схеме N+1, прогноз — периодические ливни.</p>
+      <p><strong>Питание.</strong> Главный ввод — два параллельных генератора с ATS. TT/изолированная нейтраль по паспорту генераторов, связь N–PE реализована в распределительном щите согласно инструкции, на отходящих — УЗО 30 мА.</p>
+      <p><strong>IP и укрытие.</strong> Щиты IP54 под тентами с козырьками; стояки на высоте 30 см от земли; кабель-раны с дренажом; разъёмы True1 для приборов по периметру сцены.</p>
+      <p><strong>Расчёты.</strong> Суммарная активная 48 кВт, cosφ≈0.9, пусковые пики 1.6× для голов. Калькулятор генератора → ≈ 85 кВА + 25% → 106 кВА; взяли 125 кВА с запасом. Падение на магистрали 70 м медь 5×16 мм² при 90 А трёхфазно: ΔU% ≈ 100·(1.732·0.0175·70·90)/(16·400) ≈ 4.0% — допустимо.</p>
+      <p><strong>Риски и меры.</strong> Лужи у разъёмов — поднятие на подмостки, каплеотводы, проверка УЗО. SMPS под дождём — строгая группировка, минимизация перезагрузок после срабатываний.</p>
+      <p><strong>Ошибки.</strong> Попытка закрыть щит полиэтиленом без вентиляции — запотевание и срабатывание УЗО. Решение: тент + вентиляция.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-2" aria-labelledby="ls-case-2-title">
+      <h3 id="ls-case-2-title">2) Ледовая арена со стационарным питанием</h3>
+      <p><strong>Контекст.</strong> Длинные трассы 120–160 м до FOH, температура низкая, влажность высокая.</p>
+      <p><strong>Проблема.</strong> ΔU и гармоники от больших массивов LED. Решение — увеличить сечения магистралей, разнести SMPS по фазам, выделить отдельные линии на диммеры/моторы.</p>
+      <p><strong>Расчёты.</strong> 120 м, 55 А, три фазы, медь 25 мм² → ΔU% ≈ 2.7%. Нейтраль — до 0.9× фазы по результатам измерений из-за 3-й гармоники; PE и N увеличены в магистрали до 35 мм².</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-3" aria-labelledby="ls-case-3-title">
+      <h3 id="ls-case-3-title">3) Малый клуб с «слабой» электрикой</h3>
+      <p><strong>Контекст.</strong> Старое здание, ввод 3×63 А, много бытовых нагрузок, общая нейтраль на часть здания.</p>
+      <p><strong>Действия.</strong> Разделение групп, прецизионная балансировка фаз, свой дистро с УЗО тип A на конечных линиях, контроль за соединениями Schuko и исключение «тройников» без сертификации.</p>
+      <p><strong>Результат.</strong> Отказов нет, нейтраль не перегревается, отключения — только локальные при аварии прибора.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-4" aria-labelledby="ls-case-4-title">
+      <h3 id="ls-case-4-title">4) Тур с двумя генераторами и ATS</h3>
+      <p><strong>Контекст.</strong> Передвижной комплекс, ежедневные монтажи/демонтажи, разные климатические зоны.</p>
+      <p><strong>Решение.</strong> Генераторы 2×160 кВА, работа попеременно с «горячим» резервом; ATS с задержкой; контроль частоты; критичные узлы на UPS. Регламент: ежесуточный тест переключения без нагрузки.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-5" aria-labelledby="ls-case-5-title">
+      <h3 id="ls-case-5-title">5) Площадь города и длинные кабель-раны</h3>
+      <p><strong>Контекст.</strong> 200–250 м к отдалённым блокам. Выбор: медь 70 мм², уклон на один путь без колец. Разнесение трасс от аудио/сети, сигнальные — в отдельные ран-пути.</p>
+      <p><strong>Расчёты.</strong> ΔU% проверено калькулятором: при 80 А и 200 м на 70 мм² трёхфазно — около 3.5% при 30°C. Допустимо.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-6" aria-labelledby="ls-case-6-title">
+      <h3 id="ls-case-6-title">6) Международная площадка, 50/60 Гц</h3>
+      <p><strong>Контекст.</strong> Разные стандарты разъёмов, 120/240 В, 50/60 Гц. Решение — переходные панели, проверка совместимости SMPS по частоте, тест димира с 60 Гц, маркировка по цветам локальной страны.</p>
+    </article>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section checklists -->
+  <section id="ls-checklists" aria-labelledby="ls-checklists-title">
+    <h2 id="ls-checklists-title">Чеклисты и протоколы</h2>
+    <h3>Предмонтаж</h3>
+    <ul>
+      <li>Разрешения и договорённости с площадкой/городом.</li>
+      <li>Однолинейная схема, план балансировки фаз, расчёты ΔU и кВА.</li>
+      <li>Выбор IP, укрытия, дренаж.</li>
+      <li>План заземления и уравнивания потенциалов.</li>
+      <li>Подготовка маркировки и биркования LOTO.</li>
+    </ul>
+    <h3>Перед подачей напряжения</h3>
+    <ul>
+      <li>Визуальный осмотр кабелей и разъёмов, целостность защит.</li>
+      <li>Проверка целостности PE и полярности фаз.</li>
+      <li>Измерение изоляции, петли, тест УЗО.</li>
+      <li>Пробный пуск групп с наблюдением за токами и напряжением.</li>
+    </ul>
+    <h3>Завершение работ</h3>
+    <ul>
+      <li>Снятие напряжения, LOTO, демонтаж по плану, без «рывков».</li>
+      <li>Осмотр повреждений, сортировка и сушка кабелей.</li>
+      <li>Обновление протоколов и наклеек даты проверки.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section glossary -->
+  <section id="ls-glossary" aria-labelledby="ls-glossary-title">
+    <h2 id="ls-glossary-title">Глоссарий</h2>
+    <dl>
+      <dt>cos φ</dt><dd>Коэффициент мощности. Отношение активной мощности к полной: cos φ = P/S.</dd>
+      <dt>THD</dt><dd>Коэффициент гармонических искажений. Высокий THD — риск нагрева нейтрали и трансформаторов.</dd>
+      <dt>RCD/УЗО</dt><dd>Устройство защитного отключения. Сравнивает токи в фазе и нейтрали; разница — утечка.</dd>
+      <dt>RCBO/дифавтомат</dt><dd>Комбинация автомата и УЗО в одном корпусе.</dd>
+      <dt>SELV/PELV</dt><dd>Системы безопасного сверхнизкого напряжения. SELV изолирована, PELV — связана с землёй.</dd>
+      <dt>LSZH</dt><dd>Low Smoke Zero Halogen — низкое дымо- и газовыделение при горении.</dd>
+      <dt>ATS</dt><dd>Automatic Transfer Switch — автоматический ввод резерва.</dd>
+    </dl>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section faq -->
+  <section id="ls-faq" aria-labelledby="ls-faq-title">
+    <h2 id="ls-faq-title">FAQ</h2>
+    <h3>Почему выбивает УЗО на открытом воздухе?</h3>
+    <p>Суммарные утечки SMPS плюс влажность в разъёмах, длинные кабели с паразитной ёмкостью. Решение: больше групп с отдельными УЗО тип A/F, тщательная сушка и укрытие, деструктивные приборы на отдельные линии, проверка кабелей.</p>
+    <h3>Нужно ли гальванически развязывать DMX?</h3>
+    <p>Да, оптроны/изоляторы снижают риск «поездки» потенциала по экрану и защищают контроллер.</p>
+    <h3>Можно ли соединять нейтрали разных дистро?</h3>
+    <p>Нет. У каждой системы своя нейтраль; смешение создаёт путаницу токов, перегруз PE/N и опасные потенциалы.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: aside refs -->
+  <aside id="ls-refs" aria-labelledby="ls-refs-title">
+    <h2 id="ls-refs-title">Нормативы и ссылки</h2>
+    <ul>
+      <li>ПУЭ (Правила устройства электроустановок), действующая редакция.</li>
+      <li>ГОСТ Р по кабельной продукции, пожарной безопасности, маркировке.</li>
+      <li>IEC 60364 — Electrical installations of buildings.</li>
+      <li>IEC 60529 — Degrees of protection provided by enclosures (IP Code).</li>
+      <li>IEC 61008/61009 — RCD/RCBO.</li>
+      <li>Руководства производителей генераторов, распределительных щитов, диммеров и световых приборов.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </aside>
+
+  <!-- ls: footer -->
+  <footer id="ls-footer" role="contentinfo">
+    <p>Резюме: сцена — место, где электричество встречается с искусством. Делайте эту встречу безопасной: планируйте, измеряйте, защищайте. Привлекайте аттестованных специалистов и следуйте нормам.</p>
+    <p><a href="#ls-top">Наверх</a></p>
+  </footer>
+
+  <!-- ls: script -->
+  <script>
+  (function(){
+    'use strict';
+    const LSNS = {};
+
+    // Utilities
+    function q(id){ return document.getElementById(id); }
+    function num(v){ return typeof v === 'number' ? v : parseFloat(String(v).replace(',', '.')); }
+    function fmt(n, d=2){ if (!isFinite(n)) return '—'; return Number(n).toFixed(d); }
+    function clearNode(node){ while(node && node.firstChild){ node.removeChild(node.firstChild);} }
+    function setError(id, msg){ const el=q(id); if(el){ el.textContent=msg||''; } }
+    function setHTML(id, html){ const el=q(id); if(el){ el.innerHTML=html; } }
+    function collectPrint(targetSel){
+      const el = document.querySelector(targetSel);
+      if (!el) return window.print();
+      // Open minimal print window
+      const w = window.open('', '_blank', 'noopener,noreferrer');
+      if (!w) return window.print();
+      const title = document.title || 'Результаты расчёта';
+      w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+title+'</title></head><body>');
+      w.document.write(el.outerHTML);
+      w.document.write('</body></html>');
+      w.document.close();
+      w.focus();
+      w.print();
+      w.close();
+    }
+
+    // Calculator 1: Current
+    function initCurrent(){
+      const btnRun = q('ls-current-run');
+      const btnClear = q('ls-current-clear');
+      const inputs = ['ls-current-phase','ls-current-power','ls-current-power-unit','ls-current-voltage','ls-current-cos','ls-current-eta'];
+
+      btnRun && btnRun.addEventListener('click', ()=>{
+        setError('ls-current-error','');
+        const phase = q('ls-current-phase').value;
+        let P = num(q('ls-current-power').value);
+        const unit = q('ls-current-power-unit').value;
+        const U = num(q('ls-current-voltage').value);
+        const cos = num(q('ls-current-cos').value);
+        const eta = num(q('ls-current-eta').value);
+
+        if(!P || P<=0){ return setError('ls-current-error','Введите мощность > 0'); }
+        if(unit === 'kW') P *= 1000;
+        if(!U || U<=0){ return setError('ls-current-error','Введите напряжение > 0'); }
+        if(!cos || cos<=0 || cos>1){ return setError('ls-current-error','cos φ в диапазоне (0;1]'); }
+        if(!eta || eta<=0 || eta>1){ return setError('ls-current-error','КПД η в диапазоне (0;1]'); }
+
+        const denom = (phase==='3') ? (Math.sqrt(3)*U*cos*eta) : (U*cos*eta);
+        const I = P/denom;
+
+        // Recommend breaker: standard series
+        const mcb = [6,10,13,16,20,25,32,40,50,63,80,100,125,160,200,250,315,400];
+        let rec = mcb.find(a=>a>=I*1.1) || '—';
+        const formula = (phase==='3') ? 'I = P / (√3 · U · cosφ · η)' : 'I = P / (U · cosφ · η)';
+
+        const html = [
+          '<h4>Результаты</h4>',
+          '<p>Формула: '+formula+'</p>',
+          '<p>P = '+fmt(P,0)+' Вт, U = '+fmt(U,0)+' В, cosφ = '+fmt(cos,2)+', η = '+fmt(eta,2)+'</p>',
+          '<p><strong>I ≈ '+fmt(I,2)+' А</strong></p>',
+          '<p>Рекомендуемый номинал автомата (C-характеристика, ориентировочно): <strong>'+rec+' А</strong> с запасом ≥10%.</p>',
+          '<p><em>Примечание:</em> учитывайте пусковые токи и селективность (см. раздел «Электробезопасность»).</p>'
+        ].join('');
+        setHTML('ls-current-result', html);
+      });
+
+      btnClear && btnClear.addEventListener('click', ()=>{
+        inputs.forEach(id=>{ const el=q(id); if(el && el.tagName==='INPUT') el.value=''; });
+        setHTML('ls-current-result','');
+        setError('ls-current-error','');
+      });
+
+      // print
+      const printBtn = q('ls-calc-current').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', (e)=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 2: Balance
+    function initBalance(){
+      const list = [];
+      LSNS.balanceList = list; // kept internal but accessible if needed for debugging
+      function renderList(){
+        const wrap = q('ls-balance-list');
+        clearNode(wrap);
+        if(!list.length){ wrap.textContent = 'Список пуст.'; return; }
+        const ul = document.createElement('ul');
+        list.forEach((it, idx)=>{
+          const li = document.createElement('li');
+          li.textContent = (idx+1)+') '+it.name+' — '+it.p+' Вт, cosφ '+it.cos+', '+it.type.toUpperCase();
+          const b = document.createElement('button'); b.type='button'; b.textContent='Удалить'; b.addEventListener('click',()=>{ list.splice(idx,1); renderList(); });
+          li.appendChild(document.createTextNode(' '));
+          li.appendChild(b);
+          ul.appendChild(li);
+        });
+        wrap.appendChild(ul);
+      }
+
+      q('ls-balance-add').addEventListener('click', ()=>{
+        setError('ls-balance-error','');
+        const name = q('ls-balance-name').value.trim() || 'Прибор';
+        const p = num(q('ls-balance-power').value);
+        const cos = num(q('ls-balance-cos').value);
+        const type = q('ls-balance-type').value;
+        if(!p || p<=0){ return setError('ls-balance-error','Введите мощность прибора > 0'); }
+        if(!cos || cos<=0 || cos>1){ return setError('ls-balance-error','cos φ прибора в диапазоне (0;1]'); }
+        list.push({name, p, cos, type});
+        q('ls-balance-name').value=''; q('ls-balance-power').value=''; q('ls-balance-cos').value='0.95';
+        renderList();
+      });
+
+      q('ls-balance-run').addEventListener('click', ()=>{
+        setError('ls-balance-error','');
+        if(!list.length){ return setError('ls-balance-error','Добавьте хотя бы один прибор'); }
+        const Uline = num(q('ls-balance-voltage').value)||400;
+        const Uphase = Uline/Math.sqrt(3);
+        // Compute per-device phase current if placed on a phase
+        const items = list.map(it => {
+          const I = (it.p)/(Uphase*it.cos*0.95); // assume η=0.95 typical SMPS
+          const k3 = it.type==='smps' ? 0.3 : 0.0; // triplen harmonic factor (simplified)
+          return {name:it.name, I, cos:it.cos, type:it.type, k3};
+        }).sort((a,b)=>b.I-a.I);
+
+        const phases = [{name:'L1', I:0, items:[]},{name:'L2', I:0, items:[]},{name:'L3', I:0, items:[]}];
+        items.forEach(dev=>{
+          phases.sort((a,b)=>a.I-b.I);
+          phases[0].I += dev.I;
+          phases[0].items.push(dev);
+        });
+        // After distribution, compute neutral current with simplification and extra for k3
+        const I1 = phases[0].I, I2 = phases[1].I, I3 = phases[2].I;
+        let In = Math.sqrt(I1*I1 + I2*I2 + I3*I3 - I1*I2 - I2*I3 - I3*I1);
+        const k3avg = items.length ? items.reduce((s,a)=>s+a.k3,0)/items.length : 0;
+        In = In*(1 + k3avg);
+
+        const imbalance = (Math.max(I1,I2,I3)-Math.min(I1,I2,I3))/( (I1+I2+I3)/3 )*100;
+
+        let html = '<h4>Распределение по фазам</h4><div class="ls-grid">';
+        phases.forEach(ph=>{
+          html += '<div><strong>'+ph.name+': '+fmt(ph.I,2)+' А</strong><ul>';
+          ph.items.forEach(d=>{ html+='<li>'+d.name+' — '+fmt(d.I,2)+' А ('+d.type.toUpperCase()+')</li>'; });
+          html+='</ul></div>';
+        });
+        html += '</div>';
+        html += '<p><strong>I нейтрали ≈ '+fmt(In,2)+' А</strong> (с учётом упрощённого вклада 3-й гармоники: '+fmt(k3avg*100,0)+'%).</p>';
+        html += '<p>Дисбаланс фаз ≈ '+fmt(imbalance,1)+'%. Рекомендуется держать ниже 20%.</p>';
+        html += '<p><em>Формулы:</em> I = P/(Uф·cosφ·η), Uф = Uлиния/√3; I_N по векторной сумме.</p>';
+        setHTML('ls-balance-result', html);
+      });
+
+      q('ls-balance-clear').addEventListener('click', ()=>{
+        list.splice(0);
+        setHTML('ls-balance-list','');
+        setHTML('ls-balance-result','');
+        setError('ls-balance-error','');
+      });
+
+      // print
+      const printBtn = q('ls-calc-balance').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 3: Voltage drop
+    function initDrop(){
+      q('ls-drop-run').addEventListener('click', ()=>{
+        setError('ls-drop-error','');
+        const phase = q('ls-drop-phase').value;
+        const mat = q('ls-drop-material').value;
+        const L = num(q('ls-drop-length').value);
+        const I = num(q('ls-drop-current').value);
+        const U = num(q('ls-drop-voltage').value);
+        const maxPct = num(q('ls-drop-max').value);
+        const T = num(q('ls-drop-temp').value);
+
+        if(!L || L<=0) return setError('ls-drop-error','Введите длину > 0 м');
+        if(!I || I<=0) return setError('ls-drop-error','Введите ток > 0 А');
+        if(!U || U<=0) return setError('ls-drop-error','Введите напряжение > 0 В');
+        if(!maxPct || maxPct<=0) return setError('ls-drop-error','Введите допустимое падение > 0 %');
+
+        const rho20 = (mat==='cu') ? 0.0175 : 0.0283; // Ω·мм²/м
+        const alpha = (mat==='cu') ? 0.00393 : 0.00403;
+        const rho = rho20*(1+alpha*(T-20));
+        const K = (phase==='3') ? Math.sqrt(3) : 2;
+        // Solve for S minimal
+        const Smin = (K*rho*L*I)/( (maxPct/100)*U );
+        // pick standard section
+        const std = [1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400];
+        const Srec = std.find(s=>s>=Smin) || Smin;
+        // actual drop with Srec
+        const dUpct = 100*(K*rho*L*I)/(Srec*U);
+        const dU = U*(dUpct/100);
+
+        const html = [
+          '<h4>Подбор сечения</h4>',
+          '<p>Материал: '+(mat==='cu'?'медь':'алюминий')+', ρ('+fmt(T,0)+'°C) ≈ '+fmt(rho,5)+' Ω·мм²/м.</p>',
+          '<p>Формула: ΔU% = 100 · ('+(phase==='3'?'√3':'2')+' · ρ · L · I) / (S · U)</p>',
+          '<p>Минимальное расчётное сечение Smin ≈ <strong>'+fmt(Smin,2)+' мм²</strong></p>',
+          '<p>Рекомендованное стандартное сечение: <strong>'+fmt(Srec,0)+' мм²</strong></p>',
+          '<p>Ожидаемое падение с '+fmt(Srec,0)+' мм²: <strong>'+fmt(dUpct,2)+'%</strong> (≈ '+fmt(dU,1)+' В)</p>',
+          '<p><em>Примечание:</em> дополнительно проверьте длительно допустимый ток и условия прокладки.</p>'
+        ].join('');
+        setHTML('ls-drop-result', html);
+      });
+
+      q('ls-drop-clear').addEventListener('click', ()=>{
+        ['ls-drop-length','ls-drop-current'].forEach(id=>{ const el=q(id); if(el) el.value=''; });
+        setError('ls-drop-error',''); setHTML('ls-drop-result','');
+      });
+
+      // print
+      const printBtn = q('ls-calc-drop').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 4: Generator
+    function initGen(){
+      const list = [];
+      function render(){
+        const wrap = q('ls-gen-list');
+        clearNode(wrap);
+        if(!list.length){ wrap.textContent='Список пуст.'; return; }
+        const ul = document.createElement('ul');
+        list.forEach((it, idx)=>{
+          const li = document.createElement('li');
+          li.textContent = it.name+' — '+it.qty+'×'+it.p+' Вт, kпуск '+it.k;
+          const b=document.createElement('button'); b.type='button'; b.textContent='Удалить';
+          b.addEventListener('click',()=>{ list.splice(idx,1); render(); });
+          li.appendChild(document.createTextNode(' '));
+          li.appendChild(b);
+          ul.appendChild(li);
+        });
+        wrap.appendChild(ul);
+      }
+      q('ls-gen-add').addEventListener('click', ()=>{
+        setError('ls-gen-error','');
+        const name = q('ls-gen-name').value.trim()||'Нагрузка';
+        const p = num(q('ls-gen-power').value);
+        const qty = parseInt(q('ls-gen-qty').value,10)||1;
+        const k = num(q('ls-gen-kstart').value)||1;
+        if(!p || p<=0) return setError('ls-gen-error','Введите мощность > 0');
+        list.push({name, p, qty, k});
+        q('ls-gen-name').value=''; q('ls-gen-power').value=''; q('ls-gen-qty').value='1'; q('ls-gen-kstart').value='1.5';
+        render();
+      });
+      q('ls-gen-run').addEventListener('click', ()=>{
+        setError('ls-gen-error','');
+        if(!list.length) return setError('ls-gen-error','Добавьте нагрузки');
+        const cos = num(q('ls-gen-cos').value)||0.9;
+        const reserve = (num(q('ls-gen-reserve').value)||25)/100;
+
+        let Prun=0, Pstart=0;
+        list.forEach(it=>{
+          const Pr = it.p*it.qty;
+          Prun+=Pr;
+          Pstart+=it.p*it.k; // упрощение: пуск одновременно крупнейших
+        });
+        Pstart = Math.max(Prun, Pstart); // упрощённая критическая мощность
+        const kW = (Pstart/1000)*(1+reserve);
+        const kVA = kW/cos;
+
+        const html = [
+          '<h4>Размер генератора</h4>',
+          '<p>Суммарная активная: '+fmt(Prun/1000,2)+' кВт</p>',
+          '<p>Пусковая (упрощённо): '+fmt(Pstart/1000,2)+' кВт</p>',
+          '<p>cos φ средний: '+fmt(cos,2)+', резерв: '+fmt(reserve*100,0)+'%</p>',
+          '<p><strong>Рекомендовано: '+fmt(kW,1)+' кВт (≈ '+fmt(kVA,1)+' кВА)</strong></p>',
+          '<p>Совет: 2×(0.6–0.7) мощности каждого, схема N+1 для критичных событий.</p>'
+        ].join('');
+        setHTML('ls-gen-result', html);
+      });
+      q('ls-gen-clear').addEventListener('click', ()=>{
+        list.splice(0); setHTML('ls-gen-list',''); setHTML('ls-gen-result',''); setError('ls-gen-error','');
+      });
+      const printBtn = q('ls-calc-gen').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 5: RCD
+    function initRCD(){
+      q('ls-rcd-run').addEventListener('click', ()=>{
+        setError('ls-rcd-error','');
+        const n = parseInt(q('ls-rcd-smps').value,10)||0;
+        const I = num(q('ls-rcd-linei').value)||0;
+        const net = q('ls-rcd-net').value;
+        const sel = q('ls-rcd-sel').value;
+
+        if(I<=0) return setError('ls-rcd-error','Введите ток линии > 0');
+
+        // Approx leakage per SMPS
+        const leakPer = 0.7; // mA per device (typical range 0.5–1.0 mA)
+        const baseLeak = 2; // mA
+        const leak = baseLeak + n*leakPer;
+        let type = 'A'; // default for SMPS
+        let In = 30; // mA
+        let comment = [];
+
+        if(n>20 || I>32){ comment.push('Много SMPS — разбейте на большее число групп с отдельными УЗО.'); }
+        if(net==='tt'){ comment.push('TT: УЗО обязательно на всех конечных линиях.'); }
+        if(sel==='yes'){ comment.push('Выше по иерархии — селективное УЗО (тип S) на 100–300 мА.'); }
+
+        // If drives or dimmers likely present, hint type F/B
+        if(n>0){ type = 'A'; }
+        if(I>63){ In = 100; }
+
+        const html = [
+          '<h4>Подбор УЗО (ориентировочно)</h4>',
+          '<p>Оценка утечки: ~'+fmt(leak,1)+' мА</p>',
+          '<p>Рекомендация: тип <strong>'+type+'</strong>, уставка <strong>'+In+' мА</strong> на конечной линии.</p>',
+          '<p>Ввод/распределение: селективное УЗО <strong>100–300 мА тип S</strong> при необходимости селективности.</p>',
+          '<p><em>Замечание:</em> итоговый подбор — по измерениям и нормам площадки.</p>',
+          (comment.length?'<ul><li>'+comment.join('</li><li>')+'</li></ul>':'')
+        ].join('');
+        setHTML('ls-rcd-result', html);
+      });
+
+      q('ls-rcd-clear').addEventListener('click', ()=>{
+        ['ls-rcd-smps','ls-rcd-linei'].forEach(id=>{ const el=q(id); if(el) el.value=''; });
+        setHTML('ls-rcd-result',''); setError('ls-rcd-error','');
+      });
+
+      const printBtn = q('ls-calc-rcd').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 6: IP helper
+    function initIP(){
+      q('ls-ip-run').addEventListener('click', ()=>{
+        setError('ls-ip-error','');
+        const venue = q('ls-ip-venue').value;
+        const expo = q('ls-ip-exposure').value;
+        const wash = q('ls-ip-wash').value;
+
+        let ip1='2', ip2='0';
+        let notes = [];
+
+        if(venue==='indoor' && expo==='dry'){ ip1='2'; ip2='0'; notes.push('Достаточно IP20 при отсутствии брызг.'); }
+        if(venue==='indoor' && expo!=='dry'){ ip1='4'; ip2='2'; notes.push('Внутри с брызгами/пылями — IP42–IP44.'); }
+        if(venue==='outdoor'){
+          if(expo==='spray'){ ip1='5'; ip2='4'; notes.push('Outdoor с дождём — IP54 минимум, лучше IP55 под струи.'); }
+          if(expo==='dust'){ ip1='5'; ip2='5'; notes.push('Пыль и ветер — IP55, герметизируйте вводы.'); }
+          if(expo==='jets'){ ip1='6'; ip2='6'; notes.push('Струи — IP66. Избегайте прямого облива щитов.'); }
+          if(expo==='salt'){ ip1='6'; ip2='6'; notes.push('Морская соль: IP66 и коррозионностойкие материалы.'); }
+          if(expo==='dry'){ ip1='4'; ip2='4'; notes.push('Под тентом — IP44, контролируйте конденсат.'); }
+        }
+        if(wash==='yes'){ ip2='6'; notes.push('Планируется мойка — IP66/69K для приборов/корпусов.'); }
+
+        const html = [
+          '<h4>Минимальная степень IP</h4>',
+          '<p><strong>IP'+ip1+ip2+'</strong></p>',
+          '<ul><li>'+notes.join('</li><li>')+'</li></ul>',
+          '<p>Рекомендации: козырьки, влагозащищённые разъёмы, каплеотводы, дыхательные клапаны. Учтите УФ и коррозию.</p>'
+        ].join('');
+        setHTML('ls-ip-result', html);
+      });
+
+      q('ls-ip-clear').addEventListener('click', ()=>{
+        setHTML('ls-ip-result',''); setError('ls-ip-error','');
+      });
+
+      const printBtn = q('ls-calc-ip').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    window.LS = {
+      init: function(){
+        // Bind print buttons (delegated already per calc)
+        // Initialize calculators
+        initCurrent();
+        initBalance();
+        initDrop();
+        initGen();
+        initRCD();
+        initIP();
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function(){ window.LS && window.LS.init(); });
+  })();
+  </script>
+</article>
+      <!-- /Встроенная статья -->
     </main>
   </div>
 
