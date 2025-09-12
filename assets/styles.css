@@ -14,6 +14,7 @@
   --radius-xs: 4px;
   --radius-s: 6px;
   --radius-m: 8px;
+  
 
   /* системный стек */
   --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -301,3 +302,89 @@ body::before {
 
 /* Блокировка прокрутки при открытых попапах */
 body.modal-open { overflow: hidden; }
+
+/* Фон и читаемость подписей в SVG */
+:root {
+  --ls-fig-bg: #ffffff; /* светлый фон карточки со схемой */
+  --ls-fig-fg: #111111; /* базовый цвет текста внутри схем */
+}
+
+/* Оставляем фон SVG светлым даже в dark-теме — так подписи всегда читаемы */
+[data-theme="dark"] {
+  --ls-fig-bg: #ffffff;
+  --ls-fig-fg: #111111;
+}
+
+#ls-article .ls-figure svg,
+#ls-article svg[role="img"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: var(--ls-fig-bg);
+  color: var(--ls-fig-fg);        /* текущий цвет для текста внутри SVG */
+  border-radius: 8px;
+  padding: 8px;                   /* небольшой внутренний отступ, чтобы текст не лип к краям */
+  box-sizing: border-box;
+}
+
+/* Все текстовые узлы внутри SVG берут цвет из currentColor */
+#ls-article svg text,
+#ls-article svg tspan {
+  fill: currentColor;
+}
+
+/* 1) Базово — чтобы padding не раздувал контейнер */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2) Унифицируем контейнер (и в шапке, и в контенте) */
+:root{
+  --site-max: 1200px;      /* ваш максимум по макету */
+  --site-gutter: 16px;     /* горизонтальные поля на мобильных */
+}
+
+.container{
+  width: 100%;
+  max-width: var(--site-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-gutter);
+  padding-right: var(--site-gutter);
+}
+
+/* 3) Грид основного лейаута и защита от переполнения */
+.layout{
+  display: grid;
+  grid-template-columns: 280px 1fr; /* десктоп: сайдбар + контент */
+  gap: 24px;
+}
+
+/* важно: детям грида позволяем сжиматься, иначе возможен overflow */
+.layout > *{
+  min-width: 0;
+}
+
+/* 4) Мобильная адаптация — убираем фиксированную ширину сайдбара */
+@media (max-width: 960px){
+  .layout{
+    grid-template-columns: 1fr; /* только контентная колонка */
+  }
+  .sidebar{
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* 5) Медиа внутри не должны растягивать контейнер */
+img, svg, video{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 6) (по желанию) страховка от горизонтальной прокрутки на очень узких экранах */
+/* Использовать, только если после правок всё равно остаётся редкий overflow */
+@media (max-width: 960px){
+  html, body{ overflow-x: hidden; }
+}
