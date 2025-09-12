@@ -1,0 +1,41 @@
+[
+  { "title": "Физика света и фотометрия — обзор", "url": "sections/physics.html", "description": "Световой поток, сила света, освещённость, яркость, спектр, CCT.", "keywords": "физика света фотометрия люмен люкс кандела яркость спектр CCT" },
+  { "title": "Единицы измерения: люмен, люкс, кандела", "url": "sections/physics.html#units", "description": "Связь lm/lx/cd, закон обратных квадратов, примеры.", "keywords": "lm lx cd нит яркость освещенность инверсный квадрат" },
+  { "title": "Цветовые модели: RGB, HSI, CIE 1931", "url": "sections/physics.html#color-models", "description": "Смешение цветов, гамут, коррекция белого.", "keywords": "цвет RGB HSI HSV CIE xyY гамут white balance" },
+  { "title": "CRI, TLCI и TM‑30: качество света", "url": "sections/physics.html#cri-tm30", "description": "Индексы цветопередачи для глаза и камеры.", "keywords": "CRI TLCI TM-30 индекс цветопередачи" },
+
+  { "title": "Электрика и безопасность — обзор", "url": "sections/electrical-safety.html", "description": "Распределение питания, защита персонала и оборудования.", "keywords": "безопасность электроустановка ПТБ питание" },
+  { "title": "Питание и распределение нагрузки", "url": "sections/electrical-safety.html#power-distribution", "description": "Фазы, балансировка, автоматы, PDU, powerCON/True1.", "keywords": "распределение фазы автомат PDU powerCON True1" },
+  { "title": "Заземление, УЗО и селективность", "url": "sections/electrical-safety.html#grounding-rcd", "description": "Контуры, RCD/УЗО, тесты и документация.", "keywords": "заземление УЗО RCD селективность тест" },
+  { "title": "Кабели, коннекторы и IP‑рейтинги", "url": "sections/electrical-safety.html#cables-connectors", "description": "Сечения, XLR, powerCON, IP65/IP67, хранение.", "keywords": "кабели XLR powerCON True1 IP65 IP67" },
+
+  { "title": "Приборы и оптика — обзор", "url": "sections/fixtures-optics.html", "description": "Классификация приборов, оптика, обслуживание.", "keywords": "приборы головы оптика линзы" },
+  { "title": "Типы приборов: Spot, Wash, Beam, Profile", "url": "sections/fixtures-optics.html#fixture-types", "description": "Особенности применения и патчинг режимов.", "keywords": "spot wash beam profile gobo frost iris" },
+  { "title": "Оптика: линза Френеля и профиль", "url": "sections/fixtures-optics.html#optics-fresnel-profile", "description": "Пучок, поле, кромка, T‑stop/f‑stop.", "keywords": "линза Френеля профиль T-stop f-stop" },
+  { "title": "Источники света: лампы vs LED, ШИМ и строб", "url": "sections/fixtures-optics.html#light-sources-pwm", "description": "Мерцание на камере, flicker‑free.", "keywords": "LED лампа PWM мерцание" },
+
+  { "title": "Риггинг и механика — обзор", "url": "sections/rigging-mechanics.html", "description": "Нагрузки, крепёж, стандарты безопасности.", "keywords": "риггинг крепеж безопасность" },
+  { "title": "Нагрузки, WLL/SWL и коэффициент запаса", "url": "sections/rigging-mechanics.html#loads-swl", "description": "Расчёты, распределение веса по фермам.", "keywords": "WLL SWL коэффициент запаса ферма" },
+  { "title": "Стропы, фермы, грилля и климбы", "url": "sections/rigging-mechanics.html#slings-truss", "description": "Типы стропов и ферменные системы.", "keywords": "строп ферма грилля климб" },
+  { "title": "Безопасность и чек‑листы такелажа", "url": "sections/rigging-mechanics.html#safety-checklists", "description": "Осмотры, журнал, PPE.", "keywords": "чек-лист PPE каска страховка" },
+
+  { "title": "Управление и протоколы — обзор", "url": "sections/control-protocols.html", "description": "DMX, RDM, Art‑Net, sACN, адресация и сети.", "keywords": "DMX RDM Art-Net sACN сеть" },
+  { "title": "DMX512: адресация и патчинг", "url": "sections/control-protocols.html#dmx", "description": "Универсы, 8/16‑бит, режимы.", "keywords": "DMX dmx512 адресация patch 8bit 16bit" },
+  { "title": "RDM: удалённый мониторинг и настройка", "url": "sections/control-protocols.html#rdm", "description": "UID, discovery, ограничения.", "keywords": "RDM remote device management UID" },
+  { "title": "Art‑Net и sACN: сетевая инфраструктура", "url": "sections/control-protocols.html#network", "description": "IP‑адресация, VLAN, QoS.", "keywords": "Art-Net sACN IP VLAN QoS" },
+
+  { "title": "Рабочий процесс — обзор", "url": "sections/workflow.html", "description": "Планирование, сетап, репетиции, шоу.", "keywords": "продакшен сетап репетиция шоу" },
+  { "title": "Подготовка проекта и документация", "url": "sections/workflow.html#preproduction", "description": "Планы, райдер, патч‑листы, коммуникации.", "keywords": "preproduction райдер патч-лист" },
+  { "title": "Сетап и тестирование системы", "url": "sections/workflow.html#setup-testing", "description": "Монтаж, адресация, прогон сигналов.", "keywords": "монтаж адресация тест" },
+  { "title": "Программирование, пресеты и плейбэк", "url": "sections/workflow.html#programming", "description": "Палитры, трекинг, таймкод, backup.", "keywords": "консоль палитры трекинг таймкод backup" },
+
+  { "title": "Инструменты — обзор", "url": "sections/tools.html", "description": "ПО, утилиты, тестеры, шаблоны.", "keywords": "инструменты софт тестеры шаблоны" },
+  { "title": "ПО: визуализаторы и оффлайн‑редакторы", "url": "sections/tools.html#software", "description": "Виртуальные сцены, экспорт в консоли.", "keywords": "визуализатор onPC Chamsys Capture" },
+  { "title": "Тестеры и измерительное оборудование", "url": "sections/tools.html#testers", "description": "DMX‑тестеры, мультиметры, анализаторы.", "keywords": "DMX тестер мультиметр анализатор" },
+  { "title": "Шаблоны: патч‑листы и чек‑листы", "url": "sections/tools.html#templates", "description": "Готовые формы и примеры.", "keywords": "шаблон патч-лист чек-лист" },
+
+  { "title": "Статьи — обновления и кейсы", "url": "sections/articles.html", "description": "Полевые заметки, разборы, обзоры.", "keywords": "статьи блог кейсы обзоры" },
+  { "title": "Кейс: сетевая инфраструктура для шоу", "url": "sections/articles.html#case-network", "description": "VLAN для Art‑Net/sACN, QoS, резервирование.", "keywords": "VLAN QoS резервирование monitoring" },
+  { "title": "Разбор: типичные ошибки адресации DMX", "url": "sections/articles.html#dmx-mistakes", "description": "Конфликты адресов, режимы приборов.", "keywords": "DMX ошибки адресация режим" },
+  { "title": "Обзор: линзы и фильтры для сценических приборов", "url": "sections/articles.html#lenses-review", "description": "Гели, диффузоры, CTO/CTB.", "keywords": "линзы фильтры CTO CTB диффузор" }
+]
