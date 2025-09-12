@@ -9,6 +9,21 @@
   <meta name="theme-color" content="#121418" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+  html, body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+                 Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  }
+  code, pre, kbd, samp {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+                 "Liberation Mono", monospace;
+  }
+  /* Переопределим шрифты в SVG, если там остались inline-стили */
+  svg text {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+                 Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+  }
+</style>
 </head>
 <body>
   <!-- ШАПКА САЙТА -->
@@ -154,4 +169,5 @@
 
   <script src="assets/main.js" defer></script>
 </body>
+
 </html>
