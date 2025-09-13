@@ -372,6 +372,20 @@
       .lg-root .lg-controls, .lg-root .lg-copylink, .lg-root .lg-actions, .lg-root .lg-btn{ display:none !important; }
       .lg-root a{ text-decoration: underline; }
     }
+
+	  /* Все внутренние (якорные) ссылки внутри статьи — как "Назад к содержанию" */
+#ls-article a[href^="#"]:not([href="#"]) {
+  color: var(--lg-link);
+  text-decoration: none;
+}
+#ls-article a[href^="#"]:not([href="#"]):hover,
+#ls-article a[href^="#"]:not([href="#"]):focus {
+  text-decoration: underline;
+  outline: none;
+}
+#ls-article a[href^="#"]:not([href="#"]):visited {
+  color: var(--lg-link);
+}
   </style>
 
   <header class="lg-header">
@@ -1932,3 +1946,4 @@
 </body>
 
 </html>
+
