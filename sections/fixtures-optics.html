@@ -224,6 +224,20 @@
   #ls-article a[href="#ls-top"]:visited{
     color: var(--lg-link);
   }
+
+	/* Все внутренние (якорные) ссылки внутри статьи — как "Назад к содержанию" */
+#ls-article a[href^="#"]:not([href="#"]) {
+  color: var(--lg-link);
+  text-decoration: none;
+}
+#ls-article a[href^="#"]:not([href="#"]):hover,
+#ls-article a[href^="#"]:not([href="#"]):focus {
+  text-decoration: underline;
+  outline: none;
+}
+#ls-article a[href^="#"]:not([href="#"]):visited {
+  color: var(--lg-link);
+}
  
 </style>
 
@@ -1578,3 +1592,4 @@ sACN Prio: 100 (MA), 90 (Backup)</code></pre>
   <script src="../assets/main.js" defer></script>
 </body>
 </html>
+
