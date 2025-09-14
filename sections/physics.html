@@ -372,32 +372,10 @@
       .lg-root .lg-controls, .lg-root .lg-copylink, .lg-root .lg-actions, .lg-root .lg-btn{ display:none !important; }
       .lg-root a{ text-decoration: underline; }
     }
-	
-	/* Все внутренние (якорные) ссылки внутри статьи — как "Назад к содержанию" */
-#ls-article a[href^="#"]:not([href="#"]) {
-  color: var(--lg-link);
-  text-decoration: none;
-}
-#ls-article a[href^="#"]:not([href="#"]):hover,
-#ls-article a[href^="#"]:not([href="#"]):focus {
-  text-decoration: underline;
-  outline: none;
-}
-#ls-article a[href^="#"]:not([href="#"]):visited {
-  color: var(--lg-link);
-}
   </style>
 
   <header class="lg-header">
     <h1 id="lg-top">Физика света и фотометрия для концертного света</h1>
-    <p class="lg-subtitle">Популярное объяснение с инженерной строгостью, примерами и интерактивными калькуляторами</p>
-    <div class="lg-forwho">
-      Для кого: специалисты прокатных компаний и площадок, дизайнеры света, гаферы и шеф‑электрики, студенты и преподаватели профильных направлений, а также все, кто хочет понимать свет так же глубоко, как он звучит в музыке.
-    </div>
-    <div class="lg-controls" role="group" aria-label="Управление материалом">
-      <!-- Убран локальный переключатель темы для использования общего переключателя страницы -->
-      <button class="lg-btn lg-print" aria-label="Печать или сохранить в PDF">Печать / PDF</button>
-    </div>
   </header>
 
   <nav id="lg-toc" class="lg-toc" aria-label="Содержание">
