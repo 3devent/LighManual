@@ -3,26 +3,209 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Инструменты</title>
-  <meta name="description" content="ПО, утилиты, тестеры, шаблоны и формы." />
+  <title>Инструменты — калькуляторы</title>
+  <meta name="description" content="Единая страница с калькуляторами: физика света, электрика/безопасность, приборы/оптика, риггинг/механика." />
   <link rel="stylesheet" href="../assets/styles.css" />
+  <!-- Стили из st.txt -->
+  <style>
+    /* Те же переменные темы, что в physics.html */
+    #ls-article{
+      --lg-bg:#ffffff;
+      --lg-fg:#121417;
+      --lg-accent:#2b6cb0;
+      --lg-accent-2:#0ea5e9;
+      --lg-muted:#6b7280;
+      --lg-border:#e5e7eb;
+      --lg-note:#f1f5f9;
+      --lg-tip:#ecfeff;
+      --lg-warn:#fff7ed;
+      --lg-ok:#10b981;
+      --lg-bad:#ef4444;
+      --lg-link:#1d4ed8;
+      --lg-code-bg:#0b0f14;
+      --lg-code:#e2e8f0;
+      --lg-font: system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
+      --lg-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      --lg-radius: 10px;
+      --lg-shadow: 0 6px 24px rgba(0,0,0,.08);
+      --lg-focus: 0 0 0 3px rgba(43,108,176,.25);
+
+      color:var(--lg-fg);
+      background:var(--lg-bg);
+      font-family:var(--lg-font);
+      line-height:1.6;
+      font-size:16px;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding:1rem;
+      border:1px solid var(--lg-border);
+      border-radius:var(--lg-radius);
+      box-shadow:var(--lg-shadow);
+      overflow:hidden;
+    }
+    html[data-theme="dark"] #ls-article{
+      --lg-bg:#0b0e12;
+      --lg-fg:#e8eef5;
+      --lg-accent:#7aa2f7;
+      --lg-accent-2:#22d3ee;
+      --lg-muted:#9aa4b2;
+      --lg-border:#273244;
+      --lg-note:#111827;
+      --lg-tip:#0b1b2a;
+      --lg-warn:#2a1b12;
+      --lg-link:#9ab6ff;
+      --lg-code-bg:#0b0f14;
+      --lg-code:#e5e7eb;
+      --lg-shadow:0 10px 30px rgba(0,0,0,.45);
+      --lg-focus:0 0 0 3px rgba(122,162,247,.35);
+    }
+
+    /* Оглавление */
+    #ls-article #ls-toc{
+      border:1px solid var(--lg-border);
+      border-radius:var(--lg-radius);
+      padding:1rem;
+      background:linear-gradient(180deg, rgba(43,108,176,.06), transparent 45%);
+      margin:.5rem 0 1rem;
+    }
+    #ls-article #ls-toc h2{ margin:.2rem 0 .4rem; font-size:1.15rem; }
+    #ls-article #ls-toc a{ color:var(--lg-link); text-decoration:none; }
+    #ls-article #ls-toc a:hover{ text-decoration:underline; }
+
+    /* Секции (карточки) */
+    #ls-article section{
+      border:1px solid var(--lg-border);
+      border-radius:var(--lg-radius);
+      padding:1rem;
+      background:linear-gradient(180deg, rgba(14,165,233,.05), transparent 65%);
+      margin:1rem 0;
+    }
+    #ls-article h2, #ls-article h3{
+      display:flex; align-items:center; gap:.5rem; margin-top:0;
+    }
+
+    /* Фигуры и SVG */
+    #ls-article .ls-figure{
+      border:1px solid var(--lg-border);
+      border-radius:var(--lg-radius);
+      background:var(--lg-bg);
+      padding:.5rem;
+      margin:.6rem 0 1rem;
+      overflow:auto;
+    }
+    #ls-article .ls-figure figcaption{ font-size:.95rem; color:var(--lg-muted); margin:.25rem 0 .15rem .15rem; }
+    #ls-article svg{ max-width:100%; height:auto; display:block; }
+
+    /* Формы/калькуляторы */
+    #ls-article fieldset{
+      border:1px solid var(--lg-border);
+      border-radius:var(--lg-radius);
+      padding:.75rem;
+    }
+    #ls-article input, #ls-article select, #ls-article textarea{
+      padding:.5rem .55rem;
+      border:1px solid var(--lg-border);
+      border-radius:8px;
+      background:var(--lg-bg);
+      color:var(--lg-fg);
+      font-family:var(--lg-mono);
+    }
+    #ls-article .ls-actions{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1rem; }
+    #ls-article .ls-actions button{
+      background:var(--lg-accent); color:#fff; border:none; border-radius:8px; padding:.6rem .9rem; cursor:pointer; font-weight:600;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,.12);
+    }
+    #ls-article .ls-actions button + button{
+      background:transparent; color:var(--lg-accent); border:1px solid var(--lg-accent);
+    }
+    #ls-article .ls-results{
+      padding:.65rem .8rem;
+      border:1px dashed var(--lg-border);
+      border-radius:8px;
+      background:rgba(2,6,23,.05);
+      font-family:var(--lg-mono);
+    }
+    #ls-article .ls-error{ color:var(--lg-bad); font-weight:600; }
+
+    /* Код */
+    #ls-article code{ font-family:var(--lg-mono); background:rgba(2,6,23,.06); padding:.1rem .35rem; border-radius:6px; }
+    #ls-article pre{
+      background:var(--lg-code-bg); color:var(--lg-code);
+      padding:.8rem 1rem; border-radius:var(--lg-radius); overflow:auto;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+    }
+
+    /* Печать */
+    @media print{
+      #ls-article{ box-shadow:none; border:none; }
+      #ls-article .ls-actions button{ display:none !important; }
+      #ls-article a{ text-decoration:underline; }
+    }
+    /* Ссылки "Назад к содержанию" и "Наверх" */
+    #ls-article a[href="#ls-toc"]{ color: var(--lg-link); text-decoration: none; }
+    #ls-article a[href="#ls-toc"]:hover, #ls-article a[href="#ls-toc"]:focus{ text-decoration: underline; outline: none; }
+    #ls-article a[href="#ls-top"]{ color: var(--lg-link); text-decoration: none; }
+    #ls-article a[href="#ls-top"]:hover, #ls-article a[href="#ls-top"]:focus{ text-decoration: underline; outline: none; }
+
+    /* Якорные ссылки */
+    #ls-article a[href^="#"]:not([href="#"]) { color: var(--lg-link); text-decoration: none; }
+    #ls-article a[href^="#"]:not([href="#"]):hover, #ls-article a[href^="#"]:not([href="#"]):focus { text-decoration: underline; outline: none; }
+    #ls-article a[href^="#"]:not([href="#"]):visited { color: var(--lg-link); }
+
+    /* Небольшие утилиты для внутренней навигации */
+    .tools-index{ display:grid; gap:.5rem; }
+    .tools-index ul{ margin:.25rem 0 .5rem; }
+    .tools-index li{ margin:.15rem 0; }
+
+    /* Небольшое улучшение сетки для .lg-root калькуляторов (из physics) */
+    .lg-root .lg-calc{ border:1px solid var(--lg-border); border-radius:var(--lg-radius); padding:.75rem; background:linear-gradient(180deg, rgba(16,185,129,.05), transparent 65%); margin:.75rem 0; }
+    .lg-root .lg-form{ display:grid; gap:.6rem; grid-template-columns: repeat(12,1fr); align-items:end; }
+    .lg-root .lg-field{ grid-column: span 4; display:grid; gap:.25rem; }
+    .lg-root .lg-field label{ font-weight:600; }
+    .lg-root .lg-field input, .lg-root .lg-field select{ padding:.5rem .55rem; border:1px solid var(--lg-border); border-radius:8px; background:var(--lg-bg); color:var(--lg-fg); font-family:var(--lg-mono); }
+    .lg-root .lg-actions{ grid-column:1/-1; display:flex; gap:.5rem; flex-wrap:wrap; }
+    .lg-root .lg-out{ grid-column:1/-1; background:rgba(2,6,23,.05); border:1px dashed var(--lg-border); padding:.65rem .8rem; border-radius:8px; font-family:var(--lg-mono); }
+    .lg-root .lg-help{ grid-column:1/-1; font-size:.95rem; color:var(--lg-muted); }
+    @media (max-width: 980px){ .lg-root .lg-field{ grid-column: span 6; } }
+    @media (max-width: 640px){ .lg-root .lg-field{ grid-column: span 12; } }
+	
+	/* Приводим кнопки «Физика света» к виду, как в остальных разделах */
+#ls-article .ls-actions button,
+.lg-root .lg-actions button,
+.lg-root .lg-btn{
+  background: var(--lg-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: .6rem .9rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.12);
+}
+
+/* Вариант «вторичной» кнопки */
+#ls-article .ls-actions button + button,
+.lg-root .lg-actions button.secondary,
+.lg-root .lg-btn.secondary{
+  background: transparent;
+  color: var(--lg-accent);
+  border: 1px solid var(--lg-accent);
+}
+  </style>
 </head>
 <body>
+
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="../index.html" aria-label="На главную">
-        <!--<span class="brand-mark" aria-hidden="true">◆</span>
-        <span class="brand-text">На главную</span>-->
-		<svg width="145" height="50" viewBox="0 0 38.364 13.23" xmlns="http://www.w3.org/2000/svg">
-    <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495373;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M9.618 10.155s.51.625.732.961c.516.19 1.589.602 2.323.817l-1.578-1.017c-.1.06-.296.018-.395-.047-.123-.082-.27-.314-.174-.419.094-.104.385-.043.509.038.097.064.203.214.163.312l1.543 1.06c-.423-.557-1.494-1.7-1.494-1.7l-1.46-.535Z"/>
-    <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495374;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m7.83 7.858 1.205.849.036-1.293c1.965-.044 3.226-1.408 3.226-3.041 0-1.632-1.343-2.938-3.308-2.982l-.01-.312L7.856.646Zm1.196-5.276c1.136.025 2.004.825 2.053 1.788.036 1.09-.848 1.843-1.999 1.94z"/>
-    <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495374;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m6.38.124-2.633 4.92.889.631L6.27 3.268l.12 3.574 1.168.838V.54C7.185.412 6.937.31 6.38.124ZM2.95 6.435.46 10.992l2.274-2.136 1.045-1.898ZM6.436 8.58l.055 1.154 1.073 2.468-.023-2.928Z"/>
-    <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495373;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M.496 3.215.14 4.331l9.236 5.775.239-.718Z"/>
-    <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:6.57056px;font-family:'GOST Type BU';-inkscape-font-specification:'GOST Type BU, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f70000;fill-opacity:1;stroke:#fe0000;stroke-width:.07937857;stroke-dasharray:none;stroke-opacity:1" x="14.255" y="5.056" transform="scale(.90389 1.10633)"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:6.57056px;font-family:'GOST Type BU';-inkscape-font-specification:'GOST Type BU, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f70000;fill-opacity:1;stroke:#fe0000;stroke-width:.07937857;stroke-dasharray:none;stroke-opacity:1" x="14.255" y="5.056">Пособие</tspan></text>
-    <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:3.69593px;font-family:'GOST Type BU';-inkscape-font-specification:'GOST Type BU, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f70000;fill-opacity:1;stroke:#fe0000;stroke-width:.07937857;stroke-dasharray:none;stroke-opacity:1" x="14.553" y="8.194" transform="scale(.90389 1.10633)"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:3.69593px;font-family:'GOST Type BU';-inkscape-font-specification:'GOST Type BU, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f70000;fill-opacity:1;stroke:#fe0000;stroke-width:.07937857;stroke-dasharray:none;stroke-opacity:1" x="14.553" y="8.194">специалистов</tspan></text>
-    <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:3.69593px;font-family:'GOST Type BU';-inkscape-font-specification:'GOST Type BU, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f70000;fill-opacity:1;stroke:#fe0000;stroke-width:.07937857;stroke-dasharray:none;stroke-opacity:1" x="14.566" y="11.108" transform="scale(.90389 1.10633)"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:3.69593px;font-family:'GOST Type BU';-inkscape-font-specification:'GOST Type BU, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f70000;fill-opacity:1;stroke:#fe0000;stroke-width:.07937857;stroke-dasharray:none;stroke-opacity:1" x="14.566" y="11.108">по свету</tspan></text>
-    <text xml:space="preserve" style="font-weight:700;font-size:32.4552px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';fill:#fff;stroke-width:.105832" x="48.465" y="9.775"><tspan style="stroke-width:.105832" x="48.465" y="9.775"> </tspan></text>
-</svg>
+        <svg width="145" height="50" viewBox="0 0 38.364 13.23" xmlns="http://www.w3.org/2000/svg">
+          <path style="fill:#f70000" d="M9.618 10.155s.51.625.732.961c.516.19 1.589.602 2.323.817l-1.578-1.017c-.1.06-.296.018-.395-.047-.123-.082-.27-.314-.174-.419.094-.104.385-.043.509.038.097.064.203.214.163.312l1.543 1.06c-.423-.557-1.494-1.7-1.494-1.7l-1.46-.535Z"/>
+          <path style="fill:#f70000" d="m7.83 7.858 1.205.849.036-1.293c1.965-.044 3.226-1.408 3.226-3.041 0-1.632-1.343-2.938-3.308-2.982l-.01-.312L7.856.646Zm1.196-5.276c1.136.025 2.004.825 2.053 1.788.036 1.09-.848 1.843-1.999 1.94z"/>
+          <path style="fill:#f70000" d="m6.38.124-2.633 4.92.889.631L6.27 3.268l.12 3.574 1.168.838V.54C7.185.412 6.937.31 6.38.124ZM2.95 6.435.46 10.992l2.274-2.136 1.045-1.898ZM6.436 8.58l.055 1.154 1.073 2.468-.023-2.928Z"/>
+          <path style="fill:#f70000" d="M.496 3.215.14 4.331l9.236 5.775.239-.718Z"/>
+          <text xml:space="preserve" style="font-size:6.57px;fill:#f70000;stroke:#fe0000;stroke-width:.08" x="14.255" y="5.056" transform="scale(.90389 1.10633)">Пособие</text>
+          <text xml:space="preserve" style="font-size:3.696px;fill:#f70000;stroke:#fe0000;stroke-width:.08" x="14.553" y="8.194" transform="scale(.90389 1.10633)">специалистов</text>
+          <text xml:space="preserve" style="font-size:3.696px;fill:#f70000;stroke:#fe0000;stroke-width:.08" x="14.566" y="11.108" transform="scale(.90389 1.10633)">по свету</text>
+        </svg>
       </a>
       <div class="header-actions">
         <button id="searchOpenBtn" class="icon-btn" aria-label="Поиск по разделам">
@@ -50,7 +233,7 @@
           <li><a href="rigging-mechanics.html">Риггинг и механика</a></li>
           <li><a href="control-protocols.html">Управление и протоколы</a></li>
           <li><a href="workflow.html">Рабочий процесс</a></li>
-          <li><a href="tools.html">Инструменты</a></li>
+          <li><a href="tools.html" aria-current="page">Инструменты</a></li>
           <li><a href="articles.html">Статьи</a></li>
         </ul>
       </nav>
@@ -60,26 +243,674 @@
       <section class="hero">
         <div class="hero-inner">
           <div class="hero-copy">
-            <h1>Инструменты — обзор</h1>
-            <p class="lead">ПО, утилиты, тестеры и готовые шаблоны для повседневной работы.</p>
+            <h1>Инструменты</h1>
           </div>
         </div>
       </section>
 
-      <section id="software">
-        <h2>ПО: визуализаторы и оффлайн‑редакторы</h2>
-        <p>Виртуальные сцены, экспорт в консоли, onPC/Chamsys/Capture и др.</p>
-      </section>
+      <article id="ls-article" lang="ru">
+        <div id="ls-top"></div>
 
-      <section id="testers">
-        <h2>Тестеры и измерительное оборудование</h2>
-        <p>DMX‑тестеры, мультиметры, анализаторы, практические советы.</p>
-      </section>
+        <nav id="ls-toc" aria-label="Содержание">
+          <h2>Содержание</h2>
+          <div class="tools-index">
+            <ul>
+              <li><a href="#tools-physics">Физика света и фотометрия — калькуляторы</a></li>
+              <li><a href="#tools-electrical">Электрика и безопасность — калькуляторы</a></li>
+              <li><a href="#tools-fixtures">Приборы и оптика — калькуляторы</a></li>
+              <li><a href="#tools-rigging">Риггинг и механика — калькуляторы</a></li>
+            </ul>
+          </div>
+        </nav>
 
-      <section id="templates">
-        <h2>Шаблоны: патч‑листы и чек‑листы</h2>
-        <p>Готовые формы и примеры с рекомендациями по заполнению.</p>
-      </section>
+        <!-- PHYSICS CALCULATORS -->
+        <section id="tools-physics" aria-labelledby="tools-physics-title">
+          <h2 id="tools-physics-title">Физика света и фотометрия — калькуляторы</h2>
+          <p>Набор интерактивных калькуляторов из раздела «Физика света»: температура, CTO/CTB, смешение LED, освещённость, геометрия пятна, покрытие по люксу, перекрытия, фликер, CCT↔xy, LER.</p>
+
+          <div class="lg-root">
+            <!-- TEMP -->
+            <article id="lg-calc-temp" class="lg-calc" aria-labelledby="lg-calc-temp-h">
+              <h3 id="lg-calc-temp-h">Конвертер температур (°C ↔ K ↔ °F)</h3>
+              <form class="lg-form" data-lg-calc="temp" aria-describedby="lg-calc-temp-help">
+                <div class="lg-field">
+                  <label for="lg-temp-c">Цельсий (°C)</label>
+                  <input id="lg-temp-c" name="c" type="number" step="0.1" placeholder="например, 25">
+                </div>
+                <div class="lg-field">
+                  <label for="lg-temp-k">Кельвин (K)</label>
+                  <input id="lg-temp-k" name="k" type="number" step="0.1" placeholder="например, 298.15">
+                </div>
+                <div class="lg-field">
+                  <label for="lg-temp-f">Фаренгейт (°F)</label>
+                  <input id="lg-temp-f" name="f" type="number" step="0.1" placeholder="например, 77">
+                </div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-help" id="lg-calc-temp-help">
+                  Формулы: K = °C + 273.15; °F = °C × 9/5 + 32. Введите любое значение — остальные поля обновятся.
+                </div>
+              </form>
+            </article>
+
+            <!-- CTO/CTB -->
+            <article id="lg-calc-cto" class="lg-calc" aria-labelledby="lg-calc-cto-h">
+              <h3 id="lg-calc-cto-h">Цветокоррекционные фильтры (CTO/CTB, ±Green)</h3>
+              <form class="lg-form" data-lg-calc="cto" aria-describedby="lg-calc-cto-help">
+                <div class="lg-field">
+                  <label for="lg-cto-in">Исходный CCT (K)</label>
+                  <input id="lg-cto-in" name="inK" type="number" step="1" placeholder="например, 5600">
+                </div>
+                <div class="lg-field">
+                  <label for="lg-cto-out">Целевой CCT (K)</label>
+                  <input id="lg-cto-out" name="outK" type="number" step="1" placeholder="например, 3200">
+                </div>
+                <div class="lg-field">
+                  <label for="lg-cto-green">Желаемый tint (±Green, CC)</label>
+                  <input id="lg-cto-green" name="cc" type="number" step="1" placeholder="0 (по умолчанию)">
+                </div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-cto-help">
+                  mired = 10⁶ / K. Δmired = mired_out − mired_in. Знаки: + → CTO (теплит), − → CTB (холодит). Типовые степени: Full ≈ 131 mired, 1/2 ≈ 65, 1/4 ≈ 33, 1/8 ≈ 16.
+                </div>
+              </form>
+            </article>
+
+            <!-- LED MIX -->
+            <article id="lg-calc-ledmix" class="lg-calc" aria-labelledby="lg-calc-ledmix-h">
+              <h3 id="lg-calc-ledmix-h">Смешение LED каналов (RGB/RGBW)</h3>
+              <form class="lg-form" data-lg-calc="ledmix" aria-describedby="lg-calc-ledmix-help">
+                <div class="lg-field"><label for="lg-led-r">R (%)</label><input id="lg-led-r" name="r" type="number" step="1" min="0" max="100" placeholder="0–100"></div>
+                <div class="lg-field"><label for="lg-led-g">G (%)</label><input id="lg-led-g" name="g" type="number" step="1" min="0" max="100" placeholder="0–100"></div>
+                <div class="lg-field"><label for="lg-led-b">B (%)</label><input id="lg-led-b" name="b" type="number" step="1" min="0" max="100" placeholder="0–100"></div>
+                <div class="lg-field"><label for="lg-led-w">W (%) (опционально)</label><input id="lg-led-w" name="w" type="number" step="1" min="0" max="100" placeholder="0–100"></div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-ledmix-help">
+                  Вывод: координаты CIE xy, приблизительная CCT (только для околобелых смесей), HEX‑превью. Для точных задач используйте колориметр.
+                </div>
+              </form>
+            </article>
+
+            <!-- ILLUMINANCE -->
+            <article id="lg-calc-illuminance" class="lg-calc" aria-labelledby="lg-calc-illuminance-h">
+              <h3 id="lg-calc-illuminance-h">Освещённость из силы света (E из I и d)</h3>
+              <form class="lg-form" data-lg-calc="illuminance" aria-describedby="lg-calc-illuminance-help">
+                <div class="lg-field"><label for="lg-ill-I">Сила света I (кд)</label><input id="lg-ill-I" name="I" type="number" step="1" placeholder="напр., 120000"></div>
+                <div class="lg-field"><label for="lg-ill-d">Расстояние d (м)</label><input id="lg-ill-d" name="d" type="number" step="0.01" placeholder="напр., 14"></div>
+                <div class="lg-field">
+                  <label for="lg-ill-mode">Режим</label>
+                  <select id="lg-ill-mode" name="mode">
+                    <option value="E">Найти E (лк) по I и d</option>
+                    <option value="I">Найти I (кд) по E и d</option>
+                  </select>
+                </div>
+                <div class="lg-field" data-extra="E" hidden>
+                  <label for="lg-ill-E">Целевая E (лк)</label>
+                  <input id="lg-ill-E" name="E" type="number" step="1" placeholder="когда ищем I">
+                </div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-illuminance-help">E = I / d². Точечный источник, перпендикулярная плоскость.</div>
+              </form>
+            </article>
+
+            <!-- SPOT GEO -->
+            <article id="lg-calc-spot" class="lg-calc" aria-labelledby="lg-calc-spot-h">
+              <h3 id="lg-calc-spot-h">Диаметр пятна и угол (D, d, θ)</h3>
+              <form class="lg-form" data-lg-calc="spot" aria-describedby="lg-calc-spot-help">
+                <div class="lg-field"><label for="lg-spot-d">Расстояние d (м)</label><input id="lg-spot-d" name="d" type="number" step="0.01" placeholder="например, 15"></div>
+                <div class="lg-field"><label for="lg-spot-theta">Угол θ (°)</label><input id="lg-spot-theta" name="theta" type="number" step="0.1" placeholder="например, 10"></div>
+                <div class="lg-field"><label for="lg-spot-D">Диаметр D (м)</label><input id="lg-spot-D" name="D" type="number" step="0.01" placeholder="например, 2.6"></div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать неизвестное</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-spot-help">D = 2·d·tan(θ/2).</div>
+              </form>
+            </article>
+
+            <!-- COVER -->
+            <article id="lg-calc-cover" class="lg-calc" aria-labelledby="lg-calc-cover-h">
+              <h3 id="lg-calc-cover-h">Планировщик покрытия по люксу</h3>
+              <form class="lg-form" data-lg-calc="cover" aria-describedby="lg-calc-cover-help">
+                <div class="lg-field"><label for="lg-cover-lux">Целевой люкс E (лк)</label><input id="lg-cover-lux" name="E" type="number" step="1" placeholder="например, 800"></div>
+                <div class="lg-field"><label for="lg-cover-area">Площадь (м²)</label><input id="lg-cover-area" name="A" type="number" step="0.1" placeholder="например, 540"></div>
+                <div class="lg-field"><label for="lg-cover-lm">Люмен/прибор (лм)</label><input id="lg-cover-lm" name="lm" type="number" step="1" placeholder="например, 15000"></div>
+                <div class="lg-field"><label for="lg-cover-cu">Коэфф. использования (CU)</label><input id="lg-cover-cu" name="cu" type="number" step="0.05" placeholder="0.4–0.7"></div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-cover-help">Φ = E·A / CU; N ≈ Φ / (лм/прибор).</div>
+              </form>
+            </article>
+
+            <!-- OVERLAP -->
+            <article id="lg-calc-overlap" class="lg-calc" aria-labelledby="lg-calc-overlap-h">
+              <h3 id="lg-calc-overlap-h">Перекрытие пучков и равномерность</h3>
+              <form class="lg-form" data-lg-calc="overlap" aria-describedby="lg-calc-overlap-help">
+                <div class="lg-field"><label for="lg-ovl-h">Высота подвеса (м)</label><input id="lg-ovl-h" name="h" type="number" step="0.01" placeholder="например, 12"></div>
+                <div class="lg-field"><label for="lg-ovl-theta">Угол beam (°)</label><input id="lg-ovl-theta" name="theta" type="number" step="0.1" placeholder="например, 20"></div>
+                <div class="lg-field"><label for="lg-ovl-tgt">Желаемое перекрытие (%)</label><input id="lg-ovl-tgt" name="ovl" type="number" step="1" placeholder="например, 50"></div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-overlap-help">D = 2·h·tan(θ/2). Шаг S = D·(1 − p/100).</div>
+              </form>
+            </article>
+
+            <!-- FLICKER -->
+            <article id="lg-calc-flicker" class="lg-calc" aria-labelledby="lg-calc-flicker-h">
+              <h3 id="lg-calc-flicker-h">Оценка риска фликера</h3>
+              <form class="lg-form" data-lg-calc="flicker" aria-describedby="lg-calc-flicker-help">
+                <div class="lg-field"><label for="lg-flk-f">Частота ШИМ (Гц)</label><input id="lg-flk-f" name="f" type="number" step="1" placeholder="например, 4000"></div>
+                <div class="lg-field"><label for="lg-flk-fps">Кадровая частота (FPS)</label><input id="lg-flk-fps" name="fps" type="number" step="1" placeholder="например, 50"></div>
+                <div class="lg-field"><label for="lg-flk-sh">Экспозиция (мс)</label><input id="lg-flk-sh" name="sh" type="number" step="0.1" placeholder="например, 5"></div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-flicker-help">Риск низок при f_PWM ≫ 1/экспозиции и вне кратностей частоте сканирования.</div>
+              </form>
+            </article>
+
+            <!-- CCT <-> xy -->
+            <article id="lg-calc-cct-xy" class="lg-calc" aria-labelledby="lg-calc-cct-xy-h">
+              <h3 id="lg-calc-cct-xy-h">Приближённый перевод CCT ↔ CIE xy</h3>
+              <form class="lg-form" data-lg-calc="cctxy" aria-describedby="lg-calc-cct-xy-help">
+                <div class="lg-field"><label for="lg-cct-K">CCT (K)</label><input id="lg-cct-K" name="K" type="number" step="1" placeholder="например, 5600"></div>
+                <div class="lg-field"><label for="lg-cct-x">x</label><input id="lg-cct-x" name="x" type="number" step="0.0001" placeholder="0.3127"></div>
+                <div class="lg-field"><label for="lg-cct-y">y</label><input id="lg-cct-y" name="y" type="number" step="0.0001" placeholder="0.3290"></div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="Ktoxy" type="button">CCT → xy</button>
+                  <button class="lg-btn" data-action="xytoK" type="button">xy → CCT</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-cct-xy-help">Аппроксимации McCamy и Планковской кривой.</div>
+              </form>
+            </article>
+
+            <!-- LER -->
+            <article id="lg-calc-ler" class="lg-calc" aria-labelledby="lg-calc-ler-h">
+              <h3 id="lg-calc-ler-h">Оценка LER и перевод лм ↔ Вт(рад)</h3>
+              <form class="lg-form" data-lg-calc="ler" aria-describedby="lg-calc-ler-help">
+                <div class="lg-field"><label for="lg-ler-K">CCT (K)</label><input id="lg-ler-K" name="K" type="number" step="1" placeholder="например, 4000"></div>
+                <div class="lg-field"><label for="lg-ler-lm">Люмены (лм)</label><input id="lg-ler-lm" name="lm" type="number" step="1" placeholder="например, 10000"></div>
+                <div class="lg-field">
+                  <label for="lg-ler-mode">Режим</label>
+                  <select id="lg-ler-mode" name="mode">
+                    <option value="lm2Wrad">Перевести лм → Вт(рад)</option>
+                    <option value="Wrad2lm">Перевести Вт(рад) → лм</option>
+                  </select>
+                </div>
+                <div class="lg-actions">
+                  <button class="lg-btn" data-action="calc" type="button">Рассчитать</button>
+                  <button class="lg-btn" data-action="example" type="button">Пример</button>
+                  <button class="lg-btn secondary" data-action="reset" type="button">Сброс</button>
+                </div>
+                <div class="lg-out" aria-live="polite"></div>
+                <div class="lg-help" id="lg-calc-ler-help">LER для «белых» источников ≈ 300–370 лм/Вт(рад).</div>
+              </form>
+            </article>
+          </div>
+
+          <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+        </section>
+
+        <!-- ELECTRICAL CALCULATORS -->
+        <section id="tools-electrical" aria-labelledby="tools-electrical-title">
+          <h2 id="tools-electrical-title">Электрика и безопасность — калькуляторы</h2>
+          <p>Калькуляторы из раздела «Электрика и безопасность»: ток по мощности, баланс фаз/нейтраль, падение напряжения/сечение, размер генератора, подбор УЗО, подбор IP.</p>
+
+          <!-- 1) Ток по мощности -->
+          <section id="ls-calc-current-sec" aria-labelledby="ls-calc-current-title">
+            <h3 id="ls-calc-current-title">1) Ток по мощности</h3>
+            <p id="ls-calc-current-help">I1ф = P / (U · cosφ · η); I3ф = P / (√3 · U · cosφ · η). Результат — расчетный ток и ближайший больший номинал автомата.</p>
+            <form id="ls-calc-current" data-ls-calc="current" aria-describedby="ls-calc-current-help">
+              <fieldset>
+                <legend>Исходные данные</legend>
+                <label for="ls-current-phase">Сеть</label>
+                <select id="ls-current-phase" name="phase">
+                  <option value="1">Однофазная</option>
+                  <option value="3">Трёхфазная</option>
+                </select>
+                <label for="ls-current-power">Мощность P</label>
+                <input id="ls-current-power" name="power" type="number" min="0" step="0.001" placeholder="например, 6" aria-describedby="ls-current-power-unit"/>
+                <select id="ls-current-power-unit">
+                  <option value="kW">кВт</option>
+                  <option value="W">Вт</option>
+                </select>
+                <label for="ls-current-voltage">Напряжение U (В)</label>
+                <input id="ls-current-voltage" name="voltage" type="number" min="1" step="1" placeholder="230 или 400"/>
+                <label for="ls-current-cos">cos φ</label>
+                <input id="ls-current-cos" name="cos" type="number" min="0.1" max="1" step="0.01" value="0.95"/>
+                <label for="ls-current-eta">КПД η</label>
+                <input id="ls-current-eta" name="eta" type="number" min="0.1" max="1" step="0.01" value="0.95"/>
+              </fieldset>
+              <div class="ls-actions">
+                <button type="button" id="ls-current-run">Рассчитать</button>
+                <button type="button" id="ls-current-clear">Очистить</button>
+                <button type="button" data-ls-print="#ls-current-result">Печать результатов</button>
+              </div>
+              <p class="ls-error" id="ls-current-error" role="alert" aria-live="assertive"></p>
+              <div id="ls-current-result" class="ls-results" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- 2) Баланс фаз и нейтраль -->
+          <section id="ls-calc-balance-sec" aria-labelledby="ls-calc-balance-title">
+            <h3 id="ls-calc-balance-title">2) Баланс фаз и нейтраль</h3>
+            <p id="ls-calc-balance-help">Жадный алгоритм распределяет приборы по наименее загруженной фазе. Нейтраль: I_N по векторной сумме; для SMPS учитываем вклад 3-й гармоники.</p>
+            <form id="ls-calc-balance" data-ls-calc="balance" aria-describedby="ls-calc-balance-help">
+              <fieldset>
+                <legend>Приборы</legend>
+                <label for="ls-balance-name">Имя</label>
+                <input id="ls-balance-name" type="text" placeholder="например, Moving Head 470W"/>
+                <label for="ls-balance-power">Мощность (Вт)</label>
+                <input id="ls-balance-power" type="number" min="1" step="1" placeholder="например, 470"/>
+                <label for="ls-balance-cos">cos φ</label>
+                <input id="ls-balance-cos" type="number" min="0.3" max="1" step="0.01" value="0.95"/>
+                <label for="ls-balance-type">Тип</label>
+                <select id="ls-balance-type">
+                  <option value="res">Резистивная</option>
+                  <option value="ind">Индуктивная</option>
+                  <option value="smps" selected>SMPS</option>
+                </select>
+                <button type="button" id="ls-balance-add">Добавить прибор</button>
+              </fieldset>
+              <div id="ls-balance-list" aria-live="polite" role="status"></div>
+              <fieldset>
+                <legend>Параметры сети</legend>
+                <label for="ls-balance-voltage">Напряжение линейное (В)</label>
+                <input id="ls-balance-voltage" type="number" min="100" step="1" value="400"/>
+              </fieldset>
+              <div class="ls-actions">
+                <button type="button" id="ls-balance-run">Распределить по фазам</button>
+                <button type="button" id="ls-balance-clear">Очистить</button>
+                <button type="button" data-ls-print="#ls-balance-result">Печать результатов</button>
+              </div>
+              <p class="ls-error" id="ls-balance-error" role="alert" aria-live="assertive"></p>
+              <div id="ls-balance-result" class="ls-results" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- 3) Падение напряжения -->
+          <section id="ls-calc-drop-sec" aria-labelledby="ls-calc-drop-title">
+            <h3 id="ls-calc-drop-title">3) Падение напряжения и подбор сечения</h3>
+            <p id="ls-calc-drop-help">ΔU% однофаз = 100 · (2 · ρ · L · I) / (S · U). Трёхфаз = 100 · (√3 · ρ · L · I) / (S · U).</p>
+            <form id="ls-calc-drop" data-ls-calc="drop" aria-describedby="ls-calc-drop-help">
+              <fieldset>
+                <legend>Исходные данные</legend>
+                <label for="ls-drop-phase">Сеть</label>
+                <select id="ls-drop-phase">
+                  <option value="1">Однофазная</option>
+                  <option value="3" selected>Трёхфазная</option>
+                </select>
+                <label for="ls-drop-material">Материал</label>
+                <select id="ls-drop-material">
+                  <option value="cu" selected>Медь</option>
+                  <option value="al">Алюминий</option>
+                </select>
+                <label for="ls-drop-length">Длина трассы L (м, один путь)</label>
+                <input id="ls-drop-length" type="number" min="1" step="1" placeholder="например, 80"/>
+                <label for="ls-drop-current">Ток I (А)</label>
+                <input id="ls-drop-current" type="number" min="0.1" step="0.1" placeholder="например, 45"/>
+                <label for="ls-drop-voltage">U номинальное (В)</label>
+                <input id="ls-drop-voltage" type="number" min="100" step="1" value="400"/>
+                <label for="ls-drop-max">Допустимое ΔU (%)</label>
+                <input id="ls-drop-max" type="number" min="1" max="15" step="0.1" value="5"/>
+                <label for="ls-drop-temp">Температура кабеля (°C)</label>
+                <input id="ls-drop-temp" type="number" min="-20" max="90" step="1" value="30"/>
+              </fieldset>
+              <div class="ls-actions">
+                <button type="button" id="ls-drop-run">Рассчитать</button>
+                <button type="button" id="ls-drop-clear">Очистить</button>
+                <button type="button" data-ls-print="#ls-drop-result">Печать результатов</button>
+              </div>
+              <p class="ls-error" id="ls-drop-error" role="alert" aria-live="assertive"></p>
+              <div id="ls-drop-result" class="ls-results" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- 4) Генератор -->
+          <section id="ls-calc-gen-sec" aria-labelledby="ls-calc-gen-title">
+            <h3 id="ls-calc-gen-title">4) Размер генератора</h3>
+            <p id="ls-calc-gen-help">Суммируем активную мощность, учитываем пусковые коэффициенты и cos φ. Резерв 20–30%.</p>
+            <form id="ls-calc-gen" data-ls-calc="gen" aria-describedby="ls-calc-gen-help">
+              <fieldset>
+                <legend>Приборы</legend>
+                <label for="ls-gen-name">Имя</label>
+                <input id="ls-gen-name" type="text" placeholder="например, 8x LED Wash 800W"/>
+                <label for="ls-gen-power">Мощность (Вт)</label>
+                <input id="ls-gen-power" type="number" min="1" step="1" placeholder="например, 800"/>
+                <label for="ls-gen-qty">Кол-во</label>
+                <input id="ls-gen-qty" type="number" min="1" step="1" value="1"/>
+                <label for="ls-gen-kstart">Пусковой коэффициент</label>
+                <input id="ls-gen-kstart" type="number" min="1" step="0.1" value="1.5"/>
+                <button type="button" id="ls-gen-add">Добавить</button>
+              </fieldset>
+              <fieldset>
+                <legend>Параметры сети</legend>
+                <label for="ls-gen-cos">cos φ (средний)</label>
+                <input id="ls-gen-cos" type="number" min="0.5" max="1" step="0.01" value="0.9"/>
+                <label for="ls-gen-reserve">Резерв (%)</label>
+                <input id="ls-gen-reserve" type="number" min="0" max="100" step="1" value="25"/>
+              </fieldset>
+              <div id="ls-gen-list" aria-live="polite" role="status"></div>
+              <div class="ls-actions">
+                <button type="button" id="ls-gen-run">Рассчитать</button>
+                <button type="button" id="ls-gen-clear">Очистить</button>
+                <button type="button" data-ls-print="#ls-gen-result">Печать результатов</button>
+              </div>
+              <p class="ls-error" id="ls-gen-error" role="alert" aria-live="assertive"></p>
+              <div id="ls-gen-result" class="ls-results" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- 5) УЗО -->
+          <section id="ls-calc-rcd-sec" aria-labelledby="ls-calc-rcd-title">
+            <h3 id="ls-calc-rcd-title">5) Подбор УЗО</h3>
+            <p id="ls-calc-rcd-help">Ориентировочный подбор с учётом утечек SMPS, типа сети и селективности.</p>
+            <form id="ls-calc-rcd" data-ls-calc="rcd" aria-describedby="ls-calc-rcd-help">
+              <fieldset>
+                <legend>Исходные данные</legend>
+                <label for="ls-rcd-smps">SMPS-приборов (шт)</label>
+                <input id="ls-rcd-smps" type="number" min="0" step="1" value="12"/>
+                <label for="ls-rcd-linei">Ток линии (А)</label>
+                <input id="ls-rcd-linei" type="number" min="1" step="1" value="32"/>
+                <label for="ls-rcd-net">Тип сети</label>
+                <select id="ls-rcd-net">
+                  <option value="tn" selected>TN</option>
+                  <option value="tt">TT</option>
+                </select>
+                <label for="ls-rcd-sel">Нужна селективность?</label>
+                <select id="ls-rcd-sel">
+                  <option value="no" selected>Нет</option>
+                  <option value="yes">Да</option>
+                </select>
+              </fieldset>
+              <div class="ls-actions">
+                <button type="button" id="ls-rcd-run">Рассчитать</button>
+                <button type="button" id="ls-rcd-clear">Очистить</button>
+                <button type="button" data-ls-print="#ls-rcd-result">Печать результатов</button>
+              </div>
+              <p class="ls-error" id="ls-rcd-error" role="alert" aria-live="assertive"></p>
+              <div id="ls-rcd-result" class="ls-results" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- 6) IP-помощник -->
+          <section id="ls-calc-ip-sec" aria-labelledby="ls-calc-ip-title">
+            <h3 id="ls-calc-ip-title">6) IP-помощник</h3>
+            <p id="ls-calc-ip-help">Подбор минимального IP по сценарию площадки.</p>
+            <form id="ls-calc-ip" data-ls-calc="ip" aria-describedby="ls-calc-ip-help">
+              <fieldset>
+                <legend>Условия</legend>
+                <label for="ls-ip-venue">Тип площадки</label>
+                <select id="ls-ip-venue">
+                  <option value="indoor">Indoor</option>
+                  <option value="outdoor" selected>Outdoor</option>
+                </select>
+                <label for="ls-ip-exposure">Экспозиция</label>
+                <select id="ls-ip-exposure">
+                  <option value="dry">Сухо, пыли мало</option>
+                  <option value="dust">Пыль/песок</option>
+                  <option value="spray" selected>Брызги/дождь</option>
+                  <option value="jets">Струи воды</option>
+                  <option value="salt">Морской бриз/соль</option>
+                </select>
+                <label for="ls-ip-wash">Мойка под давлением?</label>
+                <select id="ls-ip-wash">
+                  <option value="no" selected>Нет</option>
+                  <option value="yes">Да</option>
+                </select>
+              </fieldset>
+              <div class="ls-actions">
+                <button type="button" id="ls-ip-run">Подобрать</button>
+                <button type="button" id="ls-ip-clear">Очистить</button>
+                <button type="button" data-ls-print="#ls-ip-result">Печать результатов</button>
+              </div>
+              <p class="ls-error" id="ls-ip-error" role="alert" aria-live="assertive"></p>
+              <div id="ls-ip-result" class="ls-results" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+        </section>
+
+        <!-- FIXTURES CALCULATORS -->
+        <section id="tools-fixtures" aria-labelledby="tools-fixtures-title">
+          <h2 id="tools-fixtures-title">Приборы и оптика — калькуляторы</h2>
+          <p>Калькуляторы из раздела «Приборы и оптика». Дублирующие функции со «Физикой» не включены, чтобы избежать повторов.</p>
+
+          <!-- DMX‑адресация -->
+          <form id="ls-calc-dmx" class="ls-calc" aria-live="polite">
+            <fieldset>
+              <legend>DMX‑адресация</legend>
+              <p>Вычисляет диапазон каналов и следующий доступный адрес. Проверяет пересечения с уже занятыми диапазонами.</p>
+              <label for="ls-dmx-start">Стартовый адрес (1–512):</label>
+              <input id="ls-dmx-start" name="start" type="text" inputmode="numeric" placeholder="например, 101">
+              <label for="ls-dmx-ch">Число каналов:</label>
+              <input id="ls-dmx-ch" name="ch" type="text" inputmode="numeric" placeholder="например, 19">
+              <label for="ls-dmx-mode">Режим (битность):</label>
+              <select id="ls-dmx-mode" name="mode">
+                <option value="8">8‑бит</option>
+                <option value="16">16‑бит</option>
+              </select>
+              <label for="ls-dmx-used">Занятые диапазоны (опц.), формат: 1-24,101-152</label>
+              <input id="ls-dmx-used" name="used" type="text" inputmode="text" placeholder="1-64, 101-176">
+              <div class="ls-actions">
+                <button type="submit">Рассчитать</button>
+                <button type="reset">Сброс</button>
+              </div>
+              <div class="ls-results" id="ls-dmx-results" role="status" aria-live="polite"></div>
+              <div class="ls-error" id="ls-dmx-error" aria-live="assertive"></div>
+            </fieldset>
+          </form>
+
+          <!-- Мощность/ток и фазная балансировка -->
+          <form id="ls-calc-power" class="ls-calc" aria-live="polite">
+            <fieldset>
+              <legend>Мощность/ток и фазная балансировка</legend>
+              <p>ΣP, токи 1ф/3ф, рекомендация раскладки по фазам.</p>
+              <label for="ls-power-list">Список приборов (Вт, количество), по одному на строку:</label>
+              <textarea id="ls-power-list" name="list" rows="4" placeholder="800, 12
+300, 8
+1200, 4"></textarea>
+              <label for="ls-power-U">Напряжение U (В):</label>
+              <input id="ls-power-U" name="U" type="text" inputmode="decimal" value="230">
+              <label for="ls-power-cos">cos φ (0.6–1):</label>
+              <input id="ls-power-cos" name="cos" type="text" inputmode="decimal" value="0.95">
+              <label for="ls-power-limit">Лимит автомата на фазу (А):</label>
+              <input id="ls-power-limit" name="limit" type="text" inputmode="decimal" value="16">
+              <div class="ls-actions">
+                <button type="submit">Рассчитать</button>
+                <button type="reset">Сброс</button>
+              </div>
+              <div class="ls-results" id="ls-power-results" role="status" aria-live="polite"></div>
+              <div class="ls-error" id="ls-power-error" aria-live="assertive"></div>
+            </fieldset>
+          </form>
+
+          <!-- Время работы от аккумулятора -->
+          <form id="ls-calc-battery" class="ls-calc" aria-live="polite">
+            <fieldset>
+              <legend>Время работы от аккумулятора</legend>
+              <p>Время ≈ E(Вт·ч) / (Pср·k).</p>
+              <label for="ls-bat-E">Емкость E, Вт·ч:</label>
+              <input id="ls-bat-E" name="E" type="text" inputmode="decimal" placeholder="например, 400">
+              <label for="ls-bat-P">Средняя нагрузка P, Вт:</label>
+              <input id="ls-bat-P" name="P" type="text" inputmode="decimal" placeholder="например, 35">
+              <label for="ls-bat-k">Коэффициент запаса k:</label>
+              <input id="ls-bat-k" name="k" type="text" inputmode="decimal" value="1.2">
+              <div class="ls-actions">
+                <button type="submit">Рассчитать</button>
+                <button type="reset">Сброс</button>
+              </div>
+              <div class="ls-results" id="ls-bat-results" role="status" aria-live="полite"></div>
+              <div class="ls-error" id="ls-bat-error" aria-live="assertive"></div>
+            </fieldset>
+          </form>
+
+          <!-- Зум‑покрытие -->
+          <form id="ls-calc-zoom" class="ls-calc" aria-live="polite">
+            <fieldset>
+              <legend>Зум‑покрытие сцены</legend>
+              <p>Диаметры: dmin/dmax по θmin/θmax.</p>
+              <label for="ls-zoom-D">Дистанция D, м:</label>
+              <input id="ls-zoom-D" name="D" type="text" inputmode="decimal" placeholder="например, 18">
+              <label for="ls-zoom-min">Мин. зум θmin, градусы:</label>
+              <input id="ls-zoom-min" name="min" type="text" inputmode="decimal" placeholder="например, 5">
+              <label for="ls-zoom-max">Макс. зум θmax, градусы:</label>
+              <input id="ls-zoom-max" name="max" type="text" inputmode="decimal" placeholder="например, 50">
+              <div class="ls-actions">
+                <button type="submit">Рассчитать</button>
+                <button type="reset">Сброс</button>
+              </div>
+              <div class="ls-results" id="ls-zoom-results" role="status" aria-live="polite"></div>
+              <div class="ls-error" id="ls-zoom-error" aria-live="assertive"></div>
+            </fieldset>
+          </form>
+
+          <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+        </section>
+
+        <!-- RIGGING CALCULATORS -->
+        <section id="tools-rigging" aria-labelledby="tools-rigging-title">
+          <h2 id="tools-rigging-title">Риггинг и механика — калькуляторы</h2>
+
+          <!-- Реакции на опорах -->
+          <section>
+            <h3>Реакции на опорах (идеализированная балка)</h3>
+            <form onsubmit="return false" aria-label="Калькулятор реакций на опорах">
+              <fieldset>
+                <label>Длина фермы, м <input id="ls-truss-L" inputmode="decimal" placeholder="например, 12"></label>
+                <label>Тип нагрузки
+                  <select id="ls-truss-type">
+                    <option value="udl">UDL (равномерная)</option>
+                    <option value="points">Точечные</option>
+                  </select>
+                </label>
+                <div id="ls-truss-udl-opts">
+                  <label>Суммарный вес (кг) <input id="ls-truss-W-kg" inputmode="decimal" placeholder="например, 800"></label>
+                </div>
+                <div id="ls-truss-points-opts" style="display:none">
+                  <small>До 3 точек: координата в метрах от левой опоры и вес, кг.</small>
+                  <div>
+                    <label>x1 <input id="ls-truss-x1" inputmode="decimal" placeholder="м"></label>
+                    <label>w1 <input id="ls-truss-w1" inputmode="decimal" placeholder="кг"></label>
+                  </div>
+                  <div>
+                    <label>x2 <input id="ls-truss-x2" inputmode="decimal" placeholder="м"></label>
+                    <label>w2 <input id="ls-truss-w2" inputmode="decimal" placeholder="кг"></label>
+                  </div>
+                  <div>
+                    <label>x3 <input id="ls-truss-x3" inputmode="decimal" placeholder="м"></label>
+                    <label>w3 <input id="ls-truss-w3" inputmode="decimal" placeholder="кг"></label>
+                  </div>
+                </div>
+                <div class="ls-actions">
+                  <button id="ls-truss-btn">Рассчитать</button>
+                  <button type="reset" id="ls-truss-reset">Сброс</button>
+                </div>
+              </fieldset>
+              <div class="ls-results" id="ls-truss-out" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- Динамический коэффициент -->
+          <section>
+            <h3>«Грубый» динамический коэффициент</h3>
+            <form onsubmit="return false" aria-label="Калькулятор динамического коэффициента">
+              <fieldset>
+                <label>Статическая масса, кг <input id="ls-dyn-m" inputmode="decimal" placeholder="например, 800"></label>
+                <label>Тип операции
+                  <select id="ls-dyn-type">
+                    <option value="smooth">Плавный подъем/опускание</option>
+                    <option value="startstop">Старт/стоп</option>
+                    <option value="jerk">Рывок/неожиданная остановка</option>
+                  </select>
+                </label>
+                <label>Коэффициент осторожности k<sub>care</sub> <input id="ls-dyn-care" inputmode="decimal" placeholder="напр., 1.10"></label>
+                <div class="ls-actions">
+                  <button id="ls-dyn-btn">Рассчитать</button>
+                  <button type="reset" id="ls-dyn-reset">Сброс</button>
+                </div>
+              </fieldset>
+              <div class="ls-results" id="ls-dyn-out" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- Угол стропа -->
+          <section>
+            <h3>Угол стропа и коэффициент нагрузки</h3>
+            <form onsubmit="return false" aria-label="Калькулятор угла стропа">
+              <fieldset>
+                <label>Масса подвеса, кг <input id="ls-mass" inputmode="decimal"></label>
+                <label>Число ветвей
+                  <select id="ls-legs">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </label>
+                <label>Угол к горизонту, ° <input id="ls-angle" inputmode="decimal" placeholder="например, 30"></label>
+                <div class="ls-actions">
+                  <button id="ls-btn-calc">Рассчитать</button>
+                  <button type="reset" id="ls-btn-reset">Сброс</button>
+                </div>
+              </fieldset>
+              <div class="ls-results" id="ls-out" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <!-- Бридл -->
+          <section>
+            <h3>Простой бридл (две точки)</h3>
+            <form onsubmit="return false" aria-label="Калькулятор бридла">
+              <fieldset>
+                <label>Пролёт между точками S, м <input id="ls-br-S" inputmode="decimal" placeholder="например, 8"></label>
+                <label>Провес h, м <input id="ls-br-h" inputmode="decimal" placeholder="например, 1.2"></label>
+                <label>Масса подвеса, кг <input id="ls-br-m" inputmode="decimal" placeholder="например, 1200"></label>
+                <div class="ls-actions">
+                  <button id="ls-br-btn">Рассчитать</button>
+                  <button type="reset" id="ls-br-reset">Сброс</button>
+                </div>
+              </fieldset>
+              <div class="ls-results" id="ls-br-out" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+        </section>
+      </article>
     </main>
   </div>
 
@@ -94,7 +925,7 @@
     </div>
   </footer>
 
-  <!-- Попапы -->
+  <!-- ПОИСК/МЕНЮ -->
   <div id="searchPanel" class="search-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
     <div class="search-panel__backdrop" data-close="panel"></div>
     <div class="search-panel__dialog">
@@ -136,6 +967,689 @@
       </nav>
     </div>
   </div>
+
+  <!-- SCRIPTS: Physics (lg), Electrical (ls), Fixtures (ls), Rigging (inline) -->
+  <script>
+    // PHYSICS calculators init (subset from physics.html)
+    (function(){
+      "use strict";
+      function fmt(n, d){ if (n===null||n===undefined||!isFinite(n)) return '—'; d = d===undefined?2:d; return (Math.round(n*10**d)/10**d).toLocaleString('ru-RU',{minimumFractionDigits:d, maximumFractionDigits:d}); }
+      function clamp(v, a, b){ return Math.min(Math.max(v, a), b); }
+      function pct01(v){ return isFinite(v)? Math.min(Math.max(v,0),100)/100 : 0; }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        const root = document.querySelector('#tools-physics .lg-root') || document;
+
+        // TEMP
+        (function(){
+          const form = root.querySelector('[data-lg-calc="temp"]'); if (!form) return;
+          const c = form.querySelector('#lg-temp-c'), k = form.querySelector('#lg-temp-k'), f = form.querySelector('#lg-temp-f');
+          function updateFrom(src){
+            const Cv=c.valueAsNumber, Kv=k.valueAsNumber, Fv=f.valueAsNumber;
+            if (src==='C' && !Number.isNaN(Cv)){ k.valueAsNumber=+(Cv+273.15).toFixed(2); f.valueAsNumber=+(Cv*9/5+32).toFixed(2); }
+            else if (src==='K' && !Number.isNaN(Kv)){ const C2=Kv-273.15; c.valueAsNumber=+C2.toFixed(2); f.valueAsNumber=+(C2*9/5+32).toFixed(2); }
+            else if (src==='F' && !Number.isNaN(Fv)){ const C2=(Fv-32)*5/9; c.valueAsNumber=+C2.toFixed(2); k.valueAsNumber=+(C2+273.15).toFixed(2); }
+          }
+          c.addEventListener('input', ()=>updateFrom('C')); k.addEventListener('input', ()=>updateFrom('K')); f.addEventListener('input', ()=>updateFrom('F'));
+          form.addEventListener('click', e=>{
+            const a=e.target.closest('button[data-action]'); if(!a) return;
+            if(a.dataset.action==='example'){ c.valueAsNumber=25; updateFrom('C'); }
+            if(a.dataset.action==='reset'){ c.value=''; k.value=''; f.value=''; }
+          });
+        })();
+
+        // CTO
+        (function(){
+          const form = root.querySelector('[data-lg-calc="cto"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          const mired = K => 1e6/K;
+          const snap = d=>{
+            const steps=[16,33,65,131]; let abs=Math.abs(d), sign=Math.sign(d)||1, best=steps[0], err=Math.abs(abs-steps[0]);
+            for(const s of steps){ const e=Math.abs(abs-s); if(e<err){ err=e; best=s; } }
+            return {grade:best, name:(best===131?'Full':best===65?'1/2':best===33?'1/4':'1/8'), sign};
+          };
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='example'){ form.inK.value='5600'; form.outK.value='3200'; form.cc.value='0'; out.textContent=''; return; }
+            if(b.dataset.action==='reset'){ form.inK.value=''; form.outK.value=''; form.cc.value=''; out.textContent=''; return; }
+            if(b.dataset.action==='calc'){
+              const Ki=parseFloat(form.inK.value), Ko=parseFloat(form.outK.value), CC=parseFloat(form.cc.value||'0');
+              if(!(Ki>0&&Ko>0)){ out.innerHTML='<span class="ls-error">Введите корректные CCT (K) &gt; 0.</span>'; return; }
+              const d = mired(Ko)-mired(Ki), dir = d>0?'CTO (теплее)':(d<0?'CTB (холоднее)':'нет сдвига');
+              const s = d!==0? snap(d):null;
+              const hint = d===0? 'Фильтр не требуется.' : `Рекомендуется ${s.sign>0?'CTO':'CTB'} ${s.name} (≈ ${s.grade} mired).`;
+              const tint = (CC||0)===0 ? '±Green не требуется.' : `Добавьте ${CC>0?'+':''}${CC} CC по зелёному.`;
+              out.innerHTML = `Δmired = ${fmt(d,2)} → ${dir}. ${hint} ${tint}`;
+            }
+          });
+        })();
+
+        // LED MIX
+        (function(){
+          const form = root.querySelector('[data-lg-calc="ledmix"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          function rgbLin_to_XYZ(r,g,b){ return { X:0.4124564*r + 0.3575761*g + 0.1804375*b, Y:0.2126729*r + 0.7151522*g + 0.0721750*b, Z:0.0193339*r + 0.1191920*g + 0.9503041*b }; }
+          function whiteXYZ(xw=0.3127,yw=0.3290){ const Y=1, X=Y*xw/yw, Z=Y*(1-xw-yw)/yw; return {X,Y,Z}; }
+          function XYZ_to_xyY(X,Y,Z){ const S=X+Y+Z; if(S<=0) return {x:0,y:0,Y:0}; return {x:X/S,y:Y/S,Y}; }
+          function xy_to_hex(x,y,Yp=0.6){
+            if(!(y>0)) return '#000000';
+            const X=(Yp/y)*x, Z=(Yp/y)*(1-x-y);
+            let rl=3.2404542*X -1.5371385*Yp -0.4985314*Z;
+            let gl=-0.9692660*X +1.8760108*Yp +0.0415560*Z;
+            let bl=0.0556434*X -0.2040259*Yp +1.0572252*Z;
+            rl=Math.max(0,rl); gl=Math.max(0,gl); bl=Math.max(0,bl);
+            const lin2srgb=c=> c<=0.0031308? 12.92*c : 1.055*Math.pow(c,1/2.4)-0.055;
+            const r=Math.min(255, Math.max(0, Math.round(lin2srgb(rl)*255)));
+            const g=Math.min(255, Math.max(0, Math.round(lin2srgb(gl)*255)));
+            const b=Math.min(255, Math.max(0, Math.round(lin2srgb(bl)*255)));
+            return '#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join('');
+          }
+          function xy_to_uvp(x,y){ const d=(-2*x+12*y+3); if(Math.abs(d)<1e-9) return {up:0,vp:0}; return {up:(4*x)/d, vp:(9*y)/d}; }
+          function nearWhite(x,y,t=0.03){ const a=xy_to_uvp(x,y), b=xy_to_uvp(0.3127,0.3290); return Math.hypot(a.up-b.up,a.vp-b.vp)<t; }
+          function McCamy_xy2CCT(x,y){ const n=(x-0.3320)/(0.1858-y); return 449*n**3+3525*n**2+6823.3*n+5520.33; }
+
+          form.addEventListener('click', e=>{
+            const btn=e.target.closest('button[data-action]'); if(!btn) return;
+            if(btn.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(btn.dataset.action==='example'){ form.r.value='40'; form.g.value='35'; form.b.value='30'; form.w.value='20'; }
+            // calc
+            const r=pct01(parseFloat(form.r.value)), g=pct01(parseFloat(form.g.value)), b=pct01(parseFloat(form.b.value)), w=pct01(parseFloat(form.w.value));
+            if((r+g+b+w)===0){ out.innerHTML='<span class="ls-error">Введите хотя бы один ненулевой канал.</span>'; return; }
+            const RGB=rgbLin_to_XYZ(r,g,b), D65=whiteXYZ(0.3127,0.3290);
+            const X=RGB.X + w*D65.X, Y=RGB.Y + w*D65.Y, Z=RGB.Z + w*D65.Z;
+            const xyY=XYZ_to_xyY(X,Y,Z); const hex=xy_to_hex(xyY.x, xyY.y, 0.6);
+            let cctTxt=' (CCT имеет смысл только для околобелых смесей)';
+            if(xyY.x>0 && xyY.y>0 && nearWhite(xyY.x, xyY.y, 0.03)){
+              const cct=McCamy_xy2CCT(xyY.x,xyY.y);
+              cctTxt = (isFinite(cct) && cct>800 && cct<25000)? `, приблиз. CCT ≈ ${Math.round(cct).toLocaleString('ru-RU')} K` : ', CCT не определена';
+            }
+            out.innerHTML = `xy = (${fmt(xyY.x,4)}, ${fmt(xyY.y,4)})${cctTxt}<br>HEX предпросмотр: <span style="display:inline-block;width:1.6em;height:1.2em;border:1px solid var(--lg-border);background:${hex};vertical-align:middle;"></span> ${hex}`;
+          });
+        })();
+
+        // ILLUMINANCE
+        (function(){
+          const form = root.querySelector('[data-lg-calc="illuminance"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          const sel = form.querySelector('select[name="mode"]');
+          const extra = form.querySelector('[data-extra="E"]');
+          sel.addEventListener('change', ()=>{ extra.hidden = (sel.value!=='I')? true:false; });
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.I.value='120000'; form.d.value='14'; form.mode.value='E'; out.textContent=''; }
+            const mode=form.mode.value, I=parseFloat(form.I.value), d=parseFloat(form.d.value);
+            if(!(d>0)){ out.innerHTML='<span class="ls-error">Введите d &gt; 0.</span>'; return; }
+            if(mode==='E'){ if(!(I>0)){ out.innerHTML='<span class="ls-error">Введите I &gt; 0.</span>'; return; } out.innerHTML=`E ≈ ${fmt(I/(d*d),1)} лк`; }
+            else{ const E=parseFloat(form.E.value); if(!(E>0)){ out.innerHTML='<span class="ls-error">Введите E &gt; 0.</span>'; return; } out.innerHTML=`Требуется I ≈ ${fmt(E*(d*d),0)} кд`; }
+          });
+        })();
+
+        // SPOT
+        (function(){
+          const form = root.querySelector('[data-lg-calc="spot"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.d.value='14'; form.theta.value='10'; form.D.value=''; }
+            const d=parseFloat(form.d.value||'0'), th=parseFloat(form.theta.value||'0')*Math.PI/180, D=parseFloat(form.D.value||'0'); let msg='';
+            if(form.D.value==='' && d>0 && th>0){ msg=`D ≈ ${fmt(2*d*Math.tan(th/2),2)} м`; }
+            else if(form.theta.value==='' && d>0 && D>0){ msg=`θ ≈ ${fmt(2*Math.atan(D/(2*d))*180/Math.PI,2)} °`; }
+            else if(form.d.value==='' && D>0 && th>0){ msg=`d ≈ ${fmt((D/2)/Math.tan(th/2),2)} м`; }
+            else{ msg='<span class="ls-error">Оставьте пустым один из трёх параметров — его мы и вычислим.</span>'; }
+            out.innerHTML=msg;
+          });
+        })();
+
+        // COVER
+        (function(){
+          const form = root.querySelector('[data-lg-calc="cover"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.E.value='800'; form.A.value='540'; form.lm.value='15000'; form.cu.value='0.55'; }
+            const E=parseFloat(form.E.value), A=parseFloat(form.A.value), lm=parseFloat(form.lm.value), cu=parseFloat(form.cu.value);
+            if(!(E>0 && A>0 && lm>0 && cu>0 && cu<=1)){ out.innerHTML='<span class="ls-error">Проверьте ввод: E, A, лм/прибор и CU &gt; 0 (CU ≤ 1).</span>'; return; }
+            const Phi=E*A/cu, N=Math.ceil(Phi/lm);
+            out.innerHTML = `Нужно суммарно Φ ≈ ${fmt(Phi,0)} лм → ориентировочно приборов: ${N}.`;
+          });
+        })();
+
+        // OVERLAP
+        (function(){
+          const form = root.querySelector('[data-lg-calc="overlap"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.h.value='12'; form.theta.value='20'; form.ovl.value='50'; }
+            const h=parseFloat(form.h.value), th=parseFloat(form.theta.value)*Math.PI/180, p=clamp(parseFloat(form.ovl.value),0,99.9);
+            if(!(h>0 && th>0)){ out.innerHTML='<span class="ls-error">Введите высоту и угол.</span>'; return; }
+            const D=2*h*Math.tan(th/2), S=D*(1 - p/100), uniform = p>=50 ? 'хорошая' : (p>=30?'средняя':'низкая');
+            out.innerHTML = `D ≈ ${fmt(D,2)} м; шаг ≈ ${fmt(S,2)} м; ожидаемая равномерность: ${uniform}.`;
+          });
+        })();
+
+        // FLICKER
+        (function(){
+          const form = root.querySelector('[data-lg-calc="flicker"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.f.value='4000'; form.fps.value='50'; form.sh.value='5'; }
+            const f=parseFloat(form.f.value), fps=parseFloat(form.fps.value), sh=parseFloat(form.sh.value);
+            if(!(f>0 && fps>0 && sh>0)){ out.innerHTML='<span class="ls-error">Введите частоту, FPS и экспозицию.</span>'; return; }
+            const shutterHz=1000.0/sh, ratio=f/shutterHz; let risk='низкий';
+            if(ratio<2) risk='высокий'; else if(ratio<3) risk='средний';
+            out.innerHTML = `Оценка риска: <strong>${risk}</strong>. Рекомендуется f ≥ ${fmt(3*shutterHz,0)} Гц.`;
+          });
+        })();
+
+        // CCT <-> xy
+        (function(){
+          const form = root.querySelector('[data-lg-calc="cctxy"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          function planckian_xy(K){ const t=K; const x=(t>4000)? (-4.6070e9/(t**3) + 2.9678e6/(t**2) + 0.09911e3/t + 0.244063) : (-2.0064e9/(t**3) + 1.9018e6/(t**2) + 0.24748e3/t + 0.237040); const y = -3.000*x*x + 2.870*x - 0.275; return {x,y}; }
+          function McCamy_xy2CCT(x,y){ const n=(x-0.3320)/(0.1858-y); return 449*n**3 + 3525*n**2 + 6823.3*n + 5520.33; }
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.K.value='5600'; form.x.value='0.3127'; form.y.value='0.3290'; return; }
+            if(b.dataset.action==='Ktoxy'){ const K=parseFloat(form.K.value); if(!(K>800)){ out.innerHTML='<span class="ls-error">Введите CCT &gt; 800 K.</span>'; return; } const xy=planckian_xy(K); form.x.value=xy.x.toFixed(4); form.y.value=xy.y.toFixed(4); out.innerHTML=`Для ${fmt(K,0)} K → x ≈ ${fmt(xy.x,4)}, y ≈ ${fmt(xy.y,4)}.`; }
+            if(b.dataset.action==='xytoK'){ const x=parseFloat(form.x.value), y=parseFloat(form.y.value); if(!(x>0&&y>0&&x+y<1)){ out.innerHTML='<span class="ls-error">Введите корректные x,y.</span>'; return; } const K=McCamy_xy2CCT(x,y); form.K.value=String(Math.round(K)); out.innerHTML=`Для x=${fmt(x,4)}, y=${fmt(y,4)} → CCT ≈ ${fmt(K,0)} K.`; }
+          });
+        })();
+
+        // LER
+        (function(){
+          const form = root.querySelector('[data-lg-calc="ler"]'); if (!form) return;
+          const out = form.querySelector('.lg-out');
+          function approxLER(K){ if(K<2800) return 290; if(K<3500) return 310; if(K<4500) return 330; if(K<6000) return 345; return 360; }
+          form.addEventListener('click', e=>{
+            const b=e.target.closest('button[data-action]'); if(!b) return;
+            if(b.dataset.action==='reset'){ form.reset(); out.textContent=''; return; }
+            if(b.dataset.action==='example'){ form.K.value='4000'; form.lm.value='10000'; form.mode.value='lm2Wrad'; return; }
+            const K=parseFloat(form.K.value), lm=parseFloat(form.lm.value), mode=form.mode.value; if(!(K>0)){ out.innerHTML='<span class="ls-error">Введите CCT.</span>'; return; }
+            const L=approxLER(K);
+            if(mode==='lm2Wrad'){ if(!(lm>0)){ out.innerHTML='<span class="ls-error">Введите люмены.</span>'; return; } out.innerHTML=`LER ≈ ${L} лм/Вт(рад); Вт(рад) ≈ ${fmt(lm/L,2)}.`; }
+            else { if(!(lm>0)){ out.innerHTML='<span class="ls-error">Введите Вт(рад) в поле люменов (временно).</span>'; return; } out.innerHTML=`LER ≈ ${L} лм/Вт(рад); Люмены ≈ ${fmt(lm*L,0)}.`; }
+          });
+        })();
+      });
+    })();
+  </script>
+
+  <script>
+    // ELECTRICAL calculators init (from electrical-safety.html)
+    (function(){
+      'use strict';
+      function q(id){ return document.getElementById(id); }
+      function num(v){ return typeof v === 'number' ? v : parseFloat(String(v).replace(',', '.')); }
+      function fmt(n, d=2){ if (!isFinite(n)) return '—'; return Number(n).toFixed(d); }
+      function clearNode(node){ while(node && node.firstChild){ node.removeChild(node.firstChild);} }
+      function setError(id, msg){ const el=q(id); if(el){ el.textContent=msg||''; } }
+      function setHTML(id, html){ const el=q(id); if(el){ el.innerHTML=html; } }
+      function collectPrint(targetSel){
+        const el = document.querySelector(targetSel);
+        if (!el) return window.print();
+        const w = window.open('', '_blank', 'noopener,noreferrer'); if (!w) return window.print();
+        const title = document.title || 'Результаты расчёта';
+        w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+title+'</title></head><body>');
+        w.document.write(el.outerHTML);
+        w.document.write('</body></html>');
+        w.document.close(); w.focus(); w.print(); w.close();
+      }
+
+      function initCurrent(){
+        const btnRun = q('ls-current-run');
+        const btnClear = q('ls-current-clear');
+        const inputs = ['ls-current-phase','ls-current-power','ls-current-voltage','ls-current-cos','ls-current-eta'];
+        btnRun && btnRun.addEventListener('click', ()=>{
+          setError('ls-current-error','');
+          const phase = q('ls-current-phase').value;
+          let P = num(q('ls-current-power').value);
+          const unit = q('ls-current-power-unit').value;
+          const U = num(q('ls-current-voltage').value);
+          const cos = num(q('ls-current-cos').value);
+          const eta = num(q('ls-current-eta').value);
+          if(!P || P<=0){ return setError('ls-current-error','Введите мощность > 0'); }
+          if(unit==='kW') P*=1000;
+          if(!U || U<=0){ return setError('ls-current-error','Введите напряжение > 0'); }
+          if(!cos || cos<=0 || cos>1){ return setError('ls-current-error','cos φ в диапазоне (0;1]'); }
+          if(!eta || eta<=0 || eta>1){ return setError('ls-current-error','КПД η в диапазоне (0;1]'); }
+          const denom = (phase==='3') ? (Math.sqrt(3)*U*cos*eta) : (U*cos*eta);
+          const I = P/denom;
+          const mcb=[6,10,13,16,20,25,32,40,50,63,80,100,125,160,200,250,315,400];
+          let rec = mcb.find(a=>a>=I*1.1) || '—';
+          const formula = (phase==='3') ? 'I = P / (√3 · U · cosφ · η)' : 'I = P / (U · cosφ · η)';
+          setHTML('ls-current-result',
+            '<h4>Результаты</h4>'+
+            '<p>Формула: '+formula+'</p>'+
+            '<p>P = '+fmt(P,0)+' Вт, U = '+fmt(U,0)+' В, cosφ = '+fmt(cos,2)+', η = '+fmt(eta,2)+'</p>'+
+            '<p><strong>I ≈ '+fmt(I,2)+' А</strong></p>'+
+            '<p>Рекомендуемый номинал автомата (C-характеристика, ориентировочно): <strong>'+rec+' А</strong> с запасом ≥10%.</p>'+
+            '<p><em>Примечание:</em> учитывайте пусковые токи и селективность.</p>'
+          );
+        });
+        btnClear && btnClear.addEventListener('click', ()=>{
+          inputs.forEach(id=>{ const el=q(id); if(el && el.tagName==='INPUT') el.value=''; });
+          setHTML('ls-current-result',''); setError('ls-current-error','');
+        });
+        const printBtn = document.querySelector('#ls-calc-current [data-ls-print]');
+        printBtn && printBtn.addEventListener('click', (e)=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+      }
+
+      function initBalance(){
+        const list = [];
+        function renderList(){
+          const wrap = q('ls-balance-list'); clearNode(wrap);
+          if(!list.length){ wrap.textContent = 'Список пуст.'; return; }
+          const ul = document.createElement('ul');
+          list.forEach((it, idx)=>{
+            const li=document.createElement('li');
+            li.textContent=(idx+1)+') '+it.name+' — '+it.p+' Вт, cosφ '+it.cos+', '+it.type.toUpperCase();
+            const b=document.createElement('button'); b.type='button'; b.textContent='Удалить';
+            b.addEventListener('click',()=>{ list.splice(idx,1); renderList(); });
+            li.appendChild(document.createTextNode(' ')); li.appendChild(b); ul.appendChild(li);
+          });
+          wrap.appendChild(ul);
+        }
+        q('ls-balance-add').addEventListener('click', ()=>{
+          setError('ls-balance-error','');
+          const name=q('ls-balance-name').value.trim()||'Прибор';
+          const p=num(q('ls-balance-power').value);
+          const cos=num(q('ls-balance-cos').value);
+          const type=q('ls-balance-type').value;
+          if(!p || p<=0){ return setError('ls-balance-error','Введите мощность прибора > 0'); }
+          if(!cos || cos<=0 || cos>1){ return setError('ls-balance-error','cos φ в диапазоне (0;1]'); }
+          list.push({name,p,cos,type});
+          q('ls-balance-name').value=''; q('ls-balance-power').value=''; q('ls-balance-cos').value='0.95';
+          renderList();
+        });
+        q('ls-balance-run').addEventListener('click', ()=>{
+          setError('ls-balance-error','');
+          if(!list.length){ return setError('ls-balance-error','Добавьте хотя бы один прибор'); }
+          const Uline=num(q('ls-balance-voltage').value)||400;
+          const Uphase=Uline/Math.sqrt(3);
+          const items=list.map(it=>{
+            const I=(it.p)/(Uphase*it.cos*0.95);
+            const k3 = it.type==='smps' ? 0.3 : 0.0;
+            return {name:it.name, I, cos:it.cos, type:it.type, k3};
+          }).sort((a,b)=>b.I-a.I);
+          const phases=[{name:'L1',I:0,items:[]},{name:'L2',I:0,items:[]},{name:'L3',I:0,items:[]}];
+          items.forEach(dev=>{ phases.sort((a,b)=>a.I-b.I); phases[0].I += dev.I; phases[0].items.push(dev); });
+          const I1=phases[0].I, I2=phases[1].I, I3=phases[2].I;
+          let In=Math.sqrt(I1*I1+I2*I2+I3*I3 - I1*I2 - I2*I3 - I3*I1);
+          const k3avg=items.length ? items.reduce((s,a)=>s+a.k3,0)/items.length : 0;
+          In=In*(1+k3avg);
+          const imbalance=(Math.max(I1,I2,I3)-Math.min(I1,I2,I3))/((I1+I2+I3)/3)*100;
+          let html='<h4>Распределение по фазам</h4><div class="ls-grid">';
+          phases.forEach(ph=>{
+            html+='<div><strong>'+ph.name+': '+fmt(ph.I,2)+' А</strong><ul>';
+            ph.items.forEach(d=>{ html+='<li>'+d.name+' — '+fmt(d.I,2)+' А ('+d.type.toUpperCase()+')</li>'; });
+            html+='</ul></div>';
+          });
+          html+='</div>';
+          html+='<p><strong>I нейтрали ≈ '+fmt(In,2)+' А</strong> (учтён вклад 3-й гармоники: '+fmt(k3avg*100,0)+'%).</p>';
+          html+='<p>Дисбаланс фаз ≈ '+fmt(imbalance,1)+'%. Рекомендуется держать ниже 20%.</p>';
+          setHTML('ls-balance-result', html);
+        });
+        q('ls-balance-clear').addEventListener('click', ()=>{
+          list.splice(0); setHTML('ls-balance-list',''); setHTML('ls-balance-result',''); setError('ls-balance-error','');
+        });
+        const printBtn = document.querySelector('#ls-calc-balance [data-ls-print]');
+        printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+      }
+
+      function initDrop(){
+        q('ls-drop-run').addEventListener('click', ()=>{
+          setError('ls-drop-error','');
+          const phase=q('ls-drop-phase').value;
+          const mat=q('ls-drop-material').value;
+          const L=num(q('ls-drop-length').value);
+          const I=num(q('ls-drop-current').value);
+          const U=num(q('ls-drop-voltage').value);
+          const maxPct=num(q('ls-drop-max').value);
+          const T=num(q('ls-drop-temp').value);
+          if(!L||L<=0) return setError('ls-drop-error','Введите длину > 0 м');
+          if(!I||I<=0) return setError('ls-drop-error','Введите ток > 0 А');
+          if(!U||U<=0) return setError('ls-drop-error','Введите напряжение > 0 В');
+          if(!maxPct||maxPct<=0) return setError('ls-drop-error','Введите допустимое падение > 0 %');
+          const rho20=(mat==='cu')?0.0175:0.0283, alpha=(mat==='cu')?0.00393:0.00403;
+          const rho=rho20*(1+alpha*(T-20)); const K=(phase==='3')?Math.sqrt(3):2;
+          const Smin=(K*rho*L*I)/((maxPct/100)*U);
+          const std=[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400];
+          const Srec=std.find(s=>s>=Smin)||Smin;
+          const dUpct=100*(K*rho*L*I)/(Srec*U); const dU=U*(dUpct/100);
+          setHTML('ls-drop-result',
+            '<h4>Подбор сечения</h4>'+
+            '<p>Материал: '+(mat==='cu'?'медь':'алюминий')+', ρ('+fmt(T,0)+'°C) ≈ '+fmt(rho,5)+' Ω·мм²/м.</p>'+
+            '<p>Минимальное расчётное сечение Smin ≈ <strong>'+fmt(Smin,2)+' мм²</strong></p>'+
+            '<p>Рекомендованное стандартное сечение: <strong>'+fmt(Srec,0)+' мм²</strong></p>'+
+            '<p>Ожидаемое падение с '+fmt(Srec,0)+' мм²: <strong>'+fmt(dUpct,2)+'%</strong> (≈ '+fmt(dU,1)+' В)</p>'+
+            '<p><em>Проверьте также длительно допустимый ток и условия прокладки.</em></p>'
+          );
+        });
+        q('ls-drop-clear').addEventListener('click', ()=>{
+          ['ls-drop-length','ls-drop-current'].forEach(id=>{ const el=q(id); if(el) el.value=''; });
+          setError('ls-drop-error',''); setHTML('ls-drop-result','');
+        });
+        const printBtn = document.querySelector('#ls-calc-drop [data-ls-print]');
+        printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+      }
+
+      function initGen(){
+        const list=[];
+        function render(){ const wrap=q('ls-gen-list'); clearNode(wrap);
+          if(!list.length){ wrap.textContent='Список пуст.'; return; }
+          const ul=document.createElement('ul');
+          list.forEach((it,idx)=>{ const li=document.createElement('li');
+            li.textContent=it.name+' — '+it.qty+'×'+it.p+' Вт, kпуск '+it.k;
+            const b=document.createElement('button'); b.type='button'; b.textContent='Удалить'; b.addEventListener('click',()=>{ list.splice(idx,1); render(); });
+            li.appendChild(document.createTextNode(' ')); li.appendChild(b); ul.appendChild(li);
+          }); wrap.appendChild(ul);
+        }
+        q('ls-gen-add').addEventListener('click', ()=>{
+          setError('ls-gen-error','');
+          const name=q('ls-gen-name').value.trim()||'Нагрузка';
+          const p=num(q('ls-gen-power').value);
+          const qty=parseInt(q('ls-gen-qty').value,10)||1;
+          const k=num(q('ls-gen-kstart').value)||1;
+          if(!p||p<=0) return setError('ls-gen-error','Введите мощность > 0');
+          list.push({name,p,qty,k});
+          q('ls-gen-name').value=''; q('ls-gen-power').value=''; q('ls-gen-qty').value='1'; q('ls-gen-kstart').value='1.5';
+          render();
+        });
+        q('ls-gen-run').addEventListener('click', ()=>{
+          setError('ls-gen-error',''); if(!list.length) return setError('ls-gen-error','Добавьте нагрузки');
+          const cos=num(q('ls-gen-cos').value)||0.9; const reserve=(num(q('ls-gen-reserve').value)||25)/100;
+          let Prun=0, Pstart=0;
+          list.forEach(it=>{ const Pr=it.p*it.qty; Prun+=Pr; Pstart+=it.p*it.k; });
+          Pstart=Math.max(Prun,Pstart);
+          const kW=(Pstart/1000)*(1+reserve); const kVA=kW/cos;
+          setHTML('ls-gen-result',
+            '<h4>Размер генератора</h4>'+
+            '<p>Суммарная активная: '+fmt(Prun/1000,2)+' кВт</p>'+
+            '<p>Пусковая (упрощённо): '+fmt(Pstart/1000,2)+' кВт</p>'+
+            '<p>cos φ средний: '+fmt(cos,2)+', резерв: '+fmt(reserve*100,0)+'%</p>'+
+            '<p><strong>Рекомендовано: '+fmt(kW,1)+' кВт (≈ '+fmt(kVA,1)+' кВА)</strong></p>'+
+            '<p>Совет: 2×(0.6–0.7) мощности каждого, схема N+1 для критичных событий.</p>'
+          );
+        });
+        q('ls-gen-clear').addEventListener('click', ()=>{ list.splice(0); setHTML('ls-gen-list',''); setHTML('ls-gen-result',''); setError('ls-gen-error',''); });
+        const printBtn = document.querySelector('#ls-calc-gen [data-ls-print]');
+        printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+      }
+
+      function initRCD(){
+        q('ls-rcd-run').addEventListener('click', ()=>{
+          setError('ls-rcd-error','');
+          const n=parseInt(q('ls-rcd-smps').value,10)||0;
+          const I=num(q('ls-rcd-linei').value)||0;
+          const net=q('ls-rcd-net').value;
+          const sel=q('ls-rcd-sel').value;
+          if(I<=0) return setError('ls-rcd-error','Введите ток линии > 0');
+          const leakPer=0.7, baseLeak=2, leak=baseLeak+n*leakPer;
+          let type='A', In=30; let comment=[];
+          if(n>20||I>32){ comment.push('Много SMPS — разбейте на большее число групп с отдельными УЗО.'); }
+          if(net==='tt'){ comment.push('TT: УЗО обязательно на всех конечных линиях.'); }
+          if(sel==='yes'){ comment.push('Выше по иерархии — селективное УЗО (тип S) на 100–300 мА.'); }
+          if(I>63){ In=100; }
+          setHTML('ls-rcd-result',
+            '<h4>Подбор УЗО (ориентировочно)</h4>'+
+            '<p>Оценка утечки: ~'+fmt(leak,1)+' мА</p>'+
+            '<p>Рекомендация: тип <strong>'+type+'</strong>, уставка <strong>'+In+' мА</strong> на конечной линии.</p>'+
+            '<p>Ввод/распределение: селективное УЗО <strong>100–300 мА тип S</strong> при необходимости селективности.</p>'+
+            '<p><em>Итоговый подбор — по измерениям и нормам площадки.</em></p>'+
+            (comment.length?'<ul><li>'+comment.join('</li><li>')+'</li></ul>':'')
+          );
+        });
+        q('ls-rcd-clear').addEventListener('click', ()=>{ ['ls-rcd-smps','ls-rcd-linei'].forEach(id=>{ const el=q(id); if(el) el.value=''; }); setHTML('ls-rcd-result',''); setError('ls-rcd-error',''); });
+        const printBtn = document.querySelector('#ls-calc-rcd [data-ls-print]');
+        printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+      }
+
+      function initIP(){
+        q('ls-ip-run').addEventListener('click', ()=>{
+          setError('ls-ip-error','');
+          const venue=q('ls-ip-venue').value, expo=q('ls-ip-exposure').value, wash=q('ls-ip-wash').value;
+          let ip1='2', ip2='0', notes=[];
+          if(venue==='indoor' && expo==='dry'){ ip1='2'; ip2='0'; notes.push('Достаточно IP20 при отсутствии брызг.'); }
+          if(venue==='indoor' && expo!=='dry'){ ip1='4'; ip2='2'; notes.push('Внутри с брызгами/пылями — IP42–IP44.'); }
+          if(venue==='outdoor'){
+            if(expo==='spray'){ ip1='5'; ip2='4'; notes.push('Outdoor с дождём — IP54 минимум, лучше IP55.'); }
+            if(expo==='dust'){ ip1='5'; ip2='5'; notes.push('Пыль и ветер — IP55, герметизируйте вводы.'); }
+            if(expo==='jets'){ ip1='6'; ip2='6'; notes.push('Струи — IP66. Избегайте прямого облива щитов.'); }
+            if(expo==='salt'){ ip1='6'; ip2='6'; notes.push('Морская соль: IP66 и коррозионностойкие материалы.'); }
+            if(expo==='dry'){ ip1='4'; ip2='4'; notes.push('Под тентом — IP44, контролируйте конденсат.'); }
+          }
+          if(wash==='yes'){ ip2='6'; notes.push('Планируется мойка — IP66/69K для приборов/корпусов.'); }
+          setHTML('ls-ip-result',
+            '<h4>Минимальная степень IP</h4>'+
+            '<p><strong>IP'+ip1+ip2+'</strong></p>'+
+            '<ul><li>'+notes.join('</li><li>')+'</li></ul>'+
+            '<p>Рекомендации: козырьки, влагозащищённые разъёмы, каплеотводы, дыхательные клапаны. Учтите УФ и коррозию.</p>'
+          );
+        });
+        q('ls-ip-clear').addEventListener('click', ()=>{ setHTML('ls-ip-result',''); setError('ls-ip-error',''); });
+        const printBtn = document.querySelector('#ls-calc-ip [data-ls-print]');
+        printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        initCurrent(); initBalance(); initDrop(); initGen(); initRCD(); initIP();
+      });
+    })();
+  </script>
+
+  <script>
+    // FIXTURES calculators init (subset from fixtures-optics.html)
+    (function(){
+      "use strict";
+      const root = document.getElementById('ls-article');
+      if(!root){ return; }
+      const qs = (s, p=root) => p.querySelector(s);
+      const parseNum = (v) => { if (typeof v !== 'string') return NaN; const s=v.trim().replace(/\s+/g,'').replace(',', '.'); return s?Number(s):NaN; };
+      const fmt = (n, digits=2) => { if (!isFinite(n)) return '—'; return new Intl.NumberFormat('ru-RU',{maximumFractionDigits:digits}).format(n); };
+
+      // DMX
+      (function(){
+        const form = qs('#ls-calc-dmx'); if(!form) return;
+        const out = qs('#ls-dmx-results'), err = qs('#ls-dmx-error');
+        function setErr(m){ err.textContent=m||''; }
+        function setOut(h){ out.innerHTML=h||''; }
+        form.addEventListener('submit', (e)=>{
+          e.preventDefault(); setErr(''); setOut('');
+          const start=Math.floor(parseNum(qs('#ls-dmx-start').value));
+          const ch=Math.floor(parseNum(qs('#ls-dmx-ch').value));
+          const mode=qs('#ls-dmx-mode').value;
+          const usedStr=qs('#ls-dmx-used').value.trim();
+          if(!(start>=1 && start<=512)){ setErr('Стартовый адрес должен быть в диапазоне 1–512.'); return; }
+          if(!(ch>=1)){ setErr('Число каналов должно быть положительным.'); return; }
+          const end=start+ch-1; if(end>512){ setErr('Диапазон выходит за предел 512 каналов.'); return; }
+          const usedRanges=[];
+          if(usedStr){
+            const parts=usedStr.split(/[,\s]+/).map(s=>s.trim()).filter(Boolean);
+            for(const p of parts){
+              const m=p.match(/^(\d+)\-(\d+)$/);
+              if(m){ const a=Math.max(1,Math.min(512,parseInt(m[1],10)));
+                const b=Math.max(1,Math.min(512,parseInt(m[2],10)));
+                usedRanges.push([Math.min(a,b), Math.max(a,b)]);
+              }
+            }
+          }
+          const overlaps=usedRanges.filter(([a,b])=> !(end<a || start>b));
+          const nextAddr=(function(){
+            let n=end+1;
+            while(n<=512){
+              const blocked=usedRanges.some(([a,b])=> n>=a && n<=b);
+              if(!blocked) break;
+              n=Math.max(...usedRanges.filter(([a,b])=> n>=a && n<=b).map(([,b])=>b))+1;
+            }
+            return n<=512? n : null;
+          })();
+          let outHtml=`<div>Диапазон: <strong>${start}–${end}</strong> (${ch} каналов, режим ${mode}‑бит)</div>`;
+          outHtml += overlaps.length? `<div class="ls-error">Пересечение: ${overlaps.map(r=>r.join('–')).join(', ')}</div>` : `<div>Пересечений не обнаружено.</div>`;
+          outHtml += `<div>Следующий доступный адрес: <strong>${nextAddr? nextAddr : 'нет (превышение 512)'}</strong></div>`;
+          setOut(outHtml);
+        });
+        form.addEventListener('reset', ()=>{ setTimeout(()=>{ setErr(''); setOut(''); },0); });
+      })();
+
+      // Power & phases
+      (function(){
+        const form=qs('#ls-calc-power'); if(!form) return;
+        const out=qs('#ls-power-results'), err=qs('#ls-power-error');
+        function setErr(m){ err.textContent=m||''; }
+        function setOut(h){ out.innerHTML=h||''; }
+        form.addEventListener('submit',(e)=>{
+          e.preventDefault(); setErr(''); setOut('');
+          const list=qs('#ls-power-list').value.trim();
+          const U=parseNum(qs('#ls-power-U').value);
+          let cos=parseNum(qs('#ls-power-cos').value);
+          const limit=parseNum(qs('#ls-power-limit').value);
+          if(!(U>0)){ setErr('Укажите напряжение U.'); return; }
+          if(!(cos>0 && cos<=1)){ setErr('cos φ должен быть в диапазоне 0–1.'); return; }
+          if(!(limit>0)){ setErr('Укажите лимит автомата на фазу.'); return; }
+          const lines=list.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+          if(!lines.length){ setErr('Заполните список приборов.'); return; }
+          const items=[]; let Psum=0;
+          for(const ln of lines){
+            const parts=ln.split(/[;, ]+/).map(x=>x.trim()).filter(Boolean);
+            if(parts.length<1) continue;
+            const p=parseNum(parts[0]); const q=parts.length>1? parseNum(parts[1]) : 1;
+            if(!(p>0 && q>0)){ setErr('Строка "'+ln+'" неверна. Формат: мощность, количество'); return; }
+            items.push({p,q}); Psum+=p*q;
+          }
+          const I1=Psum/(U*cos), I3=Psum/(Math.sqrt(3)*U*cos);
+          const expanded=[]; items.forEach(({p,q})=>{ for(let i=0;i<q;i++){ expanded.push(p);} });
+          const phases=[0,0,0];
+          expanded.sort((a,b)=>b-a).forEach(p=>{ const idx=phases.indexOf(Math.min(...phases)); phases[idx]+=p; });
+          const currents=phases.map(P=>P/(U*cos)); const warn=currents.map(I=>I>limit);
+          let html=`<div>ΣP: <strong>${fmt(Psum,0)} Вт</strong></div>`;
+          html += `<div>Ток (1 фаза): <strong>${fmt(I1,1)} А</strong></div>`;
+          html += `<div>Ток (3 фазы, теор.): <strong>${fmt(I3,1)} А/фазу</strong></div>`;
+          html += `<div>Распределение по фазам:</div>`;
+          html += `<ul><li>L1: ${fmt(phases[0],0)} Вт → ${fmt(currents[0],1)} А ${warn[0]?'<span class="ls-error">(перегруз)</span>':''}</li>`;
+          html += `<li>L2: ${fmt(phases[1],0)} Вт → ${fmt(currents[1],1)} А ${warn[1]?'<span class="ls-error">(перегруз)</span>':''}</li>`;
+          html += `<li>L3: ${fmt(phases[2],0)} Вт → ${fmt(currents[2],1)} А ${warn[2]?'<span class="ls-error">(перегруз)</span>':''}</li></ul>`;
+          setOut(html);
+        });
+        form.addEventListener('reset', ()=>{ setTimeout(()=>{ setErr(''); setOut(''); },0); });
+      })();
+
+      // Battery
+      (function(){
+        const form=qs('#ls-calc-battery'); if(!form) return;
+        const out=qs('#ls-bat-results'), err=qs('#ls-bat-error');
+        function setErr(m){ err.textContent=m||''; }
+        function setOut(h){ out.innerHTML=h||''; }
+        form.addEventListener('submit', (e)=>{
+          e.preventDefault(); setErr(''); setOut('');
+          const E=parseNum(qs('#ls-bat-E').value); const P=parseNum(qs('#ls-bat-P').value); let k=parseNum(qs('#ls-bat-k').value); if(!(k>0)) k=1.2;
+          if(!(E>0 && P>0)){ setErr('Укажите положительные E и P.'); return; }
+          const t=E/(P*k); const h=Math.floor(t); const m=Math.round((t-h)*60);
+          setOut(`<div>Время работы: <strong>${fmt(t,2)} ч</strong> (~${h} ч ${m} мин)</div>`);
+        });
+        form.addEventListener('reset', ()=>{ setTimeout(()=>{ setErr(''); setOut(''); },0); });
+      })();
+
+      // Zoom
+      (function(){
+        const form=qs('#ls-calc-zoom'); if(!form) return;
+        const out=qs('#ls-zoom-results'), err=qs('#ls-zoom-error');
+        function setErr(m){ err.textContent=m||''; }
+        function setOut(h){ out.innerHTML=h||''; }
+        form.addEventListener('submit',(e)=>{
+          e.preventDefault(); setErr(''); setOut('');
+          const D=parseNum(qs('#ls-zoom-D').value), minA=parseNum(qs('#ls-zoom-min').value), maxA=parseNum(qs('#ls-zoom-max').value);
+          if(!(D>0 && minA>0 && maxA>0 && maxA>=minA)){ setErr('Проверьте D>0, углы >0 и θmax ≥ θmin.'); return; }
+          const dmin=2*D*Math.tan((minA*Math.PI/180)/2), dmax=2*D*Math.tan((maxA*Math.PI/180)/2);
+          setOut(`<div>Пятно на минимальном зуме: <strong>${fmt(dmin,2)} м</strong></div><div>Пятно на максимальном зуме: <strong>${fmt(dmax,2)} м</strong></div>`);
+        });
+        form.addEventListener('reset', ()=>{ setTimeout(()=>{ setErr(''); setOut(''); },0); });
+      })();
+    })();
+  </script>
+
+  <script>
+    // RIGGING calculators inline inits
+    (function(){
+      // Truss reactions
+      (function(){
+        const $ = id=>document.getElementById(id);
+        const type=$('ls-truss-type'), udlOpts=$('ls-truss-udl-opts'), ptsOpts=$('ls-truss-points-opts'), out=$('ls-truss-out'), L=$('ls-truss-L'), Wkg=$('ls-truss-W-kg');
+        const ids=['ls-truss-x1','ls-truss-w1','ls-truss-x2','ls-truss-w2','ls-truss-x3','ls-truss-w3'];
+        function showMode(){ if(type.value==='udl'){ udlOpts.style.display='block'; ptsOpts.style.display='none'; } else { udlOpts.style.display='none'; ptsOpts.style.display='block'; } }
+        type && type.addEventListener('change', showMode); showMode();
+        $('ls-truss-reset') && $('ls-truss-reset').addEventListener('click', ()=>{ out.textContent=''; });
+        $('ls-truss-btn') && $('ls-truss-btn').addEventListener('click', ()=>{
+          out.textContent=''; const l=parseFloat(L.value); if(!(l>0)){ out.innerHTML='<span class="ls-error">Укажите положительную длину фермы в метрах.</span>'; return; }
+          const g=9.81;
+          if(type.value==='udl'){
+            const wkg=parseFloat(Wkg.value); if(!(wkg>0)){ out.innerHTML='<span class="ls-error">Для UDL укажите суммарный вес &gt; 0 кг.</span>'; return;}
+            const R=(wkg*g)/2; out.textContent = `Оценка: R₁ ≈ R₂ ≈ ${(R/g).toFixed(1)} кгс (при UDL).`;
+          } else {
+            const points=[]; for(let i=0;i<3;i++){ const xi=$(ids[i*2]).value.trim(), wi=$(ids[i*2+1]).value.trim();
+              if(xi!=='' && wi!==''){ const x=parseFloat(xi), wkg=parseFloat(wi);
+                if(!(x>=0 && x<=l && wkg>0)){ out.innerHTML='<span class="ls-error">Проверьте точки: 0 ≤ x ≤ L, вес &gt; 0.</span>'; return; }
+                points.push({x, W:wkg*g});
+              }
+            }
+            if(!points.length){ out.innerHTML='<span class="ls-error">Добавьте хотя бы одну точку нагрузки.</span>'; return; }
+            const Wsum=points.reduce((s,p)=>s+p.W,0), Msum=points.reduce((s,p)=>s+p.W*p.x,0);
+            const R2=Msum/l, R1=Wsum-R2; if(R1<0||R2<0){ out.innerHTML='<span class="ls-error">Схема некорректна: отрицательные реакции.</span>'; return; }
+            out.textContent = `Оценка: R₁ ≈ ${(R1/g).toFixed(1)} кгс, R₂ ≈ ${(R2/g).toFixed(1)} кгс.`;
+          }
+        });
+      })();
+
+      // Dynamic factor
+      (function(){
+        const $=id=>document.getElementById(id), out=$('ls-dyn-out');
+        $('ls-dyn-reset') && $('ls-dyn-reset').addEventListener('click',()=>{ out.textContent=''; });
+        $('ls-dyn-btn') && $('ls-dyn-btn').addEventListener('click', ()=>{
+          const mass=parseFloat($('ls-dyn-m').value);
+          const care=parseFloat($('ls-dyn-care').value||'1');
+          const t=$('ls-dyn-type').value;
+          if(!(mass>0)){ out.innerHTML='<span class="ls-error">Укажите массу &gt; 0 кг.</span>'; return; }
+          if(!(care>=1 && care<=2)){ out.innerHTML='<span class="ls-error">kcare в диапазоне [1; 2].</span>'; return; }
+          const kd = t==='smooth'?1.10 : (t==='startstop'?1.30:1.60);
+          const g=9.81, W=mass*g, Weq=W*kd*care;
+          out.textContent = `Оценка: k_d≈${kd.toFixed(2)}, W_eq≈${Weq.toFixed(0)} Н (~${(Weq/g).toFixed(1)} кгс).`;
+        });
+      })();
+
+      // Sling angle
+      (function(){
+        const $=id=>document.getElementById(id), out=$('ls-out');
+        $('ls-btn-reset') && $('ls-btn-reset').addEventListener('click', ()=>{ out.textContent=''; });
+        $('ls-btn-calc') && $('ls-btn-calc').addEventListener('click', ()=>{
+          const m=parseFloat($('ls-mass').value), n=parseInt($('ls-legs').value,10), a=parseFloat($('ls-angle').value);
+          if(!(m>0 && a>0 && a<89)){ out.innerHTML='<span class="ls-error">Проверьте ввод: масса &gt; 0, угол (0; 89)°.</span>'; return; }
+          const g=9.81, W=m*g, theta=a*Math.PI/180, perLeg=(W/n)/Math.cos(theta), sf=1/Math.cos(theta);
+          out.textContent = `Оценка: на ветвь ≈ ${(perLeg/9.81).toFixed(1)} кгс (коэфф. угла: ${sf.toFixed(2)}).`;
+        });
+      })();
+
+      // Bridle
+      (function(){
+        const $=id=>document.getElementById(id), out=$('ls-br-out');
+        $('ls-br-reset') && $('ls-br-reset').addEventListener('click',()=>{ out.textContent=''; });
+        $('ls-br-btn') && $('ls-br-btn').addEventListener('click', ()=>{
+          const Sv=parseFloat($('ls-br-S').value), hv=parseFloat($('ls-br-h').value), mv=parseFloat($('ls-br-m').value);
+          if(!(Sv>0 && hv>0 && mv>0)){ out.innerHTML='<span class="ls-error">Укажите положительные значения S, h, m.</span>'; return; }
+          const alpha=Math.atan((2*hv)/Sv), g=9.81, W=mv*g, sinA=Math.sin(alpha);
+          if(!(sinA>0)){ out.innerHTML='<span class="ls-error">Геометрия ведёт к нулевому углу. Увеличьте провес.</span>'; return; }
+          const T=W/(2*sinA);
+          out.textContent = `Оценка: угол α ≈ ${(alpha*180/Math.PI).toFixed(1)}°, усилие в ветви T ≈ ${(T/9.81).toFixed(1)} кгс.`;
+        });
+      })();
+    })();
+  </script>
 
   <script src="../assets/main.js" defer></script>
 </body>
