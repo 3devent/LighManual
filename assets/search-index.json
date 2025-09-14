@@ -1,41 +1,120 @@
-[
-  { "title": "Физика света и фотометрия — обзор", "url": "sections/physics.html", "description": "Световой поток, сила света, освещённость, яркость, спектр, CCT.", "keywords": "физика света фотометрия люмен люкс кандела яркость спектр CCT" },
-  { "title": "Единицы измерения: люмен, люкс, кандела", "url": "sections/physics.html#units", "description": "Связь lm/lx/cd, закон обратных квадратов, примеры.", "keywords": "lm lx cd нит яркость освещенность инверсный квадрат" },
-  { "title": "Цветовые модели: RGB, HSI, CIE 1931", "url": "sections/physics.html#color-models", "description": "Смешение цветов, гамут, коррекция белого.", "keywords": "цвет RGB HSI HSV CIE xyY гамут white balance" },
-  { "title": "CRI, TLCI и TM‑30: качество света", "url": "sections/physics.html#cri-tm30", "description": "Индексы цветопередачи для глаза и камеры.", "keywords": "CRI TLCI TM-30 индекс цветопередачи" },
-
-  { "title": "Электрика и безопасность — обзор", "url": "sections/electrical-safety.html", "description": "Распределение питания, защита персонала и оборудования.", "keywords": "безопасность электроустановка ПТБ питание" },
-  { "title": "Питание и распределение нагрузки", "url": "sections/electrical-safety.html#power-distribution", "description": "Фазы, балансировка, автоматы, PDU, powerCON/True1.", "keywords": "распределение фазы автомат PDU powerCON True1" },
-  { "title": "Заземление, УЗО и селективность", "url": "sections/electrical-safety.html#grounding-rcd", "description": "Контуры, RCD/УЗО, тесты и документация.", "keywords": "заземление УЗО RCD селективность тест" },
-  { "title": "Кабели, коннекторы и IP‑рейтинги", "url": "sections/electrical-safety.html#cables-connectors", "description": "Сечения, XLR, powerCON, IP65/IP67, хранение.", "keywords": "кабели XLR powerCON True1 IP65 IP67" },
-
-  { "title": "Приборы и оптика — обзор", "url": "sections/fixtures-optics.html", "description": "Классификация приборов, оптика, обслуживание.", "keywords": "приборы головы оптика линзы" },
-  { "title": "Типы приборов: Spot, Wash, Beam, Profile", "url": "sections/fixtures-optics.html#fixture-types", "description": "Особенности применения и патчинг режимов.", "keywords": "spot wash beam profile gobo frost iris" },
-  { "title": "Оптика: линза Френеля и профиль", "url": "sections/fixtures-optics.html#optics-fresnel-profile", "description": "Пучок, поле, кромка, T‑stop/f‑stop.", "keywords": "линза Френеля профиль T-stop f-stop" },
-  { "title": "Источники света: лампы vs LED, ШИМ и строб", "url": "sections/fixtures-optics.html#light-sources-pwm", "description": "Мерцание на камере, flicker‑free.", "keywords": "LED лампа PWM мерцание" },
-
-  { "title": "Риггинг и механика — обзор", "url": "sections/rigging-mechanics.html", "description": "Нагрузки, крепёж, стандарты безопасности.", "keywords": "риггинг крепеж безопасность" },
-  { "title": "Нагрузки, WLL/SWL и коэффициент запаса", "url": "sections/rigging-mechanics.html#loads-swl", "description": "Расчёты, распределение веса по фермам.", "keywords": "WLL SWL коэффициент запаса ферма" },
-  { "title": "Стропы, фермы, грилля и климбы", "url": "sections/rigging-mechanics.html#slings-truss", "description": "Типы стропов и ферменные системы.", "keywords": "строп ферма грилля климб" },
-  { "title": "Безопасность и чек‑листы такелажа", "url": "sections/rigging-mechanics.html#safety-checklists", "description": "Осмотры, журнал, PPE.", "keywords": "чек-лист PPE каска страховка" },
-
-  { "title": "Управление и протоколы — обзор", "url": "sections/control-protocols.html", "description": "DMX, RDM, Art‑Net, sACN, адресация и сети.", "keywords": "DMX RDM Art-Net sACN сеть" },
-  { "title": "DMX512: адресация и патчинг", "url": "sections/control-protocols.html#dmx", "description": "Универсы, 8/16‑бит, режимы.", "keywords": "DMX dmx512 адресация patch 8bit 16bit" },
-  { "title": "RDM: удалённый мониторинг и настройка", "url": "sections/control-protocols.html#rdm", "description": "UID, discovery, ограничения.", "keywords": "RDM remote device management UID" },
-  { "title": "Art‑Net и sACN: сетевая инфраструктура", "url": "sections/control-protocols.html#network", "description": "IP‑адресация, VLAN, QoS.", "keywords": "Art-Net sACN IP VLAN QoS" },
-
-  { "title": "Рабочий процесс — обзор", "url": "sections/workflow.html", "description": "Планирование, сетап, репетиции, шоу.", "keywords": "продакшен сетап репетиция шоу" },
-  { "title": "Подготовка проекта и документация", "url": "sections/workflow.html#preproduction", "description": "Планы, райдер, патч‑листы, коммуникации.", "keywords": "preproduction райдер патч-лист" },
-  { "title": "Сетап и тестирование системы", "url": "sections/workflow.html#setup-testing", "description": "Монтаж, адресация, прогон сигналов.", "keywords": "монтаж адресация тест" },
-  { "title": "Программирование, пресеты и плейбэк", "url": "sections/workflow.html#programming", "description": "Палитры, трекинг, таймкод, backup.", "keywords": "консоль палитры трекинг таймкод backup" },
-
-  { "title": "Инструменты — обзор", "url": "sections/tools.html", "description": "ПО, утилиты, тестеры, шаблоны.", "keywords": "инструменты софт тестеры шаблоны" },
-  { "title": "ПО: визуализаторы и оффлайн‑редакторы", "url": "sections/tools.html#software", "description": "Виртуальные сцены, экспорт в консоли.", "keywords": "визуализатор onPC Chamsys Capture" },
-  { "title": "Тестеры и измерительное оборудование", "url": "sections/tools.html#testers", "description": "DMX‑тестеры, мультиметры, анализаторы.", "keywords": "DMX тестер мультиметр анализатор" },
-  { "title": "Шаблоны: патч‑листы и чек‑листы", "url": "sections/tools.html#templates", "description": "Готовые формы и примеры.", "keywords": "шаблон патч-лист чек-лист" },
-
-  { "title": "Статьи — обновления и кейсы", "url": "sections/articles.html", "description": "Полевые заметки, разборы, обзоры.", "keywords": "статьи блог кейсы обзоры" },
-  { "title": "Кейс: сетевая инфраструктура для шоу", "url": "sections/articles.html#case-network", "description": "VLAN для Art‑Net/sACN, QoS, резервирование.", "keywords": "VLAN QoS резервирование monitoring" },
-  { "title": "Разбор: типичные ошибки адресации DMX", "url": "sections/articles.html#dmx-mistakes", "description": "Конфликты адресов, режимы приборов.", "keywords": "DMX ошибки адресация режим" },
-  { "title": "Обзор: линзы и фильтры для сценических приборов", "url": "sections/articles.html#lenses-review", "description": "Гели, диффузоры, CTO/CTB.", "keywords": "линзы фильтры CTO CTB диффузор" }
-]
+{
+  "version": 1,
+  "lang": "ru",
+  "generatedAt": "2025-09-14T00:00:00Z",
+  "docs": [
+    {
+      "url": "../pages/physics.html",
+      "title": "Физика света и фотометрия",
+      "description": "Световой поток, сила света, освещённость, яркость, спектр, цветовые модели, индексы цветопередачи.",
+      "headings": [
+        { "id": "lg-basics", "title": "1. Основы света" },
+        { "id": "lg-photometry", "title": "2. Фотометрия" },
+        { "id": "lg-color", "title": "3. Цвет и спектр" },
+        { "id": "lg-geom-optics", "title": "Геометрическая оптика сценических приборов" },
+        { "id": "lg-temporal", "title": "Временные характеристики света и фликер" },
+        { "id": "lg-vision", "title": "Физиология зрения и психофизика яркости" },
+        { "id": "lg-metrology", "title": "Измерительная техника и неопределённость" },
+        { "id": "lg-cases", "title": "Практические кейсы" },
+        { "id": "lg-tools", "title": "Калькуляторы" },
+        { "id": "lg-datasheets", "title": "Как читать фотометрические datasheets" },
+        { "id": "lg-checklists", "title": "Чек‑листы и шаблоны" },
+        { "id": "lg-faq", "title": "FAQ" },
+        { "id": "lg-glossary", "title": "Глоссарий" },
+        { "id": "lg-refs", "title": "Стандарты и литература" }
+      ],
+      "keywords": "люмен люкс кандела CBPC beam field CCT CRI TLCI TM‑30 закон обратных квадратов гобо френель профиль PWM фликер CIE xy цветопередача пятно освещённость спектр CTO CTB"
+    },
+    {
+      "url": "../pages/fixtures-optics.html",
+      "title": "Приборы и оптика — обзор",
+      "description": "Классификация приборов, оптика, источники света и обслуживание.",
+      "headings": [
+        { "id": "ls-intro", "title": "Введение" },
+        { "id": "ls-photometry", "title": "Базовая фотометрия и восприятие" },
+        { "id": "ls-fixtures", "title": "Типы приборов" },
+        { "id": "ls-optics", "title": "Оптика" },
+        { "id": "ls-led", "title": "LED и драйверы" },
+        { "id": "ls-practice", "title": "Практика проката" },
+        { "id": "ls-safety", "title": "Безопасность и нормативы" },
+        { "id": "ls-checklists", "title": "Чек‑листы" },
+        { "id": "ls-calculators", "title": "Калькуляторы" },
+        { "id": "ls-faq", "title": "FAQ" },
+        { "id": "ls-outro", "title": "Заключение" }
+      ],
+      "keywords": "spot wash beam hybrid профили Fresnel PC TIR линзы zoom iris shutters gobo prism frost PWM фликер DMX Art‑Net sACN True1 PowerCON ROI кейсы риггинг"
+    },
+    {
+      "url": "../pages/electrical-safety.html",
+      "title": "Электрика и безопасность",
+      "description": "Распределение питания, защита персонала и оборудования, заземление и УЗО, кабели и IP-рейтинги.",
+      "headings": [
+        { "id": "ls-overview", "title": "Введение: почему электричество — это режиссура безопасности" },
+        { "id": "ls-theory", "title": "Общая теория" },
+        { "id": "ls-ip-weather", "title": "Степени IP и погода" },
+        { "id": "ls-safety", "title": "Электробезопасность" },
+        { "id": "ls-planning", "title": "Планирование питания шоу" },
+        { "id": "ls-calculators", "title": "Калькуляторы" },
+        { "id": "ls-cases", "title": "Практические кейсы" },
+        { "id": "ls-checklists", "title": "Чеклисты и протоколы" },
+        { "id": "ls-glossary", "title": "Глоссарий" },
+        { "id": "ls-faq", "title": "FAQ" },
+        { "id": "ls-refs", "title": "Нормативы и ссылки" }
+      ],
+      "keywords": "ПУЭ ГОСТ IEC TN‑S TN‑C‑S TT заземление уравнивание потенциалов УЗО RCBO селективность RCD IP65 IP66 генераторы ATS PFC THD падение напряжения сечение кабеля баланс фаз LOTO PAT"
+    },
+    {
+      "url": "../pages/control-protocols.html",
+      "title": "Управление и протоколы",
+      "description": "DMX, RDM, Art‑Net, sACN, адресация и сетевая инфраструктура.",
+      "headings": [
+        { "id": "sec-intro", "title": "Введение" },
+        { "id": "sec-basics", "title": "Основы управления светом" },
+        { "id": "sec-dmx", "title": "DMX512 детально" },
+        { "id": "sec-rdm", "title": "RDM" },
+        { "id": "sec-artnet", "title": "Art‑Net" },
+        { "id": "sec-sacn", "title": "sACN (Streaming ACN)" },
+        { "id": "sec-netdesign", "title": "Сетевой дизайн шоу" },
+        { "id": "sec-patch", "title": "Патч и адресация на практике" },
+        { "id": "sec-pixel", "title": "Pixel mapping и медиасерверы" },
+        { "id": "sec-wireless", "title": "Беспроводной DMX" },
+        { "id": "sec-sync", "title": "Синхронизация и шоу-контроль" },
+        { "id": "sec-diagnostics", "title": "Диагностика и инструменты" },
+        { "id": "sec-cases", "title": "Практические кейсы" },
+        { "id": "case-festival", "title": "Кейс: фестиваль (Main Stage)" },
+        { "id": "case-arena", "title": "Кейс: арена-тур" },
+        { "id": "case-corporate", "title": "Кейс: корпоратив в отеле" },
+        { "id": "sec-guides", "title": "Гайды и чек-листы" },
+        { "id": "sec-glossary", "title": "Глоссарий" },
+        { "id": "sec-faq", "title": "FAQ" },
+        { "id": "calc-dmx", "title": "Калькулятор DMX-адресов" },
+        { "id": "calc-artnet", "title": "Калькулятор Art‑Net Net/Sub‑Net/Universe" },
+        { "id": "calc-sacn-prio", "title": "Калькулятор приоритета sACN" },
+        { "id": "calc-bandwidth", "title": "Калькулятор пропускной способности" },
+        { "id": "calc-dmx-risk", "title": "Калькулятор риска DMX-цепи" },
+        { "id": "calc-linkbudget", "title": "Калькулятор линк‑бюджета CRMX/W‑DMX" }
+      ],
+      "keywords": "DMX512 RDM E1.20 Art‑Net sACN E1.31 IGMP Snooping Querier VLAN QoS HTP LTP merge таймкод LTC MTC OSC адресация Net Sub‑Net Universe multicast unicast топологии ноды сплиттеры резервирование"
+    },
+    {
+      "url": "../pages/articles.html",
+      "title": "Статьи — обновления и кейсы",
+      "description": "Полевые заметки, разбор типичных ошибок, обзоры аксессуаров и оптики.",
+      "headings": [
+        {
+          "id": "article-tech",
+          "title": "Техник по световому концертному оборудованию в прокате: российская практика, процессы, безопасность и международный контекст"
+        },
+        {
+          "id": "article-equipment",
+          "title": "Концертный свет в прокате: оборудование, протоколы, рабочие процессы и экономика владения"
+        },
+        {
+          "id": "article-business",
+          "title": "Бизнес технического обеспечения массовых мероприятий и прокат концертного оборудования в России: рынок, операции, экономика и риски"
+        }
+      ],
+      "keywords": "техник по свету процессы райдер планирование протоколы безопасность РФ ESTA/PLASA парки IP65 ROI TCO прокат dry hire turnkey рынок РФ кейсы чек‑листы диагностика DMX RDM sACN Art‑Net"
+    }
+  ]
+}
