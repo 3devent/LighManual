@@ -165,20 +165,6 @@
   #ls-article a[href="#ls-top"]:visited{
     color: var(--lg-link);
   }
-  
-  /* Все внутренние (якорные) ссылки внутри статьи — как "Назад к содержанию" */
-#ls-article a[href^="#"]:not([href="#"]) {
-  color: var(--lg-link);
-  text-decoration: none;
-}
-#ls-article a[href^="#"]:not([href="#"]):hover,
-#ls-article a[href^="#"]:not([href="#"]):focus {
-  text-decoration: underline;
-  outline: none;
-}
-#ls-article a[href^="#"]:not([href="#"]):visited {
-  color: var(--lg-link);
-}
  
 </style>
   <!--<style>
@@ -261,7 +247,7 @@
       <section class="hero">
         <div class="hero-inner">
           <div class="hero-copy">
-            <h1>Электрика и безопасность — обзор</h1>
+            <h1>Электрика и безопасность</h1>
             <p class="lead">Распределение питания, защита персонала и оборудования. Планирование, маркировка и документация.</p>
           </div>
         </div>
@@ -271,8 +257,6 @@
       <article id="ls-article" lang="ru">
   <!-- ls: header -->
   <header id="ls-top" role="banner">
-    <h1>Электрика и безопасность для концертного света: от новичка до профи</h1>
-    <p class="ls-sub">Практическое руководство для гаферов, диммер-техников, системных инженеров и электриков сцены. О том, как спланировать, собрать и безопасно эксплуатировать временные электросети и свет для массовых мероприятий.</p>
     <p class="ls-disclaimer" role="note">Информация носит справочный характер; соблюдайте местные нормы (ПУЭ, ГОСТ, IEC) и привлекайте аттестованных специалистов.</p>
     <nav id="ls-toc" aria-label="Содержание">
       <h2>Содержание</h2>
