@@ -103,45 +103,6 @@ function decl(n, forms) {
   if (m10 === 1 && m100 !== 11) return forms[0];
   if (m10 >= 2 && m10 <= 4 && !(m100 >= 12 && m100 <= 14)) return forms[1];
   return forms[2];
-
-// База сайта на GitHub Pages
-const SITE_BASE = 'https://3devent.github.io/LighManual/';
-
-// Строим абсолютный href: учитываем относительные пути, ../, хэши и якори
-function buildResultHref(u) {
-  try {
-    if (!u) return SITE_BASE;
-    // если уже http/https — возвращаем как есть
-    if (/^https?:\/\//i.test(u)) return u;
-    // сначала нормализуем путь относительно текущей страницы (учтёт ../ и якори)
-    const abs = new URL(u, location.href);
-    // собираем путь без начального слеша, чтобы склеить с SITE_BASE
-    const path = abs.pathname.replace(/^\/+/, '');
-    const rest = path + abs.search + abs.hash;
-    return SITE_BASE + rest; // всегда с нужным префиксом
-  } catch {
-    return SITE_BASE;
-  }
-}
-
-// База сайта на GitHub Pages
-const SITE_BASE = 'https://3devent.github.io/LighManual/';
-
-// Строим абсолютный href: учитываем относительные пути, ../, хэши и якори
-function buildResultHref(u) {
-  try {
-    if (!u) return SITE_BASE;
-    // если уже http/https — возвращаем как есть
-    if (/^https?:\/\//i.test(u)) return u;
-    // сначала нормализуем путь относительно текущей страницы (учтёт ../ и якори)
-    const abs = new URL(u, location.href);
-    // собираем путь без начального слеша, чтобы склеить с SITE_BASE
-    const path = abs.pathname.replace(/^\/+/, '');
-    const rest = path + abs.search + abs.hash;
-    return SITE_BASE + rest; // всегда с нужным префиксом
-  } catch {
-    return SITE_BASE;
-  }
 }
 
 function runSearch() {
@@ -163,15 +124,12 @@ function runSearch() {
   }
 
   if (searchResults) {
-searchResults.innerHTML = results.map(r => {
-  const href = buildResultHref(r.url);
-  return `
-    <a class="result-item" href="${href}" data-close="panel">
-      <div class="result-title">${r.title}</div>
-      ${r.description ? `<p class="result-desc">${r.description}</p>` : ''}
-    </a>
-  `;
-}).join('');
+    searchResults.innerHTML = results.map(r => `
+      <a class="result-item" href="${r.url}" data-close="panel">
+        <div class="result-title">${r.title}</div>
+        ${r.description ? `<p class="result-desc">${r.description}</p>` : ''}
+      </a>
+    `).join('');
   }
   if (searchCount) {
     searchCount.textContent = `${results.length} ${decl(results.length, ['результат', 'результата', 'результатов'])}`;
