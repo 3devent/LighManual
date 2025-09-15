@@ -103,6 +103,15 @@ function decl(n, forms) {
   if (m10 === 1 && m100 !== 11) return forms[0];
   if (m10 >= 2 && m10 <= 4 && !(m100 >= 12 && m100 <= 14)) return forms[1];
   return forms[2];
+
+
+function absHref(u) {
+  try {
+    // делаем абсолютный URL относительно текущей страницы; ../ и anchors тоже нормализуются
+    return new URL(u, location.href).href;
+  } catch {
+    return u || '#';
+  }
 }
 
 function runSearch() {
@@ -124,12 +133,15 @@ function runSearch() {
   }
 
   if (searchResults) {
-    searchResults.innerHTML = results.map(r => `
-      <a class="result-item" href="${r.url}" data-close="panel">
-        <div class="result-title">${r.title}</div>
-        ${r.description ? `<p class="result-desc">${r.description}</p>` : ''}
-      </a>
-    `).join('');
+    searchResults.innerHTML = results.map(r => {
+  const href = absHref(r.url);
+  return `
+    <a class="result-item" href="${href}" data-close="panel">
+      <div class="result-title">${r.title}</div>
+      ${r.description ? `<p class="result-desc">${r.description}</p>` : ''}
+    </a>
+  `;
+}).join('');
   }
   if (searchCount) {
     searchCount.textContent = `${results.length} ${decl(results.length, ['результат', 'результата', 'результатов'])}`;
