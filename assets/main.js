@@ -124,13 +124,6 @@ function buildResultHref(u) {
   }
 }
 
-function runSearch() {
-  const q = norm(searchInput?.value);
-  if (!q) {
-    if (searchResults) searchResults.innerHTML = '';
-    if (searchCount) searchCount.textContent = '';
-    return;
-  }
   const results = SEARCH_INDEX.filter(item => {
     const hay = `${item.title} ${item.description} ${item.keywords}`.toLowerCase();
     return hay.includes(q);
