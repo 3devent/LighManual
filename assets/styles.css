@@ -35,8 +35,9 @@
   --ls-fig-bg: #ffffff;
   --ls-fig-fg: #111111;
 
-  /* Отступ для якорей (компенсация фиксированной шапки); JS может обновлять это значение */
-  --anchor-offset: 96px;
+  /* Высота шапки и отступ для якорей */
+  --header-height: 84px; /* базовая высота шапки = высоте .header-inner */
+  --anchor-offset: calc(var(--header-height) + 12px); /* +зазор под шапкой */
 }
 :root[data-theme="dark"] {
   --bg: #0e1116;
@@ -59,9 +60,16 @@
   --ls-fig-fg: #111111;
 }
 
+/* Адаптивная высота шапки (при желании можно подстроить под мобильные) */
+@media (max-width: 600px){
+  :root { --header-height: 72px; }
+}
+
 /* Нормализация и базовая типографика */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { height: 100%; scroll-behavior: smooth; }
+/* Отступ скролла для якорных переходов (вдобавок к scroll-margin-top на целях) */
+html { scroll-padding-top: var(--anchor-offset); }
 body {
   margin: 0;
   font-family: var(--font-ui);
@@ -73,10 +81,12 @@ body {
   font-synthesis: none;
   font-size: 17px;
   line-height: 1.55;
+  /* Компенсация фиксированной шапки, чтобы контент не прятался под ней */
+  padding-top: var(--header-height);
 }
 
 /* Компенсация фиксированной шапки для всех якорных целей */
-[id] { scroll-margin-top: var(--anchor-offset, 96px); }
+[id] { scroll-margin-top: var(--anchor-offset); }
 /* Для отладки можно подсветить цель якоря:
 :target { outline: 2px solid color-mix(in oklab, var(--primary) 45%, transparent); outline-offset: 2px; }
 */
@@ -131,15 +141,15 @@ img, svg, video {
   display: block;
 }
 
-/* Шапка */
+/* Шапка (фиксированная, всегда на виду) */
 .site-header {
-  position: sticky; top: 0; z-index: 1000;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: color-mix(in oklab, var(--surface) 96%, transparent);
   backdrop-filter: saturate(1.12) blur(6px);
   -webkit-backdrop-filter: saturate(1.12) blur(6px);
   border-bottom: 1px solid var(--border);
 }
-.header-inner { display: flex; align-items: center; gap: 16px; min-height: 84px; }
+.header-inner { display: flex; align-items: center; gap: 16px; min-height: var(--header-height); }
 .brand {
   display: inline-flex; align-items: center; gap: 14px; text-decoration: none;
   color: var(--text); font-weight: 800; letter-spacing: .2px;
@@ -177,7 +187,7 @@ img, svg, video {
 
 /* Сайдбар */
 .sidebar {
-  position: sticky; top: 96px; align-self: start;
+  position: sticky; top: var(--anchor-offset); align-self: start;
   border: 1px solid var(--border); background: var(--surface);
   border-radius: var(--radius-m); box-shadow: var(--shadow); padding: 14px;
 }
@@ -527,6 +537,8 @@ html[data-theme="dark"] #ls-article{
 
 /* Печать */
 @media print{
+  body { padding-top: 0 !important; }
+  .site-header { position: static !important; }
   #ls-article{ box-shadow:none; border:none; }
   #ls-article .ls-actions button{ display:none !important; }
   #ls-article a{ text-decoration:underline; }
