@@ -104,13 +104,23 @@ function decl(n, forms) {
   if (m10 >= 2 && m10 <= 4 && !(m100 >= 12 && m100 <= 14)) return forms[1];
   return forms[2];
 
+// База сайта на GitHub Pages
+const SITE_BASE = 'https://3devent.github.io/LighManual/';
 
-function absHref(u) {
+// Строим абсолютный href: учитываем относительные пути, ../, хэши и якори
+function buildResultHref(u) {
   try {
-    // делаем абсолютный URL относительно текущей страницы; ../ и anchors тоже нормализуются
-    return new URL(u, location.href).href;
+    if (!u) return SITE_BASE;
+    // если уже http/https — возвращаем как есть
+    if (/^https?:\/\//i.test(u)) return u;
+    // сначала нормализуем путь относительно текущей страницы (учтёт ../ и якори)
+    const abs = new URL(u, location.href);
+    // собираем путь без начального слеша, чтобы склеить с SITE_BASE
+    const path = abs.pathname.replace(/^\/+/, '');
+    const rest = path + abs.search + abs.hash;
+    return SITE_BASE + rest; // всегда с нужным префиксом
   } catch {
-    return u || '#';
+    return SITE_BASE;
   }
 }
 
@@ -133,8 +143,8 @@ function runSearch() {
   }
 
   if (searchResults) {
-    searchResults.innerHTML = results.map(r => {
-  const href = absHref(r.url);
+searchResults.innerHTML = results.map(r => {
+  const href = buildResultHref(r.url);
   return `
     <a class="result-item" href="${href}" data-close="panel">
       <div class="result-title">${r.title}</div>
