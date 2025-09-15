@@ -35,7 +35,7 @@ try {
       try { saved = localStorage.getItem('theme'); } catch {}
       if (!saved) setTheme(systemPref());
     });
-  } else if (mql.addListener) { // старые браузеры
+  } else if (mql.addListener) {
     mql.addListener(() => {
       let saved = null;
       try { saved = localStorage.getItem('theme'); } catch {}
@@ -64,10 +64,33 @@ function openModal(el) {
 function closeModal(el) {
   if (!el) return;
   el.setAttribute('aria-hidden', 'true');
-  // Удаляем lock со страницы только если не осталось открытых модалок
   if (!anyModalOpen()) {
     document.body.classList.remove('modal-open');
   }
+}
+
+// ===== База сайта (важно для GitHub Pages под /LighManual/) =====
+const pathParts = location.pathname.split('/').filter(Boolean);
+// Если сайт в подпапке (например, /LighManual/), возьмём первый сегмент как BASE
+const SITE_BASE = pathParts.length ? `/${pathParts[0]}/` : '/';
+// База для ассетов — абсолютный путь внутри сайта
+const ASSETS_BASE = `${SITE_BASE}assets`;
+
+// Нормализация ссылок из поискового индекса под SITE_BASE
+function resolveUrl(u) {
+  if (!u) return '#';
+  if (/^https?:\/\//i.test(u)) return u; // внешняя ссылка
+  if (u.startsWith('#')) return u;       // якорь
+
+  // Если ссылка уже абсолютная внутри сайта, но без BASE (например, /sections/..),
+  // добавим BASE. Если уже начинается с SITE_BASE — оставим как есть.
+  if (u.startsWith(SITE_BASE)) return u;
+  if (u.startsWith('/')) return SITE_BASE + u.replace(/^\//, '');
+
+  // Уберём ./ и ../ в начале и префиксуем BASE
+  let v = u.replace(/^\.\/+/, '');
+  while (v.startsWith('../')) v = v.slice(3);
+  return SITE_BASE + v;
 }
 
 // ===== Поиск =====
@@ -93,10 +116,6 @@ searchPanel?.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeSearch();
 });
-
-// Определяем корректный путь к assets/ (для главной и страниц разделов)
-const IS_IN_SECTIONS = /\/sections\//.test(location.pathname);
-const ASSETS_BASE = IS_IN_SECTIONS ? '../assets' : 'assets';
 
 // Индекс: загрузка внешнего JSON
 let SEARCH_INDEX = [];
@@ -128,12 +147,8 @@ function decl(n, forms) {
   if (m10 >= 2 && m10 <= 4 && !(m100 >= 12 && m100 <= 14)) return forms[1];
   return forms[2];
 }
-function resolveUrl(u) {
-  try { return new URL(u, location.href).href; } catch { return u; }
-}
 
 async function runSearch() {
-  // ждём индекса, если ещё грузится
   try { await searchIndexPromise; } catch {}
 
   const q = norm(searchInput?.value);
@@ -188,13 +203,13 @@ menuPanel?.addEventListener('click', e => {
   const link = t?.closest?.('a[href]');
   if (link) {
     closeMenu();
-    return; // важно: не вызываем preventDefault()
+    return;
   }
 
   // 2) Клик по крестику или подложке — просто закрываем
   const closeEl = t?.closest?.('[data-close="menu"]');
   if (closeEl) {
-    e.preventDefault(); // допустимо (кнопка/подложка)
+    e.preventDefault();
     closeMenu();
   }
 });
