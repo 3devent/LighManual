@@ -1,286 +1,166 @@
-{
-  "version": 2,
-  "lang": "ru",
-  "pages": [
-    {
-      "url": "index.html",
-      "title": "Пособие для специалистов по свету",
-      "description": "Премиальное HTML‑пособие для техников по концертному свету: физика и фотометрия, электрика и безопасность, приборы и оптика, риггинг и механика, управление и протоколы, рабочий процесс, инструменты, статьи.",
-      "keywords": ["концертный свет", "пособие", "светотехника", "фотометрия", "электрика", "безопасность", "DMX", "sACN", "риггинг", "протоколы", "инструменты"],
-      "anchors": [
-        { "id": "sections", "title": "Разделы" }
-      ]
-    },
+[
+  {
+    "title": "Пособие для специалистов по свету — Главная",
+    "url": "../index.html",
+    "description": "Фундамент и практика: свет, электрика, протоколы, риггинг, рабочие процессы, инструменты и статьи. Быстрый поиск по ключевым словам.",
+    "keywords": "пособие, светотехник, концертный свет, база знаний, фотометрия, электрика, безопасность, DMX, sACN, Art-Net, риггинг, чек-листы, SOP"
+  },
 
-    {
-      "url": "sections/control-protocols.html",
-      "title": "Управление и протоколы",
-      "description": "DMX, RDM, Art‑Net, sACN, адресация и сетевая инфраструктура.",
-      "keywords": ["DMX", "RDM", "Art-Net", "sACN", "адресация", "сетевой дизайн", "VLAN", "IGMP", "QoS", "таймкод", "OSC", "wireless DMX"],
-      "anchors": [
-        { "id": "sec-intro", "title": "Введение" },
-        { "id": "sec-basics", "title": "Основы управления светом" },
-        { "id": "sec-dmx", "title": "DMX512 детально" },
-        { "id": "sec-dmx-topos", "title": "Топологии и терминаторы" },
-        { "id": "sec-dmx-patch", "title": "Адресация и патч" },
-        { "id": "sec-rdm", "title": "RDM: двусторонний разговор" },
-        { "id": "sec-artnet", "title": "Art‑Net: по IP" },
-        { "id": "sec-sacn", "title": "sACN: приоритеты и мультикаст" },
-        { "id": "sec-netdesign", "title": "Сетевой дизайн шоу" },
-        { "id": "sec-patch", "title": "Патч и адресация на практике" },
-        { "id": "sec-pixel", "title": "Pixel mapping и медиасерверы" },
-        { "id": "sec-wireless", "title": "Беспроводной DMX" },
-        { "id": "sec-sync", "title": "Синхронизация и шоу‑контроль" },
-        { "id": "sec-diagnostics", "title": "Диагностика и инструменты" },
-        { "id": "sec-cases", "title": "Практические кейсы" },
-        { "id": "case-festival", "title": "Кейс: фестиваль (Main Stage)" },
-        { "id": "case-arena", "title": "Кейс: арена‑тур" },
-        { "id": "case-corporate", "title": "Кейс: корпоратив в отеле" },
-        { "id": "sec-guides", "title": "Гайды и чек‑листы" },
-        { "id": "sec-glossary", "title": "Глоссарий" },
-        { "id": "sec-faq", "title": "FAQ" },
-        { "id": "calc-dmx", "title": "Калькулятор DMX‑адресов" },
-        { "id": "calc-artnet", "title": "Калькулятор Art‑Net" },
-        { "id": "calc-sacn-prio", "title": "Калькулятор приоритета sACN" },
-        { "id": "calc-bandwidth", "title": "Калькулятор пропускной способности" },
-        { "id": "calc-dmx-risk", "title": "Калькулятор риска DMX‑цепи" },
-        { "id": "calc-linkbudget", "title": "Калькулятор линк‑бюджета CRMX/W‑DMX" }
-      ]
-    },
+  {
+    "title": "Физика света и фотометрия",
+    "url": "../sections/physics.html",
+    "description": "Основы света: люмен, кандела, люкс, спектр, цветопередача (CRI, TM‑30, TLCI), закон обратных квадратов.",
+    "keywords": "фотометрия, освещённость, яркость, световой поток, CRI, TM-30, TLCI, спектр, цвет, инверсная квадратов, единицы измерения"
+  },
 
-    {
-      "url": "sections/electrical-safety.html",
-      "title": "Электрика и безопасность",
-      "description": "Распределение питания, защита персонала и оборудования, заземление и УЗО, кабели и IP-рейтинги.",
-      "keywords": ["электробезопасность", "питание", "дистрибуция", "RCD", "RCBO", "ПУЭ", "IP рейтинг", "генераторы", "селективность", "ΔU", "кабели", "TN", "TT"],
-      "anchors": [
-        { "id": "ls-overview", "title": "Введение" },
-        { "id": "ls-theory", "title": "Общая теория" },
-        { "id": "ls-ip-weather", "title": "Степени IP и погода" },
-        { "id": "ls-safety", "title": "Электробезопасность" },
-        { "id": "ls-planning", "title": "Планирование питания шоу" },
-        { "id": "ls-calculators", "title": "Калькуляторы" },
-        { "id": "ls-cases", "title": "Практические кейсы" },
-        { "id": "ls-checklists", "title": "Чек‑листы и протоколы" },
-        { "id": "ls-glossary", "title": "Глоссарий" },
-        { "id": "ls-faq", "title": "FAQ" },
-        { "id": "ls-refs", "title": "Нормативы и ссылки" },
-        { "id": "ls-calc-current-sec", "title": "Калькулятор: ток по мощности" },
-        { "id": "ls-calc-balance-sec", "title": "Калькулятор: баланс фаз" },
-        { "id": "ls-calc-drop-sec", "title": "Калькулятор: падение напряжения" },
-        { "id": "ls-calc-gen-sec", "title": "Калькулятор: размер генератора" },
-        { "id": "ls-calc-rcd-sec", "title": "Калькулятор: подбор УЗО" },
-        { "id": "ls-calc-ip-sec", "title": "Калькулятор: IP‑помощник" }
-      ]
-    },
+  {
+    "title": "Электрика и безопасность — обзор",
+    "url": "../sections/electrical-safety.html",
+    "description": "Распределение питания, RCD/RCBO, заземление, IP‑рейтинг, селективность, падение напряжения, генераторы, измерения.",
+    "keywords": "электробезопасность, ПУЭ, УЗО, RCD, RCBO, заземление, TN-S, TT, селективность, IP65, IP66, ΔU, cos φ, PFC, генератор"
+  },
+  {
+    "title": "Электрика: Введение",
+    "url": "../sections/electrical-safety.html#ls-overview",
+    "description": "Зачем сцене дисциплина электросети: от теории до практики и норм. Базовые понятия и подходы.",
+    "keywords": "введение, электричество, сцена, теория, нормы, ПУЭ, IEC, безопасность"
+  },
+  {
+    "title": "Электрика: Электробезопасность",
+    "url": "../sections/electrical-safety.html#ls-safety",
+    "description": "Классы защиты, уравнивание потенциалов, типы УЗО, пожарная безопасность, LOTO, измерения, генераторы.",
+    "keywords": "класс I II III, SELV, PELV, уравнивание потенциалов, УЗО тип A F B, селективность, пожарная безопасность, LOTO, мегомметр"
+  },
+  {
+    "title": "Электрика: Планирование питания",
+    "url": "../sections/electrical-safety.html#ls-planning",
+    "description": "Баланс фаз, резервы, пусковые токи, падение напряжения, трассы, UPS/ATS и генераторы.",
+    "keywords": "баланс фаз, нейтраль, пусковые токи, падение напряжения, сечение кабеля, UPS, ATS, kVA"
+  },
+  {
+    "title": "Электрика: Калькуляторы",
+    "url": "../sections/electrical-safety.html#ls-calculators",
+    "description": "Расчёт тока, баланс фаз/нейтрали, падение напряжения и сечение кабеля, размер генератора, подбор УЗО, IP‑помощник.",
+    "keywords": "калькулятор тока, ΔU, генератор, выбор УЗО, IP рейтинг, нейтраль, cos φ"
+  },
+  {
+    "title": "Электрика: Практические кейсы",
+    "url": "../sections/electrical-safety.html#ls-cases",
+    "description": "Опен‑эйр под дождём, арена, слабая электрика клуба, тур с ATS, длинные ран‑пути, 50/60 Гц.",
+    "keywords": "кейсы, open-air, арена, клуб, ATS, ран-пути, частота 50/60 Гц"
+  },
+  {
+    "title": "Электрика: FAQ",
+    "url": "../sections/electrical-safety.html#ls-faq",
+    "description": "Почему выбивает УЗО, нужна ли гальваническая развязка DMX, можно ли соединять нейтрали разных дистро.",
+    "keywords": "FAQ, УЗО, утечки, DMX изоляция, нейтраль, дистрибьюция"
+  },
 
-    {
-      "url": "sections/fixtures-optics.html",
-      "title": "Приборы и оптика",
-      "description": "Классификация приборов, оптика, источники света и обслуживание.",
-      "keywords": ["приборы", "оптика", "spot", "wash", "beam", "hybrid", "gobo", "frost", "призма", "LED", "PWM", "фликер", "фотометрия"],
-      "anchors": [
-        { "id": "ls-intro", "title": "Введение" },
-        { "id": "ls-photometry", "title": "Базовая фотометрия и восприятие" },
-        { "id": "ls-photometry-units", "title": "Единицы: лм/лк/кд" },
-        { "id": "ls-photometry-beamfield", "title": "Beam/Field и выбор углов" },
-        { "id": "ls-photometry-color", "title": "Цветопередача (CRI/TLCI, TM‑30)" },
-        { "id": "ls-fixtures", "title": "Типы приборов" },
-        { "id": "ls-fixtures-trad", "title": "Традиционные: PAR, Fresnel, профили" },
-        { "id": "ls-fixtures-discharge", "title": "Разрядные источники (HMI/MSR)" },
-        { "id": "ls-fixtures-moving", "title": "Движущиеся головы: Spot/Wash/Beam" },
-        { "id": "ls-fixtures-bars", "title": "Панели и пиксельные бары" },
-        { "id": "ls-fixtures-arch", "title": "Архитектурные/уличные, IP" },
-        { "id": "ls-optics", "title": "Оптика" },
-        { "id": "ls-optics-elements", "title": "Рефлекторы, TIR, линзы" },
-        { "id": "ls-optics-zoom", "title": "Зум‑механизмы, фокус" },
-        { "id": "ls-optics-modules", "title": "Frost, Gobo, Prism, Iris, Shutters" },
-        { "id": "ls-optics-beamquality", "title": "Равномерность, hotspot и дым" },
-        { "id": "ls-led", "title": "LED и драйверы" },
-        { "id": "ls-led-dimming", "title": "PWM vs analog, 8/16‑бит, фликер" },
-        { "id": "ls-practice", "title": "Практика проката" },
-        { "id": "ls-practice-packages", "title": "Пакеты под задачи" },
-        { "id": "ls-practice-patch", "title": "Патчинг и резервирование" },
-        { "id": "ls-practice-cases", "title": "Кейсы эксплуатации" },
-        { "id": "ls-practice-economy", "title": "Экономика и ROI" },
-        { "id": "ls-safety", "title": "Безопасность и нормативы" },
-        { "id": "ls-checklists", "title": "Чек‑листы" },
-        { "id": "ls-calculators", "title": "Калькуляторы" },
-        { "id": "ls-calc-spot", "title": "Кальк.: диаметр пятна и люксы" },
-        { "id": "ls-calc-dmx", "title": "Кальк.: DMX‑адресация" },
-        { "id": "ls-calc-power", "title": "Кальк.: мощность/токи" },
-        { "id": "ls-calc-battery", "title": "Кальк.: время от аккумулятора" },
-        { "id": "ls-calc-pwm", "title": "Кальк.: PWM и мерцание" },
-        { "id": "ls-calc-zoom", "title": "Кальк.: зум‑покрытие" },
-        { "id": "ls-faq", "title": "FAQ" },
-        { "id": "ls-outro", "title": "Заключение" }
-      ]
-    },
+  {
+    "title": "Приборы и оптика",
+    "url": "../sections/fixtures-optics.html",
+    "description": "Классы приборов (beam/spot/profile/wash/hybrid), оптика, линза Френеля, гобо, зумы и световой поток.",
+    "keywords": "beam, spot, profile, wash, hybrid, Френель, профиль, гобо, зум, световой поток"
+  },
 
-    {
-      "url": "sections/articles.html",
-      "title": "Статьи — Пособие для специалистов по свету",
-      "description": "Раздел «Статьи»: объединённый материал по рынку, оборудованию и профессии техника по свету; практические кейсы, безопасность и стандарты.",
-      "keywords": ["рынок", "прокат", "экономика", "оборудование", "концертный свет", "техник по свету", "чек‑листы", "кейсы", "глоссарий", "FAQ"],
-      "anchors": [
-        { "id": "articles-catalog", "title": "Обзорные статьи" },
-        { "id": "lead-intro", "title": "Введение / Лид" },
-        { "id": "art-business-title", "title": "Бизнес технического обеспечения" },
-        { "id": "art-equipment-title", "title": "Концертный свет: оборудование и протоколы" },
-        { "id": "lighting-tech-overview", "title": "Техник по свету: процессы и безопасность" },
-        { "id": "master-faq-title", "title": "FAQ и расширенный глоссарий" }
-      ]
-    },
+  {
+    "title": "Риггинг и механика",
+    "url": "../sections/rigging-mechanics.html",
+    "description": "Фермы/моторы, нагрузки по СП 20, ветровые воздействия, вторичные страховки, паспорта и журналы.",
+    "keywords": "риггинг, фермы, моторы, SWL, WLL, нагрузки, ветер, СП 20, страховки, ППР"
+  },
 
-    {
-      "url": "sections/physics.html",
-      "title": "Физика света и фотометрия",
-      "description": "Световой поток, сила света, освещённость, яркость, спектр, цветовые модели, индексы цветопередачи.",
-      "keywords": ["физика света", "фотометрия", "люкс", "люмен", "кандела", "яркость", "спектр", "CIE", "CRI", "TLCI", "TM-30", "CTO", "CTB", "PWM", "фликер", "угол beam", "освещённость", "LER", "CCT"],
-      "anchors": [
-        { "id": "lg-top", "title": "Физика света и фотометрия для концертного света" },
-        { "id": "lg-toc", "title": "Содержание" },
-        { "id": "lg-basics", "title": "1. Основы света" },
-        { "id": "lg-photometry", "title": "2. Фотометрия" },
-        { "id": "lg-color", "title": "3. Цвет и спектр" },
-        { "id": "lg-geom-optics", "title": "Геометрическая оптика сценических приборов" },
-        { "id": "lg-temporal", "title": "Временные характеристики света и фликер" },
-        { "id": "lg-vision", "title": "Физиология зрения и психофизика яркости" },
-        { "id": "lg-metrology", "title": "Измерительная техника и неопределённость" },
-        { "id": "lg-cases", "title": "Практические кейсы" },
-        { "id": "lg-case-openair", "title": "Кейс 1. Open‑air фестиваль: 30×18 м, трим 12 м, фронт 800 лк для ТВ" },
-        { "id": "lg-case-club", "title": "Кейс 2. Клуб 500 зрителей: низкий потолок" },
-        { "id": "lg-case-tour", "title": "Кейс 3. Тур: унификация ригов" },
-        { "id": "lg-case-tv", "title": "Кейс 4. ТВ‑лайтинг: CRI/TLCI/TM‑30 и LED‑экраны" },
-        { "id": "lg-case-theatre", "title": "Кейс 5. Театр: мягкая заливка и цвет костюмов" },
-        { "id": "lg-case-winter", "title": "Кейс 6. Улица зимой: IP, конденсат, CCT" },
-        { "id": "lg-tools", "title": "Калькуляторы" },
-        { "id": "lg-calc-temp", "title": "Конвертер температур (°C ↔ K ↔ °F)" },
-        { "id": "lg-calc-cto", "title": "Цветокоррекционные фильтры (CTO/CTB, ±Green)" },
-        { "id": "lg-calc-ledmix", "title": "Смешение LED каналов (RGB/RGBW)" },
-        { "id": "lg-calc-illuminance", "title": "Освещённость из силы света (E из I и d)" },
-        { "id": "lg-calc-spot", "title": "Диаметр пятна и угол (D, d, θ)" },
-        { "id": "lg-calc-cover", "title": "Планировщик покрытия по люксу" },
-        { "id": "lg-calc-overlap", "title": "Перекрытие пучков и равномерность" },
-        { "id": "lg-calc-flicker", "title": "Оценка риска фликера" },
-        { "id": "lg-calc-cct-xy", "title": "Приближённый перевод CCT ↔ CIE xy" },
-        { "id": "lg-calc-ler", "title": "Оценка LER и перевод лм ↔ Вт(рад)" },
-        { "id": "lg-datasheets", "title": "Как читать фотометрические datasheets" },
-        { "id": "lg-checklists", "title": "Чек‑листы и шаблоны" },
-        { "id": "lg-faq", "title": "FAQ" },
-        { "id": "lg-glossary", "title": "Глоссарий" },
-        { "id": "lg-refs", "title": "Стандарты и литература" }
-      ]
-    },
+  {
+    "title": "Управление и протоколы — обзор",
+    "url": "../sections/control-protocols.html",
+    "description": "DMX/RDM, Art‑Net, sACN, сетевой дизайн (VLAN/IGMP/QoS), pixel mapping, беспроводной DMX, калькуляторы.",
+    "keywords": "DMX, RDM, Art-Net, sACN, VLAN, IGMP, QoS, HTP, LTP, pixel mapping, CRMX, W-DMX"
+  },
+  {
+    "title": "Протоколы: DMX512",
+    "url": "../sections/control-protocols.html#sec-dmx",
+    "description": "Физика RS‑485, топологии, терминаторы, footprint и адресация, устранение неисправностей.",
+    "keywords": "DMX512, RS-485, терминатор 120 Ом, сплиттер, адресация, footprint"
+  },
+  {
+    "title": "Протоколы: RDM",
+    "url": "../sections/control-protocols.html#sec-rdm",
+    "description": "Двусторонняя связь, discovery, PIDs, сенсоры и практика безопасного RDM.",
+    "keywords": "RDM, discovery, PIDs, сенсоры, proxy, совместимость"
+  },
+  {
+    "title": "Протоколы: sACN",
+    "url": "../sections/control-protocols.html#sec-sacn",
+    "description": "Мультикаст по умолчанию, приоритеты источников, merge, адресация универсов.",
+    "keywords": "sACN, мультикаст, приоритет, merge, HTP, 239.255.x.y"
+  },
+  {
+    "title": "Сетевой дизайн шоу",
+    "url": "../sections/control-protocols.html#sec-netdesign",
+    "description": "VLAN, IGMP Snooping/Querier, QoS, резервирование A/B, RSTP/MSTP, безопасность.",
+    "keywords": "VLAN, IGMP Querier, QoS, резерв, RSTP, MSTP, NMS"
+  },
+  {
+    "title": "Беспроводной DMX (CRMX/W‑DMX)",
+    "url": "../sections/control-protocols.html#sec-wireless",
+    "description": "2.4/5.8 ГГц, антенны, линк‑бюджет (FSPL), LOS/Френель, проводной бэкап.",
+    "keywords": "CRMX, W-DMX, 2.4 ГГц, 5.8 ГГц, антенна, FSPL, линк-бюджет, LOS"
+  },
+  {
+    "title": "Калькуляторы протоколов",
+    "url": "../sections/control-protocols.html#calc-dmx",
+    "description": "Адреса DMX, Art‑Net Net/Sub‑Net/Universe, приоритет sACN, пропускная способность, риск DMX‑цепи, линк‑бюджет.",
+    "keywords": "калькулятор DMX, Art-Net, sACN, FPS, трафик, риск линии, линк бюджет"
+  },
 
-    {
-      "url": "sections/rigging-mechanics.html",
-      "title": "Риггинг и механика",
-      "description": "Нагрузки, крепёж, фермы, безопасность и чек‑листы такелажа.",
-      "keywords": ["риггинг", "такелаж", "фермы", "нагрузки", "стропы", "угол стропа", "бридл", "реакции опор", "динамический коэффициент", "безопасность", "тали", "лебёдки", "D8", "C1", "UDL", "точечная нагрузка"],
-      "anchors": [
-        { "id": "ls-top", "title": "Наверх" },
-        { "id": "ls-toc", "title": "Содержание" },
-        { "id": "ls-basics", "title": "Основы механики и статики для такелажа" },
-        { "id": "ls-basics-forces", "title": "Силы, векторы, равновесие" },
-        { "id": "ls-basics-loads", "title": "Типы нагрузок: UDL, точки, эксцентриситет" },
-        { "id": "ls-basics-angles", "title": "Углы строп и уголовой коэффициент" },
-        { "id": "ls-basics-terms", "title": "WLL, MBL, SF, D/d — простыми словами" },
-        { "id": "ls-basics-donts", "title": "«Не делай так» — типичные ошибки" },
-        { "id": "ls-truss", "title": "Фермы и нагрузки" },
-        { "id": "ls-truss-types", "title": "Типы алюминиевых ферм" },
-        { "id": "ls-truss-charts", "title": "Как читать таблицы нагрузок" },
-        { "id": "ls-truss-calc", "title": "Калькулятор реакций на опорах" },
-        { "id": "ls-hoists", "title": "Тали, лебедки и подъем" },
-        { "id": "ls-hoists-classes", "title": "Категории D8, D8+, C1" },
-        { "id": "ls-hoists-blackbox", "title": "«Черная коробка» электротали" },
-        { "id": "ls-hoists-dynamic", "title": "Грубая оценка динамического коэффициента" },
-        { "id": "ls-gear", "title": "Оснастка и элементы такелажа" },
-        { "id": "ls-gear-slings", "title": "Стропы и аксессуары" },
-        { "id": "ls-gear-angle-calc", "title": "Калькулятор угла стропа" },
-        { "id": "ls-gear-inspection", "title": "Инспекция и маркировка" },
-        { "id": "ls-safety", "title": "Такелажная безопасность" },
-        { "id": "ls-cases", "title": "Практические кейсы" },
-        { "id": "ls-case-club", "title": "Кейс: Малый клуб (до 500 чел.)" },
-        { "id": "ls-case-arena", "title": "Кейс: Крытая арена (10–12k)" },
-        { "id": "ls-case-openair", "title": "Кейс: Open-air сцена" },
-        { "id": "ls-case-theatre", "title": "Кейс: Театральная площадка" },
-        { "id": "ls-design", "title": "Взаимодействие с площадкой и проектирование" },
-        { "id": "ls-inspection", "title": "Контроль, инспекция, журналирование" },
-        { "id": "ls-risk-legal", "title": "Управление рисками и юридический контекст" },
-        { "id": "ls-bridle", "title": "Приложение: Калькулятор простого бридла" },
-        { "id": "ls-faq", "title": "ЧАВО" },
-        { "id": "ls-glossary", "title": "Список терминов" },
-        { "id": "ls-refs", "title": "Стандарты и руководства (обзор)" },
-        { "id": "ls-end", "title": "Заключение" }
-      ]
-    },
+  {
+    "title": "Рабочий процесс",
+    "url": "../sections/workflow.html",
+    "description": "Подготовка, препродакшн, склад/Prep, Onsite, handover, документация и контроль изменений.",
+    "keywords": "workflow, prep, handover, райдер, патч-лист, cable schedule, IP-план, RF-план, сменность"
+  },
 
-    {
-      "url": "sections/tools.html",
-      "title": "Инструменты — калькуляторы",
-      "description": "Единая страница с калькуляторами: физика света, электрика/безопасность, приборы/оптика, риггинг/механика.",
-      "keywords": ["калькуляторы", "физика", "электрика", "DMX", "сеть", "оптика", "освещённость", "зум", "падение напряжения", "генератор", "баланс фаз", "RCD", "IP рейтинг"],
-      "anchors": [
-        { "id": "tools-physics", "title": "Физика света и фотометрия — калькуляторы" },
-        { "id": "lg-calc-temp", "title": "Конвертер температур (°C ↔ K ↔ °F)" },
-        { "id": "lg-calc-cto", "title": "Цветокоррекционные фильтры (CTО/CTB, ±Green)" },
-        { "id": "lg-calc-ledmix", "title": "Смешение LED каналов (RGB/RGBW)" },
-        { "id": "lg-calc-illuminance", "title": "Освещённость из силы света" },
-        { "id": "lg-calc-spot", "title": "Диаметр пятна и угол" },
-        { "id": "lg-calc-cover", "title": "Планировщик покрытия по люксу" },
-        { "id": "lg-calc-overlap", "title": "Перекрытие пучков и равномерность" },
-        { "id": "lg-calc-flicker", "title": "Оценка риска фликера" },
-        { "id": "lg-calc-cct-xy", "title": "CCT ↔ CIE xy" },
-        { "id": "lg-calc-ler", "title": "LER и перевод лм ↔ Вт(рад)" },
+  {
+    "title": "Инструменты",
+    "url": "../sections/tools.html",
+    "description": "Мультиметры, DMX‑тестеры, Wireshark, OLA/QLC+, управляемые свитчи, PoE, SFP, инструменты и расходники.",
+    "keywords": "инструменты, DMX-тестер, мультиметр, True RMS, Wireshark, OLA, QLC+, PoE, SFP"
+  },
 
-        { "id": "tools-electrical", "title": "Электрика и безопасность — калькуляторы" },
-        { "id": "ls-calc-current-sec", "title": "Ток по мощности" },
-        { "id": "ls-calc-balance-sec", "title": "Баланс фаз и нейтраль" },
-        { "id": "ls-calc-drop-sec", "title": "Падение напряжения и сечение" },
-        { "id": "ls-calc-gen-sec", "title": "Размер генератора" },
-        { "id": "ls-calc-rcd-sec", "title": "Подбор УЗО" },
-        { "id": "ls-calc-ip-sec", "title": "IP‑помощник" },
-
-        { "id": "tools-fixtures", "title": "Приборы и оптика — калькуляторы" },
-        { "id": "ls-calc-dmx", "title": "DMX‑адресация" },
-        { "id": "ls-calc-power", "title": "Мощность/ток и фазная балансировка" },
-        { "id": "ls-calc-battery", "title": "Время работы от аккумулятора" },
-        { "id": "ls-calc-zoom", "title": "Зум‑покрытие сцены" },
-
-        { "id": "tools-rigging", "title": "Риггинг и механика — калькуляторы" }
-      ]
-    },
-
-    {
-      "url": "sections/workflow.html",
-      "title": "Рабочий процесс",
-      "description": "Планирование, подготовка, сетап и тестирование, программирование и шоу.",
-      "keywords": ["рабочий процесс", "планирование", "монтаж", "пусконаладка", "программирование", "таймкод", "эксплуатация", "резервирование", "электропитание", "сеть", "логистика", "стоимость", "маржа", "безопасность"],
-      "anchors": [
-        { "id": "ls-top", "title": "Наверх" },
-        { "id": "planning", "title": "Планирование" },
-        { "id": "setup", "title": "Монтаж и пусконаладка" },
-        { "id": "programming", "title": "Программирование и шоу" },
-        { "id": "operations", "title": "Эксплуатация и резерв" },
-        { "id": "maintenance", "title": "ТО и хранение" },
-        { "id": "power", "title": "Электропитание и дистрибуция" },
-        { "id": "calc-power-adv", "title": "Калькулятор: мощность и ток (расширенный)" },
-        { "id": "calc-vdrop", "title": "Калькулятор: падение напряжения" },
-        { "id": "network", "title": "Сетевые протоколы и инфраструктура" },
-        { "id": "calc-dmx", "title": "Калькулятор: DMX адресный план" },
-        { "id": "calc-net", "title": "Калькулятор: планирование сети Art‑Net/sACN" },
-        { "id": "previz", "title": "Превизуализация и подготовка данных" },
-        { "id": "docs-logistics", "title": "Документация, логистика и командные процессы" },
-        { "id": "calc-logi", "title": "Калькулятор: логистика и масса" },
-        { "id": "safety", "title": "Безопасность и риск‑менеджмент" },
-        { "id": "eco", "title": "Экология и устойчивость" },
-        { "id": "cases", "title": "Разбор кейсов и типовые ошибки" },
-        { "id": "glossary", "title": "Глоссарий, FAQ и шаблоны" },
-        { "id": "checklists", "title": "Итоговые чек‑листы и таблицы соответствий" },
-        { "id": "calc-cost", "title": "Калькулятор: стоимость и маржинальность проката" },
-        { "id": "calc-red", "title": "Калькулятор: резервирование (N/N+1)" }
-      ]
-    }
-  ]
-}
+  {
+    "title": "Статьи — каталог",
+    "url": "../sections/articles.html",
+    "description": "Обзорные материалы: рынок/бизнес, концертный свет, техника по свету, большой FAQ и глоссарий.",
+    "keywords": "статьи, рынок, прокат, бизнес, экономика, концертный свет, глоссарий, FAQ"
+  },
+  {
+    "title": "Статьи: Введение / Лид",
+    "url": "../sections/articles.html#lead-intro",
+    "description": "Методология, контекст рынка РФ, навигация по объединённой статье и дисклеймеры.",
+    "keywords": "методология, контекст рынка, РФ, навигация, дисклеймер, источники"
+  },
+  {
+    "title": "Статьи: Бизнес технического обеспечения",
+    "url": "../sections/articles.html#art-business-title",
+    "description": "Спрос/сезонность, цепочка ценности, экономика (TCO/day‑rate), риски, контракты, SLA, кейсы.",
+    "keywords": "прокат, рынок, TCO, day-rate, ROI, SLA, dry hire, turnkey, тендер, риски"
+  },
+  {
+    "title": "Статьи: Концертный свет (оборудование/сети/экономика)",
+    "url": "../sections/articles.html#art-equipment-title",
+    "description": "Классы приборов, фотометрия, PWM/мерцание, DMX/RDM/sACN, VLAN/IGMP/QoS, электрика/риггинг, кейсы.",
+    "keywords": "beam, profile, wash, PWM, flicker, DMX, sACN, Art-Net, VLAN, IGMP, IP65"
+  },
+  {
+    "title": "Статьи: Техник по свету (процессы и безопасность)",
+    "url": "../sections/articles.html#lighting-tech-overview",
+    "description": "Роли, жизненный цикл проекта, протоколы, диагностика, HSE, матрица компетенций, чек‑листы.",
+    "keywords": "техник по свету, HSE, диагностика, матрица компетенций, SOP, чек-листы"
+  },
+  {
+    "title": "Статьи: FAQ и расширенный глоссарий",
+    "url": "../sections/articles.html#master-faq-title",
+    "description": "Большой FAQ по бизнесу/свету/операциям и расширенный глоссарий (RU/EN) с якорями.",
+    "keywords": "FAQ, глоссарий, термины, RU/EN, советы, best practices"
+  }
+]
