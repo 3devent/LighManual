@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Рабочий пр��цесс</title>
-  <meta name="description" content="Планирование, подготовка, сетап и тестирование, программирование и шоу." />
+  <title>Электрика и безопасность</title>
+  <meta name="description" content="Распределение питания, защита персонала и оборудования, заземление и УЗО, кабели и IP-рейтинги." />
   <link rel="stylesheet" href="../assets/styles.css" />
+ 
 </head>
 <body>
+
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="../index.html" aria-label="На главную">
@@ -60,1139 +62,985 @@
       <section class="hero">
         <div class="hero-inner">
           <div class="hero-copy">
-            <h1>Рабочий процесс</h1>
-            <p class="lead">Планирование, сетап, репетиции, программирование и проведение шоу.</p>
+            <h1>Электрика и безопасность</h1>
+            <p class="lead">Распределение питания, защита персонала и оборудования. Планирование, маркировка и документация.</p>
           </div>
         </div>
       </section>
 
-      <!-- Вставленная статья -->
-      <article id="ls-article" lang="ру">
+      <!-- Встроенная статья -->
+      <article id="ls-article" lang="ru">
+  <!-- ls: header -->
+  <header id="ls-top" role="banner">
+    <p class="ls-disclaimer" role="note">Информация носит справочный характер; соблюдайте местные нормы (ПУЭ, ГОСТ, IEC) и привлекайте аттестованных специалистов.</p>
+    <nav id="ls-toc" aria-label="Содержание">
+      <h2>Содержание</h2>
+      <ol>
+        <li><a href="#ls-overview">Введение</a></li>
+        <li><a href="#ls-theory">Общая теория</a></li>
+        <li><a href="#ls-ip-weather">Степени IP и погода</a></li>
+        <li><a href="#ls-safety">Электробезопасность</a></li>
+        <li><a href="#ls-planning">Планирование питания шоу</a></li>
+        <li><a href="#ls-calculators">Калькуляторы</a></li>
+        <li><a href="#ls-cases">Практические кейсы</a></li>
+        <li><a href="#ls-checklists">Чеклисты и протоколы</a></li>
+        <li><a href="#ls-glossary">Глоссарий</a></li>
+        <li><a href="#ls-faq">FAQ</a></li>
+        <li><a href="#ls-refs">Нормативы и ссылки</a></li>
+      </ol>
+    </nav>
+  </header>
 
+  <!-- ls: section overview -->
+  <section id="ls-overview" aria-labelledby="ls-overview-title">
+    <h2 id="ls-overview-title">Введение: почему электричество — это режиссура безопасности</h2>
+    <p>На концерте мы привыкли думать светом: балет прожекторов, дыхание дым-машин, акценты стробов. Но весь этот спектакль держится на невидимой инфраструктуре — временной электросети. Там, за кулисами и под настилами, электричество не терпит импровизации. Оно любит проектирование, дисциплину и проверенные решения.</p>
+    <p>Эта статья — для тех, кто подключает световые приборы к реальному миру. Для гаферов и диммер-техников, которым нужно и вдохновение, и формулы. Для системных инженеров и электриков сцены, которые отвечают за надежность и безопасность. Мы пройдём путь от базовой теории до тонкостей селективности защит и расчёта генераторов, поговорим о погоде и степенях IP, о конденсате на дощатой сцене и утечках SMPS, о правильных кабелях и грамотной маркировке. И всё это — на языке сцены, но с точностью инженера.</p>
+    <p>Сразу оговоримся: в разных странах действуют разные нормы. В тексте мы будем ссылаться на ПУЭ, ГОСТ и IEC 60364/60529, но ваша практика должна соответствовать местным правилам и решениям аттестованных специалистов. Для ссылок на нормы и источники см. <a href="#ls-refs">раздел «Нормативы и ссылки»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-<a id="ls-top" aria-hidden="true"></a>
-<header>
-  <h1>Рабочие процессы концертного света: от первых патчей до бэкапов для стадионов</h1>
-</header>
+  <!-- ls: section theory -->
+  <section id="ls-theory" aria-labelledby="ls-theory-title">
+    <h2 id="ls-theory-title">Общая теория</h2>
 
-<nav id="ls-toc" aria-label="Оглавление">
-  <h2>Содержание</h2>
-  <ol>
-    <li><a href="#planning">Планирование</a></li>
-    <li><a href="#setup">Монтаж и пусконаладка</a></li>
-    <li><a href="#programming">Программирование и шоу</a></li>
-    <li><a href="#operations">Эксплуатация и резерв</a></li>
-    <li><a href="#maintenance">ТО и хранение</a></li>
-    <li><a href="#power">Электропитание и дистрибуция</a></li>
-    <li><a href="#network">Сетевые протоколы и инфраструктура</a></li>
-    <li><a href="#previz">Превизуализация и подготовка данных</a></li>
-    <li><a href="#docs-logistics">Документация, логистика и командные процессы</a></li>
-    <li><a href="#safety">Безопасность и риск‑менеджмент</a></li>
-    <li><a href="#eco">Экология и устойчивость</a></li>
-    <li><a href="#cases">Разбор кейсов и типовые ошибки</a></li>
-    <li><a href="#glossary">Глоссарий, FAQ и шаблоны</a></li>
-    <li><a href="#checklists">Итоговые чек‑листы и таблицы соответствий</a></li>
-  </ol>
-</nav>
+    <h3>Базовые величины и смысл, который они несут</h3>
+    <p>Напряжение U (В), ток I (А), сопротивление R (Ом), мощность P (Вт), полная мощность S (ВА), реактивная Q (вар), коэффициент мощности cos φ — это «азбука Морзе» для электрика сцены. Закон Ома (U = I·R) и закон Джоуля–Ленца (Q = I²·R·t) объясняют, почему тонкий провод греется, а длинный — «крадёт» вольты у прожекторов.</p>
+    <p>Переменный ток (AC) с частотой 50/60 Гц — стандарт для силовых цепей. Постоянный ток (DC) живёт внутри импульсных источников питания световых приборов, в системах UPS и аккумуляторах. Разница не только в математике, но и в поведении защиты, нагреве кабелей, наличии реактивной составляющей и гармоник.</p>
 
-<main>
-
-<section id="planning">
-  <h2>1) Планирование</h2>
-  <p>Всё начинается с брифа. «Два дня, open-air, headliner с таймкодом, трюсс 18×12 м, высота подъёма 9 м, генератор 160 кВА, шум ночью запрещён». А иногда — с «Сделайте красиво». И то, и другое — валидные входные данные, если вы умеете задавать вопросы. Сильная стадия планирования сокращает ошибки на площадке, экономит часы и киловатты, делает шоу стабильным.</p>
-  <h3>Что собрать на старте</h3>
-  <ul>
-    <li>Техрайдер и бриф: жанр, сет-лист, требования к свету, haze/дымы, таймкод (SMPTE/MTC), необходимость busking.</li>
-    <li>Инфо по площадке: габариты, высоты, точки подвеса, допустимые нагрузки, ветровые ограничения, доступы/лифты/пандусы, энергомощность.</li>
-    <li>Сроки: график load-in/load-out, окна для focus и rehearsal, строгие «тихие часы».</li>
-    <li>Сетевые ограничения: доступ к FOH, расстояния, запрет Wi‑Fi, требования к VLAN/IGMP.</li>
-  </ul>
-  <h3>Пакет документации</h3>
-  <ul>
-    <li>General Plan и Rigging plot: фермы (truss), точки подвеса, нагрузки, safety.</li>
-    <li>Patch и Cable list: DMX/RDM, Power one-line, Network map (VLAN, IGMP Snooping/Querier, PoE порты).</li>
-    <li>Списки приборов: mode, DMX footprint, позиции, артикулы крепежа, safety chain.</li>
-  </ul>
-  <h3>Previsualization → Console</h3>
-  <p>Превиз (WYSIWYG, Capture, Depence, MA3D) — пространство, где ошибки стоят ноль. Готовьте patch offline, экспортируйте fixtures и пресеты. Проверьте совместимость профилей между консолями (MA/Hog/ChamSys/Avolites), следите за версиями библиотек.</p>
-
-  <figure class="ls-figure" role="group" aria-label="Мини-таймлайн подготовки шоу">
-    <figcaption>Таймлайн подготовки: от препродакшна до load‑out</figcaption>
-    <svg viewBox="0 0 820 180" role="img" aria-labelledby="tl-title tl-desc">
-      <title id="tl-title">Таймлайн подготовки шоу</title>
-      <desc id="tl-desc">Этапы: Preprod, Load-in, Focus, Rehearsal, Show, Load-out</desc>
-      <rect x="10" y="20" width="800" height="70" fill="#ecfeff" stroke="#2b6cb0"/>
-      <g font-family="sans-serif" font-size="12" fill="#121417">
-        <rect x="20" y="30" width="110" height="50" fill="#7dd3fc" stroke="#0ea5e9"/>
-        <text x="25" y="60">Preprod</text>
-
-        <rect x="140" y="30" width="120" height="50" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="145" y="60">Load-in</text>
-
-        <rect x="270" y="30" width="120" height="50" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="275" y="60">Focus</text>
-
-        <rect x="400" y="30" width="140" height="50" fill="#fef3c7" stroke="#f59e0b"/>
-        <text x="405" y="60">Rehearsal</text>
-
-        <rect x="550" y="30" width="120" height="50" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="555" y="60">Show</text>
-
-        <rect x="680" y="30" width="120" height="50" fill="#fecaca" stroke="#ef4444"/>
-        <text x="685" y="60">Load-out</text>
-      </g>
-    </svg>
-  </figure>
-
-  <details>
-    <summary>Пример из практики: «Сжатые окна, две сцены и один FOH»</summary>
-    <p>На городском празднике FOH стоял один на две сцены. Мы развели сеть sACN на два VLAN (101 и 102), у каждой сцены — свой IGMP Querier на коммутаторе. Переключение консоли по VLAN занимало 15 секунд. В итоге обе сцены работали попеременно без коллизий мультикаста.</p>
-  </details>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="setup">
-  <h2>2) Монтаж и пусконаладка</h2>
-  <h3>Приёмка и маркировка</h3>
-  <ul>
-    <li>Проверяйте кейсы по списку: серийники, количество аксессуаров, крепёж, safety.</li>
-    <li>Маркируйте линиями: Power (желтая бирка), Data (синяя), Spare (зелёная), верёвочные бирки — на концах и в середине.</li>
-  </ul>
-  <h3>Cabling best practices</h3>
-  <ul>
-    <li>Страховка кабелей (strain relief), петли обслуживания (service loops) у приборов.</li>
-    <li>Исключайте силовые петли; сетевые/DMX не укладывайте в жгут с силовыми — параллельный участок минимален, пересечения — строго под 90°.</li>
-    <li>Распиновка и пины проверяйте тестером, оптическая изоляция DMX в ключевых развилках.</li>
-  </ul>
-  <h3>RDM, адресация, патч</h3>
-  <p>Делайте RDM discovery по секциям, фиксируйте изменения. На нодах назначайте портам universes, подписывайте их физически. Делайте line check: белый, строб, пан/тилт — быстро найдёте разрывы и «шумные» участки.</p>
-
-  <figure class="ls-figure" role="group" aria-label="Схема подвеса и safety">
-    <figcaption>Подвес на ферме: нагрузки, точки, safety</figcaption>
-    <svg viewBox="0 0 820 240" role="img" aria-labelledby="truss-title truss-desc">
-      <title id="truss-title">Схема подвеса на ферме</title>
-      <desc id="truss-desc">Трёхпролётная ферма, точки подвеса, равномерное распределение нагрузок и страхующие тросы</desc>
-      <rect x="20" y="50" width="780" height="20" fill="#e5e7eb" stroke="#9aa4b2"/>
-      <line x1="120" y1="50" x2="120" y2="20" stroke="#7aa2f7" stroke-width="3"/>
-      <line x1="420" y1="50" x2="420" y2="20" stroke="#7aa2f7" stroke-width="3"/>
-      <line x1="720" y1="50" x2="720" y2="20" stroke="#7aa2f7" stroke-width="3"/>
-      <g>
-        <rect x="60" y="80" width="60" height="30" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <line x1="90" y1="80" x2="90" y2="60" stroke="#0ea5e9" stroke-dasharray="4 3"/>
-        <circle cx="90" cy="60" r="4" fill="#0ea5e9"/>
-        <line x1="90" y1="110" x2="75" y2="135" stroke="#10b981" stroke-width="2"/>
-        <text x="50" y="155" font-size="12">safety</text>
-      </g>
-      <g>
-        <rect x="360" y="80" width="60" height="30" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <line x1="390" y1="80" x2="390" y2="60" stroke="#0ea5e9" stroke-dasharray="4 3"/>
-        <circle cx="390" cy="60" r="4" fill="#0ea5e9"/>
-        <line x1="390" y1="110" x2="375" y2="135" stroke="#10b981" stroke-width="2"/>
-      </g>
-      <g>
-        <rect x="660" y="80" width="60" height="30" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <line x1="690" y1="80" x2="690" y2="60" stroke="#0ea5e9" stroke-dasharray="4 3"/>
-        <circle cx="690" cy="60" r="4" fill="#0ea5e9"/>
-        <line x1="690" y1="110" x2="675" y2="135" stroke="#10b981" stroke-width="2"/>
-      </g>
-      <text x="100" y="18" font-size="12" fill="#9aa4b2">Точки подвеса (SWL ok)</text>
-      <text x="30" y="40" font-size="12" fill="#9aa4b2">Ферма (truss)</text>
-    </svg>
-  </figure>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="programming">
-  <h2>3) Программирование и шоу</h2>
-  <h3>Плейбек vs timecode</h3>
-  <p>Есть шоу «живые» (busking) и «жёсткие» (timecode). Первые — про рефлексы и палитры, вторые — про точность SMPTE/MTC и дисциплину пресетов. В гибридном мире полезно уметь и то, и другое.</p>
-  <ul>
-    <li>Палитры/пресеты: позы, цвет, гобо — общие библиотеки ускоряют перезапатч.</li>
-    <li>Групповые фокусы и матрицы: экономят время при репатче и доподвесе.</li>
-    <li>Tracking и приоритеты источников: sACN Prio, merge HTP/LTP для резервов и параллельных пультов.</li>
-  </ul>
-
-  <figure class="ls-figure" role="group" aria-label="Потоки данных таймкода">
-    <figcaption>Потоки данных: LTC/MTC/MIDI/OSC → консоль → ноды → приборы</figcaption>
-    <svg viewBox="0 0 820 220" role="img" aria-labelledby="flow-title flow-desc">
-      <title id="flow-title">Потоки данных</title>
-      <desc id="flow-desc">Схема передачи таймкода и управляющих сообщений в световую систему</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="20" y="40" width="120" height="40" fill="#ecfeff" stroke="#0ea5e9"/>
-        <text x="30" y="65">Timecode (LTC/MTC)</text>
-
-        <rect x="180" y="40" width="140" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="190" y="65">Консоль</text>
-
-        <rect x="360" y="40" width="140" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="370" y="65">Свитч (VLAN)</text>
-
-        <rect x="540" y="40" width="120" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="550" y="65">Ноды (Art-Net/sACN)</text>
-
-        <rect x="700" y="40" width="100" height="40" fill="#fecaca" stroke="#ef4444"/>
-        <text x="710" y="65">Приборы</text>
-
-        <line x1="140" y1="60" x2="180" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-        <line x1="320" y1="60" x2="360" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-        <line x1="500" y1="60" x2="540" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-        <line x1="660" y1="60" x2="700" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-
-        <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
-
-  <details>
-    <summary>Типичные ошибки программинга</summary>
+    <h3>Однофазные и трёхфазные сети</h3>
+    <p>В большинстве стран сцена питается от 230 В однофазно и 400 В линейно трёхфазно (L1–L2–L3). Точки зрения на нейтраль и защитный проводник различаются:</p>
     <ul>
-      <li>Сцена «чёрная» при запуске бэкапа из-за неучтённых приоритетов sACN (Prio 100 vs 200).</li>
-      <li>Непереносимые пресеты между консолями из-за разницы в профилях приборов и названиях атрибутов.</li>
-      <li>Отсутствие «безопасной страницы» плейбека с white out/house lights/stop haze.</li>
+      <li>TN-S: отдельные N и PE по всей цепи; стандарт для новых установок.</li>
+      <li>TN-C-S: объединённый PEN до ввода и разделение на N и PE внутри объекта.</li>
+      <li>TT: независимый заземлитель объекта; защита обязательна через УЗО.</li>
+      <li>IT: изолированная нейтраль (редко на ивентах, но встречается с генераторами/UPS).</li>
     </ul>
-  </details>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+    <h3>Типы нагрузок и пусковые токи</h3>
+    <p>Резистивные нагрузки (лампы накаливания, ТЭНы) покладисты: cos φ ≈ 1, пусковой ток умеренный, расчёты просты. Индуктивные (двигатели, трансформаторы) и емкостные (конденсаторные блоки, некоторые фильтры) — капризнее. Современные световые приборы — это импульсные БП (SMPS): они компактны и эффективны, но при включении тянут кратковременный пусковой ток и «рисуют» гармоники в сети.</p>
 
-<section id="operations">
-  <h2>4) Эксплуатация и резерв</h2>
-  <p>Стабильность — это когда форс-мажор случился, а зритель ничего не заметил. Резервы N и N+1, бэкап-сессии, дублирование свитчей и источников питания — не роскошь, а рутина.</p>
-  <ul>
-    <li>Мониторинг: syslog/SNMP, логи свитчей, watch‑dog на нодах.</li>
-    <li>Горячая замена прибора: «горячий» патч и групповой фокус — 3 минуты вместо 30.</li>
-    <li>Дублируйте ключевые пути данных: primary/backup консоли, два независимых свитча, разнотрассовая прокладка.</li>
-  </ul>
+    <h3>Гармоники и THD: когда нейтраль греется больше фаз</h3>
+    <p>Нелинейные нагрузки создают гармоники. Гармоники кратности 3 (3-я, 9-я…) складываются в нейтрали, повышая её ток. На ивентах, где много SMPS, это значит, что нейтраль может оказаться загруженнее фаз. Отсюда рекомендации: увеличенные сечения нейтрали в некоторых магистралях и строгий учёт гармоник при планировании (см. <a href="#ls-planning">раздел «Планирование питания шоу»</a>).</p>
 
-  <figure class="ls-figure" role="group" aria-label="Матрица резервирования">
-    <figcaption>Матрица резервирования (N/N+1) и пути отказов</figcaption>
-    <svg viewBox="0 0 820 220" role="img" aria-labelledby="red-title red-desc">
-      <title id="red-title">Матрица резервирования</title>
-      <desc id="red-desc">Основные узлы системы и варианты резервирования</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="40" y="30" width="150" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="55" y="55">Консоль (Primary)</text>
+    <h3>Коммутация и защита</h3>
+    <p>Автоматы защиты (характеристики B/C/D), предохранители, УЗО/дифавтоматы — инструменты, которые спасают проводку и людей. Характеристика B — для «чистых» нагрузок и коротких трасс, C — универсальная, D — для больших пусковых токов. Селективность — искусство сделать так, чтобы при аварии отключился ближайший к проблеме автомат, а не весь фестиваль. Подробнее — в <a href="#ls-safety">разделе «Электробезопасность»</a>.</p>
 
-        <rect x="210" y="30" width="150" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="220" y="55">Консоль (Backup)</text>
+    <h3>Разъёмы и стандарты</h3>
+    <p>От евро-розеток Schuko до индустриальных CEE 16/32/63 A, от PowerCON/True1 до Cam-Lok — правильный разъём это часть безопасности. DMX по XLR5 — низковольтная связь, но её кабели и экраны не должны становиться частью силовой цепи или «обратного пути» утечек.</p>
 
-        <rect x="380" y="30" width="150" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="415" y="55">Свитч A</text>
+    <h3>Кабели: сечение, материал, маркировка</h3>
+    <p>Медь — стандарт для временных сценических магистралей. Алюминий допустим только в крупных сечениях и при правильной фурнитуре. Важны оболочки с низким дымо- и газовыделением (LSZH), стойкость к истиранию, влагозащита. Правильная маркировка и протоколы проверок — часть профессионализма.</p>
 
-        <rect x="550" y="30" width="150" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="585" y="55">Свитч B</text>
-
-        <rect x="720" y="30" width="60" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="730" y="55">Нода</text>
-
-        <line x1="190" y1="50" x2="380" y2="50" stroke="#1d4ed8" marker-end="url(#arrow2)"/>
-        <line x1="360" y1="50" x2="550" y2="50" stroke="#1d4ed8" marker-end="url(#arrow2)"/>
-        <line x1="700" y1="50" x2="720" y2="50" stroke="#1d4ed8" marker-end="url(#arrow2)"/>
-
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 220" role="img" aria-labelledby="ls-svg-chain-title ls-svg-chain-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-chain-title">Энергетическая цепочка шоу</title>
+        <desc id="ls-svg-chain-desc">Схема потока энергии от генератора или ввода до приборов: ввод, главная панель, RCD/RCBO, дистрибьютор, кабель-раны, приборы</desc>
+        <rect x="10" y="50" width="120" height="60" fill="#e3f2fd" stroke="#1976d2"/>
+        <text x="70" y="85" text-anchor="middle" font-size="12">Генератор/Ввод</text>
+        <line x1="130" y1="80" x2="180" y2="80" stroke="#1976d2" marker-end="url(#ls-arrow)"/>
+        <rect x="180" y="50" width="120" height="60" fill="#e8f5e9" stroke="#2e7d32"/>
+        <text x="240" y="85" text-anchor="middle" font-size="12">Главная панель</text>
+        <line x1="300" y1="80" x2="350" y2="80" stroke="#2e7d32" marker-end="url(#ls-arrow)"/>
+        <rect x="350" y="50" width="120" height="60" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="410" y="75" text-anchor="middle" font-size="12">RCD/RCBO</text>
+        <text x="410" y="92" text-anchor="middle" font-size="10">селективность</text>
+        <line x1="470" y1="80" x2="520" y2="80" stroke="#ef6c00" marker-end="url(#ls-arrow)"/>
+        <rect x="520" y="50" width="120" height="60" fill="#f3e5f5" stroke="#6a1b9a"/>
+        <text x="580" y="85" text-anchor="middle" font-size="12">Дистро</text>
+        <line x1="640" y1="80" x2="690" y2="80" stroke="#6a1b9a" marker-end="url(#ls-arrow)"/>
+        <rect x="690" y="50" width="100" height="60" fill="#ffebee" stroke="#c62828"/>
+        <text x="740" y="75" text-anchor="middle" font-size="12">Приборы</text>
+        <text x="740" y="92" text-anchor="middle" font-size="10">SMPS/диммер</text>
         <defs>
-          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 З" fill="#1d4ed8"/>
+          <marker id="ls-arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#424242"></path>
           </marker>
         </defs>
-      </g>
-    </svg>
-  </figure>
+      </svg>
+      <figcaption>Блок-схема «энергетической цепочки» шоу: где защищать, где распределять, где наблюдать за токами.</figcaption>
+    </figure>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+    <p><strong>Итого по разделу.</strong> Вы знаете «алфавит» электричества, видите разницу между сетями TN/TT, понимаете природу пусковых токов и гармоник, представляете типовые разъёмы и подход к кабелям. Впереди — реальность дождя, пыли и брызг, см. <a href="#ls-ip-weather">«Степени IP и погода»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-<section id="maintenance">
-  <h2>5) ТО и хранение</h2>
-  <ul>
-    <li>Чистка: оптика (линзы, фросты), вентканалы, фильтры — по регламенту после каждой аренды.</li>
-    <li>Калибровка и обновления прошивок; учёт наработки часов, журнал замен ламп/блоков LED.</li>
-    <li>Склад: климат (18–22 °C, влажность 40–60%), высота штабелирования, RFID/штрихкод, сроки поверок.</li>
-  </ul>
-  <details>
-    <summary>Что делать, если… «после дождя прибор запотел»</summary>
-    <p>Не включайте немедленно. Разберите, просушите при контролируемой температуре, проверьте PSU и оптику. Сделайте IR‑прогрев в сервисной зоне, прогон самотестов, затем burn‑in 30 минут.</p>
-  </details>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+  <!-- ls: section ip-weather -->
+  <section id="ls-ip-weather" aria-labelledby="ls-ip-title">
+    <h2 id="ls-ip-title">Степени IP и погода</h2>
+    <p>На открытом воздухе вода и пыль — полноценные участники команды. Они настойчивы и коварны: капля найдёт путь внутрь разъёма, конденсат замкнёт плату, а пыль превратит щит в «муку» для дуги. Степень защиты IP — ваш здравый смысл в цифрах. Первый индекс — защита от твердых предметов и пыли, второй — от воды.</p>
+    <ul>
+      <li>IP20 — только внутри помещений, без брызг.</li>
+      <li>IP44 — брызги со всех сторон: минимально для outdoor под укрытием.</li>
+      <li>IP54/IP55 — пыль и струи: типично для временных сцен, если ожидаются осадки.</li>
+      <li>IP65/IP66 — струи и пыль, IP67 — кратковременное погружение: для сложных условий и мойки.</li>
+    </ul>
+    <p>IK — стойкость к удару (например, гравий в дождь). Не забывайте про УФ-старение пластика и коррозию металла. Правильная высота щитов над грунтом, козырьки, дренаж, дыхательные клапаны — мелочи, которые спасают фестиваль.</p>
 
-<section id="power">
-  <h2>6) Электропитание и дистрибуция</h2>
-  <p>Свет — это электричество, оформленное в эмоцию. Ошибка в фазировке или недооценка падения напряжения делают эмоцию «мигающей». Давайте считать и рисовать.</p>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 250" role="img" aria-labelledby="ls-svg-ip-title ls-svg-ip-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-ip-title">Иллюстрация степеней IP</title>
+        <desc id="ls-svg-ip-desc">Сечение корпуса с обозначением уровней защиты от воды и пыли с траекториями капель и частиц.</desc>
+        <rect x="50" y="40" width="220" height="160" fill="#fafafa" stroke="#616161"/>
+        <text x="160" y="30" text-anchor="middle" font-size="12">Корпус оборудования</text>
+        <circle cx="340" cy="60" r="5" fill="#90caf9"/>
+        <circle cx="360" cy="70" r="5" fill="#90caf9"/>
+        <circle cx="380" cy="85" r="5" fill="#90caf9"/>
+        <path d="M340,60 C320,90 300,110 270,120" stroke="#90caf9" fill="none" stroke-dasharray="4 2"/>
+        <path d="M380,85 C360,120 330,140 270,150" stroke="#90caf9" fill="none" stroke-dasharray="4 2"/>
+        <circle cx="340" cy="140" r="3" fill="#9e9e9e"/>
+        <circle cx="355" cy="150" r="3" fill="#9e9e9e"/>
+        <path d="M340,140 C320,150 300,160 270,160" stroke="#9e9e9e" fill="none" stroke-dasharray="4 2"/>
+        <text x="500" y="70" font-size="12">IPX4: защита от брызг</text>
+        <text x="500" y="90" font-size="12">IPX5: защита от струй</text>
+        <text x="500" y="110" font-size="12">IP6X: пыленепроницаемость</text>
+        <text x="160" y="220" text-anchor="middle" font-size="11">Каплеотводы, уплотнения, дыхательные клапаны</text>
+      </svg>
+      <figcaption>Схема демонстрирует как капли и пыль стремятся внутрь. Выбирайте IP по сценарию погоды, а не по каталогу.</figcaption>
+    </figure>
 
-  <figure class="ls-figure" role="group" aria-label="Схема дистрибуции питания">
-    <figcaption>Однолинейная: генератор → ввод → power distro → линии → приборы</figcaption>
-    <svg viewBox="0 0 820 260" role="img" aria-labelledby="pow-title pow-desc">
-      <title id="pow-title">Схема дистрибуции питания</title>
-      <desc id="pow-desc">Трёхфазный ввод, автоматы, УЗО/дифы, раздача по фазам</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="20" y="30" width="120" height="50" fill="#fecaca" stroke="#ef4444"/>
-        <text x="25" y="60">Генератор 3ф</text>
+    <p>Про молнию коротко: временные сцены — это конструкции в открытом ландшафте. Отдельная система молниезащиты, уравнивание потенциалов, понимание зон LPZ и путей тока — обязательны. Если нет стационарной системы, ограничьте работу при грозе и исключите опасные режимы (см. <a href="#ls-safety">«Электробезопасность»</a>).</p>
 
-        <rect x="180" y="30" width="140" height="50" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="190" y="60">Вводной щит</text>
+    <p><strong>Итого по разделу.</strong> Под открытым небом важны IP, укрытие и дренаж, а ещё дисциплина по кабелям, разъёмам и щитам. Переходим к системам защиты и измерениям — <a href="#ls-safety">«Электробезопасность»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-        <rect x="360" y="30" width="160" height="50" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="370" y="60">Power Distro</text>
+  <!-- ls: section safety -->
+  <section id="ls-safety" aria-labelledby="ls-safety-title">
+    <h2 id="ls-safety-title">Электробезопасность</h2>
+    <h3>Классы защиты и безопасные напряжения</h3>
+    <p>Класс I — металлический корпус и обязательный PE. Класс II — двойная изоляция, без PE. Класс III — SELV/PELV, безопасные цепи низкого напряжения. На сцене соседствуют все три. Обязанность техники — понимать, где PE жизненно важен, а где его нет и быть не должно.</p>
 
-        <rect x="560" y="30" width="240" height="50" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="570" y="60">Линии L1/L2/L3 → приборы</text>
+    <h3>Заземление и уравнивание потенциалов</h3>
+    <p>На временной сцене все токопроводящие части, которые человек может одновременно коснуться, должны быть на одном потенциале. Это достигается уравниванием: шины PE, перемычки, соединение подиумов, металлических ферм и кожухов щитов. В TT — УЗО обязательно. В TN-S — PE отдельно от N, никогда не «усилять» PE синими шинами N.</p>
 
-        <line x1="140" y1="55" x2="180" y2="55" stroke="#ef4444" marker-end="url(#arrP)"/>
-        <line x1="320" y1="55" x2="360" y2="55" stroke="#ef4444" marker-end="url(#arrP)"/>
-        <line x1="520" y1="55" x2="560" y2="55" stroke="#ef4444" marker-end="url(#arrP)"/>
+    <h3>УЗО/дифавтоматы</h3>
+    <p>Типы: AC — синус, A — пульсирующий DC (SMPS), F — частотные приводы с искажениями, B — чистый DC (инверторы, зарядные). Уставки: 10/30 мА — защита людей; 100/300 мА — противопожарные и селективные цепи. На outdoor комбинируйте: 30 мА на конечные линии, 100–300 мА S-типа выше по иерархии.</p>
 
+    <h3>Пожарная безопасность</h3>
+    <p>Перегруз и КЗ — две стороны огня. Подбирайте автоматы сразу под сечение и реальный длительный ток кабеля, соблюдайте селективность, избегайте подгорания контактов в разъёмах (грязь и недовтык — враги). Кабели — вдали от источников тепла и трасс пиротехники, строго следуя маршрутам.</p>
+
+    <h3>Lockout/Tagout и протоколы</h3>
+    <p>Перед работой в щите — только снятое напряжение, замок на приводе, бирка с именем, контроль отсутствия напряжения прибором. Запрещены «времянки» без маркировки и подписи ответственного.</p>
+
+    <h3>Измерения</h3>
+    <p>Мегомметр для изоляции, измерение петли «фаза–ноль», тест УЗО, протокол PAT для переносного оборудования. Маркируйте даты, имена поверяющих, указывайте результаты. Повторяемость — ваша защита в спорной ситуации.</p>
+
+    <h3>Генераторы</h3>
+    <p>Генератор — автономная сеть. Решения о заземлении точки нейтрали и связи N–PE принимаются по инструкции производителя и местным нормам. Ошибки приводят к ложным срабатываниям УЗО или, хуже, к опасным потенциалам на корпусах. Используйте качественные АВР/ATS, следите за частотой, напряжением и кВА под гармониками.</p>
+
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 280" role="img" aria-labelledby="ls-svg-systems-title ls-svg-systems-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-systems-title">Схемы TN-S, TN-C-S и TT</title>
+        <desc id="ls-svg-systems-desc">Упрощённые схемы распределения с шинами PE/N и точками установки RCD</desc>
         <defs>
-          <marker id="arrP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#ef4444"/>
+          <marker id="ls-arrow2" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#424242"></path>
           </marker>
         </defs>
+        <!-- TN-S -->
+        <rect x="20" y="20" width="240" height="80" fill="#e8f5e9" stroke="#2e7d32"/>
+        <text x="140" y="40" text-anchor="middle" font-size="12">TN-S</text>
+        <line x1="40" y1="70" x2="240" y2="70" stroke="#000"/>
+        <text x="40" y="65" font-size="10">L1 L2 L3</text>
+        <line x1="40" y1="85" x2="240" y2="85" stroke="#1e88e5"/>
+        <text x="40" y="80" font-size="10">N</text>
+        <line x1="40" y1="100" x2="240" y2="100" stroke="#43a047"/>
+        <text x="40" y="95" font-size="10">PE</text>
+        <rect x="240" y="45" width="40" height="30" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="260" y="63" text-anchor="middle" font-size="10">RCD</text>
 
-        <line x1="380" y1="90" x2="380" y2="120" stroke="#10b981"/>
-        <line x1="420" y1="90" x2="420" y2="120" stroke="#f59e0b"/>
-        <line x1="460" y1="90" x2="460" y2="120" stroke="#ef4444"/>
-        <text x="370" y="140" fill="#9aa4b2">L1 L2 L3</text>
-      </g>
-    </svg>
-  </figure>
+        <!-- TN-C-S -->
+        <rect x="280" y="20" width="240" height="80" fill="#e3f2fd" stroke="#1976d2"/>
+        <text x="400" y="40" text-anchor="middle" font-size="12">TN-C-S</text>
+        <line x1="300" y1="70" x2="420" y2="70" stroke="#000"/>
+        <line x1="300" y1="85" x2="420" y2="85" stroke="#8d6e63"/>
+        <text x="300" y="80" font-size="10">PEN</text>
+        <circle cx="420" cy="85" r="4" fill="#8d6e63"/>
+        <text x="445" y="90" font-size="10">разделение N/PE</text>
+        <line x1="420" y1="85" x2="500" y2="85" stroke="#1e88e5"/>
+        <line x1="420" y1="100" x2="500" y2="100" stroke="#43a047"/>
+        <rect x="500" y="45" width="40" height="30" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="520" y="63" text-anchor="middle" font-size="10">RCD</text>
 
-  <figure class="ls-figure" role="group" aria-label="Падение напряжения по длине">
-    <figcaption>Падение напряжения на длинной линии</figcaption>
-    <svg viewBox="0 0 820 140" role="img" aria-labelledby="vd-title vd-desc">
-      <title id="vd-title">Падение напряжения</title>
-      <desc id="vd-desc">Напряжение уменьшается от источника к нагрузке</desc>
-      <rect x="20" y="40" width="780" height="20" fill="#f1f5f9" stroke="#e5e7eb"/>
-      <rect x="20" y="40" width="520" height="20" fill="#93c5fd"/>
-      <rect x="540" y="40" width="120" height="20" fill="#60a5fa"/>
-      <rect x="660" y="40" width="80" height="20" fill="#3b82f6"/>
-      <rect x="740" y="40" width="60" height="20" fill="#1d4ed8"/>
-      <text x="25" y="30" font-size="12" fill="#9aa4b2">Источник</text>
-      <text x="750" y="30" font-size="12" fill="#9aa4b2">Нагрузка</text>
-    </svg>
-  </figure>
+        <!-- TT -->
+        <rect x="540" y="20" width="240" height="80" fill="#fffde7" stroke="#f9a825"/>
+        <text x="660" y="40" text-anchor="middle" font-size="12">TT</text>
+        <line x1="560" y1="70" x2="740" y2="70" stroke="#000"/>
+        <line x1="560" y1="85" x2="740" y2="85" stroke="#1e88e5"/>
+        <line x1="560" y1="100" x2="740" y2="100" stroke="#43a047"/>
+        <rect x="740" y="45" width="40" height="30" fill="#fff3e0" stroke="#ef6c00"/>
+        <text x="760" y="63" text-anchor="middle" font-size="10">RCD</text>
+        <text x="660" y="110" text-anchor="middle" font-size="10">Обязательное УЗО</text>
+      </svg>
+      <figcaption>Где живёт нейтраль и где устанавливать УЗО: три типовые системы.</figcaption>
+    </figure>
 
-  <h3>Калькулятор мощности и тока (3 фазы, cosφ, спрос)</h3>
-  <figure class="ls-figure">
-    <figcaption>Калькулятор мощности и тока</figcaption>
-    <form id="calc-power-adv" aria-label="Калькулятор мощности и тока">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;align-items:end">
-          <label>Тип 1: кол-во <input type="number" min="0" step="1" id="cp-n1" value="12" required></label>
-          <label>Мощность 1 (Вт) <input type="number" min="0" step="1" id="cp-p1" value="350" required></label>
-          <label>cos φ 1 <input type="number" min="0.5" max="1" step="0.01" id="cp-c1" value="0.95" required></label>
+    <p><strong>Итого по разделу.</strong> Безопасность начинается с классов защиты, продолжается уравниванием потенциалов и завершается правильной селективностью и измерениями. Для практики — планируем питание и резервирование, см. <a href="#ls-planning">«Планирование питания шоу»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-          <label>Тип 2: кол-во <input type="number" min="0" step="1" id="cp-n2" value="8"></label>
-          <label>Мощность 2 (Вт) <input type="number" min="0" step="1" id="cp-p2" value="1200"></label>
-          <label>cos φ 2 <input type="number" min="0.5" max="1" step="0.01" id="cp-c2" value="0.90"></label>
+  <!-- ls: section planning -->
+  <section id="ls-planning" aria-labelledby="ls-planning-title">
+    <h2 id="ls-planning-title">Планирование питания шоу</h2>
+    <h3>Расчёт нагрузок, фазы и резервы</h3>
+    <p>Начинайте с списка приборов и реальной «паспорной» мощности. Балансируйте фазы: разница между фазами — это не только «косая» диаграмма, но и ток нейтрали (см. <a href="#ls-theory">«Общая теория»</a>). Резервы: минимум 20% на силе и 30% на генераторе при outdoor. Принцип N+1 для критичных узлов: дистро и генераторы, где простои недопустимы.</p>
+    <h3>Пусковые токи и группы запуска</h3>
+    <p>Стробы, движущиеся головы и SMPS при одновременном старте «дергают» сеть. Группируйте включение, используйте soft-start, отложенный запуск, давайте УЗО «успокоиться» перед следующей группой.</p>
+    <h3>Падение напряжения и кабельные трассы</h3>
+    <p>Длина — враг вольт. Рассчитывайте ΔU и подбирайте сечение с учётом материала и температуры (см. <a href="#ls-calculators">Калькуляторы</a>). Кольцевание временных линий недопустимо — только однозначные пути тока. Кабели укладывайте в ран-пути, защищайте от острых кромок, не «перешнуровывайте» силовые и сигнальные трассы.</p>
+    <h3>Генераторы, UPS и ATS</h3>
+    <p>Разделяйте силовые и критичные цепи: консоль, сетевые узлы, медиасерверы — на UPS с чистой синусоидой; сцена — отдельно. ATS — для плавного и предсказуемого переключения. Проверяйте cos φ и crest-factor генератора — не все киловатты одинаково полезны под гармониками.</p>
 
-          <label>Тип 3: кол-во <input type="number" min="0" step="1" id="cp-n3" value="6"></label>
-          <label>Мощность 3 (Вт) <input type="number" min="0" step="1" id="cp-p3" value="1000"></label>
-          <label>cos φ 3 <input type="number" min="0.5" max="1" step="0.01" id="cp-c3" value="1.00"></label>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Напряжение 1ф (В) <input type="number" min="100" step="1" id="cp-u1" value="230" required></label>
-          <label>Напряжение 3ф (В) <input type="number" min="200" step="1" id="cp-u3" value="400" required></label>
-          <label>Коэф. спроса (0.5–1) <input type="number" min="0.5" max="1" step="0.05" id="cp-kd" value="0.8" required></label>
-          <label>Распределение по фазам <select id="cp-dist">
-            <option value="equal" selected>Равномерно</option>
-            <option value="custom">Задать вручную</option>
-          </select></label>
-        </div>
-        <div id="cp-custom" style="display:none;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem">
-          <label>L1 доля (0–1) <input type="number" min="0" max="1" step="0.01" id="cp-l1" value="0.34"></label>
-          <label>L2 доля (0–1) <input type="number" min="0" max="1" step="0.01" id="cp-l2" value="0.33"></label>
-          <label>L3 доля (0–1) <input type="number" min="0" max="1" step="0.01" id="cp-l3" value="0.33"></label>
-        </div>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 800 260" role="img" aria-labelledby="ls-svg-phases-title ls-svg-phases-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="ls-svg-phases-title">Разделение фаз L1/L2/L3</title>
+        <desc id="ls-svg-phases-desc">Мини-диаграмма столбиков по фазам с подписью дисбаланса и тока нейтрали</desc>
+        <line x1="100" y1="40" x2="100" y2="220" stroke="#9e9e9e"/>
+        <line x1="100" y1="220" x2="700" y2="220" stroke="#9e9e9e"/>
+        <rect x="140" y="120" width="80" height="100" fill="#ffccbc" stroke="#d84315"/>
+        <text x="180" y="235" text-anchor="middle" font-size="12">L1</text>
+        <rect x="300" y="80" width="80" height="140" fill="#c8e6c9" stroke="#2e7d32"/>
+        <text x="340" y="235" text-anchor="middle" font-size="12">L2</text>
+        <rect x="460" y="100" width="80" height="120" fill="#bbdefb" stroke="#1565c0"/>
+        <text x="500" y="235" text-anchor="middle" font-size="12">L3</text>
+        <text x="620" y="120" font-size="12">Дисбаланс ≈ 20%</text>
+        <text x="620" y="140" font-size="12">I нейтрали: см. калькулятор</text>
+      </svg>
+      <figcaption>Идеал — равные столбики. Реальность — близко к этому и под контролем.</figcaption>
+    </figure>
+
+    <p><strong>Итого по разделу.</strong> Планирование — это баланс, резервы и дисциплина. Дальше — инструменты, которые считают и подсказывают. Открывайте <a href="#ls-calculators">«Калькуляторы»</a>.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section calculators -->
+  <section id="ls-calculators" aria-labelledby="ls-calculators-title">
+    <h2 id="ls-calculators-title">Калькуляторы</h2>
+
+    <!-- Calculator 1: Current from Power -->
+    <section id="ls-calc-current-sec" aria-labelledby="ls-calc-current-title">
+      <h3 id="ls-calc-current-title">1) Ток по мощности</h3>
+      <p id="ls-calc-current-help">Формулы: I1ф = P / (U · cosφ · η); I3ф = P / (√3 · U · cosφ · η). Результат — расчетный ток и ближайший больший номинал автомата.</p>
+      <form id="ls-calc-current" data-ls-calc="current" aria-describedby="ls-calc-current-help">
+        <fieldset>
+          <legend>Исходные данные</legend>
+          <label for="ls-current-phase">Сеть</label>
+          <select id="ls-current-phase" name="phase">
+            <option value="1">Однофазная</option>
+            <option value="3">Трёхфазная</option>
+          </select>
+          <label for="ls-current-power">Мощность P</label>
+          <input id="ls-current-power" name="power" type="number" min="0" step="0.001" placeholder="например, 6" aria-describedby="ls-current-power-unit"/>
+          <select id="ls-current-power-unit">
+            <option value="kW">кВт</option>
+            <option value="W">Вт</option>
+          </select>
+          <label for="ls-current-voltage">Напряжение U (В)</label>
+          <input id="ls-current-voltage" name="voltage" type="number" min="1" step="1" placeholder="230 или 400"/>
+          <label for="ls-current-cos">cos φ</label>
+          <input id="ls-current-cos" name="cos" type="number" min="0.1" max="1" step="0.01" value="0.95"/>
+          <label for="ls-current-eta">КПД η</label>
+          <input id="ls-current-eta" name="eta" type="number" min="0.1" max="1" step="0.01" value="0.95"/>
+        </fieldset>
         <div class="ls-actions">
-          <button type="button" id="cp-run-adv">Рассчитать</button>
-          <button type="reset" id="cp-reset">Сброс</button>
+          <button type="button" id="ls-current-run">Рассчитать</button>
+          <button type="button" id="ls-current-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-current-result">Печать результатов</button>
         </div>
-        <output class="ls-results" id="cp-out-adv" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
+        <p class="ls-error" id="ls-current-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-current-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Пример: 12 кВт трёхфазной нагрузки, U=400 В, cosφ=0.95, η=0.92. I ≈ 12 000 / (1.732 · 400 · 0.95 · 0.92) ≈ 19.7 А. Рекомендация — автомат 25 А (характеристика C).</p>
+    </section>
 
-  <h3>Калькулятор падения напряжения и сечения кабеля</h3>
-  <figure class="ls-figure">
-    <figcaption>Падение напряжения и подбор сечения</figcaption>
-    <form id="calc-vdrop" aria-label="Калькулятор падения напряжения">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem">
-          <label>Мощность P (Вт) <input type="number" id="vd-p" min="1" step="1" value="10000" required></label>
-          <label>Напряжение U (В) <input type="number" id="vd-u" min="100" step="1" value="230" required></label>
-          <label>cos φ <input type="number" id="vd-cos" min="0.5" max="1" step="0.01" value="0.95" required></label>
-          <label>Длина L (м) <input type="number" id="vd-l" min="1" step="1" value="80" required></label>
-          <label>Материал <select id="vd-mat">
+    <!-- Calculator 2: Phase balance -->
+    <section id="ls-calc-balance-sec" aria-labelledby="ls-calc-balance-title">
+      <h3 id="ls-calc-balance-title">2) Баланс фаз и нейтраль</h3>
+      <p id="ls-calc-balance-help">Жадный алгоритм распределяет приборы по наименее загруженной фазе. Нейтраль: I_N ≈ sqrt(I1²+I2²+I3² - I1·I2 - I2·I3 - I3·I1). Для нелинейных нагрузок (SMPS) учитываем упрощённый вклад 3-й гармоники.</p>
+      <form id="ls-calc-balance" data-ls-calc="balance" aria-describedby="ls-calc-balance-help">
+        <fieldset>
+          <legend>Приборы</legend>
+          <label for="ls-balance-name">Имя</label>
+          <input id="ls-balance-name" type="text" placeholder="например, Moving Head 470W"/>
+          <label for="ls-balance-power">Мощность (Вт)</label>
+          <input id="ls-balance-power" type="number" min="1" step="1" placeholder="например, 470"/>
+          <label for="ls-balance-cos">cos φ</label>
+          <input id="ls-balance-cos" type="number" min="0.3" max="1" step="0.01" value="0.95"/>
+          <label for="ls-balance-type">Тип</label>
+          <select id="ls-balance-type">
+            <option value="res">Резистивная</option>
+            <option value="ind">Индуктивная</option>
+            <option value="smps" selected>SMPS</option>
+          </select>
+          <button type="button" id="ls-balance-add">Добавить прибор</button>
+        </fieldset>
+        <div id="ls-balance-list" aria-live="polite" role="status"></div>
+        <fieldset>
+          <legend>Параметры сети</legend>
+          <label for="ls-balance-voltage">Напряжение линейное (В)</label>
+          <input id="ls-balance-voltage" type="number" min="100" step="1" value="400"/>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-balance-run">Распределить по фазам</button>
+          <button type="button" id="ls-balance-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-balance-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-balance-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-balance-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Подсказка: если нейтраль близка к сумме фаз — у вас много нелинейной нагрузки и дисбаланс. Переразведите фазы и сократите «гребёнки» SMPS на одной линии.</p>
+    </section>
+
+    <!-- Calculator 3: Voltage drop and cable sizing -->
+    <section id="ls-calc-drop-sec" aria-labelledby="ls-calc-drop-title">
+      <h3 id="ls-calc-drop-title">3) Падение напряжения и подбор сечения</h3>
+      <p id="ls-calc-drop-help">ΔU% однофаз = 100 · (2 · ρ · L · I) / (S · U). Трёхфаз = 100 · (√3 · ρ · L · I) / (S · U). ρ зависит от материала и температуры.</p>
+      <form id="ls-calc-drop" data-ls-calc="drop" aria-describedby="ls-calc-drop-help">
+        <fieldset>
+          <legend>Исходные данные</legend>
+          <label for="ls-drop-phase">Сеть</label>
+          <select id="ls-drop-phase">
+            <option value="1">Однофазная</option>
+            <option value="3" selected>Трёхфазная</option>
+          </select>
+          <label for="ls-drop-material">Материал</label>
+          <select id="ls-drop-material">
             <option value="cu" selected>Медь</option>
             <option value="al">Алюминий</option>
-          </select></label>
-          <label>Схема <select id="vd-phase">
-            <option value="1f" selected>1 фаза</option>
-            <option value="3f">3 фазы</option>
-          </select></label>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Допустимая ΔU (%) <input type="number" id="vd-du" min="1" max="10" step="0.5" value="5" required></label>
-          <label>Предпочитаемое сечение (мм²) <select id="vd-s-preset">
-            <option value="auto" selected>Авто</option>
-            <option>1.5</option><option>2.5</option><option>4</option><option>6</option><option>10</option><option>16</option><option>25</option><option>35</option><option>50</option>
-          </select></label>
-        </div>
+          </select>
+          <label for="ls-drop-length">Длина трассы L (м, один путь)</label>
+          <input id="ls-drop-length" type="number" min="1" step="1" placeholder="например, 80"/>
+          <label for="ls-drop-current">Ток I (А)</label>
+          <input id="ls-drop-current" type="number" min="0.1" step="0.1" placeholder="например, 45"/>
+          <label for="ls-drop-voltage">U номинальное (В)</label>
+          <input id="ls-drop-voltage" type="number" min="100" step="1" value="400"/>
+          <label for="ls-drop-max">Допустимое ΔU (%)</label>
+          <input id="ls-drop-max" type="number" min="1" max="15" step="0.1" value="5"/>
+          <label for="ls-drop-temp">Температура кабеля (°C)</label>
+          <input id="ls-drop-temp" type="number" min="-20" max="90" step="1" value="30"/>
+        </fieldset>
         <div class="ls-actions">
-          <button type="button" id="vd-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
+          <button type="button" id="ls-drop-run">Рассчитать</button>
+          <button type="button" id="ls-drop-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-drop-result">Печать результатов</button>
         </div>
-        <output class="ls-results" id="vd-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
+        <p class="ls-error" id="ls-drop-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-drop-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Интерпретация: 8% падение — это риск тусклых приборов, «ошибочных» перезапусков SMPS и перегрева. Увеличьте сечение или сократите длину.</p>
+    </section>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="network">
-  <h2>7) Сетевые протоколы и инфраструктура</h2>
-  <p>Сегодня DMX512-A — лишь «последняя миля». В центре — Ethernet: Art-Net и sACN, VLAN для сегментации, IGMP Snooping/Querier, PoE для нод и аксессуаров. Задача — сделать сеть предсказуемой.</p>
-
-  <figure class="ls-figure" role="group" aria-label="Топология сети DMX/sACN">
-    <figcaption>Топология: primary/backup консоль, свитчи, VLAN, IGMP</figcaption>
-    <svg viewBox="0 0 820 320" role="img" aria-labelledby="net-title net-desc">
-      <title id="net-title">Сетевая топология</title>
-      <desc id="net-desc">Две консоли, два свитча, ноды и приборы с обозначением VLAN и IGMP</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="40" y="30" width="150" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="55" y="55">Console Primary</text>
-        <rect x="40" y="80" width="150" height="40" fill="#c7d2fe" stroke="#7aa2ф7"/>
-        <text x="55" y="105">Console Backup</text>
-
-        <rect x="250" y="30" width="160" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="270" y="55">Switch A (VLAN 10)</text>
-        <rect x="250" y="80" width="160" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="270" y="105">Switch B (VLAN 10)</text>
-
-        <rect x="450" y="30" width="150" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="470" y="55">Node 1 (PoE)</text>
-        <rect x="450" y="80" width="150" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="470" y="105">Node 2</text>
-
-        <rect x="640" y="30" width="140" height="40" fill="#fecaca" stroke="#ef4444"/>
-        <text x="660" y="55">DMX Lines</text>
-
-        <line x1="190" y1="50" x2="250" y2="50" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="190" y1="100" x2="250" y2="100" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="410" y1="50" x2="450" y2="50" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="410" y1="100" x2="450" y2="100" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="600" y1="50" x2="640" y2="50" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="600" y1="100" x2="640" y2="100" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-
-        <text x="260" y="140" fill="#9aa4b2">IGMP Snooping: on, Querier: Switch A</text>
-        <text x="260" y="160" fill="#9aa4b2">sACN multicast 239.255.x.y или Art-Net Unicast</text>
-
-        <defs>
-          <marker id="arrN" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
-
-  <figure class="ls-figure" role="group" aria-label="DMX адресация и оптическая изоляция">
-    <figcaption>DMX универсумы и изоляция</figcaption>
-    <svg viewBox="0 0 820 200" role="img" aria-labelledby="dmx-title dmx-desc">
-      <title id="dmx-title">DMX адресация</title>
-      <desc id="dmx-desc">Разветвление DMX по универсумам и оптическая изоляция</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="40" y="40" width="120" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="65" y="65">Node Port</text>
-
-        <rect x="200" y="40" width="140" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="205" y="65">Оптосприттер</text>
-
-        <rect x="370" y="20" width="110" height="30" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="375" y="40">Universe 1</text>
-        <rect x="370" y="60" width="110" height="30" fill="#fecaca" stroke="#ef4444"/>
-        <text x="375" y="80">Universe 2</text>
-
-        <line x1="160" y1="60" x2="200" y2="60" stroke="#1d4ed8" marker-end="url(#arrD)"/>
-        <line x1="340" y1="55" x2="370" y2="35" stroke="#1d4ed8" marker-end="url(#arrD)"/>
-        <line x1="340" y1="65" x2="370" y2="75" stroke="#1d4ed8" marker-end="url(#arrD)"/>
-
-        <defs>
-          <marker id="arrD" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
-
-  <h3>Калькулятор DMX адресации и универсумов</h3>
-  <figure class="ls-figure">
-    <figcaption>Адресный план DMX</figcaption>
-    <form id="calc-dmx" aria-label="Калькулятор DMX адресации">
-      <fieldset>
-        <label for="dmx-lines">Приборы (по строке): qty x channels [; name] (например: 8 x 25; Wash)</label>
-        <textarea id="dmx-lines" rows="5" style="width:100%;font-family:var(--lg-mono);"></textarea>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Стартовый Universe <input type="number" id="dmx-u" min="1" step="1" value="1" required></label>
-          <label>Стартовый адрес <input type="number" id="dmx-addr" min="1" max="512" step="1" value="1" required></label>
-          <label>Порядок <select id="dmx-order"><option value="sequential" selected>Последовательно</option><option value="page512">С округлением до 512</option></select></label>
-        </div>
+    <!-- Calculator 4: Generator sizing -->
+    <section id="ls-calc-gen-sec" aria-labelledby="ls-calc-gen-title">
+      <h3 id="ls-calc-gen-title">4) Размер генератора</h3>
+      <p id="ls-calc-gen-help">Суммируем активную мощность, учитываем пусковые коэффициенты и cos φ. Резерв 20–30% для outdoor и нелинейных нагрузок.</p>
+      <form id="ls-calc-gen" data-ls-calc="gen" aria-describedby="ls-calc-gen-help">
+        <fieldset>
+          <legend>Приборы</legend>
+          <label for="ls-gen-name">Имя</label>
+          <input id="ls-gen-name" type="text" placeholder="например, 8x LED Wash 800W"/>
+          <label for="ls-gen-power">Мощность (Вт)</label>
+          <input id="ls-gen-power" type="number" min="1" step="1" placeholder="например, 800"/>
+          <label for="ls-gen-qty">Кол-во</label>
+          <input id="ls-gen-qty" type="number" min="1" step="1" value="1"/>
+          <label for="ls-gen-kstart">Пусковой коэффициент</label>
+          <input id="ls-gen-kstart" type="number" min="1" step="0.1" value="1.5"/>
+          <button type="button" id="ls-gen-add">Добавить</button>
+        </fieldset>
+        <fieldset>
+          <legend>Параметры сети</legend>
+          <label for="ls-gen-cos">cos φ (средний)</label>
+          <input id="ls-gen-cos" type="number" min="0.5" max="1" step="0.01" value="0.9"/>
+          <label for="ls-gen-reserve">Резерв (%)</label>
+          <input id="ls-gen-reserve" type="number" min="0" max="100" step="1" value="25"/>
+        </fieldset>
+        <div id="ls-gen-list" aria-live="polite" role="status"></div>
         <div class="ls-actions">
-          <button type="button" id="dmx-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
+          <button type="button" id="ls-gen-run">Рассчитать</button>
+          <button type="button" id="ls-gen-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-gen-result">Печать результатов</button>
         </div>
-        <output class="ls-results" id="dmx-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
+        <p class="ls-error" id="ls-gen-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-gen-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+      <p>Пример: 30 кВт активной, пусковые пики 45 кВт, cosφ=0.9, резерв 25% → Требуется ≈ max(30,45)/0.9·1.25 ≈ 62.5 кВА.</p>
+    </section>
 
-  <h3>Калькулятор планирования сети Art‑Net/sACN</h3>
-  <figure class="ls-figure">
-    <figcaption>Сегментация сети и мультикаст</figcaption>
-    <form id="calc-net" aria-label="Калькулятор планирования сети">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem">
-          <label>Кол-во универсумов <input type="number" id="np-u" min="1" step="1" value="12" required></label>
-          <label>Режим <select id="np-mode"><option value="sacn-multi" selected>sACN Multicast</option><option value="sacn-uni">sACN Unicast</option><option value="artnet-uni">Art-Net Unicast</option></select></label>
-          <label>Нод <input type="number" id="np-nodes" min="1" step="1" value="4" required></label>
-          <label>Портов на ноде <input type="number" id="np-ports" min="1" step="1" value="4" required></label>
-          <label>Макс. юни/свитч <input type="number" id="np-unpsw" min="1" step="1" value="8" required></label>
-        </div>
+    <!-- Calculator 5: RCD selection -->
+    <section id="ls-calc-rcd-sec" aria-labelledby="ls-calc-rcd-title">
+      <h3 id="ls-calc-rcd-title">5) Подбор УЗО</h3>
+      <p id="ls-calc-rcd-help">Расчёт ориентировочный. Учитываем утечки SMPS, тип сети и селективность. Окончательное решение — по нормам и измерениям.</p>
+      <form id="ls-calc-rcd" data-ls-calc="rcd" aria-describedby="ls-calc-rcd-help">
+        <fieldset>
+          <legend>Исходные данные</legend>
+          <label for="ls-rcd-smps">SMPS-приборов (шт)</label>
+          <input id="ls-rcd-smps" type="number" min="0" step="1" value="12"/>
+          <label for="ls-rcd-linei">Ток линии (А)</label>
+          <input id="ls-rcd-linei" type="number" min="1" step="1" value="32"/>
+          <label for="ls-rcd-net">Тип сети</label>
+          <select id="ls-rcd-net">
+            <option value="tn" selected>TN</option>
+            <option value="tt">TT</option>
+          </select>
+          <label for="ls-rcd-sel">Нужна селективность?</label>
+          <select id="ls-rcd-sel">
+            <option value="no" selected>Нет</option>
+            <option value="yes">Да</option>
+          </select>
+        </fieldset>
         <div class="ls-actions">
-          <button type="button" id="np-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
+          <button type="button" id="ls-rcd-run">Рассчитать</button>
+          <button type="button" id="ls-rcd-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-rcd-result">Печать результатов</button>
         </div>
-        <output class="ls-results" id="np-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
+        <p class="ls-error" id="ls-rcd-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-rcd-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+    </section>
 
-  <details>
-    <summary>Конфликтные точки: Art‑Net vs sACN</summary>
+    <!-- Calculator 6: IP helper -->
+    <section id="ls-calc-ip-sec" aria-labelledby="ls-calc-ip-title">
+      <h3 id="ls-calc-ip-title">6) IP-помощник</h3>
+      <p id="ls-calc-ip-help">Подбор минимального IP по сценарию площадки, с рекомендациями по укрытию и конденсату.</p>
+      <form id="ls-calc-ip" data-ls-calc="ip" aria-describedby="ls-calc-ip-help">
+        <fieldset>
+          <legend>Условия</legend>
+          <label for="ls-ip-venue">Тип площадки</label>
+          <select id="ls-ip-venue">
+            <option value="indoor">Indoor</option>
+            <option value="outdoor" selected>Outdoor</option>
+          </select>
+          <label for="ls-ip-exposure">Экспозиция</label>
+          <select id="ls-ip-exposure">
+            <option value="dry">Сухо, пыли мало</option>
+            <option value="dust">Пыль/песок</option>
+            <option value="spray" selected>Брызги/дождь</option>
+            <option value="jets">Струи воды</option>
+            <option value="salt">Морской бриз/соль</option>
+          </select>
+          <label for="ls-ip-wash">Мойка под давлением?</label>
+          <select id="ls-ip-wash">
+            <option value="no" selected>Нет</option>
+            <option value="yes">Да</option>
+          </select>
+        </fieldset>
+        <div class="ls-actions">
+          <button type="button" id="ls-ip-run">Подобрать</button>
+          <button type="button" id="ls-ip-clear">Очистить</button>
+          <button type="button" data-ls-print="#ls-ip-result">Печать результатов</button>
+        </div>
+        <p class="ls-error" id="ls-ip-error" role="alert" aria-live="assertive"></p>
+        <div id="ls-ip-result" class="ls-results" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section cases -->
+  <section id="ls-cases" aria-labelledby="ls-cases-title">
+    <h2 id="ls-cases-title">Практические кейсы</h2>
+
+    <article class="ls-case" id="ls-case-1" aria-labelledby="ls-case-1-title">
+      <h3 id="ls-case-1-title">1) Открытый фестиваль под дождём</h3>
+      <p><strong>Контекст.</strong> Поле, сцена 12×10 м, публика 15 000 чел., два генератора 125 кВА по схеме N+1, прогноз — периодические ливни.</p>
+      <p><strong>Питание.</strong> Главный ввод — два параллельных генератора с ATS. TT/изолированная нейтраль по паспорту генераторов, связь N–PE реализована в распределительном щите согласно инструкции, на отходящих — УЗО 30 мА.</p>
+      <p><strong>IP и укрытие.</strong> Щиты IP54 под тентами с козырьками; стояки на высоте 30 см от земли; кабель-раны с дренажом; разъёмы True1 для приборов по периметру сцены.</p>
+      <p><strong>Расчёты.</strong> Суммарная активная 48 кВт, cosφ≈0.9, пусковые пики 1.6× для голов. Калькулятор генератора → ≈ 85 кВА + 25% → 106 кВА; взяли 125 кВА с запасом. Падение на магистрали 70 м медь 5×16 мм² при 90 А трёхфазно: ΔU% ≈ 100·(1.732·0.0175·70·90)/(16·400) ≈ 4.0% — допустимо.</p>
+      <p><strong>Риски и меры.</strong> Лужи у разъёмов — поднятие на подмостки, каплеотводы, проверка УЗО. SMPS под дождём — строгая группировка, минимизация перезагрузок после срабатываний.</p>
+      <p><strong>Ошибки.</strong> Попытка закрыть щит полиэтиленом без вентиляции — запотевание и срабатывание УЗО. Решение: тент + вентиляция.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-2" aria-labelledby="ls-case-2-title">
+      <h3 id="ls-case-2-title">2) Ледовая арена со стационарным питанием</h3>
+      <p><strong>Контекст.</strong> Длинные трассы 120–160 м до FOH, температура низкая, влажность высокая.</p>
+      <p><strong>Проблема.</strong> ΔU и гармоники от больших массивов LED. Решение — увеличить сечения магистралей, разнести SMPS по фазам, выделить отдельные линии на диммеры/моторы.</p>
+      <p><strong>Расчёты.</strong> 120 м, 55 А, три фазы, медь 25 мм² → ΔU% ≈ 2.7%. Нейтраль — до 0.9× фазы по результатам измерений из-за 3-й гармоники; PE и N увеличены в магистрали до 35 мм².</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-3" aria-labelledby="ls-case-3-title">
+      <h3 id="ls-case-3-title">3) Малый клуб с «слабой» электрикой</h3>
+      <p><strong>Контекст.</strong> Старое здание, ввод 3×63 А, много бытовых нагрузок, общая нейтраль на часть здания.</p>
+      <p><strong>Действия.</strong> Разделение групп, прецизионная балансировка фаз, свой дистро с УЗО тип A на конечных линиях, контроль за соединениями Schuko и исключение «тройников» без сертификации.</p>
+      <p><strong>Результат.</strong> Отказов нет, нейтраль не перегревается, отключения — только локальные при аварии прибора.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-4" aria-labelledby="ls-case-4-title">
+      <h3 id="ls-case-4-title">4) Тур с двумя генераторами и ATS</h3>
+      <p><strong>Контекст.</strong> Передвижной комплекс, ежедневные монтажи/демонтажи, разные климатические зоны.</p>
+      <p><strong>Решение.</strong> Генераторы 2×160 кВА, работа попеременно с «горячим» резервом; ATS с задержкой; контроль частоты; критичные узлы на UPS. Регламент: ежесуточный тест переключения без нагрузки.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-5" aria-labelledby="ls-case-5-title">
+      <h3 id="ls-case-5-title">5) Площадь города и длинные кабель-раны</h3>
+      <p><strong>Контекст.</strong> 200–250 м к отдалённым блокам. Выбор: медь 70 мм², уклон на один путь без колец. Разнесение трасс от аудио/сети, сигнальные — в отдельные ран-пути.</p>
+      <p><strong>Расчёты.</strong> ΔU% проверено калькулятором: при 80 А и 200 м на 70 мм² трёхфазно — около 3.5% при 30°C. Допустимо.</p>
+    </article>
+
+    <article class="ls-case" id="ls-case-6" aria-labelledby="ls-case-6-title">
+      <h3 id="ls-case-6-title">6) Международная площадка, 50/60 Гц</h3>
+      <p><strong>Контекст.</strong> Разные стандарты разъёмов, 120/240 В, 50/60 Гц. Решение — переходные панели, проверка совместимости SMPS по частоте, тест димира с 60 Гц, маркировка по цветам локальной страны.</p>
+    </article>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
+
+  <!-- ls: section checklists -->
+  <section id="ls-checklists" aria-labelledby="ls-checklists-title">
+    <h2 id="ls-checklists-title">Чеклисты и протоколы</h2>
+    <h3>Предмонтаж</h3>
     <ul>
-      <li>Art‑Net v4 поддерживает unicast и ограничение broadcast; избегайте широковещаний в больших сетях.</li>
-      <li>sACN использует IGMP-мультикаст (239.255.0.0/16); без Snooping/Querier пакеты «затопят» сеть.</li>
-      <li>Merge: HTP обычно для диммеров/интенсивностей, LTP — для атрибутов; проверяйте поведение нод.</li>
+      <li>Разрешения и договорённости с площадкой/городом.</li>
+      <li>Однолинейная схема, план балансировки фаз, расчёты ΔU и кВА.</li>
+      <li>Выбор IP, укрытия, дренаж.</li>
+      <li>План заземления и уравнивания потенциалов.</li>
+      <li>Подготовка маркировки и биркования LOTO.</li>
     </ul>
-  </details>
+    <h3>Перед подачей напряжения</h3>
+    <ul>
+      <li>Визуальный осмотр кабелей и разъёмов, целостность защит.</li>
+      <li>Проверка целостности PE и полярности фаз.</li>
+      <li>Измерение изоляции, петли, тест УЗО.</li>
+      <li>Пробный пуск групп с наблюдением за токами и напряжением.</li>
+    </ul>
+    <h3>Завершение работ</h3>
+    <ul>
+      <li>Снятие напряжения, LOTO, демонтаж по плану, без «рывков».</li>
+      <li>Осмотр повреждений, сортировка и сушка кабелей.</li>
+      <li>Обновление протоколов и наклеек даты проверки.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+  <!-- ls: section glossary -->
+  <section id="ls-glossary" aria-labelledby="ls-glossary-title">
+    <h2 id="ls-glossary-title">Глоссарий</h2>
+    <dl>
+      <dt>cos φ</dt><dd>Коэффициент мощности. Отношение активной мощности к полной: cos φ = P/S.</dd>
+      <dt>THD</dt><dd>Коэффициент гармонических искажений. Высокий THD — риск нагрева нейтрали и трансформаторов.</dd>
+      <dt>RCD/УЗО</dt><dd>Устройство защитного отключения. Сравнивает токи в фазе и нейтрали; разница — утечка.</dd>
+      <dt>RCBO/дифавтомат</dt><dd>Комбинация автомата и УЗО в одном корпусе.</dd>
+      <dt>SELV/PELV</dt><dd>Системы безопасного сверхнизкого напряжения. SELV изолирована, PELV — связана с землёй.</dd>
+      <dt>LSZH</dt><dd>Low Smoke Zero Halogen — низкое дымо- и газовыделение при горении.</dd>
+      <dt>ATS</dt><dd>Automatic Transfer Switch — автоматический ввод резерва.</dd>
+    </dl>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-<section id="previz">
-  <h2>8) Превизуализация и подготовка данных</h2>
-  <ul>
-    <li>Линейка софта: WYSIWYG/Capture/Depence/MA3D — важны корректные fixture profiles.</li>
-    <li>Patch-листы: источники, адреса, universes, позиция на ферме, кронштейны и safety.</li>
-    <li>Экспорт в консоль: проверяйте mapping атрибутов, размер DMX footprint, матрицы (пиксельные приборы).</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+  <!-- ls: section faq -->
+  <section id="ls-faq" aria-labelledby="ls-faq-title">
+    <h2 id="ls-faq-title">FAQ</h2>
+    <h3>Почему выбивает УЗО на открытом воздухе?</h3>
+    <p>Суммарные утечки SMPS плюс влажность в разъёмах, длинные кабели с паразитной ёмкостью. Решение: больше групп с отдельными УЗО тип A/F, тщательная сушка и укрытие, деструктивные приборы на отдельные линии, проверка кабелей.</p>
+    <h3>Нужно ли гальванически развязывать DMX?</h3>
+    <p>Да, оптроны/изоляторы снижают риск «поездки» потенциала по экрану и защищают контроллер.</p>
+    <h3>Можно ли соединять нейтрали разных дистро?</h3>
+    <p>Нет. У каждой системы своя нейтраль; смешение создаёт путаницу токов, перегруз PE/N и опасные потенциалы.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </section>
 
-<section id="docs-logistics">
-  <h2>9) Документация, логистика и командные процессы</h2>
-  <p>Свет — командная игра. Кто-то рисует карту сети, кто-то считает кабели, кто-то ведёт смену. Документы и роли — ваш экзоскелет.</p>
-  <h3>Кто за что отвечает</h3>
-  <ul>
-    <li>LD (Lighting Designer): концепт, превиз, ключевые пресеты и timecode.</li>
-    <li>Chief LX: пакет документации, коммуникация с rigging, power и видео.</li>
-    <li>Техники: монтаж, line check, RDM, маркировка.</li>
-    <li>Сменные операторы: программирование, шоу, бэкап.</li>
-  </ul>
+  <!-- ls: aside refs -->
+  <aside id="ls-refs" aria-labelledby="ls-refs-title">
+    <h2 id="ls-refs-title">Нормативы и ссылки</h2>
+    <ul>
+      <li>ПУЭ (Правила устройства электроустановок), действующая редакция.</li>
+      <li>ГОСТ Р по кабельной продукции, пожарной безопасности, маркировке.</li>
+      <li>IEC 60364 — Electrical installations of buildings.</li>
+      <li>IEC 60529 — Degrees of protection provided by enclosures (IP Code).</li>
+      <li>IEC 61008/61009 — RCD/RCBO.</li>
+      <li>Руководства производителей генераторов, распределительных щитов, диммеров и световых приборов.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a></p>
+  </aside>
 
-  <h3>Калькулятор логистики и массы</h3>
-  <figure class="ls-figure">
-    <figcaption>Масса, объём, фуры/лифты</figcaption>
-    <form id="calc-logi" aria-label="Калькулятор логистики">
-      <fieldset>
-        <label for="lg-lines">Кейсы (строки): qty, масса кг, L×W×H м (например: 4, 85, 1.2x0.6x0.7)</label>
-        <textarea id="lg-lines" rows="5" style="width:100%;font-family:var(--lg-mono);"></textarea>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Грузоподъёмность фуры (кг) <input type="number" id="lg-truck-m" min="1" step="1" value="10000" required></label>
-          <label>Объём фуры (м³) <input type="number" id="lg-truck-v" min="1" step="0.1" value="40" required></label>
-          <label>Лифт (кг) <input type="number" id="lg-lift" min="1" step="1" value="1000" required></label>
-          <label>Время рейса лифта (мин) <input type="number" id="lg-lift-t" min="1" step="1" value="6" required></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="lg-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="lg-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
+  <!-- ls: footer -->
+  <footer id="ls-footer" role="contentinfo">
+    <p>Резюме: сцена — место, где электричество встречается с искусством. Делайте эту встречу безопасной: планируйте, измеряйте, защищайте. Привлекайте аттестованных специалистов и следуйте нормам.</p>
+    <p><a href="#ls-top">Наверх</a></p>
+  </footer>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="safety">
-  <h2>10) Безопасность и риск‑менеджмент</h2>
-  <ul>
-    <li>Rigging координация: SWL, инспекция точек подвеса, safety на каждом приборе, вторичное крепление нод/сплиттеров.</li>
-    <li>Погодные риски: ветер и дождь. Отсекатели питания, крышки для генераторов, IP-рейтинги, запасные пути.</li>
-    <li>N/N+1: бэкап‑консоль в tracking, два свитча, два PSU, независимые линии питания.</li>
-    <li>План эвакуации, house lights, аварийные сценарии.</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="eco">
-  <h2>11) Экология и устойчивость</h2>
-  <ul>
-    <li>LED вместо разрядных, диммируемые источники — экономия кВт⋅ч и тепла.</li>
-    <li>Транспорт: пакование по объёму, меньшие рейсы → меньше CO₂.</li>
-    <li>Многоразовые расходники: чехлы на фермы, многоразовые стяжки.</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="cases">
-  <h2>12) Разбор кейсов и типовые ошибки</h2>
-
-  <h3>Кейс 1: Open‑air фестиваль, генератор 160 кВА</h3>
-  <p>Сетап: 48 движущихся голов по 350 Вт, 12 профилей по 1200 Вт, haze 2×1200 Вт. ΣP≈ (48×350 + 12×1200 + 2400) ≈ 33.6 кВт. С коэффициентом спроса 0.8 — 26.9 кВт. Баланс по фазам — равномерный. Генератор — 160 кВА (≈128 кВт), запас достаточен.</p>
-  <p>Ошибка: IGMP Querier был включён на двух свитчах, что привело к «войне» querier. Часть мультикаста sACN терялась — пропадал один универсум. Решение: оставить Querier только на корневом, проверить robustness.</p>
-
-  <h3>Кейс 2: Арена‑тур, мульти‑трап и timecode</h3>
-  <p>График: 6 часов на монтаж, 2 — на фокус, 1 — на репетицию. Timecode по MTC от ProTools — в консоль, далее — в эффекты. Бэкап‑консоль в tracking. Параллельные свитчи c VLAN 10 (свет) и 20 (управление).</p>
-
-  <h3>Кейс 3: Корпоратив, «сжатые» слоты</h3>
-  <p>Line check 20 минут. Решение: заранее подготовленные палитры и шаблонные страницы busking; на нодах — статический unicast Art‑Net в универсумы 1–4. Haze включён из house‑page, приоритеты sACN выставлены для пульта гостя ниже (Prio=90).</p>
-
-  <h3>Кейс 4: Театрально‑иммерсивный сетап</h3>
-  <p>Тихий свет, минимальный шум вентиляторов. Выбор приборов с «Studio Mode». RDM‑диагностика позволила обнаружить прибор с нестабильным PSU по параметру «sensor temp» — заменили до шоу.</p>
-
-  <h3>Кейс 5: Городская площадь, длинные линии</h3>
-  <p>Линия 120 м до фронтального ряда профилей 6×1200 Вт, 1ф. Расчёт ΔU показал необходимость 10 мм² меди при допустимых 5% просадки — иначе строб и мерцание при синхронных белых.</p>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="glossary">
-  <h2>13) Глоссарий, FAQ и шаблоны</h2>
-  <h3>Глоссарий (выборочно)</h3>
-  <ul>
-    <li>DMX512‑A — протокол 512 каналов/универсум, скорость 250 кбит/с, типовая длина линии до 300 м с правильным кабелем и терминацией 120 Ω.</li>
-    <li>RDM — двустороннее расширение DMX для диагностики и конфигурации.</li>
-    <li>Art‑Net — семейство протоколов поверх IP, v4 предпочтительно в unicast.</li>
-    <li>sACN (E1.31) — поток DMX поверх мультикаста, группы 239.255.*.*.</li>
-    <li>VLAN/IGMP Snooping/Querier — сегментация и контроль мультикаста.</li>
-    <li>N/N+1 — модели резервирования мощности/узлов.</li>
-  </ul>
-
-  <h3>FAQ</h3>
-  <details>
-    <summary>Сколько универсумов выдержит «офисный» свитч?</summary>
-    <p>Зависит от архитектуры. Без IGMP Snooping — легко «захлебнётся» уже на 6–8 мультикаст‑универсумов. С IGMP и уникастом — десятки. Смотрите таблицу пропускной способности и буферов.</p>
-  </details>
-  <details>
-    <summary>Какой кабель для DMX?</summary>
-    <p>110 Ω витая пара (DMX кабель), не миксовать с аудио XLR‑кабелями. На крайний случай — Cat5e с адаптерами, но держите длину и помехи под контролем.</p>
-  </details>
-
-  <h3>Шаблоны</h3>
-  <ul>
-    <li>Patch-лист (CSV): Position, Fixture, Mode, Universe, Address, Notes</li>
-    <li>Network map: VLAN, Subnet, IGMP, Port map, PoE budget</li>
-    <li>Power one-line: Source → Main → Distro → Breakers → Loads</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="checklists">
-  <h2>Итоговые чек‑листы и таблицы соответствий</h2>
-
-  <h3>Чек‑лист перед выездом</h3>
-  <ul>
-    <li>Документация: GP, Rigging, Patch, Cable, Power, Network.</li>
-    <li>ПО: версии консолей/нод, профили, бэкапы, лицензии.</li>
-    <li>Железо: тест приборов, spare‑набор, safety, крепёж, расходники.</li>
-  </ul>
-
-  <h3>Чек‑лист на площадке</h3>
-  <ul>
-    <li>Энергия: фазировка, тест УЗО/дифов, реальный ток.</li>
-    <li>Сеть: VLAN/IGMP, ping, RDM discovery, latency/flicker тест.</li>
-    <li>Шоу: плейбек/таймкод, приоритеты sACN, бэкап‑сессия.</li>
-  </ul>
-
-  <h3>Таблица соответствий (пример)</h3>
-  <figure class="ls-figure">
-    <figcaption>Universe → sACN Multicast / Art‑Net Port‑Addr</figcaption>
-    <table style="width:100%;border-collapse:collapse">
-      <thead>
-        <tr>
-          <th style="text-align:left;border-bottom:1px solid var(--lg-border)">Universe</th>
-          <th style="text-align:left;border-bottom:1px solid var(--lg-border)">sACN Multicast</th>
-          <th style="text-align:left;border-bottom:1px solid var(--lg-border)">Art‑Net (Net/SubUni)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>239.255.0.1</td><td>0/0.1</td></tr>
-        <tr><td>2</td><td>239.255.0.2</td><td>0/0.2</td></tr>
-        <tr><td>3</td><td>239.255.0.3</td><td>0/0.3</td></tr>
-        <tr><td>4</td><td>239.255.0.4</td><td>0/0.4</td></tr>
-        <tr><td>5</td><td>239.255.0.5</td><td>0/0.5</td></tr>
-        <tr><td>6</td><td>239.255.0.6</td><td>0/0.6</td></tr>
-        <tr><td>7</td><td>239.255.0.7</td><td>0/0.7</td></tr>
-        <tr><td>8</td><td>239.255.0.8</td><td>0/0.8</td></tr>
-        <tr><td>9</td><td>239.255.0.9</td><td>0/0.9</td></tr>
-        <tr><td>10</td><td>239.255.0.10</td><td>0/0.10</td></tr>
-      </tbody>
-    </table>
-  </figure>
-
-  <h3>Калькулятор стоимости и маржинальности проката</h3>
-  <figure class="ls-figure">
-    <figcaption>Стоимость, скидки, маржа</figcaption>
-    <form id="calc-cost" aria-label="Калькулятор стоимости проката">
-      <fieldset>
-        <label for="cs-lines">Позиции (строки): name, ставка/день, qty, дни (например: Wash 350, 12, 2)</label>
-        <textarea id="cs-lines" rows="5" style="width:100%;font-family:var(--lg-mono);"></textarea>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Скидка (%) <input type="number" id="cs-disc" min="0" max="100" step="1" value="10" required></label>
-          <label>Доставка (₽) <input type="number" id="cs-del" min="0" step="100" value="25000" required></label>
-          <label>Персонал (₽) <input type="number" id="cs-staff" min="0" step="100" value="60000" required></label>
-          <label>Оверхед (%) <input type="number" id="cs-oh" min="0" max="100" step="1" value="15" required></label>
-          <label>Прочие издержки (₽) <input type="number" id="cs-oth" min="0" step="100" value="0" required></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="cs-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="cs-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <h3>Калькулятор резервирования (N/N+1)</h3>
-  <figure class="ls-figure">
-    <figcaption>Оценка риска отказов</figcaption>
-    <form id="calc-red" aria-label="Калькулятор резервирования">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem">
-          <label>Узел 1: P отказа <input type="number" id="rd-p1" min="0" max="1" step="0.001" value="0.03"></label>
-          <label>Резерв <select id="rd-r1"><option value="none">N</option><option value="n1" selected>N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d1" value="Консоль"></label>
-
-          <label>Узел 2: P отказа <input type="number" id="rd-p2" min="0" max="1" step="0.001" value="0.02"></label>
-          <label>Резерв <select id="rd-r2"><option value="none">N</option><option value="n1">N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d2" value="Свитч"></label>
-
-          <label>Узел 3: P отказа <input type="number" id="rd-p3" min="0" max="1" step="0.001" value="0.05"></label>
-          <label>Резерв <select id="rd-r3"><option value="none" selected>N</option><option value="n1">N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d3" value="Нода"></label>
-
-          <label>Узел 4: P отказа <input type="number" id="rd-p4" min="0" max="1" step="0.001" value="0.01"></label>
-          <label>Резерв <select id="rd-r4"><option value="none">N</option><option value="n1" selected>N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d4" value="PSU 24 В"></label>
-
-          <label>Узел 5: P отказа <input type="number" id="rd-p5" min="0" max="1" step="0.001" value="0.02"></label>
-          <label>Резерв <select id="rd-r5"><option value="none" selected>N</option><option value="n1">N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d5" value="Сеть uplink"></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="rd-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="rd-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-</main>
-
-<footer>
-  <p>Памятка: делайте бэкап всего — от файла шоу до плана эвакуации. Пробуйте отказоустойчивость на репетиции, а не на шоу. И держите под рукой белую страницу плейбека и фонари для команды.</p>
-  <p><a href="#ls-top">↑ Наверх</a> · <a href="#ls-toc">← Назад к содержанию</a></p>
-</footer>
-
-<script>
-(function(){
-  const root = document.querySelector('#ls-article');
-  if(!root) return;
-
-  function fmt(x, digits=2){ return Number.isFinite(x) ? Number(x).toFixed(digits) : '—'; }
-  function err(msg){ return '<span class="ls-error">' + msg + '</span>'; }
-  function parseLines(text){
-    return text.split(/\n+/).map(l => l.trim()).filter(Boolean);
-  }
-
-  // Toggle custom phase distribution
-  const cpDist = root.querySelector('#cp-dist');
-  const cpCustom = root.querySelector('#cp-custom');
-  if(cpDist && cpCustom){
-    cpDist.addEventListener('change', () => {
-      cpCustom.style.display = cpDist.value === 'custom' ? 'grid' : 'none';
-    });
-  }
-  const cpReset = root.querySelector('#cp-reset');
-  if(cpReset && cpCustom){
-    cpReset.addEventListener('click', () => { cpCustom.style.display = 'none'; });
-  }
-
-  // Calculator: Advanced Power
+  <!-- ls: script -->
+  <script>
   (function(){
-    const n1 = root.querySelector('#cp-n1'), p1 = root.querySelector('#cp-p1'), c1 = root.querySelector('#cp-c1');
-    const n2 = root.querySelector('#cp-n2'), p2 = root.querySelector('#cp-p2'), c2 = root.querySelector('#cp-c2');
-    const n3 = root.querySelector('#cp-n3'), p3 = root.querySelector('#cp-p3'), c3 = root.querySelector('#cp-c3');
-    const u1 = root.querySelector('#cp-u1'), u3 = root.querySelector('#cp-u3'), kd = root.querySelector('#cp-kd');
-    const dist = root.querySelector('#cp-dist'), l1 = root.querySelector('#cp-l1'), l2 = root.querySelector('#cp-l2'), l3 = root.querySelector('#cp-l3');
-    const out = root.querySelector('#cp-out-adv');
-    const run = root.querySelector('#cp-run-adv');
+    'use strict';
+    const LSNS = {};
 
-    function breakerSuggest(I){
-      const sizes = [16, 20, 25, 32, 40, 63, 80, 100, 125];
-      const suggested = sizes.find(s => s >= I) || '125+';
-      return suggested;
+    // Utilities
+    function q(id){ return document.getElementById(id); }
+    function num(v){ return typeof v === 'number' ? v : parseFloat(String(v).replace(',', '.')); }
+    function fmt(n, d=2){ if (!isFinite(n)) return '—'; return Number(n).toFixed(d); }
+    function clearNode(node){ while(node && node.firstChild){ node.removeChild(node.firstChild);} }
+    function setError(id, msg){ const el=q(id); if(el){ el.textContent=msg||''; } }
+    function setHTML(id, html){ const el=q(id); if(el){ el.innerHTML=html; } }
+    function collectPrint(targetSel){
+      const el = document.querySelector(targetSel);
+      if (!el) return window.print();
+      // Open minimal print window
+      const w = window.open('', '_blank', 'noopener,noreferrer');
+      if (!w) return window.print();
+      const title = document.title || 'Результаты расчёта';
+      w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+title+'</title></head><body>');
+      w.document.write(el.outerHTML);
+      w.document.write('</body></html>');
+      w.document.close();
+      w.focus();
+      w.print();
+      w.close();
     }
 
-    function calc(){
-      const arr = [
-        {n: parseFloat(n1.value), P: parseFloat(p1.value), cos: parseFloat(c1.value)},
-        {n: parseFloat(n2.value||0), P: parseFloat(p2.value||0), cos: parseFloat(c2.value||1)},
-        {n: parseFloat(n3.value||0), P: parseFloat(p3.value||0), cos: parseFloat(c3.value||1)}
-      ];
-      const U1 = parseFloat(u1.value), U3 = parseFloat(u3.value), KD = parseFloat(kd.value);
-      if(![U1,U3,KD].every(v => Number.isFinite(v) && v>0)){ out.innerHTML = err('Проверьте напряжение и коэффициент спроса.'); return; }
-      let Ptot=0, S=0; // Вт, сумма  P_i
-      let Itot=0; // A эквивалент на 1ф при cosφ усредненном
-      for(const t of arr){
-        if(!Number.isFinite(t.n) || !Number.isFinite(t.P) || t.n<=0 || t.P<=0) continue;
-        if(!(t.cos>=0.5 && t.cos<=1)){ out.innerHTML = err('cos φ должен быть в пределах 0.5–1.0'); return; }
-        Ptot += t.n * t.P;
-      }
-      if(Ptot<=0){ out.innerHTML = err('Добавьте хотя бы один тип прибора с ненулевой мощностью.'); return; }
+    // Calculator 1: Current
+    function initCurrent(){
+      const btnRun = q('ls-current-run');
+      const btnClear = q('ls-current-clear');
+      const inputs = ['ls-current-phase','ls-current-power','ls-current-power-unit','ls-current-voltage','ls-current-cos','ls-current-eta'];
 
-      const Pask = Ptot * KD; // Вт
-      // Примем средний cosφ как взвешенный по мощности
-      let weighted = 0, pw=0;
-      for(const t of arr){
-        if(!Number.isFinite(t.n) || !Number.isFinite(t.P) || t.n<=0 || t.P<=0) continue;
-        weighted += (t.n * t.P) * (t.cos || 1);
-        pw += t.n * t.P;
-      }
-      const cosAvg = pw>0 ? (weighted/pw) : 0.95;
+      btnRun && btnRun.addEventListener('click', ()=>{
+        setError('ls-current-error','');
+        const phase = q('ls-current-phase').value;
+        let P = num(q('ls-current-power').value);
+        const unit = q('ls-current-power-unit').value;
+        const U = num(q('ls-current-voltage').value);
+        const cos = num(q('ls-current-cos').value);
+        const eta = num(q('ls-current-eta').value);
 
-      // Токи по фазам при 3ф
-      let share = [1/3,1/3,1/3];
-      if(dist.value==='custom'){
-        const L1 = parseFloat(l1.value), L2 = parseFloat(l2.value), L3 = parseFloat(l3.value);
-        if(![L1,L2,L3].every(v => Number.isFinite(v) && v>=0) || Math.abs((L1+L2+L3)-1)>0.01){
-          out.innerHTML = err('Доли фаз должны быть неотрицательны и суммой 1.00');
-          return;
+        if(!P || P<=0){ return setError('ls-current-error','Введите мощность > 0'); }
+        if(unit === 'kW') P *= 1000;
+        if(!U || U<=0){ return setError('ls-current-error','Введите напряжение > 0'); }
+        if(!cos || cos<=0 || cos>1){ return setError('ls-current-error','cos φ в диапазоне (0;1]'); }
+        if(!eta || eta<=0 || eta>1){ return setError('ls-current-error','КПД η в диапазоне (0;1]'); }
+
+        const denom = (phase==='3') ? (Math.sqrt(3)*U*cos*eta) : (U*cos*eta);
+        const I = P/denom;
+
+        // Recommend breaker: standard series
+        const mcb = [6,10,13,16,20,25,32,40,50,63,80,100,125,160,200,250,315,400];
+        let rec = mcb.find(a=>a>=I*1.1) || '—';
+        const formula = (phase==='3') ? 'I = P / (√3 · U · cosφ · η)' : 'I = P / (U · cosφ · η)';
+
+        const html = [
+          '<h4>Результаты</h4>',
+          '<p>Формула: '+formula+'</p>',
+          '<p>P = '+fmt(P,0)+' Вт, U = '+fmt(U,0)+' В, cosφ = '+fmt(cos,2)+', η = '+fmt(eta,2)+'</p>',
+          '<p><strong>I ≈ '+fmt(I,2)+' А</strong></p>',
+          '<p>Рекомендуемый номинал автомата (C-характеристика, ориентировочно): <strong>'+rec+' А</strong> с запасом ≥10%.</p>',
+          '<p><em>Примечание:</em> учитывайте пусковые токи и селективность (см. раздел «Электробезопасность»).</p>'
+        ].join('');
+        setHTML('ls-current-result', html);
+      });
+
+      btnClear && btnClear.addEventListener('click', ()=>{
+        inputs.forEach(id=>{ const el=q(id); if(el && el.tagName==='INPUT') el.value=''; });
+        setHTML('ls-current-result','');
+        setError('ls-current-error','');
+      });
+
+      // print
+      const printBtn = q('ls-calc-current').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', (e)=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 2: Balance
+    function initBalance(){
+      const list = [];
+      LSNS.balanceList = list; // kept internal but accessible if needed for debugging
+      function renderList(){
+        const wrap = q('ls-balance-list');
+        clearNode(wrap);
+        if(!list.length){ wrap.textContent = 'Список пуст.'; return; }
+        const ul = document.createElement('ul');
+        list.forEach((it, idx)=>{
+          const li = document.createElement('li');
+          li.textContent = (idx+1)+') '+it.name+' — '+it.p+' Вт, cosφ '+it.cos+', '+it.type.toUpperCase();
+          const b = document.createElement('button'); b.type='button'; b.textContent='Удалить'; b.addEventListener('click',()=>{ list.splice(idx,1); renderList(); });
+          li.appendChild(document.createTextNode(' '));
+          li.appendChild(b);
+          ul.appendChild(li);
+        });
+        wrap.appendChild(ul);
+      }
+
+      q('ls-balance-add').addEventListener('click', ()=>{
+        setError('ls-balance-error','');
+        const name = q('ls-balance-name').value.trim() || 'Прибор';
+        const p = num(q('ls-balance-power').value);
+        const cos = num(q('ls-balance-cos').value);
+        const type = q('ls-balance-type').value;
+        if(!p || p<=0){ return setError('ls-balance-error','Введите мощность прибора > 0'); }
+        if(!cos || cos<=0 || cos>1){ return setError('ls-balance-error','cos φ прибора в диапазоне (0;1]'); }
+        list.push({name, p, cos, type});
+        q('ls-balance-name').value=''; q('ls-balance-power').value=''; q('ls-balance-cos').value='0.95';
+        renderList();
+      });
+
+      q('ls-balance-run').addEventListener('click', ()=>{
+        setError('ls-balance-error','');
+        if(!list.length){ return setError('ls-balance-error','Добавьте хотя бы один прибор'); }
+        const Uline = num(q('ls-balance-voltage').value)||400;
+        const Uphase = Uline/Math.sqrt(3);
+        // Compute per-device phase current if placed on a phase
+        const items = list.map(it => {
+          const I = (it.p)/(Uphase*it.cos*0.95); // assume η=0.95 typical SMPS
+          const k3 = it.type==='smps' ? 0.3 : 0.0; // triplen harmonic factor (simplified)
+          return {name:it.name, I, cos:it.cos, type:it.type, k3};
+        }).sort((a,b)=>b.I-a.I);
+
+        const phases = [{name:'L1', I:0, items:[]},{name:'L2', I:0, items:[]},{name:'L3', I:0, items:[]}];
+        items.forEach(dev=>{
+          phases.sort((a,b)=>a.I-b.I);
+          phases[0].I += dev.I;
+          phases[0].items.push(dev);
+        });
+        // After distribution, compute neutral current with simplification and extra for k3
+        const I1 = phases[0].I, I2 = phases[1].I, I3 = phases[2].I;
+        let In = Math.sqrt(I1*I1 + I2*I2 + I3*I3 - I1*I2 - I2*I3 - I3*I1);
+        const k3avg = items.length ? items.reduce((s,a)=>s+a.k3,0)/items.length : 0;
+        In = In*(1 + k3avg);
+
+        const imbalance = (Math.max(I1,I2,I3)-Math.min(I1,I2,I3))/( (I1+I2+I3)/3 )*100;
+
+        let html = '<h4>Распределение по фазам</h4><div class="ls-grid">';
+        phases.forEach(ph=>{
+          html += '<div><strong>'+ph.name+': '+fmt(ph.I,2)+' А</strong><ul>';
+          ph.items.forEach(d=>{ html+='<li>'+d.name+' — '+fmt(d.I,2)+' А ('+d.type.toUpperCase()+')</li>'; });
+          html+='</ul></div>';
+        });
+        html += '</div>';
+        html += '<p><strong>I нейтрали ≈ '+fmt(In,2)+' А</strong> (с учётом упрощённого вклада 3-й гармоники: '+fmt(k3avg*100,0)+'%).</p>';
+        html += '<p>Дисбаланс фаз ≈ '+fmt(imbalance,1)+'%. Рекомендуется держать ниже 20%.</p>';
+        html += '<p><em>Формулы:</em> I = P/(Uф·cosφ·η), Uф = Uлиния/√3; I_N по векторной сумме.</p>';
+        setHTML('ls-balance-result', html);
+      });
+
+      q('ls-balance-clear').addEventListener('click', ()=>{
+        list.splice(0);
+        setHTML('ls-balance-list','');
+        setHTML('ls-balance-result','');
+        setError('ls-balance-error','');
+      });
+
+      // print
+      const printBtn = q('ls-calc-balance').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 3: Voltage drop
+    function initDrop(){
+      q('ls-drop-run').addEventListener('click', ()=>{
+        setError('ls-drop-error','');
+        const phase = q('ls-drop-phase').value;
+        const mat = q('ls-drop-material').value;
+        const L = num(q('ls-drop-length').value);
+        const I = num(q('ls-drop-current').value);
+        const U = num(q('ls-drop-voltage').value);
+        const maxPct = num(q('ls-drop-max').value);
+        const T = num(q('ls-drop-temp').value);
+
+        if(!L || L<=0) return setError('ls-drop-error','Введите длину > 0 м');
+        if(!I || I<=0) return setError('ls-drop-error','Введите ток > 0 А');
+        if(!U || U<=0) return setError('ls-drop-error','Введите напряжение > 0 В');
+        if(!maxPct || maxPct<=0) return setError('ls-drop-error','Введите допустимое падение > 0 %');
+
+        const rho20 = (mat==='cu') ? 0.0175 : 0.0283; // Ω·мм²/м
+        const alpha = (mat==='cu') ? 0.00393 : 0.00403;
+        const rho = rho20*(1+alpha*(T-20));
+        const K = (phase==='3') ? Math.sqrt(3) : 2;
+        // Solve for S minimal
+        const Smin = (K*rho*L*I)/( (maxPct/100)*U );
+        // pick standard section
+        const std = [1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400];
+        const Srec = std.find(s=>s>=Smin) || Smin;
+        // actual drop with Srec
+        const dUpct = 100*(K*rho*L*I)/(Srec*U);
+        const dU = U*(dUpct/100);
+
+        const html = [
+          '<h4>Подбор сечения</h4>',
+          '<p>Материал: '+(mat==='cu'?'медь':'алюминий')+', ρ('+fmt(T,0)+'°C) ≈ '+fmt(rho,5)+' Ω·мм²/м.</p>',
+          '<p>Формула: ΔU% = 100 · ('+(phase==='3'?'√3':'2')+' · ρ · L · I) / (S · U)</p>',
+          '<p>Минимальное расчётное сечение Smin ≈ <strong>'+fmt(Smin,2)+' мм²</strong></p>',
+          '<p>Рекомендованное стандартное сечение: <strong>'+fmt(Srec,0)+' мм²</strong></p>',
+          '<p>Ожидаемое падение с '+fmt(Srec,0)+' мм²: <strong>'+fmt(dUpct,2)+'%</strong> (≈ '+fmt(dU,1)+' В)</p>',
+          '<p><em>Примечание:</em> дополнительно проверьте длительно допустимый ток и условия прокладки.</p>'
+        ].join('');
+        setHTML('ls-drop-result', html);
+      });
+
+      q('ls-drop-clear').addEventListener('click', ()=>{
+        ['ls-drop-length','ls-drop-current'].forEach(id=>{ const el=q(id); if(el) el.value=''; });
+        setError('ls-drop-error',''); setHTML('ls-drop-result','');
+      });
+
+      // print
+      const printBtn = q('ls-calc-drop').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 4: Generator
+    function initGen(){
+      const list = [];
+      function render(){
+        const wrap = q('ls-gen-list');
+        clearNode(wrap);
+        if(!list.length){ wrap.textContent='Список пуст.'; return; }
+        const ul = document.createElement('ul');
+        list.forEach((it, idx)=>{
+          const li = document.createElement('li');
+          li.textContent = it.name+' — '+it.qty+'×'+it.p+' Вт, kпуск '+it.k;
+          const b=document.createElement('button'); b.type='button'; b.textContent='Удалить';
+          b.addEventListener('click',()=>{ list.splice(idx,1); render(); });
+          li.appendChild(document.createTextNode(' '));
+          li.appendChild(b);
+          ul.appendChild(li);
+        });
+        wrap.appendChild(ul);
+      }
+      q('ls-gen-add').addEventListener('click', ()=>{
+        setError('ls-gen-error','');
+        const name = q('ls-gen-name').value.trim()||'Нагрузка';
+        const p = num(q('ls-gen-power').value);
+        const qty = parseInt(q('ls-gen-qty').value,10)||1;
+        const k = num(q('ls-gen-kstart').value)||1;
+        if(!p || p<=0) return setError('ls-gen-error','Введите мощность > 0');
+        list.push({name, p, qty, k});
+        q('ls-gen-name').value=''; q('ls-gen-power').value=''; q('ls-gen-qty').value='1'; q('ls-gen-kstart').value='1.5';
+        render();
+      });
+      q('ls-gen-run').addEventListener('click', ()=>{
+        setError('ls-gen-error','');
+        if(!list.length) return setError('ls-gen-error','Добавьте нагрузки');
+        const cos = num(q('ls-gen-cos').value)||0.9;
+        const reserve = (num(q('ls-gen-reserve').value)||25)/100;
+
+        let Prun=0, Pstart=0;
+        list.forEach(it=>{
+          const Pr = it.p*it.qty;
+          Prun+=Pr;
+          Pstart+=it.p*it.k; // упрощение: пуск одновременно крупнейших
+        });
+        Pstart = Math.max(Prun, Pstart); // упрощённая критическая мощность
+        const kW = (Pstart/1000)*(1+reserve);
+        const kVA = kW/cos;
+
+        const html = [
+          '<h4>Размер генератора</h4>',
+          '<p>Суммарная активная: '+fmt(Prun/1000,2)+' кВт</p>',
+          '<p>Пусковая (упрощённо): '+fmt(Pstart/1000,2)+' кВт</p>',
+          '<p>cos φ средний: '+fmt(cos,2)+', резерв: '+fmt(reserve*100,0)+'%</p>',
+          '<p><strong>Рекомендовано: '+fmt(kW,1)+' кВт (≈ '+fmt(kVA,1)+' кВА)</strong></p>',
+          '<p>Совет: 2×(0.6–0.7) мощности каждого, схема N+1 для критичных событий.</p>'
+        ].join('');
+        setHTML('ls-gen-result', html);
+      });
+      q('ls-gen-clear').addEventListener('click', ()=>{
+        list.splice(0); setHTML('ls-gen-list',''); setHTML('ls-gen-result',''); setError('ls-gen-error','');
+      });
+      const printBtn = q('ls-calc-gen').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 5: RCD
+    function initRCD(){
+      q('ls-rcd-run').addEventListener('click', ()=>{
+        setError('ls-rcd-error','');
+        const n = parseInt(q('ls-rcd-smps').value,10)||0;
+        const I = num(q('ls-rcd-linei').value)||0;
+        const net = q('ls-rcd-net').value;
+        const sel = q('ls-rcd-sel').value;
+
+        if(I<=0) return setError('ls-rcd-error','Введите ток линии > 0');
+
+        // Approx leakage per SMPS
+        const leakPer = 0.7; // mA per device (typical range 0.5–1.0 mA)
+        const baseLeak = 2; // mA
+        const leak = baseLeak + n*leakPer;
+        let type = 'A'; // default for SMPS
+        let In = 30; // mA
+        let comment = [];
+
+        if(n>20 || I>32){ comment.push('Много SMPS — разбейте на большее число групп с отдельными УЗО.'); }
+        if(net==='tt'){ comment.push('TT: УЗО обязательно на всех конечных линиях.'); }
+        if(sel==='yes'){ comment.push('Выше по иерархии — селективное УЗО (тип S) на 100–300 мА.'); }
+
+        // If drives or dimmers likely present, hint type F/B
+        if(n>0){ type = 'A'; }
+        if(I>63){ In = 100; }
+
+        const html = [
+          '<h4>Подбор УЗО (ориентировочно)</h4>',
+          '<p>Оценка утечки: ~'+fmt(leak,1)+' мА</p>',
+          '<p>Рекомендация: тип <strong>'+type+'</strong>, уставка <strong>'+In+' мА</strong> на конечной линии.</p>',
+          '<p>Ввод/распределение: селективное УЗО <strong>100–300 мА тип S</strong> при необходимости селективности.</p>',
+          '<p><em>Замечание:</em> итоговый подбор — по измерениям и нормам площадки.</p>',
+          (comment.length?'<ul><li>'+comment.join('</li><li>')+'</li></ul>':'')
+        ].join('');
+        setHTML('ls-rcd-result', html);
+      });
+
+      q('ls-rcd-clear').addEventListener('click', ()=>{
+        ['ls-rcd-smps','ls-rcd-linei'].forEach(id=>{ const el=q(id); if(el) el.value=''; });
+        setHTML('ls-rcd-result',''); setError('ls-rcd-error','');
+      });
+
+      const printBtn = q('ls-calc-rcd').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    // Calculator 6: IP helper
+    function initIP(){
+      q('ls-ip-run').addEventListener('click', ()=>{
+        setError('ls-ip-error','');
+        const venue = q('ls-ip-venue').value;
+        const expo = q('ls-ip-exposure').value;
+        const wash = q('ls-ip-wash').value;
+
+        let ip1='2', ip2='0';
+        let notes = [];
+
+        if(venue==='indoor' && expo==='dry'){ ip1='2'; ip2='0'; notes.push('Достаточно IP20 при отсутствии брызг.'); }
+        if(venue==='indoor' && expo!=='dry'){ ip1='4'; ip2='2'; notes.push('Внутри с брызгами/пылями — IP42–IP44.'); }
+        if(venue==='outdoor'){
+          if(expo==='spray'){ ip1='5'; ip2='4'; notes.push('Outdoor с дождём — IP54 минимум, лучше IP55 под струи.'); }
+          if(expo==='dust'){ ip1='5'; ip2='5'; notes.push('Пыль и ветер — IP55, герметизируйте вводы.'); }
+          if(expo==='jets'){ ip1='6'; ip2='6'; notes.push('Струи — IP66. Избегайте прямого облива щитов.'); }
+          if(expo==='salt'){ ip1='6'; ip2='6'; notes.push('Морская соль: IP66 и коррозионностойкие материалы.'); }
+          if(expo==='dry'){ ip1='4'; ip2='4'; notes.push('Под тентом — IP44, контролируйте конденсат.'); }
         }
-        share = [L1,L2,L3];
+        if(wash==='yes'){ ip2='6'; notes.push('Планируется мойка — IP66/69K для приборов/корпусов.'); }
+
+        const html = [
+          '<h4>Минимальная степень IP</h4>',
+          '<p><strong>IP'+ip1+ip2+'</strong></p>',
+          '<ul><li>'+notes.join('</li><li>')+'</li></ul>',
+          '<p>Рекомендации: козырьки, влагозащищённые разъёмы, каплеотводы, дыхательные клапаны. Учтите УФ и коррозию.</p>'
+        ].join('');
+        setHTML('ls-ip-result', html);
+      });
+
+      q('ls-ip-clear').addEventListener('click', ()=>{
+        setHTML('ls-ip-result',''); setError('ls-ip-error','');
+      });
+
+      const printBtn = q('ls-calc-ip').querySelector('[data-ls-print]');
+      printBtn && printBtn.addEventListener('click', ()=>{ collectPrint(printBtn.getAttribute('data-ls-print')); });
+    }
+
+    window.LS = {
+      init: function(){
+        // Bind print buttons (delegated already per calc)
+        // Initialize calculators
+        initCurrent();
+        initBalance();
+        initDrop();
+        initGen();
+        initRCD();
+        initIP();
       }
-      const Pph = share.map(s => Pask * s); // Вт
-      const Iph = Pph.map(p => p / (U1 * cosAvg)); // А, каждый прибор в основном 1ф
-      const Imax = Math.max(...Iph);
+    };
 
-      const bkr = breakerSuggest(Imax);
-
-      out.innerHTML = [
-        'ΣP = ' + fmt(Ptot,0) + ' Вт; P(спрос) = ' + fmt(Pask,0) + ' Вт;',
-        'cos φ(avg) ≈ ' + fmt(cosAvg,2),
-        'I(L1/L2/L3) ≈ ' + Iph.map(i=>fmt(i,1)).join(' / ') + ' А',
-        'Рекомендуемый автомат (тип C/D): ≥ ' + bkr + ' А на фазу',
-        (Imax> (parseFloat(bkr)||125) ? '<br>'+err('Предупреждение: ток фазы превышает номинал автомата!') : '')
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
+    document.addEventListener('DOMContentLoaded', function(){ window.LS && window.LS.init(); });
   })();
-
-  // Calculator: Voltage Drop
-  (function(){
-    const P = root.querySelector('#vd-p');
-    const U = root.querySelector('#vd-u');
-    const COS = root.querySelector('#vd-cos');
-    const L = root.querySelector('#vd-l');
-    const MAT = root.querySelector('#vd-mat');
-    const PH = root.querySelector('#vd-phase');
-    const DU = root.querySelector('#vd-du');
-    const SP = root.querySelector('#vd-s-preset');
-    const OUT = root.querySelector('#vd-out');
-    const RUN = root.querySelector('#vd-run');
-
-    function nearestS(target){
-      const list=[1.5,2.5,4,6,10,16,25,35,50,70,95,120];
-      for(const s of list){ if(s>=target) return s; }
-      return list[list.length-1];
-    }
-    function resistivity(mat){
-      // Ом*мм2/м
-      return mat==='al' ? 0.0282 : 0.0175; // алюминий/медь
-    }
-
-    function calc(){
-      const p = parseFloat(P.value), u = parseFloat(U.value), c = parseFloat(COS.value);
-      const l = parseFloat(L.value), du = parseFloat(DU.value);
-      const mat = MAT.value, ph = PH.value;
-      const preset = SP.value;
-
-      if([p,u,c,l,du].some(v => !Number.isFinite(v) || v<=0) || c>1){ OUT.innerHTML = err('Проверьте ввод.'); return; }
-
-      const I = p / (u * c); // A
-      const rho = resistivity(mat);
-      // ΔU = k * I * ρ * L / S, где k=2 для 1ф, k=√3 для 3ф
-      const k = ph==='3f' ? Math.sqrt(3) : 2;
-      const duAllow = u * (du/100);
-      const Sreq = (k * I * rho * l) / duAllow; // мм2
-
-      let Suse = preset==='auto' ? nearestS(Sreq) : parseFloat(preset);
-      if(!Number.isFinite(Suse) || Suse<=0){ Suse = nearestS(Sreq); }
-
-      const dUactual = (k * I * rho * l) / Suse; // В
-      const dUpct = dUactual/u*100;
-
-      OUT.innerHTML = [
-        'I ≈ ' + fmt(I,2) + ' А; ρ = ' + (mat==='al'?'0.0282':'0.0175') + ' Ω·мм²/м',
-        'Необходимое S ≥ ' + fmt(Sreq,2) + ' мм²; Выбрано: ' + fmt(Suse,0) + ' мм²',
-        'ΔU ≈ ' + fmt(dUactual,2) + ' В (' + fmt(dUpct,2) + ' %)',
-        (dUpct>du ? err('Превышение допустимой просадки! Увеличьте сечение или сократите длину.') : '<span style="color:var(--lg-ok)">OK по ΔU</span>')
-      ].join('<br>');
-    }
-    if(RUN) RUN.addEventListener('click', calc);
-  })();
-
-  // Calculator: DMX addressing
-  (function(){
-    const lines = root.querySelector('#dmx-lines');
-    const u = root.querySelector('#dmx-u');
-    const addr = root.querySelector('#dmx-addr');
-    const order = root.querySelector('#dmx-order');
-    const run = root.querySelector('#dmx-run');
-    const out = root.querySelector('#dmx-out');
-
-    function parseFixture(line){
-      // formats: "8 x 25; Wash" or "8,25,Wash"
-      const m = line.match(/^(\d+)\s*(?:x|,)\s*(\d+)(?:\s*;|,)?\s*(.*)?$/i);
-      if(!m) return null;
-      return {qty: parseInt(m[1],10), ch: parseInt(m[2],10), name: (m[3]||'Fixture').trim() || 'Fixture'};
-    }
-
-    function calc(){
-      const L = parseLines(lines.value);
-      if(L.length===0){ out.innerHTML = err('Добавьте хотя бы одну строку с приборами.'); return; }
-      let U = parseInt(u.value,10), A = parseInt(addr.value,10);
-      if(!(U>=1 && A>=1 && A<=512)){ out.innerHTML = err('Некорректный стартовый universe/адрес.'); return; }
-      let rows = [];
-      for(const ln of L){
-        const f = parseFixture(ln);
-        if(!f){ out.innerHTML = err('Ошибка парсинга: "'+ln+'". Ожидается "qty x channels; name".'); return; }
-        for(let i=1;i<=f.qty;i++){
-          let start = A;
-          let end = A + f.ch - 1;
-          if(end>512){
-            // перенос на следующий universe
-            U += Math.floor((end-1)/512);
-            A = 1;
-            start = A;
-            end = A + f.ch - 1;
-          }
-          rows.push('U'+U+' | ' + f.name + ' #' + i + ' → ' + start + '–' + end + ' ('+f.ch+'ch)');
-          A = end + 1;
-          if(order.value==='page512' && A<=512){
-            // округление к следующей сотне для удобства
-            const nextPage = Math.ceil(A/32)*32;
-            A = Math.min(nextPage, 512 - f.ch + 1);
-          }
-          if(A>512){ U++; A=1; }
-        }
-      }
-      out.innerHTML = rows.map(r=>r).join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Network planning
-  (function(){
-    const U = root.querySelector('#np-u');
-    const mode = root.querySelector('#np-mode');
-    const nodes = root.querySelector('#np-nodes');
-    const ports = root.querySelector('#np-ports');
-    const unPerSw = root.querySelector('#np-unpsw');
-    const run = root.querySelector('#np-run');
-    const out = root.querySelector('#np-out');
-
-    function calc(){
-      const Nu = parseInt(U.value,10);
-      const Nn = parseInt(nodes.value,10);
-      const Np = parseInt(ports.value,10);
-      const Upsw = parseInt(unPerSw.value,10);
-      if([Nu,Nn,Np,Upsw].some(v=>!(v>0))) { out.innerHTML = err('Проверьте ввод.'); return; }
-
-      // Оценка PPS и трафика (грубая): ~44 pps/универсум, ~6000 байт/с ≈ 48 кбит/с
-      const pps = 44*Nu;
-      const kbps = 48*Nu; // оценка
-      const totalPorts = Nn*Np;
-      const suggestedVlans = Math.ceil(Nu / Upsw);
-      const vlanList = Array.from({length:suggestedVlans}, (_,i)=> 10 + i);
-
-      let tips = [];
-      if(mode.value.includes('multi')){
-        tips.push('Включите IGMP Snooping на всех свитчах; один IGMP Querier на корневом (core).');
-        if(Nu>4) tips.push('Разделите универсумы по VLAN: ' + vlanList.map((v,i)=>'VLAN '+v+': U'+(i*Upsw+1)+'–U'+Math.min((i+1)*Upsw,Nu)).join('; '));
-      }else{
-        tips.push('Unicast: настройте статические цели (IP нод) и отключите широковещание.');
-      }
-      tips.push('План IP: 10.10.VLAN.X/24; Консоли/кор: .1/.2; Ноды: .100+.');
-
-      out.innerHTML = [
-        'Универсумов: '+Nu+', PPS≈'+pps+'/с, ~'+kbps+' кбит/с суммарно',
-        'Портов вывода DMX: '+totalPorts+' (узлов '+Nn+' × портов '+Np+')',
-        tips.join('<br>')
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Logistics
-  (function(){
-    const lines = root.querySelector('#lg-lines');
-    const truckM = root.querySelector('#lg-truck-m');
-    const truckV = root.querySelector('#lg-truck-v');
-    const lift = root.querySelector('#lg-lift');
-    const liftT = root.querySelector('#lg-lift-t');
-    const run = root.querySelector('#lg-run');
-    const out = root.querySelector('#lg-out');
-
-    function parseItem(line){
-      // "4, 85, 1.2x0.6x0.7"
-      const m = line.match(/^\s*(\d+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*[x×]\s*([\д.]+)\s*[x×]\s*([\д.]+)\s*$/i);
-      if(!m) return null;
-      return {qty:+m[1], mass:+m[2], L:+m[3], W:+m[4], H:+m[5]};
-    }
-
-    function calc(){
-      const L = parseLines(lines.value);
-      if(L.length===0){ out.innerHTML = err('Добавьте строки с кейсами.'); return; }
-      const capM = parseFloat(truckM.value), capV = parseFloat(truckV.value);
-      const liftCap = parseFloat(lift.value), liftTime = parseFloat(liftT.value);
-      if([capM,capV,liftCap,liftTime].some(v=>!(v>0))){ out.innerHTML = err('Проверьте параметры фуры/лифта.'); return; }
-
-      let totalM=0, totalV=0, maxItemM=0;
-      for(const ln of L){
-        const it = parseItem(ln);
-        if(!it){ out.innerHTML = err('Ошибка парсинга: "'+ln+'". Ожидается "qty, масса, LxWxH".'); return; }
-        totalM += it.qty * it.mass;
-        totalV += it.qty * (it.L*it.W*it.H);
-        maxItemM = Math.max(maxItemM, it.mass);
-      }
-      const trucksByMass = Math.ceil(totalM / capM);
-      const trucksByVol = Math.ceil(totalV / capV);
-      const trucks = Math.max(trucksByMass, trucksByVol);
-
-      const liftTrips = Math.ceil(totalM / liftCap);
-      const timeMin = liftTrips * liftTime;
-
-      out.innerHTML = [
-        'ΣM = ' + fmt(totalM,0) + ' кг; ΣV = ' + fmt(totalV,1) + ' м³',
-        'Фур потребуется: ' + trucks + ' (по массе: '+trucksByMass+', по объёму: '+trucksByVol+')',
-        'Рейсов лифта: ' + liftTrips + ' (~' + fmt(timeMin,0) + ' мин)'
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Cost & Margin
-  (function(){
-    const lines = root.querySelector('#cs-lines');
-    const disc = root.querySelector('#cs-disc');
-    const del = root.querySelector('#cs-del');
-    const staff = root.querySelector('#cs-staff');
-    const oh = root.querySelector('#cs-oh');
-    const oth = root.querySelector('#cs-oth');
-    const run = root.querySelector('#cs-run');
-    const out = root.querySelector('#cs-out');
-
-    function parseRow(line){
-      // "Wash 350, 12, 2" or "350,12,2"
-      const parts = line.split(',').map(s=>s.trim());
-      if(parts.length<3) return null;
-      let name = parts.length===3 ? 'Item' : parts[0];
-      let idx = parts.length===3 ? 0 : 1;
-      const rate = parseFloat(parts[idx]);
-      const qty = parseFloat(parts[idx+1]);
-      const days = parseFloat(parts[idx+2]);
-      if(![rate,qty,days].every(v=>Number.isFinite(v) && v>=0)) return null;
-      return {name, rate, qty, days};
-    }
-
-    function calc(){
-      const L = parseLines(lines.value);
-      if(L.length===0){ out.innerHTML = err('Добавьте строки позиций.'); return; }
-      let gross=0;
-      for(const ln of L){
-        const r = parseRow(ln);
-        if(!r){ out.innerHTML = err('Ошибка парсинга: "'+ln+'". Ожидается "name, ставка, qty, дни".'); return; }
-        gross += r.rate * r.qty * r.days;
-      }
-      const Disc = parseFloat(disc.value)||0;
-      const D = parseFloat(del.value)||0;
-      const S = parseFloat(staff.value)||0;
-      const OH = parseFloat(oh.value)||0;
-      const OTH = parseFloat(oth.value)||0;
-
-      const revenue = gross * (1 - Disc/100);
-      const costs = D + S + OTH + (revenue * OH/100);
-      const margin = revenue - costs;
-      const marPct = revenue>0 ? (margin/revenue*100) : 0;
-
-      out.innerHTML = [
-        'Выручка после скидки: ' + fmt(revenue,0) + ' ₽',
-        'Себестоимость (примерно): ' + fmt(costs,0) + ' ₽',
-        'Маржа: ' + fmt(margin,0) + ' ₽ (' + fmt(marPct,1) + ' %)'
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Redundancy
-  (function(){
-    const fields = [1,2,3,4,5].map(i=>({
-      p: root.querySelector('#rd-p'+i),
-      r: root.querySelector('#rd-r'+i),
-      d: root.querySelector('#rd-d'+i)
-    }));
-    const run = root.querySelector('#rd-run');
-    const out = root.querySelector('#rd-out');
-
-    function calc(){
-      let lines = [];
-      let sysOkProb = 1;
-      for(const f of fields){
-        if(!f.p || !f.r) continue;
-        const p = parseFloat(f.p.value);
-        if(!Number.isFinite(p) || p<0 || p>1) continue;
-        const mode = f.r.value;
-        const effFail = (mode==='n1') ? p*p : p; // N+1: отказ обоих
-        const ok = 1 - effFail;
-        sysOkProb *= ok;
-        lines.push((f.d?.value || 'Узел') + ': P отказа=' + fmt(p,3) + (mode==='n1'?' (N+1 → P²)':'') + ', P(эфф)=' + fmt(effFail,4));
-      }
-      const sysFail = 1 - sysOkProb;
-      lines.push('Итого: P отказа системы ≈ ' + fmt(sysFail,4) + ' (' + fmt(sysFail*100,2) + ' %)');
-
-      out.innerHTML = lines.join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-})();
-</script>
+  </script>
 </article>
-      <!-- Конец вставленной статьи -->
+      <!-- /Встроенная статья -->
     </main>
   </div>
 
