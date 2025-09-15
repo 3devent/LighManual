@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Рабочий пр��цесс</title>
-  <meta name="description" content="Планирование, подготовка, сетап и тестирование, программирование и шоу." />
+  <title>Риггинг и механика</title>
+  <meta name="description" content="Нагрузки, крепёж, фермы, безопасность и чек‑листы такелажа." />
   <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
         <!--<span class="brand-mark" aria-hidden="true">◆</span>
         <span class="brand-text">На главную</span>-->
 		<svg width="145" height="50" viewBox="0 0 38.364 13.23" xmlns="http://www.w3.org/2000/svg">
-    <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495373;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M9.618 10.155s.51.625.732.961c.516.19 1.589.602 2.323.817l-1.578-1.017c-.1.06-.296.018-.395-.047-.123-.082-.27-.314-.174-.419.094-.104.385-.043.509.038.097.064.203.214.163.312l1.543 1.06c-.423-.557-1.494-1.7-1.494-1.7l-1.46-.535Z"/>
+    <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495373;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M9.618 10.155s.51.625.732.961c.516.19 1.589.602 2.323.817l-1.578-1.017c-.1.06-.296.018-.395-.047-.123-.082-.27-.314-.174-.419.094-.104.385-.043.509.038.097.064.203.214.163.312л1.543 1.06c-.423-.557-1.494-1.7-1.494-1.7l-1.46-.535Z"/>
     <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495374;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m7.83 7.858 1.205.849.036-1.293c1.965-.044 3.226-1.408 3.226-3.041 0-1.632-1.343-2.938-3.308-2.982l-.01-.312L7.856.646Zm1.196-5.276c1.136.025 2.004.825 2.053 1.788.036 1.09-.848 1.843-1.999 1.94z"/>
     <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495374;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m6.38.124-2.633 4.92.889.631L6.27 3.268l.12 3.574 1.168.838V.54C7.185.412 6.937.31 6.38.124ZM2.95 6.435.46 10.992l2.274-2.136 1.045-1.898ZM6.436 8.58l.055 1.154 1.073 2.468-.023-2.928Z"/>
     <path style="fill:#f70000;fill-opacity:1;stroke:none;stroke-width:.0495373;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M.496 3.215.14 4.331l9.236 5.775.239-.718Z"/>
@@ -47,7 +47,7 @@
           <li><a href="physics.html">Физика света и фотометрия</a></li>
           <li><a href="electrical-safety.html">Электрика и безопасность</a></li>
           <li><a href="fixtures-optics.html">Приборы и оптика</a></li>
-          <li><a href="rigging-mechanics.html">Риггинг и механика</a></li>
+          <li><a href="rigging-mechanics.html" aria-current="page">Риггинг и механика</a></li>
           <li><a href="control-protocols.html">Управление и протоколы</a></li>
           <li><a href="workflow.html">Рабочий процесс</a></li>
           <li><a href="tools.html">Инструменты</a></li>
@@ -57,1142 +57,921 @@
     </aside>
 
     <main id="content">
-      <section class="hero">
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <h1>Рабочий процесс</h1>
-            <p class="lead">Планирование, сетап, репетиции, программирование и проведение шоу.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Вставленная статья -->
       <article id="ls-article" lang="ру">
 
+<div id="ls-top"></div>
 
-<a id="ls-top" aria-hidden="true"></a>
 <header>
-  <h1>Рабочие процессы концертного света: от первых патчей до бэкапов для стадионов</h1>
+  <h1>Риггинг и механика</h1>
+  <p>Невидимая архитектура сцены: как силы, углы и ответственность превращают чертежи в безопасный световой полет.</p>
+
+  <aside aria-label="Дисклеймер безопасности" style="border:1px solid var(--lg-border); border-radius:var(--lg-radius); padding:.75rem; background:var(--lg-warn);">
+    <strong>Важно:</strong> этот материал образовательный. Приведенные объяснения, формулы и калькуляторы предназначены для ориентировочных оценок и не заменяют расчеты и решения сертифицированного инженера/такелажника. Не содержит пошаговых инструкций по выполнению опасных работ. Для любой практики руководствуйтесь локальными регламентами площадки, стандартами, документацией производителей и действующим законодательством.
+  </aside>
 </header>
 
-<nav id="ls-toc" aria-label="Оглавление">
+<nav id="ls-toc" aria-label="Содержание">
   <h2>Содержание</h2>
   <ol>
-    <li><a href="#planning">Планирование</a></li>
-    <li><a href="#setup">Монтаж и пусконаладка</a></li>
-    <li><a href="#programming">Программирование и шоу</a></li>
-    <li><a href="#operations">Эксплуатация и резерв</a></li>
-    <li><a href="#maintenance">ТО и хранение</a></li>
-    <li><a href="#power">Электропитание и дистрибуция</a></li>
-    <li><a href="#network">Сетевые протоколы и инфраструктура</a></li>
-    <li><a href="#previz">Превизуализация и подготовка данных</a></li>
-    <li><a href="#docs-logistics">Документация, логистика и командные процессы</a></li>
-    <li><a href="#safety">Безопасность и риск‑менеджмент</a></li>
-    <li><a href="#eco">Экология и устойчивость</a></li>
-    <li><a href="#cases">Разбор кейсов и типовые ошибки</a></li>
-    <li><a href="#glossary">Глоссарий, FAQ и шаблоны</a></li>
-    <li><a href="#checklists">Итоговые чек‑листы и таблицы соответствий</a></li>
+    <li><a href="#ls-basics">Основы механики и статики для такелажа</a>
+      <ul>
+        <li><a href="#ls-basics-forces">Силы, векторы, равновесие</a></li>
+        <li><a href="#ls-basics-loads">Типы нагрузок: UDL, точки, эксцентриситет</a></li>
+        <li><a href="#ls-basics-angles">Углы строп и уголовой коэффициент</a></li>
+        <li><a href="#ls-basics-terms">WLL, MBL, SF, D/d — простыми словами</a></li>
+        <li><a href="#ls-basics-donts">«Не делай так» — типичные ошибки</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-truss">Фермы и нагрузки</a>
+      <ul>
+        <li><a href="#ls-truss-types">Типы алюминиевых ферм</a></li>
+        <li><a href="#ls-truss-charts">Как читать таблицы нагрузок</a></li>
+        <li><a href="#ls-truss-calc">Калькулятор реакций на опорах</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-hoists">Тали, лебедки и подъем</a>
+      <ul>
+        <li><a href="#ls-hoists-classes">Категории D8, D8+, C1</a></li>
+        <li><a href="#ls-hoists-blackbox">«Черная коробка» электротали</a></li>
+        <li><a href="#ls-hoists-dynamic">Грубая оценка динамического коэффициента</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-gear">Оснастка и элементы такелажа</a>
+      <ul>
+        <li><a href="#ls-gear-slings">Стропы и аксессуары</a></li>
+        <li><a href="#ls-gear-angle-calc">Калькулятор угла стропа</a></li>
+        <li><a href="#ls-gear-inspection">Инспекция и маркировка</a></li>
+      </ul>
+    </li>
+    <li><a href="#ls-safety">Такелажная безопасность</a></li>
+    <li><a href="#ls-cases">Практические кейсы</a></li>
+    <li><a href="#ls-design">Взаимодействие с площадкой и проектирование</a></li>
+    <li><a href="#ls-inspection">Контроль, инспекция, журналирование</a></li>
+    <li><a href="#ls-risk-legal">Управление рисками и юридический контекст</a></li>
+    <li><a href="#ls-faq">ЧАВО</a></li>
+    <li><a href="#ls-glossary">Список терминов</a></li>
+    <li><a href="#ls-refs">Стандарты и руководства</a></li>
+    <li><a href="#ls-end">Заключение</a></li>
   </ol>
 </nav>
 
 <main>
 
-<section id="planning">
-  <h2>1) Планирование</h2>
-  <p>Всё начинается с брифа. «Два дня, open-air, headliner с таймкодом, трюсс 18×12 м, высота подъёма 9 м, генератор 160 кВА, шум ночью запрещён». А иногда — с «Сделайте красиво». И то, и другое — валидные входные данные, если вы умеете задавать вопросы. Сильная стадия планирования сокращает ошибки на площадке, экономит часы и киловатты, делает шоу стабильным.</p>
-  <h3>Что собрать на старте</h3>
-  <ul>
-    <li>Техрайдер и бриф: жанр, сет-лист, требования к свету, haze/дымы, таймкод (SMPTE/MTC), необходимость busking.</li>
-    <li>Инфо по площадке: габариты, высоты, точки подвеса, допустимые нагрузки, ветровые ограничения, доступы/лифты/пандусы, энергомощность.</li>
-    <li>Сроки: график load-in/load-out, окна для focus и rehearsal, строгие «тихие часы».</li>
-    <li>Сетевые ограничения: доступ к FOH, расстояния, запрет Wi‑Fi, требования к VLAN/IGMP.</li>
-  </ul>
-  <h3>Пакет документации</h3>
-  <ul>
-    <li>General Plan и Rigging plot: фермы (truss), точки подвеса, нагрузки, safety.</li>
-    <li>Patch и Cable list: DMX/RDM, Power one-line, Network map (VLAN, IGMP Snooping/Querier, PoE порты).</li>
-    <li>Списки приборов: mode, DMX footprint, позиции, артикулы крепежа, safety chain.</li>
-  </ul>
-  <h3>Previsualization → Console</h3>
-  <p>Превиз (WYSIWYG, Capture, Depence, MA3D) — пространство, где ошибки стоят ноль. Готовьте patch offline, экспортируйте fixtures и пресеты. Проверьте совместимость профилей между консолями (MA/Hog/ChamSys/Avolites), следите за версиями библиотек.</p>
+  <section id="ls-basics" aria-labelledby="ls-basics-title">
+    <h2 id="ls-basics-title">1. Основы механики и статики для такелажа</h2>
+    <p>Риггинг — это язык сил. Сцена держится не на магии, а на равновесии векторов, коэффициентах запаса и умении читать геометрию так же легко, как нотную запись. Представьте фермовую сетку как музыкальную партитуру: каждое подвесное устройство — нота, а ваша задача — настроить гармонию так, чтобы партитура не развалилась в кульминации.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
 
-  <figure class="ls-figure" role="group" aria-label="Мини-таймлайн подготовки шоу">
-    <figcaption>Таймлайн подготовки: от препродакшна до load‑out</figcaption>
-    <svg viewBox="0 0 820 180" role="img" aria-labelledby="tl-title tl-desc">
-      <title id="tl-title">Таймлайн подготовки шоу</title>
-      <desc id="tl-desc">Этапы: Preprod, Load-in, Focus, Rehearsal, Show, Load-out</desc>
-      <rect x="10" y="20" width="800" height="70" fill="#ecfeff" stroke="#2b6cb0"/>
-      <g font-family="sans-serif" font-size="12" fill="#121417">
-        <rect x="20" y="30" width="110" height="50" fill="#7dd3fc" stroke="#0ea5e9"/>
-        <text x="25" y="60">Preprod</text>
+    <section id="ls-basics-forces">
+      <h3>1.1 Силы, векторы, равновесие</h3>
+      <p>Вектор силы — стрелка, указывающая, куда и насколько «тянут» вещи. Равновесие — когда сумма всех сил и моментов равна нулю. На практике это означает: каждая точка подвеса и каждый строп участвуют в «перетягивании каната», и ваша цель — не допустить перегруза ни одного участника.</p>
 
-        <rect x="140" y="30" width="120" height="50" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="145" y="60">Load-in</text>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 600 160" role="img" aria-label="Векторная диаграмма сил">
+          <defs>
+            <marker id="ls-arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill="#2b6cb0"></polygon>
+            </marker>
+          </defs>
+          <rect x="10" y="10" width="580" height="140" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
+          <line x1="60" y1="80" x2="220" y2="80" stroke="#2b6cb0" stroke-width="3" marker-end="url(#ls-arrow)"></line>
+          <text x="230" y="85" fill="#2b6cb0">F₁</text>
 
-        <rect x="270" y="30" width="120" height="50" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="275" y="60">Focus</text>
+          <line x1="60" y1="80" x2="140" y2="40" stroke="#0ea5e9" stroke-width="3" marker-end="url(#ls-arrow)"></line>
+          <text x="150" y="45" fill="#0ea5e9">F₂</text>
 
-        <rect x="400" y="30" width="140" height="50" fill="#fef3c7" stroke="#f59e0b"/>
-        <text x="405" y="60">Rehearsal</text>
+          <line x1="60" y1="80" x2="100" y2="120" stroke="#10b981" stroke-width="3" marker-end="url(#ls-arrow)"></line>
+          <text x="110" y="125" fill="#10b981">F₃</text>
 
-        <rect x="550" y="30" width="120" height="50" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="555" y="60">Show</text>
+          <line x1="60" y1="80" x2="300" y2="80" stroke="#ef4444" stroke-dasharray="6 6" stroke-width="3" marker-end="url(#ls-arrow)"></line>
+          <text x="310" y="85" fill="#ef4444">ΣF →</text>
+        </svg>
+        <figcaption>Равновесие — когда сумма векторов сил и моментов равна нулю. В риггинге мы всегда ищем «баланс стрелок».</figcaption>
+      </figure>
 
-        <rect x="680" y="30" width="120" height="50" fill="#fecaca" stroke="#ef4444"/>
-        <text x="685" y="60">Load-out</text>
-      </g>
-    </svg>
-  </figure>
+      <p>Контрольные вопросы:
+        - Какие силы действуют на узел? (собственный вес, ветровая нагрузка, динамика)
+        - Где точка приложения и каков рычаг? (момент = сила × плечо)
+        - Есть ли эксцентриситет, создающий крутящий момент?</p>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
 
-  <details>
-    <summary>Пример из практики: «Сжатые окна, две сцены и один FOH»</summary>
-    <p>На городском празднике FOH стоял один на две сцены. Мы развели сеть sACN на два VLAN (101 и 102), у каждой сцены — свой IGMP Querier на коммутаторе. Переключение консоли по VLAN занимало 15 секунд. В итоге обе сцены работали попеременно без коллизий мультикаста.</p>
-  </details>
+    <section id="ls-basics-loads">
+      <h3>1.2 Типы нагрузок: UDL, точечные, эксцентриситет</h3>
+      <p>UDL (равномерно распределенная нагрузка) — как если по всей длине фермы равномерно лежит «туман» веса. Точечная нагрузка — как один прожектор-жираф в центре. Эксцентриситет — смещение нагрузки, которое создает момент и может неожиданно «подкрутить» ферму.</p>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 700 210" role="img" aria-label="Ферма с равномерной и точечной нагрузкой и реакциями">
+          <defs>
+            <marker id="ls-arrow2" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill="#2b6cb0"></polygon>
+            </marker>
+          </defs>
+          <rect x="10" y="10" width="680" height="190" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
 
-<section id="setup">
-  <h2>2) Монтаж и пусконаладка</h2>
-  <h3>Приёмка и маркировка</h3>
-  <ul>
-    <li>Проверяйте кейсы по списку: серийники, количество аксессуаров, крепёж, safety.</li>
-    <li>Маркируйте линиями: Power (желтая бирка), Data (синяя), Spare (зелёная), верёвочные бирки — на концах и в середине.</li>
-  </ul>
-  <h3>Cabling best practices</h3>
-  <ul>
-    <li>Страховка кабелей (strain relief), петли обслуживания (service loops) у приборов.</li>
-    <li>Исключайте силовые петли; сетевые/DMX не укладывайте в жгут с силовыми — параллельный участок минимален, пересечения — строго под 90°.</li>
-    <li>Распиновка и пины проверяйте тестером, оптическая изоляция DMX в ключевых развилках.</li>
-  </ul>
-  <h3>RDM, адресация, патч</h3>
-  <p>Делайте RDM discovery по секциям, фиксируйте изменения. На нодах назначайте портам universes, подписывайте их физически. Делайте line check: белый, строб, пан/тилт — быстро найдёте разрывы и «шумные» участки.</p>
+          <!-- Beam -->
+          <line x1="80" y1="120" x2="620" y2="120" stroke="#111827" stroke-width="6"></line>
 
-  <figure class="ls-figure" role="group" aria-label="Схема подвеса и safety">
-    <figcaption>Подвес на ферме: нагрузки, точки, safety</figcaption>
-    <svg viewBox="0 0 820 240" role="img" aria-labelledby="truss-title truss-desc">
-      <title id="truss-title">Схема подвеса на ферме</title>
-      <desc id="truss-desc">Трёхпролётная ферма, точки подвеса, равномерное распределение нагрузок и страхующие тросы</desc>
-      <rect x="20" y="50" width="780" height="20" fill="#e5e7eb" stroke="#9aa4b2"/>
-      <line x1="120" y1="50" x2="120" y2="20" stroke="#7aa2f7" stroke-width="3"/>
-      <line x1="420" y1="50" x2="420" y2="20" stroke="#7aa2f7" stroke-width="3"/>
-      <line x1="720" y1="50" x2="720" y2="20" stroke="#7aa2f7" stroke-width="3"/>
-      <g>
-        <rect x="60" y="80" width="60" height="30" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <line x1="90" y1="80" x2="90" y2="60" stroke="#0ea5e9" stroke-dasharray="4 3"/>
-        <circle cx="90" cy="60" r="4" fill="#0ea5e9"/>
-        <line x1="90" y1="110" x2="75" y2="135" stroke="#10b981" stroke-width="2"/>
-        <text x="50" y="155" font-size="12">safety</text>
-      </g>
-      <g>
-        <rect x="360" y="80" width="60" height="30" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <line x1="390" y1="80" x2="390" y2="60" stroke="#0ea5e9" stroke-dasharray="4 3"/>
-        <circle cx="390" cy="60" r="4" fill="#0ea5e9"/>
-        <line x1="390" y1="110" x2="375" y2="135" stroke="#10b981" stroke-width="2"/>
-      </g>
-      <g>
-        <rect x="660" y="80" width="60" height="30" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <line x1="690" y1="80" x2="690" y2="60" stroke="#0ea5e9" stroke-dasharray="4 3"/>
-        <circle cx="690" cy="60" r="4" fill="#0ea5e9"/>
-        <line x1="690" y1="110" x2="675" y2="135" stroke="#10b981" stroke-width="2"/>
-      </g>
-      <text x="100" y="18" font-size="12" fill="#9aa4b2">Точки подвеса (SWL ok)</text>
-      <text x="30" y="40" font-size="12" fill="#9aa4b2">Ферма (truss)</text>
-    </svg>
-  </figure>
+          <!-- Supports -->
+          <line x1="100" y1="120" x2="100" y2="160" stroke="#374151" stroke-width="6"></line>
+          <line x1="600" y1="120" x2="600" y2="160" stroke="#374151" stroke-width="6"></line>
+          <text x="90" y="180" fill="#374151">R₁</text>
+          <text x="590" y="180" fill="#374151">R₂</text>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+          <!-- UDL -->
+          <rect x="100" y="70" width="500" height="10" fill="#2b6cb0" opacity="0.25"></rect>
+          <text x="120" y="65" fill="#2b6cb0">UDL</text>
+          <!-- Point load -->
+          <line x1="360" y1="50" x2="360" y2="120" stroke="#ef4444" stroke-width="4" marker-end="url(#ls-arrow2)"></line>
+          <text x="340" y="45" fill="#ef4444">P</text>
 
-<section id="programming">
-  <h2>3) Программирование и шоу</h2>
-  <h3>Плейбек vs timecode</h3>
-  <p>Есть шоу «живые» (busking) и «жёсткие» (timecode). Первые — про рефлексы и палитры, вторые — про точность SMPTE/MTC и дисциплину пресетов. В гибридном мире полезно уметь и то, и другое.</p>
-  <ul>
-    <li>Палитры/пресеты: позы, цвет, гобо — общие библиотеки ускоряют перезапатч.</li>
-    <li>Групповые фокусы и матрицы: экономят время при репатче и доподвесе.</li>
-    <li>Tracking и приоритеты источников: sACN Prio, merge HTP/LTP для резервов и параллельных пультов.</li>
-  </ul>
+          <!-- Reactions arrows -->
+          <line x1="100" y1="160" x2="100" y2="125" stroke="#10b981" stroke-width="4" marker-end="url(#ls-arrow2)"></line>
+          <line x1="600" y1="160" x2="600" y2="125" stroke="#10b981" stroke-width="4" marker-end="url(#ls-arrow2)"></line>
+        </svg>
+        <figcaption>UDL «смягчает» прогиб, точка — «пришпиливает» его. Реакции на опорах зависят от схемы нагрузки и расстояний.</figcaption>
+      </figure>
+      <p>Для концептуальных оценок полезно: реакции на двухопорной балке под UDL делятся поровну, для одиночной точки ближе к одной опоре — реакция той опоры растет пропорционально рычагу.</p>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
 
-  <figure class="ls-figure" role="group" aria-label="Потоки данных таймкода">
-    <figcaption>Потоки данных: LTC/MTC/MIDI/OSC → консоль → ноды → приборы</figcaption>
-    <svg viewBox="0 0 820 220" role="img" aria-labelledby="flow-title flow-desc">
-      <title id="flow-title">Потоки данных</title>
-      <desc id="flow-desc">Схема передачи таймкода и управляющих сообщений в световую систему</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="20" y="40" width="120" height="40" fill="#ecfeff" stroke="#0ea5e9"/>
-        <text x="30" y="65">Timecode (LTC/MTC)</text>
+    <section id="ls-basics-angles">
+      <h3>1.3 Углы строп и уголовой коэффициент</h3>
+      <p>Чем «плоше» строп относительно горизонта, тем больше усилия в ветвях. Это главный коварный эффект геометрии. Уголовой коэффициент k(θ)=1/cos(θ) для угла θ к горизонту. При 60° k≈2, при 30° k≈1.15? Нет, наоборот: k(30°)=1/cos30°≈1.155, k(60°)=1/cos60°=2. Будьте внимательны к определению угла в исходных допущениях.</p>
 
-        <rect x="180" y="40" width="140" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="190" y="65">Консоль</text>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 640 260" role="img" aria-label="Влияние угла стропа на усилие">
+          <defs>
+            <marker id="ls-arrow3" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill="#2b6cb0"></polygon>
+            </marker>
+          </defs>
+          <rect x="10" y="10" width="620" height="240" rx="8" ry="8" fill="#ecfeff" stroke="#e5e7eb"></rect>
+          <!-- Load block -->
+          <rect x="280" y="160" width="80" height="40" fill="#334155"></rect>
+          <text x="320" y="185" text-anchor="middle" fill="#fff">W</text>
+          <!-- Slings -->
+          <line x1="320" y1="160" x2="220" y2="80" stroke="#ef4444" stroke-width="4"></line>
+          <line x1="320" y1="160" x2="420" y2="80" stroke="#ef4444" stroke-width="4"></line>
+          <!-- Angles -->
+          <path d="M320 160 A40 40 0 0 1 360 160" stroke="#0ea5e9" stroke-width="3" fill="none"></path>
+          <text x="360" y="165" fill="#0ea5e9">θ</text>
+          <!-- Top points -->
+          <circle cx="220" cy="80" r="6" fill="#10b981"></circle>
+          <circle cx="420" cy="80" r="6" fill="#10b981"></circle>
+          <text x="220" y="65" fill="#10b981" text-anchor="middle">T</text>
+          <text x="420" y="65" fill="#10b981" text-anchor="middle">T</text>
+          <!-- Formula -->
+          <text x="320" y="230" text-anchor="middle" fill="#111827">T ≈ (W/2) / sin(θ)</text>
+        </svg>
+        <figcaption>При уменьшении θ растет T. Граница здравого смысла — избегать «почти горизонтальных» стропов.</figcaption>
+      </figure>
 
-        <rect x="360" y="40" width="140" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="370" y="65">Свитч (VLAN)</text>
+      <p>Риторический тест: если вы «расплющили» строп почти в линию, готовы ли вы увидеть в каждой ветви усилие в разы больше веса груза?</p>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
 
-        <rect x="540" y="40" width="120" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="550" y="65">Ноды (Art-Net/sACN)</text>
+    <section id="ls-basics-terms">
+      <h3>1.4 WLL, MBL, SF, D/d — простыми словами</h3>
+      <ul>
+        <li>WLL (Working Load Limit) — рабочий предел нагрузки, который допускается производителем при корректном применении.</li>
+        <li>MBL (Minimum Breaking Load) — минимальная разрушающая нагрузка. Делить на коэффициент запаса — обязательная культура.</li>
+        <li>SF (Safety Factor) — коэффициент запаса. Применяется к типу изделия и сценарию использования.</li>
+        <li>D/d — отношение диаметра опорной поверхности к диаметру каната/стропа: чем больше, тем бережнее к волокнам и проволокам.</li>
+      </ul>
+      <p>Не смешивайте «предел прочности» и «допустимую рабочую» — между ними живет безопасность зрителя и вашей команды.</p>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
 
-        <rect x="700" y="40" width="100" height="40" fill="#fecaca" stroke="#ef4444"/>
-        <text x="710" y="65">Приборы</text>
+    <section id="ls-basics-donts">
+      <h3>1.5 «Не делай так» — типичные ошибки</h3>
+      <ul>
+        <li>Игнорировать влияние угла стропа: «весит-то всего 300 кг» — но в ветвях уже по 400+ кгс.</li>
+        <li>Считать ферму «абсолютно жесткой» и равномерной: реальность сложнее — узлы, раскосы и диаграммы производителей важны.</li>
+        <li>Опускать ветровую нагрузку на баннеры и экраны: порыв часто доминирует над статикой.</li>
+        <li>Подменять инженерную проверку «прошлым опытом»: схожие сцены — не одинаковые.</li>
+      </ul>
+      <aside style="background:var(--lg-note); padding:.75rem; border-radius:8px;">Подсказка: когда сомневаетесь — упрощайте модель для оценки рисков, но усложняйте вопросы к проекту и к таблицам нагрузок.</aside>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+  </section>
 
-        <line x1="140" y1="60" x2="180" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-        <line x1="320" y1="60" x2="360" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-        <line x1="500" y1="60" x2="540" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
-        <line x1="660" y1="60" x2="700" y2="60" stroke="#1d4ed8" marker-end="url(#arrow)"/>
+  <section id="ls-truss" aria-labelledby="ls-truss-title">
+    <h2 id="ls-truss-title">2. Фермы и нагрузки</h2>
+    <p>Ферма — это «скелет» света. Она любит равномерность, ясность и уважение к своим таблицам нагрузок. Никто не знает ферму лучше, чем ее производитель.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
 
-        <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
+    <section id="ls-truss-types">
+      <h3>2.1 Типы алюминиевых ферм</h3>
+      <ul>
+        <li>Треугольные — легкие, удобные для небольших пролетов и линеек приборов.</li>
+        <li>Квадратные — популярные «рабочие лошадки» для разных задач, совместимы с массивным оборудованием.</li>
+        <li>Heavy-duty — усиленные сечения для длительных пролетов и больших нагрузок.</li>
+      </ul>
 
-  <details>
-    <summary>Типичные ошибки программинга</summary>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 680 220" role="img" aria-label="Схематичные типы ферм: треугольная, квадратная, усиленная">
+          <rect x="10" y="10" width="660" height="200" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
+          <!-- Triangle truss -->
+          <polygon points="70,70 170,70 120,40" fill="none" stroke="#111827" stroke-width="5"></polygon>
+          <line x1="70" y1="70" x2="170" y2="70" stroke="#111827" stroke-width="5"></line>
+          <text x="120" y="100" text-anchor="middle" fill="#111827">Треугольная</text>
+          <!-- Square truss -->
+          <rect x="260" y="40" width="120" height="40" fill="none" stroke="#111827" stroke-width="5"></rect>
+          <line x1="260" y1="40" x2="380" y2="80" stroke="#111827" stroke-width="3"></line>
+          <line x1="380" y1="40" x2="260" y2="80" stroke="#111827" stroke-width="3"></line>
+          <text x="320" y="100" text-anchor="middle" fill="#111827">Квадратная</text>
+          <!-- Heavy truss -->
+          <rect x="480" y="35" width="140" height="50" fill="none" stroke="#111827" stroke-width="8"></rect>
+          <line x1="480" y1="35" x2="620" y2="85" stroke="#111827" stroke-width="4"></line>
+          <line x1="620" y1="35" x2="480" y2="85" stroke="#111827" stroke-width="4"></line>
+          <text x="550" y="100" text-anchor="middle" fill="#111827">Heavy-duty</text>
+        </svg>
+        <figcaption>Сечения и раскосы определяют, как ферма несет нагрузку. Смотрите load-chart производителя.</figcaption>
+      </figure>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+
+    <section id="ls-truss-charts">
+      <h3>2.2 Таблицы нагрузок: как читать с уважением</h3>
+      <ul>
+        <li>Определите конфигурацию: пролет, число опор, ориентация (верх/низ), узлы.</li>
+        <li>Выберите сценарий: UDL или набор точек, минимальные расстояния между точками.</li>
+        <li>Сверьте прогиб/стрелу и категорию применения. Не интерполируйте «на глаз» вне допусков таблицы.</li>
+      </ul>
+      <aside style="background:var(--lg-tip); padding:.75rem; border-radius:8px;">Принято: уточнять у производителя, если ваш кейс «между режимами». Они заинтересованы, чтобы ферма работала долго и безопасно.</aside>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+
+    <section id="ls-truss-calc">
+      <h3>2.3 Калькулятор реакций на опорах (идеализированная балка)</h3>
+      <p>Результаты носят ориентировочный образовательный характер и не заменяют расчеты инженера. Десятичный разделитель — точка.</p>
+      <form onsubmit="return false" aria-label="Калькулятор реакций на опорах">
+        <fieldset>
+          <label>Длина фермы, м <input id="ls-truss-L" inputmode="decimal" placeholder="например, 12"></label>
+          <label>Тип нагрузки
+            <select id="ls-truss-type">
+              <option value="udl">UDL (равномерная)</option>
+              <option value="points">Точечные</option>
+            </select>
+          </label>
+          <div id="ls-truss-udl-opts">
+            <label>Суммарный вес (кг) <input id="ls-truss-W-kg" inputmode="decimal" placeholder="например, 800"></label>
+          </div>
+          <div id="ls-truss-points-opts" style="display:none">
+            <small>До 3 точек: координата в метрах от левой опоры и вес, кг.</small>
+            <div>
+              <label>x1 <input id="ls-truss-x1" inputmode="decimal" placeholder="м"></label>
+              <label>w1 <input id="ls-truss-w1" inputmode="decimal" placeholder="кг"></label>
+            </div>
+            <div>
+              <label>x2 <input id="ls-truss-x2" inputmode="decimal" placeholder="м"></label>
+              <label>w2 <input id="ls-truss-w2" inputmode="decimal" placeholder="кг"></label>
+            </div>
+            <div>
+              <label>x3 <input id="ls-truss-x3" inputmode="decimal" placeholder="м"></label>
+              <label>w3 <input id="ls-truss-w3" inputmode="decimal" placeholder="кг"></label>
+            </div>
+          </div>
+          <div class="ls-actions">
+            <button id="ls-truss-btn">Рассчитать</button>
+            <button type="reset" id="ls-truss-reset">Сброс</button>
+          </div>
+        </fieldset>
+        <div class="ls-results" id="ls-truss-out" aria-live="polite"></div>
+      </form>
+      <details><summary>Как считали</summary>
+        <p>Для UDL: R₁=R₂=W/2. Для точек: ΣR=W, ΣMₗ=R₂·L − Σ(Pᵢ·xᵢ)=0 ⇒ R₂=Σ(Pᵢ·xᵢ)/L, R₁=W−R₂. Тут W — вес в Ньютонах; для вывода в «кгс» делим на g≈9.81.</p>
+      </details>
+
+      <figure class="ls-figure">
+        <svg viewBox="0 0 720 240" role="img" aria-label="Диаграмма реакций на балке">
+          <defs>
+            <marker id="ls-arrow4" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill="#2b6cb0"></polygon>
+            </marker>
+          </defs>
+          <rect x="10" y="10" width="700" height="220" rx="8" ry="8" fill="#ecfeff" stroke="#e5e7eb"></rect>
+          <line x1="80" y1="140" x2="640" y2="140" stroke="#111827" stroke-width="6"></line>
+          <line x1="100" y1="140" x2="100" y2="190" stroke="#374151" stroke-width="6"></line>
+          <line x1="620" y1="140" x2="620" y2="190" stroke="#374151" stroke-width="6"></line>
+          <line x1="360" y1="70" x2="360" y2="140" stroke="#ef4444" stroke-width="4" marker-end="url(#ls-arrow4)"></line>
+          <text x="350" y="60" fill="#ef4444">P</text>
+          <line x1="100" y1="190" x2="100" y2="150" stroke="#10b981" stroke-width="4" marker-end="url(#ls-arrow4)"></line>
+          <line x1="620" y1="190" x2="620" y2="150" stroke="#10b981" stroke-width="4" marker-end="url(#ls-arrow4)"></line>
+          <text x="90" y="205" fill="#374151">R₁</text>
+          <text x="610" y="205" fill="#374151">R₂</text>
+        </svg>
+        <figcaption>Реакции R₁ и R₂ зависят от распределения и расстояний. Диаграмма моментов — следующий слой анализа.</figcaption>
+      </figure>
+
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+
+      <script>
+      (function(){
+        const $ = (id)=>document.getElementById(id);
+        const type = $('ls-truss-type');
+        const udlOpts = $('ls-truss-udl-opts');
+        const ptsOpts = $('ls-truss-points-opts');
+        const out = $('ls-truss-out');
+        const L = $('ls-truss-L');
+        const Wkg = $('ls-truss-W-kg');
+        const ids = ['ls-truss-x1','ls-truss-w1','ls-truss-x2','ls-truss-w2','ls-truss-x3','ls-truss-w3'];
+        function showMode(){
+          if(type.value==='udl'){ udlOpts.style.display='block'; ptsOpts.style.display='none'; }
+          else { udlOpts.style.display='none'; ptsOpts.style.display='block'; }
+        }
+        type.addEventListener('change', showMode);
+        showMode();
+
+        $('ls-truss-reset').addEventListener('click', ()=>{ out.textContent=''; });
+
+        $('ls-truss-btn').addEventListener('click', ()=>{
+          out.textContent='';
+          const l = Number.parseFloat(L.value);
+          if(!Number.isFinite(l) || l<=0){ out.innerHTML='<span class="ls-error">Укажите положительную длину фермы в метрах.</span>'; return; }
+          const g = 9.81;
+          if(type.value==='udl'){
+            const wkg = Number.parseFloat(Wkg.value);
+            if(!Number.isFinite(wkg) || wkg<=0){ out.innerHTML='<span class="ls-error">Для UDL укажите суммарный вес &gt; 0 кг.</span>'; return; }
+            const W = wkg*g;
+            const R = W/2;
+            out.textContent = `Оценка: R₁ ≈ R₂ ≈ ${(R/g).toFixed(1)} кгс (при UDL). Дисклеймер: образовательная оценка.`;
+          }else{
+            let points = [];
+            for(let i=0;i<3;i++){
+              const xi = $(ids[i*2]).value.trim();
+              const wi = $(ids[i*2+1]).value.trim();
+              if(xi!=='' && wi!==''){
+                const x = Number.parseFloat(xi);
+                const wkg = Number.parseFloat(wi);
+                if(!Number.isFinite(x)||x<0||x>l||!Number.isFinite(wkg)||wkg<=0){
+                  out.innerHTML='<span class="ls-error">Проверьте точки: 0 ≤ x ≤ L, вес &gt; 0.</span>';
+                  return;
+                }
+                points.push({x, W: wkg*g});
+              }
+            }
+            if(points.length===0){ out.innerHTML='<span class="ls-error">Добавьте хотя бы одну точку нагрузки.</span>'; return; }
+            const Wsum = points.reduce((s,p)=>s+p.W,0);
+            const Msum = points.reduce((s,p)=>s+p.W*p.x,0);
+            const R2 = Msum / l;
+            const R1 = Wsum - R2;
+            if(R1<0||R2<0){ out.innerHTML='<span class="ls-error">Схема некорректна: отрицательные реакции. Проверьте ввод.</span>'; return; }
+            out.textContent = `Оценка: R₁ ≈ ${(R1/g).toFixed(1)} кгс, R₂ ≈ ${(R2/g).toFixed(1)} кгс. Дисклеймер: образовательная оценка.`;
+          }
+        });
+      })();
+      </script>
+    </section>
+  </section>
+
+  <section id="ls-hoists" aria-labelledby="ls-hoists-title">
+    <h2 id="ls-hoists-title">3. Тали, лебедки и подъем</h2>
+    <p>Подъем — это движение, а движение всегда добавляет риск. Философия грамотного подъема — наблюдаемость, предсказуемость и стоп-критерии.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+
+    <section id="ls-hoists-classes">
+      <h3>3.1 Категории применения: D8, D8+, C1</h3>
+      <ul>
+        <li>D8 — подъемные устройства для управления грузами; без людей под грузом.</li>
+        <li>D8+ — повышенные требования к удержанию груза, допускают нахождение людей под статичным грузом при доп. мерах.</li>
+        <li>C1 — системы для перемещения над людьми при строгих условиях управления и резервирования.</li>
+      </ul>
+      <aside style="background:var(--lg-warn); padding:.75rem; border-radius:8px;">Категория — не маркетинг, а рамка ответственности. Конкретные решения — по стандартам и документации.</aside>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+
+    <section id="ls-hoists-blackbox">
+      <h3>3.2 «Черная коробка» электротали</h3>
+      <p>Для риггера таль — это «черный ящик» с понятной внешней логикой: груз, крюк, цепь, мешок цепи, направление, управление и защита.</p>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 720 260" role="img" aria-label="Черная коробка электротали: груз-цепь-крюк-мешок-направление">
+          <rect x="10" y="10" width="700" height="240" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
+          <!-- Hoist body -->
+          <rect x="250" y="60" width="220" height="80" rx="10" ry="10" fill="#334155"></rect>
+          <text x="360" y="110" text-anchor="middle" fill="#fff">ТАЛЬ</text>
+          <!-- Chain -->
+          <rect x="355" y="140" width="10" height="60" fill="#111827"></rect>
+          <!-- Hook -->
+          <path d="M360 200 q -15 10 0 20 q 25 5 25 -15 q 0 -15 -25 -5" fill="none" stroke="#111827" stroke-width="4"></path>
+          <text x="400" y="210" fill="#111827">Крюк</text>
+          <!-- Chain bag -->
+          <rect x="260" y="150" width="70" height="40" rx="5" ry="5" fill="#0ea5e9" opacity="0.3" stroke="#0ea5e9"></rect>
+          <text x="295" y="175" text-anchor="middle" fill="#0ea5e9">Мешок</text>
+          <!-- Direction arrows -->
+          <defs>
+            <marker id="ls-arrow5" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill="#2b6cb0"></polygon>
+            </marker>
+          </defs>
+          <line x1="480" y1="100" x2="560" y2="100" stroke="#2b6cb0" stroke-width="4" marker-end="url(#ls-arrow5)"></line>
+          <line x1="240" y1="100" x2="160" y2="100" stroke="#2b6cb0" stroke-width="4" marker-end="url(#ls-arrow5)"></line>
+          <text x="560" y="90" fill="#2b6cb0">Вверх</text>
+          <text x="140" y="90" fill="#2b6cb0">Вниз</text>
+        </svg>
+        <figcaption>Важны признаки исправности, маркировка, документация и соответствие категории применения.</figcaption>
+      </figure>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+
+    <section id="ls-hoists-dynamic">
+      <h3>3.3 Калькулятор «грубого» динамического коэффициента</h3>
+      <p>Оценка для понимания тренда: движение увеличивает расчетную нагрузку. Результаты — образовательные, десятичный разделитель — точка.</p>
+      <form onsubmit="return false" aria-label="Калькулятор динамического коэффициента">
+        <fieldset>
+          <label>Статическая масса, кг <input id="ls-dyn-m" inputmode="decimal" placeholder="например, 800"></label>
+          <label>Тип операции
+            <select id="ls-dyn-type">
+              <option value="smooth">Плавный подъем/опускание</option>
+              <option value="startstop">Старт/стоп</option>
+              <option value="jerk">Рывок/неожиданная остановка</option>
+            </select>
+          </label>
+          <label>Коэффициент осторожности k<sub>care</sub> <input id="ls-dyn-care" inputmode="decimal" placeholder="напр., 1.10"></label>
+          <div class="ls-actions">
+            <button id="ls-dyn-btn">Рассчитать</button>
+            <button type="reset" id="ls-dyn-reset">Сброс</button>
+          </div>
+        </fieldset>
+        <div class="ls-results" id="ls-dyn-out" aria-live="polite"></div>
+      </form>
+      <details><summary>Как считали</summary>
+        <p>W = m·g. Вводим k<sub>d</sub> по типу операции (например, 1.1/1.3/1.6 как учебные ориентиры), затем W<sub>eq</sub> = W·k<sub>d</sub>·k<sub>care</sub>. Выводим в Н и кгс.</p>
+      </details>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+      <script>
+      (function(){
+        const $ = (id)=>document.getElementById(id);
+        const m = $('ls-dyn-m');
+        const t = $('ls-dyn-type');
+        const c = $('ls-dyn-care');
+        const out = $('ls-dyn-out');
+        $('ls-dyn-reset').addEventListener('click',()=>{ out.textContent=''; });
+        $('ls-dyn-btn').addEventListener('click', ()=>{
+          const mass = Number.parseFloat(m.value);
+          const care = Number.parseFloat(c.value||'1');
+          if(!Number.isFinite(mass)||mass<=0){ out.innerHTML='<span class="ls-error">Укажите массу &gt; 0 кг.</span>'; return; }
+          if(!Number.isFinite(care)||care<1||care>2){ out.innerHTML='<span class="ls-error">kcare в диапазоне [1; 2].</span>'; return; }
+          const kd = t.value==='smooth' ? 1.10 : (t.value==='startstop'?1.30:1.60);
+          const g = 9.81;
+          const W = mass*g;
+          const Weq = W*kd*care;
+          out.textContent = `Оценка: k_d≈${kd.toFixed(2)}, W_eq≈${Weq.toFixed(0)} Н (~${(Weq/g).toFixed(1)} кгс). Дисклеймер: образовательная оценка.`;
+        });
+      })();
+      </script>
+    </section>
+  </section>
+
+  <section id="ls-gear" aria-labelledby="ls-gear-title">
+    <h2 id="ls-gear-title">4. Оснастка и элементы такелажа</h2>
+    <p>Оснастка — это язык соединений: стропы, шаклы, степ-ленки/стилфлексы, звенья, протекторы. Каждый элемент требует маркировки и логики применения.</p>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+
+    <section id="ls-gear-slings">
+      <h3>4.1 Стропы и аксессуары</h3>
+      <ul>
+        <li>Текстильные стропы — бережные к покрытиям, чувствительны к режущим кромкам и температуре, любят протекторы.</li>
+        <li>Стальные канаты — стойкие к температуре и абразиву, требуют контроля D/d и отсутствия «переломов».</li>
+        <li>Цепные стропы — устойчивы к температуре, легко инспектируются, но тяжелее.</li>
+        <li>Шаклы и звенья — работают в прямолинейных нагрузках, важна правильная ориентация уха и пальца относительно вектора.</li>
+      </ul>
+
+      <figure class="ls-figure">
+        <svg viewBox="0 0 720 260" role="img" aria-label="D/d и угол стропа">
+          <rect x="10" y="10" width="700" height="240" rx="8" ry="8" fill="#ecfeff" stroke="#e5e7eb"></rect>
+          <!-- Sheave -->
+          <circle cx="200" cy="100" r="40" fill="none" stroke="#111827" stroke-width="6"></circle>
+          <text x="200" y="155" text-anchor="middle" fill="#111827">D</text>
+          <!-- Rope -->
+          <circle cx="160" cy="60" r="8" fill="#ef4444"></circle>
+          <text x="145" y="60" fill="#ef4444">d</text>
+          <text x="200" y="200" text-anchor="middle" fill="#111827">D/d → комфорт волокон</text>
+          <!-- Angle -->
+          <rect x="380" y="150" width="80" height="40" fill="#334155"></rect>
+          <line x1="420" y1="150" x2="360" y2="100" stroke="#ef4444" stroke-width="4"></line>
+          <line x1="420" y1="150" x2="480" y2="100" stroke="#ef4444" stroke-width="4"></line>
+          <path d="M420 150 A30 30 0 0 1 450 140" stroke="#0ea5e9" stroke-width="3" fill="none"></path>
+          <text x="455" y="145" fill="#0ea5e9">θ</text>
+          <text x="420" y="210" text-anchor="middle" fill="#111827">Чем меньше θ, тем выше T</text>
+        </svg>
+        <figcaption>Соотношение D/d снижает напряжения в волокнах; угол стропа — главный множитель усилий.</figcaption>
+      </figure>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+
+    <section id="ls-gear-angle-calc">
+      <h3>4.2 Калькулятор угла стропа и коэффициента нагрузки</h3>
+      <p>Результаты — ориентировочные. Десятичный разделитель — точка. По умолчанию — угол к горизонту. Вводите m, N и θ.</p>
+      <form onsubmit="return false" aria-label="Калькулятор угла стропа">
+        <fieldset>
+          <label>Масса подвеса, кг <input id="ls-mass" inputmode="decimal"></label>
+          <label>Число ветвей
+            <select id="ls-legs">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </label>
+          <label>Угол к горизонту, ° <input id="ls-angle" inputmode="decimal" placeholder="например, 30"></label>
+          <div class="ls-actions">
+            <button id="ls-btn-calc">Рассчитать</button>
+            <button type="reset" id="ls-btn-reset">Сброс</button>
+          </div>
+        </fieldset>
+        <div class="ls-results" id="ls-out" aria-live="polite"></div>
+      </form>
+      <details><summary>Как считали</summary>
+        <p>Идеализированно: нагрузка в каждой ветви ≈ (W / N) / cos(θ), где W = m·g. Коэффициент от угла: k(θ)=1/cos(θ).</p>
+      </details>
+
+      <figure class="ls-figure">
+        <svg viewBox="0 0 680 260" role="img" aria-label="График коэффициента от угла">
+          <rect x="10" y="10" width="660" height="240" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
+          <line x1="60" y1="200" x2="620" y2="200" stroke="#111827" stroke-width="2"></line>
+          <line x1="60" y1="200" x2="60" y2="40" stroke="#111827" stroke-width="2"></line>
+          <text x="55" y="215" text-anchor="end" fill="#111827">0°</text>
+          <text x="620" y="215" text-anchor="end" fill="#111827">89°</text>
+          <text x="65" y="45" fill="#111827">k</text>
+          <!-- Curve sampled -->
+          <polyline fill="none" stroke="#ef4444" stroke-width="3"
+            points="
+            60,80  100,90  140,100  180,110  220,120  260,135  300,150  340,165  380,180  420,190  460,195  500,198  540,199  580,199  620,199
+            " />
+          <text x="300" y="70" fill="#ef4444">k(θ)=1/cos θ</text>
+        </svg>
+        <figcaption>Чем ближе к горизонтали — тем стремительнее рост коэффициента.</figcaption>
+      </figure>
+
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+
+      <script>
+      (function(){
+        const byId = (id)=>document.getElementById(id);
+        const mass = byId('ls-mass');
+        const legs = byId('ls-legs');
+        const angle = byId('ls-angle');
+        const out = byId('ls-out');
+        byId('ls-btn-reset').addEventListener('click', ()=>{ out.textContent=''; });
+        byId('ls-btn-calc').addEventListener('click', ()=>{
+          const m = Number.parseFloat(mass.value);
+          const n = Number.parseInt(legs.value,10);
+          const a = Number.parseFloat(angle.value);
+          if(!Number.isFinite(m) || m<=0 || !Number.isFinite(a) || a<=0 || a>=89){
+            out.innerHTML = '<span class="ls-error">Проверьте ввод: масса &gt; 0, угол в пределах (0; 89)°.</span>';
+            return;
+          }
+          const g = 9.81;
+          const W = m * g;
+          const theta = a * Math.PI/180;
+          const perLeg = (W/n) / Math.cos(theta);
+          const sf = 1/Math.cos(theta);
+          out.textContent = `Оценка: на ветвь ≈ ${(perLeg/9.81).toFixed(1)} кгс (коэфф. угла: ${sf.toFixed(2)}). Дисклеймер: образовательная оценка.`;
+        });
+      })();
+      </script>
+    </section>
+
+    <section id="ls-gear-inspection">
+      <h3>4.3 Инспекция и маркировка</h3>
+      <p>Маркировка — паспорт прочности. Инспекция — привычка замечать отклонения: потертости, порезы, коррозия, деформация ушей, нарушение резьбы, исчезнувшая маркировка — поводы исключить элемент из работы до решения компетентного лица.</p>
+
+      <figure class="ls-figure">
+        <svg viewBox="0 0 720 260" role="img" aria-label="Схема зон износа стропа">
+          <rect x="10" y="10" width="700" height="240" rx="8" ry="8" fill="#ecfeff" stroke="#e5e7eb"></rect>
+          <!-- Sling -->
+          <rect x="200" y="50" width="320" height="40" rx="20" ry="20" fill="#10b981" opacity="0.2" stroke="#10b981"></rect>
+          <rect x="200" y="150" width="320" height="40" rx="20" ry="20" fill="#10b981" opacity="0.2" stroke="#10b981"></rect>
+          <!-- Wear zones -->
+          <rect x="240" y="50" width="60" height="40" fill="#ef4444" opacity="0.25"></rect>
+          <rect x="420" y="50" width="60" height="40" fill="#ef4444" opacity="0.25"></rect>
+          <rect x="240" y="150" width="60" height="40" fill="#ef4444" opacity="0.25"></rect>
+          <rect x="420" y="150" width="60" height="40" fill="#ef4444" opacity="0.25"></rect>
+          <text x="270" y="120" text-anchor="middle" fill="#ef4444">Перегибы</text>
+          <text x="450" y="120" text-anchor="middle" fill="#ef4444">Кромки</text>
+          <text x="360" y="220" text-anchor="middle" fill="#111827">Зоны повышенного износа: перегибы, кромки, точки контакта с металлом</text>
+        </svg>
+        <figcaption>Инспекция стропа: перегибы, порезы, вытяжка, обнаженные проволоки/волокна, маркеры — поводы для решений.</figcaption>
+      </figure>
+      <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+    </section>
+  </section>
+
+  <section id="ls-safety" aria-labelledby="ls-safety-title">
+    <h2 id="ls-safety-title">5. Такелажная безопасность</h2>
+    <p>Безопасность — это не список запретов, а согласованный язык команды: роли, сигналы, зоны и план «что если».</p>
     <ul>
-      <li>Сцена «чёрная» при запуске бэкапа из-за неучтённых приоритетов sACN (Prio 100 vs 200).</li>
-      <li>Непереносимые пресеты между консолями из-за разницы в профилях приборов и названиях атрибутов.</li>
-      <li>Отсутствие «безопасной страницы» плейбека с white out/house lights/stop haze.</li>
+      <li>PPE: каска с подбородочным ремнем, перчатки, страховка при работе на высоте, обувь с защитным носком.</li>
+      <li>Зона падения (exclusion zone): ограничение доступа под грузами — не только во время движения.</li>
+      <li>LOTO как идея: энергию надо «запирать», чтобы никто не включил движение «мимо» процесса.</li>
+      <li>Сигнальная коммуникация: «Стоп» — священное слово, произносимое любым членом команды.</li>
     </ul>
-  </details>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 700 260" role="img" aria-label="Зона падения предметов под фермой">
+        <rect x="10" y="10" width="680" height="240" rx="8" ry="8" fill="#fff7ed" stroke="#e5e7eb"></rect>
+        <!-- Truss -->
+        <line x1="140" y1="60" x2="560" y2="60" stroke="#111827" stroke-width="6"></line>
+        <!-- Safety cone -->
+        <polygon points="140,60 560,60 620,220 80,220" fill="#ef4444" opacity="0.15" stroke="#ef4444"></polygon>
+        <text x="350" y="120" text-anchor="middle" fill="#ef4444">Зона ограниченного доступа</text>
+        <rect x="320" y="60" width="60" height="20" fill="#334155"></rect>
+        <text x="350" y="55" text-anchor="middle" fill="#111827">Ферма</text>
+      </svg>
+      <figcaption>«Конус безопасности»: ограничение доступа под фермой и с запасом в стороны.</figcaption>
+    </figure>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-<section id="operations">
-  <h2>4) Эксплуатация и резерв</h2>
-  <p>Стабильность — это когда форс-мажор случился, а зритель ничего не заметил. Резервы N и N+1, бэкап-сессии, дублирование свитчей и источников питания — не роскошь, а рутина.</p>
-  <ul>
-    <li>Мониторинг: syslog/SNMP, логи свитчей, watch‑dog на нодах.</li>
-    <li>Горячая замена прибора: «горячий» патч и групповой фокус — 3 минуты вместо 30.</li>
-    <li>Дублируйте ключевые пути данных: primary/backup консоли, два независимых свитча, разнотрассовая прокладка.</li>
-  </ul>
+  <section id="ls-cases" aria-labelledby="ls-cases-title">
+    <h2 id="ls-cases-title">6. Практические кейсы</h2>
+    <p>Кейсы — это способ мыслить проектно: вводные, ограничения, модель нагрузок, риски, организационные решения, выводы. Ниже — концептуальные примеры.</p>
 
-  <figure class="ls-figure" role="group" aria-label="Матрица резервирования">
-    <figcaption>Матрица резервирования (N/N+1) и пути отказов</figcaption>
-    <svg viewBox="0 0 820 220" role="img" aria-labelledby="red-title red-desc">
-      <title id="red-title">Матрица резервирования</title>
-      <desc id="red-desc">Основные узлы системы и варианты резервирования</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="40" y="30" width="150" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="55" y="55">Консоль (Primary)</text>
+    <section id="ls-case-club">
+      <h3>6.1 Малый клуб (до 500 чел.)</h3>
+      <p>Вводные: низкий потолок, существующие точки подвеса, ограниченный доступ для подъемников. Модель: легкая фронтальная ферма с равномерной линейкой приборов, точечные нагрузки — движущиеся головы на центральной секции. Риски: близость к sprinklers и HVAC, присутствие публики рядом с FOH.</p>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 720 260" role="img" aria-label="Распределение точек на легкой ферме">
+          <rect x="10" y="10" width="700" height="240" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
+          <line x1="100" y1="120" x2="620" y2="120" stroke="#111827" stroke-width="6"></line>
+          <circle cx="160" cy="120" r="6" fill="#10b981"></circle>
+          <circle cx="340" cy="120" r="6" fill="#10b981"></circle>
+          <circle cx="520" cy="120" r="6" fill="#10b981"></circle>
+          <text x="160" y="150" text-anchor="middle" fill="#10b981">Подвесы</text>
+          <rect x="120" y="90" width="60" height="20" fill="#334155"></rect>
+          <rect x="300" y="90" width="60" height="20" fill="#334155"></rect>
+          <rect x="480" y="90" width="60" height="20" fill="#334155"></rect>
+          <text x="360" y="190" text-anchor="middle" fill="#111827">Равномернее — лучше для прогиба</text>
+        </svg>
+        <figcaption>Концепция: три точки подвеса и равномерная линейка световых приборов.</figcaption>
+      </figure>
+      <p>Организационные решения: подтвержденные допустимые нагрузки площадки, проверка зон sprinkler, согласование высот с видео/звук. Вывод: даже «малый» проект — это дисциплина коммуникации.</p>
+    </section>
 
-        <rect x="210" y="30" width="150" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="220" y="55">Консоль (Backup)</text>
+    <section id="ls-case-arena">
+      <h3>6.2 Крытая арена (10–12k)</h3>
+      <p>Вводные: сетка постоянных балок, ограничение на суммарный вес и «горячие» зоны, требования к пожарной автоматике. Модель: несколько гроздей ферм с экранами, сабфреймы под PA и свет. Риски: динамические нагрузки при синхронном движении, ветровые факторы при открытых воротах.</p>
+      <p>Организация: RIG-план с рецептами распределения, независимые осмотры, документированная приемка каждой тали, матрица ответственности. Вывод: масштаб увеличивает цену ошибки — документация становится «вторым железом».</p>
+    </section>
 
-        <rect x="380" y="30" width="150" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="415" y="55">Свитч A</text>
+    <section id="ls-case-openair">
+      <h3>6.3 Open-air сцена</h3>
+      <p>Вводные: временные конструкции, баннеры и LED-экраны, ветер как главный дирижер. Модель: фронтальная и мейн фермы, оттяжки, расчет ветровой «парусности» баннеров и экранов.</p>
+      <figure class="ls-figure">
+        <svg viewBox="0 0 720 260" role="img" aria-label="Ветровая нагрузка на баннер">
+          <rect x="10" y="10" width="700" height="240" rx="8" ry="8" fill="#ecfeff" stroke="#e5e7eb"></rect>
+          <rect x="300" y="40" width="120" height="160" fill="#0ea5e9" opacity="0.25" stroke="#0ea5e9"></rect>
+          <text x="360" y="35" text-anchor="middle" fill="#0ea5e9">Баннер</text>
+          <defs>
+            <marker id="ls-arrow6" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill="#2b6cb0"></polygon>
+            </marker>
+          </defs>
+          <line x1="120" y1="120" x2="300" y2="120" stroke="#2b6cb0" stroke-width="6" marker-end="url(#ls-arrow6)"></line>
+          <text x="120" y="110" fill="#2b6cb0">Ветер</text>
+          <line x1="420" y1="120" x2="580" y2="120" stroke="#ef4444" stroke-width="4" marker-end="url(#ls-arrow6)"></line>
+          <text x="580" y="110" text-anchor="end" fill="#ef4444">Реакция/растяжки</text>
+        </svg>
+        <figcaption>Порывистый ветер может кратно увеличить нагрузку. Баннеры и экраны — паруса сцены.</figcaption>
+      </figure>
+      <p>Вывод: заранее оговоренные ветровые лимиты, процедуры эвакуации и снятия парусных элементов — часть культуры.</p>
+    </section>
 
-        <rect x="550" y="30" width="150" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="585" y="55">Свитч B</text>
+    <section id="ls-case-theatre">
+      <h3>6.4 Театральная площадка</h3>
+      <p>Вводные: грид, штанкетные механизмы, соседство с декорациями и кулисами. Модель: многоточечные подвесы с распределением по штанкетам, контроль выбора точек, сценарии быстрого перефокуса.</p>
+      <p>Вывод: театр — королева аккуратности. Ничто не должно конфликтовать с драматургией и механикой сцены.</p>
+    </section>
 
-        <rect x="720" y="30" width="60" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="730" y="55">Нода</text>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-        <line x1="190" y1="50" x2="380" y2="50" stroke="#1d4ed8" marker-end="url(#arrow2)"/>
-        <line x1="360" y1="50" x2="550" y2="50" stroke="#1d4ed8" marker-end="url(#arrow2)"/>
-        <line x1="700" y1="50" x2="720" y2="50" stroke="#1d4ed8" marker-end="url(#arrow2)"/>
-
-        <defs>
-          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 З" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="maintenance">
-  <h2>5) ТО и хранение</h2>
-  <ul>
-    <li>Чистка: оптика (линзы, фросты), вентканалы, фильтры — по регламенту после каждой аренды.</li>
-    <li>Калибровка и обновления прошивок; учёт наработки часов, журнал замен ламп/блоков LED.</li>
-    <li>Склад: климат (18–22 °C, влажность 40–60%), высота штабелирования, RFID/штрихкод, сроки поверок.</li>
-  </ul>
-  <details>
-    <summary>Что делать, если… «после дождя прибор запотел»</summary>
-    <p>Не включайте немедленно. Разберите, просушите при контролируемой температуре, проверьте PSU и оптику. Сделайте IR‑прогрев в сервисной зоне, прогон самотестов, затем burn‑in 30 минут.</p>
-  </details>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="power">
-  <h2>6) Электропитание и дистрибуция</h2>
-  <p>Свет — это электричество, оформленное в эмоцию. Ошибка в фазировке или недооценка падения напряжения делают эмоцию «мигающей». Давайте считать и рисовать.</p>
-
-  <figure class="ls-figure" role="group" aria-label="Схема дистрибуции питания">
-    <figcaption>Однолинейная: генератор → ввод → power distro → линии → приборы</figcaption>
-    <svg viewBox="0 0 820 260" role="img" aria-labelledby="pow-title pow-desc">
-      <title id="pow-title">Схема дистрибуции питания</title>
-      <desc id="pow-desc">Трёхфазный ввод, автоматы, УЗО/дифы, раздача по фазам</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="20" y="30" width="120" height="50" fill="#fecaca" stroke="#ef4444"/>
-        <text x="25" y="60">Генератор 3ф</text>
-
-        <rect x="180" y="30" width="140" height="50" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="190" y="60">Вводной щит</text>
-
-        <rect x="360" y="30" width="160" height="50" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="370" y="60">Power Distro</text>
-
-        <rect x="560" y="30" width="240" height="50" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="570" y="60">Линии L1/L2/L3 → приборы</text>
-
-        <line x1="140" y1="55" x2="180" y2="55" stroke="#ef4444" marker-end="url(#arrP)"/>
-        <line x1="320" y1="55" x2="360" y2="55" stroke="#ef4444" marker-end="url(#arrP)"/>
-        <line x1="520" y1="55" x2="560" y2="55" stroke="#ef4444" marker-end="url(#arrP)"/>
-
-        <defs>
-          <marker id="arrP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#ef4444"/>
-          </marker>
-        </defs>
-
-        <line x1="380" y1="90" x2="380" y2="120" stroke="#10b981"/>
-        <line x1="420" y1="90" x2="420" y2="120" stroke="#f59e0b"/>
-        <line x1="460" y1="90" x2="460" y2="120" stroke="#ef4444"/>
-        <text x="370" y="140" fill="#9aa4b2">L1 L2 L3</text>
-      </g>
-    </svg>
-  </figure>
-
-  <figure class="ls-figure" role="group" aria-label="Падение напряжения по длине">
-    <figcaption>Падение напряжения на длинной линии</figcaption>
-    <svg viewBox="0 0 820 140" role="img" aria-labelledby="vd-title vd-desc">
-      <title id="vd-title">Падение напряжения</title>
-      <desc id="vd-desc">Напряжение уменьшается от источника к нагрузке</desc>
-      <rect x="20" y="40" width="780" height="20" fill="#f1f5f9" stroke="#e5e7eb"/>
-      <rect x="20" y="40" width="520" height="20" fill="#93c5fd"/>
-      <rect x="540" y="40" width="120" height="20" fill="#60a5fa"/>
-      <rect x="660" y="40" width="80" height="20" fill="#3b82f6"/>
-      <rect x="740" y="40" width="60" height="20" fill="#1d4ed8"/>
-      <text x="25" y="30" font-size="12" fill="#9aa4b2">Источник</text>
-      <text x="750" y="30" font-size="12" fill="#9aa4b2">Нагрузка</text>
-    </svg>
-  </figure>
-
-  <h3>Калькулятор мощности и тока (3 фазы, cosφ, спрос)</h3>
-  <figure class="ls-figure">
-    <figcaption>Калькулятор мощности и тока</figcaption>
-    <form id="calc-power-adv" aria-label="Калькулятор мощности и тока">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;align-items:end">
-          <label>Тип 1: кол-во <input type="number" min="0" step="1" id="cp-n1" value="12" required></label>
-          <label>Мощность 1 (Вт) <input type="number" min="0" step="1" id="cp-p1" value="350" required></label>
-          <label>cos φ 1 <input type="number" min="0.5" max="1" step="0.01" id="cp-c1" value="0.95" required></label>
-
-          <label>Тип 2: кол-во <input type="number" min="0" step="1" id="cp-n2" value="8"></label>
-          <label>Мощность 2 (Вт) <input type="number" min="0" step="1" id="cp-p2" value="1200"></label>
-          <label>cos φ 2 <input type="number" min="0.5" max="1" step="0.01" id="cp-c2" value="0.90"></label>
-
-          <label>Тип 3: кол-во <input type="number" min="0" step="1" id="cp-n3" value="6"></label>
-          <label>Мощность 3 (Вт) <input type="number" min="0" step="1" id="cp-p3" value="1000"></label>
-          <label>cos φ 3 <input type="number" min="0.5" max="1" step="0.01" id="cp-c3" value="1.00"></label>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Напряжение 1ф (В) <input type="number" min="100" step="1" id="cp-u1" value="230" required></label>
-          <label>Напряжение 3ф (В) <input type="number" min="200" step="1" id="cp-u3" value="400" required></label>
-          <label>Коэф. спроса (0.5–1) <input type="number" min="0.5" max="1" step="0.05" id="cp-kd" value="0.8" required></label>
-          <label>Распределение по фазам <select id="cp-dist">
-            <option value="equal" selected>Равномерно</option>
-            <option value="custom">Задать вручную</option>
-          </select></label>
-        </div>
-        <div id="cp-custom" style="display:none;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem">
-          <label>L1 доля (0–1) <input type="number" min="0" max="1" step="0.01" id="cp-l1" value="0.34"></label>
-          <label>L2 доля (0–1) <input type="number" min="0" max="1" step="0.01" id="cp-l2" value="0.33"></label>
-          <label>L3 доля (0–1) <input type="number" min="0" max="1" step="0.01" id="cp-l3" value="0.33"></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="cp-run-adv">Рассчитать</button>
-          <button type="reset" id="cp-reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="cp-out-adv" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <h3>Калькулятор падения напряжения и сечения кабеля</h3>
-  <figure class="ls-figure">
-    <figcaption>Падение напряжения и подбор сечения</figcaption>
-    <form id="calc-vdrop" aria-label="Калькулятор падения напряжения">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem">
-          <label>Мощность P (Вт) <input type="number" id="vd-p" min="1" step="1" value="10000" required></label>
-          <label>Напряжение U (В) <input type="number" id="vd-u" min="100" step="1" value="230" required></label>
-          <label>cos φ <input type="number" id="vd-cos" min="0.5" max="1" step="0.01" value="0.95" required></label>
-          <label>Длина L (м) <input type="number" id="vd-l" min="1" step="1" value="80" required></label>
-          <label>Материал <select id="vd-mat">
-            <option value="cu" selected>Медь</option>
-            <option value="al">Алюминий</option>
-          </select></label>
-          <label>Схема <select id="vd-phase">
-            <option value="1f" selected>1 фаза</option>
-            <option value="3f">3 фазы</option>
-          </select></label>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Допустимая ΔU (%) <input type="number" id="vd-du" min="1" max="10" step="0.5" value="5" required></label>
-          <label>Предпочитаемое сечение (мм²) <select id="vd-s-preset">
-            <option value="auto" selected>Авто</option>
-            <option>1.5</option><option>2.5</option><option>4</option><option>6</option><option>10</option><option>16</option><option>25</option><option>35</option><option>50</option>
-          </select></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="vd-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="vd-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="network">
-  <h2>7) Сетевые протоколы и инфраструктура</h2>
-  <p>Сегодня DMX512-A — лишь «последняя миля». В центре — Ethernet: Art-Net и sACN, VLAN для сегментации, IGMP Snooping/Querier, PoE для нод и аксессуаров. Задача — сделать сеть предсказуемой.</p>
-
-  <figure class="ls-figure" role="group" aria-label="Топология сети DMX/sACN">
-    <figcaption>Топология: primary/backup консоль, свитчи, VLAN, IGMP</figcaption>
-    <svg viewBox="0 0 820 320" role="img" aria-labelledby="net-title net-desc">
-      <title id="net-title">Сетевая топология</title>
-      <desc id="net-desc">Две консоли, два свитча, ноды и приборы с обозначением VLAN и IGMP</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="40" y="30" width="150" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="55" y="55">Console Primary</text>
-        <rect x="40" y="80" width="150" height="40" fill="#c7d2fe" stroke="#7aa2ф7"/>
-        <text x="55" y="105">Console Backup</text>
-
-        <rect x="250" y="30" width="160" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="270" y="55">Switch A (VLAN 10)</text>
-        <rect x="250" y="80" width="160" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="270" y="105">Switch B (VLAN 10)</text>
-
-        <rect x="450" y="30" width="150" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="470" y="55">Node 1 (PoE)</text>
-        <rect x="450" y="80" width="150" height="40" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="470" y="105">Node 2</text>
-
-        <rect x="640" y="30" width="140" height="40" fill="#fecaca" stroke="#ef4444"/>
-        <text x="660" y="55">DMX Lines</text>
-
-        <line x1="190" y1="50" x2="250" y2="50" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="190" y1="100" x2="250" y2="100" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="410" y1="50" x2="450" y2="50" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="410" y1="100" x2="450" y2="100" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="600" y1="50" x2="640" y2="50" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-        <line x1="600" y1="100" x2="640" y2="100" stroke="#1d4ed8" marker-end="url(#arrN)"/>
-
-        <text x="260" y="140" fill="#9aa4b2">IGMP Snooping: on, Querier: Switch A</text>
-        <text x="260" y="160" fill="#9aa4b2">sACN multicast 239.255.x.y или Art-Net Unicast</text>
-
-        <defs>
-          <marker id="arrN" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
-
-  <figure class="ls-figure" role="group" aria-label="DMX адресация и оптическая изоляция">
-    <figcaption>DMX универсумы и изоляция</figcaption>
-    <svg viewBox="0 0 820 200" role="img" aria-labelledby="dmx-title dmx-desc">
-      <title id="dmx-title">DMX адресация</title>
-      <desc id="dmx-desc">Разветвление DMX по универсумам и оптическая изоляция</desc>
-      <g font-family="sans-serif" font-size="12">
-        <rect x="40" y="40" width="120" height="40" fill="#c7d2fe" stroke="#7aa2f7"/>
-        <text x="65" y="65">Node Port</text>
-
-        <rect x="200" y="40" width="140" height="40" fill="#a7f3d0" stroke="#10b981"/>
-        <text x="205" y="65">Оптосприттер</text>
-
-        <rect x="370" y="20" width="110" height="30" fill="#fde68a" stroke="#f59e0b"/>
-        <text x="375" y="40">Universe 1</text>
-        <rect x="370" y="60" width="110" height="30" fill="#fecaca" stroke="#ef4444"/>
-        <text x="375" y="80">Universe 2</text>
-
-        <line x1="160" y1="60" x2="200" y2="60" stroke="#1d4ed8" marker-end="url(#arrD)"/>
-        <line x1="340" y1="55" x2="370" y2="35" stroke="#1d4ed8" marker-end="url(#arrD)"/>
-        <line x1="340" y1="65" x2="370" y2="75" stroke="#1d4ed8" marker-end="url(#arrD)"/>
-
-        <defs>
-          <marker id="arrD" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#1d4ed8"/>
-          </marker>
-        </defs>
-      </g>
-    </svg>
-  </figure>
-
-  <h3>Калькулятор DMX адресации и универсумов</h3>
-  <figure class="ls-figure">
-    <figcaption>Адресный план DMX</figcaption>
-    <form id="calc-dmx" aria-label="Калькулятор DMX адресации">
-      <fieldset>
-        <label for="dmx-lines">Приборы (по строке): qty x channels [; name] (например: 8 x 25; Wash)</label>
-        <textarea id="dmx-lines" rows="5" style="width:100%;font-family:var(--lg-mono);"></textarea>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Стартовый Universe <input type="number" id="dmx-u" min="1" step="1" value="1" required></label>
-          <label>Стартовый адрес <input type="number" id="dmx-addr" min="1" max="512" step="1" value="1" required></label>
-          <label>Порядок <select id="dmx-order"><option value="sequential" selected>Последовательно</option><option value="page512">С округлением до 512</option></select></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="dmx-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="dmx-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <h3>Калькулятор планирования сети Art‑Net/sACN</h3>
-  <figure class="ls-figure">
-    <figcaption>Сегментация сети и мультикаст</figcaption>
-    <form id="calc-net" aria-label="Калькулятор планирования сети">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem">
-          <label>Кол-во универсумов <input type="number" id="np-u" min="1" step="1" value="12" required></label>
-          <label>Режим <select id="np-mode"><option value="sacn-multi" selected>sACN Multicast</option><option value="sacn-uni">sACN Unicast</option><option value="artnet-uni">Art-Net Unicast</option></select></label>
-          <label>Нод <input type="number" id="np-nodes" min="1" step="1" value="4" required></label>
-          <label>Портов на ноде <input type="number" id="np-ports" min="1" step="1" value="4" required></label>
-          <label>Макс. юни/свитч <input type="number" id="np-unpsw" min="1" step="1" value="8" required></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="np-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="np-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <details>
-    <summary>Конфликтные точки: Art‑Net vs sACN</summary>
+  <section id="ls-design" aria-labelledby="ls-design-title">
+    <h2 id="ls-design-title">7. Взаимодействие с площадкой и проектирование</h2>
     <ul>
-      <li>Art‑Net v4 поддерживает unicast и ограничение broadcast; избегайте широковещаний в больших сетях.</li>
-      <li>sACN использует IGMP-мультикаст (239.255.0.0/16); без Snooping/Querier пакеты «затопят» сеть.</li>
-      <li>Merge: HTP обычно для диммеров/интенсивностей, LTP — для атрибутов; проверяйте поведение нод.</li>
+      <li>Данные от площадки: планы, допустимые нагрузки, координаты и типы точек.</li>
+      <li>Документация: RIG-план, список оборудования, версии и ревизии, согласование изменений.</li>
+      <li>Процессы: pre-rig, load-in, программирование, репетиции, show, load-out — с понятными воротами качества на каждом этапе.</li>
     </ul>
-  </details>
+    <aside style="background:var(--lg-tip); padding:.75rem; border-radius:8px;">Полезный вопрос: «Какая самая ранняя дата, когда я могу получить подтвержденные нагрузки и доступ к точкам?»</aside>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+  <section id="ls-inspection" aria-labelledby="ls-inspection-title">
+    <h2 id="ls-inspection-title">8. Контроль, инспекция, журналирование</h2>
+    <ul>
+      <li>Приемка: сверка серийных номеров, маркировки WLL, категории, даты последней инспекции.</li>
+      <li>Дневники осмотров: периодика, дефекты, решения (допуск, ремонт, списание).</li>
+      <li>Кто подписывает: компетентное лицо, ответственное за участок работ и безопасность.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-<section id="previz">
-  <h2>8) Превизуализация и подготовка данных</h2>
-  <ul>
-    <li>Линейка софта: WYSIWYG/Capture/Depence/MA3D — важны корректные fixture profiles.</li>
-    <li>Patch-листы: источники, адреса, universes, позиция на ферме, кронштейны и safety.</li>
-    <li>Экспорт в консоль: проверяйте mapping атрибутов, размер DMX footprint, матрицы (пиксельные приборы).</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+  <section id="ls-risk-legal" aria-labelledby="ls-risk-legal-title">
+    <h2 id="ls-risk-legal-title">9. Управление рисками и юридический контекст</h2>
+    <ul>
+      <li>Идентификация опасностей: падение предметов, перегруз узлов, электробезопасность, погода.</li>
+      <li>Оценка и контроль: исключение, замещение, инженерные меры, админмеры, PPE — в таком порядке.</li>
+      <li>Стандарты: ориентиры решений и ответственности. Локальные нормы имеют приоритет применения.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-<section id="docs-logistics">
-  <h2>9) Документация, логистика и командные процессы</h2>
-  <p>Свет — командная игра. Кто-то рисует карту сети, кто-то считает кабели, кто-то ведёт смену. Документы и роли — ваш экзоскелет.</p>
-  <h3>Кто за что отвечает</h3>
-  <ul>
-    <li>LD (Lighting Designer): концепт, превиз, ключевые пресеты и timecode.</li>
-    <li>Chief LX: пакет документации, коммуникация с rigging, power и видео.</li>
-    <li>Техники: монтаж, line check, RDM, маркировка.</li>
-    <li>Сменные операторы: программирование, шоу, бэкап.</li>
-  </ul>
-
-  <h3>Калькулятор логистики и массы</h3>
-  <figure class="ls-figure">
-    <figcaption>Масса, объём, фуры/лифты</figcaption>
-    <form id="calc-logi" aria-label="Калькулятор логистики">
+  <section id="ls-bridle" aria-labelledby="ls-bridle-title">
+    <h2 id="ls-bridle-title">Приложение: Калькулятор простого бридла (две точки)</h2>
+    <p>Симметричный бридл: пролёт S, провес h, суммарная масса m. Идеализация: T ≈ (W/2)/sin(α), где α = arctan(2h/S). Результаты — ориентировочные.</p>
+    <form onsubmit="return false" aria-label="Калькулятор бридла">
       <fieldset>
-        <label for="lg-lines">Кейсы (строки): qty, масса кг, L×W×H м (например: 4, 85, 1.2x0.6x0.7)</label>
-        <textarea id="lg-lines" rows="5" style="width:100%;font-family:var(--lg-mono);"></textarea>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Грузоподъёмность фуры (кг) <input type="number" id="lg-truck-m" min="1" step="1" value="10000" required></label>
-          <label>Объём фуры (м³) <input type="number" id="lg-truck-v" min="1" step="0.1" value="40" required></label>
-          <label>Лифт (кг) <input type="number" id="lg-lift" min="1" step="1" value="1000" required></label>
-          <label>Время рейса лифта (мин) <input type="number" id="lg-lift-t" min="1" step="1" value="6" required></label>
-        </div>
+        <label>Пролёт между точками S, м <input id="ls-br-S" inputmode="decimal" placeholder="например, 8"></label>
+        <label>Провес h, м <input id="ls-br-h" inputmode="decimal" placeholder="например, 1.2"></label>
+        <label>Масса подвеса, кг <input id="ls-br-m" inputmode="decimal" placeholder="например, 1200"></label>
         <div class="ls-actions">
-          <button type="button" id="lg-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
+          <button id="ls-br-btn">Рассчитать</button>
+          <button type="reset" id="ls-br-reset">Сброс</button>
         </div>
-        <output class="ls-results" id="lg-out" aria-live="polite"></output>
       </fieldset>
+      <div class="ls-results" id="ls-br-out" aria-live="polite"></div>
     </form>
-  </figure>
+    <details><summary>Как считали</summary>
+      <p>α = arctan(2h/S); W = m·g; 2·T·sin(α)=W ⇒ T=W/(2·sin α). Геометрия симметричная, эксцентриситет не учитывается.</p>
+    </details>
 
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+    <figure class="ls-figure">
+      <svg viewBox="0 0 720 260" role="img" aria-label="Геометрия симметричного бридла">
+        <rect x="10" y="10" width="700" height="240" rx="8" ry="8" fill="#f1f5f9" stroke="#e5e7eb"></rect>
+        <circle cx="160" cy="60" r="6" fill="#10b981"></circle>
+        <circle cx="560" cy="60" r="6" fill="#10b981"></circle>
+        <line x1="160" y1="60" x2="360" y2="140" stroke="#ef4444" stroke-width="4"></line>
+        <line x1="560" y1="60" x2="360" y2="140" stroke="#ef4444" stroke-width="4"></line>
+        <rect x="320" y="140" width="80" height="30" fill="#334155"></rect>
+        <text x="360" y="160" text-anchor="middle" fill="#fff">W</text>
+        <path d="M360 140 A40 40 0 0 1 395 125" stroke="#0ea5e9" stroke-width="3" fill="none"></path>
+        <text x="405" y="125" fill="#0ea5e9">α</text>
+        <text x="160" y="45" fill="#10б981" text-anchor="middle">Точка 1</text>
+        <text x="560" y="45" fill="#10б981" text-anchor="middle">Точка 2</text>
+      </svg>
+      <figcaption>Простая симметрия: чем меньше провес при фиксированном пролете — тем выше усилие T.</figcaption>
+    </figure>
 
-<section id="safety">
-  <h2>10) Безопасность и риск‑менеджмент</h2>
-  <ul>
-    <li>Rigging координация: SWL, инспекция точек подвеса, safety на каждом приборе, вторичное крепление нод/сплиттеров.</li>
-    <li>Погодные риски: ветер и дождь. Отсекатели питания, крышки для генераторов, IP-рейтинги, запасные пути.</li>
-    <li>N/N+1: бэкап‑консоль в tracking, два свитча, два PSU, независимые линии питания.</li>
-    <li>План эвакуации, house lights, аварийные сценарии.</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
 
-<section id="eco">
-  <h2>11) Экология и устойчивость</h2>
-  <ul>
-    <li>LED вместо разрядных, диммируемые источники — экономия кВт⋅ч и тепла.</li>
-    <li>Транспорт: пакование по объёму, меньшие рейсы → меньше CO₂.</li>
-    <li>Многоразовые расходники: чехлы на фермы, многоразовые стяжки.</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+    <script>
+    (function(){
+      const $ = (id)=>document.getElementById(id);
+      const S=$('ls-br-S'), h=$('ls-br-h'), m=$('ls-br-m'), out=$('ls-br-out');
+      $('ls-br-reset').addEventListener('click',()=>{ out.textContent=''; });
+      $('ls-br-btn').addEventListener('click', ()=>{
+        const Sv=Number.parseFloat(S.value), hv=Number.parseFloat(h.value), mv=Number.parseFloat(m.value);
+        if(!Number.isFinite(Sv)||Sv<=0||!Number.isFinite(hv)||hv<=0||!Number.isFinite(mv)||mv<=0){
+          out.innerHTML='<span class="ls-error">Укажите положительные значения S, h, m.</span>'; return;
+        }
+        const alpha = Math.atan((2*hv)/Sv);
+        const g=9.81, W=mv*g;
+        const sinA=Math.sin(alpha);
+        if(sinA<=0){ out.innerHTML='<span class="ls-error">Геометрия ведёт к нулевому углу. Увеличьте провес.</span>'; return; }
+        const T = W/(2*sinA);
+        out.textContent = `Оценка: угол α ≈ ${(alpha*180/Math.PI).toFixed(1)}°, усилие в ветви T ≈ ${(T/9.81).toFixed(1)} кгс. Дисклеймер: образовательная оценка.`;
+      });
+    })();
+    </script>
+  </section>
 
-<section id="cases">
-  <h2>12) Разбор кейсов и типовые ошибки</h2>
+  <section id="ls-faq" aria-labelledby="ls-faq-title">
+    <h2 id="ls-faq-title">Частые вопросы (ЧАВО)</h2>
+    <details>
+      <summary>Можно ли «на глаз» распределить приборы по ферме?</summary>
+      <p>Нет. Принято сверяться с load-chart и моделью опор. «На глаз» годится только для первичной прикидки рисков — не для решений.</p>
+    </details>
+    <details>
+      <summary>Почему «углы решают»?</summary>
+      <p>Потому что диагональная ветвь создает вертикальную составляющую через синус/косинус. Чем меньше угол к горизонту — тем больше усилие.</p>
+    </details>
+    <details>
+      <summary>Чем UDL отличается от «много маленьких точек»?</summary>
+      <p>Много мелких точек на практике дают приближение UDL, но реальная ферма чувствительна к минимальным расстояниям и узлам. Производитель знает лучше.</p>
+    </details>
+    <details>
+      <summary>Нужно ли учитывать ветер в крытой арене?</summary>
+      <p>Да, если возможны открытые ворота/сквозняк при монтаже и если есть парусные элементы. Порывы — неожиданные гости.</p>
+    </details>
+    <details>
+      <summary>Какая категория тали мне нужна?</summary>
+      <p>Определяется сценарием: люди под грузом, статично или в движении, требования к резервированию. Смотрите стандарты и политику площадки.</p>
+    </details>
+    <details>
+      <summary>Какой коэффициент запаса «правильный»?</summary>
+      <p>Зависит от изделия, стандарта и сценария. Ищите в документации производителя и применимых нормах. Универсального числа нет.</p>
+    </details>
+    <details>
+      <summary>Как понять, что строп пора выводить из эксплуатации?</summary>
+      <p>По критериям инспекции: порезы, вытяжка, утрата маркировки, коррозия, деформация. Решает компетентное лицо согласно стандартам.</p>
+    </details>
+    <details>
+      <summary>Можно ли «поделить» общий вес на число точек и успокоиться?</summary>
+      <p>Нельзя. Реакции зависят от геометрии, углов и расстояний. Нужна модель, хотя бы упрощенная.</p>
+    </details>
+    <details>
+      <summary>Зачем журналировать осмотры?</summary>
+      <p>Чтобы было кому отвечать и на что опираться. История — часть безопасности.</p>
+    </details>
+    <details>
+      <summary>Как учесть динамику, если нет точных данных?</summary>
+      <p>Используют консервативные коэффициенты и процедуру контроля скорости/ускорения. Лучше завысить оценку, чем недооценить риск.</p>
+    </details>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-  <h3>Кейс 1: Open‑air фестиваль, генератор 160 кВА</h3>
-  <p>Сетап: 48 движущихся голов по 350 Вт, 12 профилей по 1200 Вт, haze 2×1200 Вт. ΣP≈ (48×350 + 12×1200 + 2400) ≈ 33.6 кВт. С коэффициентом спроса 0.8 — 26.9 кВт. Баланс по фазам — равномерный. Генератор — 160 кВА (≈128 кВт), запас достаточен.</p>
-  <p>Ошибка: IGMP Querier был включён на двух свитчах, что привело к «войне» querier. Часть мультикаста sACN терялась — пропадал один универсум. Решение: оставить Querier только на корневом, проверить robustness.</p>
+  <section id="ls-glossary" aria-labelledby="ls-glossary-title">
+    <h2 id="ls-glossary-title">Список терминов</h2>
+    <ul>
+      <li>UDL — равномерно распределенная нагрузка.</li>
+      <li>Point load — точечная нагрузка.</li>
+      <li>WLL — рабочий предел нагрузки изделия.</li>
+      <li>MBL — минимальная разрушающая нагрузка.</li>
+      <li>SF — коэффициент запаса.</li>
+      <li>D/d — отношение диаметров опоры и каната/стропа.</li>
+      <li>Rigger — такелажник.</li>
+      <li>Head Rigger — старший такелажник/координатор.</li>
+      <li>TD (Technical Director) — технический директор площадки/проекта.</li>
+      <li>D8/D8+/C1 — категории применения подъемной техники в ивентах.</li>
+      <li>Bridle — бридл, оттяжка между двумя точками.</li>
+      <li>Load chart — таблица допустимых нагрузок.</li>
+      <li>Exclusion zone — зона ограничения доступа.</li>
+      <li>LOTO — lockout/tagout, блокировка источников энергии.</li>
+      <li>Proof load — испытательная нагрузка.</li>
+      <li>Service factor — фактор режима службы (из контекста стандарта).</li>
+      <li>Open-air — открытая площадка на воздухе.</li>
+      <li>Grid — сетка ферм/штанкетов.</li>
+      <li>Span — пролет.</li>
+      <li>Sag — провес/стрела прогиба.</li>
+      <li>Sheave — шкив, ролик.</li>
+      <li>Shackle — шакл.</li>
+      <li>Master link — головное звено.</li>
+      <li>Chain bag — мешок цепи.</li>
+      <li>Hoist — таль.</li>
+      <li>Winch — лебедка.</li>
+      <li>Back-up — резервирование.</li>
+      <li>In-service inspection — эксплуатационный осмотр.</li>
+      <li>Pre-rig — подготовительные работы перед заездом.</li>
+      <li>Load-in/Load-out — заезд/выезд.</li>
+      <li>Permit-to-work — допуск к работам.</li>
+      <li>Competent person — компетентное лицо (в рамках стандарта).</li>
+      <li>Design factor — проектный коэффициент.</li>
+      <li>Proof factor — коэффициент испытаний.</li>
+      <li>Working at height — работа на высоте.</li>
+      <li>Fall arrest — система защиты от падения.</li>
+      <li>Hazard — опасность.</li>
+      <li>Risk — риск (вероятность × тяжесть последствий).</li>
+      <li>Mitigation — смягчение/снижение риска.</li>
+      <li>Rigging plot/plan — план такелажа.</li>
+      <li>Truss — ферма.</li>
+      <li>Node — узел (соединение фермы).</li>
+      <li>Reaction — реакция опоры.</li>
+      <li>Moment — момент силы.</li>
+      <li>Deflection — прогиб.</li>
+      <li>Wind load — ветровая нагрузка.</li>
+      <li>Gust — порыв ветра.</li>
+      <li>Rated capacity — номинальная грузоподъемность.</li>
+      <li>Labeling/Tagging — маркировка/бирка.</li>
+    </ul>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-  <h3>Кейс 2: Арена‑тур, мульти‑трап и timecode</h3>
-  <p>График: 6 часов на монтаж, 2 — на фокус, 1 — на репетицию. Timecode по MTC от ProTools — в консоль, далее — в эффекты. Бэкап‑консоль в tracking. Параллельные свитчи c VLAN 10 (свет) и 20 (управление).</p>
+  <section id="ls-refs" aria-labelledby="ls-refs-title">
+    <h2 id="ls-refs-title">Стандарты и руководства (обзор)</h2>
+    <ul>
+      <li>EN 17206 — Entertainment technology: Machinery for stages and other production areas. Базовая рамка для сценической механики.</li>
+      <li>DGUV V17/18 — Немецкие правила охраны труда для мероприятий и производственных зон.</li>
+      <li>BS 7905/7906 — Британские стандарты по применению подъемной техники в индустрии развлечений.</li>
+      <li>ANSI/ESTA E1.6 (части) — Подъемные системы и их эксплуатация.</li>
+      <li>ANSI/ESTA E1.21 — Временные конструкции на открытом воздухе.</li>
+      <li>ANSI/ESTA E1.26 — Motorized Hoists — требования и рекомендации.</li>
+      <li>ISO 9927 — Инспекция кранов (аналогия процедур инспекции и журналирования).</li>
+      <li>OSHA — Общие нормы охраны труда (США) как ориентиры принципов.</li>
+      <li>PLASA, ESTA — профессиональные ассоциации, выпускают TSP (Technical Standards Program) и рекомендации.</li>
+      <li>IBC/Eurocodes — для временных конструкций в части нагрузок и устойчивости (в общих чертах).</li>
+    </ul>
+    <aside style="background:var(--lg-warn); padding:.75rem; border-radius:8px;">Соблюдение локальных законов и регламентов обязательно. В случае противоречий ориентируйтесь на более строгую норму и решения компетентного инженера.</aside>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
-  <h3>Кейс 3: Корпоратив, «сжатые» слоты</h3>
-  <p>Line check 20 минут. Решение: заранее подготовленные палитры и шаблонные страницы busking; на нодах — статический unicast Art‑Net в универсумы 1–4. Haze включён из house‑page, приоритеты sACN выставлены для пульта гостя ниже (Prio=90).</p>
-
-  <h3>Кейс 4: Театрально‑иммерсивный сетап</h3>
-  <p>Тихий свет, минимальный шум вентиляторов. Выбор приборов с «Studio Mode». RDM‑диагностика позволила обнаружить прибор с нестабильным PSU по параметру «sensor temp» — заменили до шоу.</p>
-
-  <h3>Кейс 5: Городская площадь, длинные линии</h3>
-  <p>Линия 120 м до фронтального ряда профилей 6×1200 Вт, 1ф. Расчёт ΔU показал необходимость 10 мм² меди при допустимых 5% просадки — иначе строб и мерцание при синхронных белых.</p>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="glossary">
-  <h2>13) Глоссарий, FAQ и шаблоны</h2>
-  <h3>Глоссарий (выборочно)</h3>
-  <ul>
-    <li>DMX512‑A — протокол 512 каналов/универсум, скорость 250 кбит/с, типовая длина линии до 300 м с правильным кабелем и терминацией 120 Ω.</li>
-    <li>RDM — двустороннее расширение DMX для диагностики и конфигурации.</li>
-    <li>Art‑Net — семейство протоколов поверх IP, v4 предпочтительно в unicast.</li>
-    <li>sACN (E1.31) — поток DMX поверх мультикаста, группы 239.255.*.*.</li>
-    <li>VLAN/IGMP Snooping/Querier — сегментация и контроль мультикаста.</li>
-    <li>N/N+1 — модели резервирования мощности/узлов.</li>
-  </ul>
-
-  <h3>FAQ</h3>
-  <details>
-    <summary>Сколько универсумов выдержит «офисный» свитч?</summary>
-    <p>Зависит от архитектуры. Без IGMP Snooping — легко «захлебнётся» уже на 6–8 мультикаст‑универсумов. С IGMP и уникастом — десятки. Смотрите таблицу пропускной способности и буферов.</p>
-  </details>
-  <details>
-    <summary>Какой кабель для DMX?</summary>
-    <p>110 Ω витая пара (DMX кабель), не миксовать с аудио XLR‑кабелями. На крайний случай — Cat5e с адаптерами, но держите длину и помехи под контролем.</p>
-  </details>
-
-  <h3>Шаблоны</h3>
-  <ul>
-    <li>Patch-лист (CSV): Position, Fixture, Mode, Universe, Address, Notes</li>
-    <li>Network map: VLAN, Subnet, IGMP, Port map, PoE budget</li>
-    <li>Power one-line: Source → Main → Distro → Breakers → Loads</li>
-  </ul>
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
-
-<section id="checklists">
-  <h2>Итоговые чек‑листы и таблицы соответствий</h2>
-
-  <h3>Чек‑лист перед выездом</h3>
-  <ul>
-    <li>Документация: GP, Rigging, Patch, Cable, Power, Network.</li>
-    <li>ПО: версии консолей/нод, профили, бэкапы, лицензии.</li>
-    <li>Железо: тест приборов, spare‑набор, safety, крепёж, расходники.</li>
-  </ul>
-
-  <h3>Чек‑лист на площадке</h3>
-  <ul>
-    <li>Энергия: фазировка, тест УЗО/дифов, реальный ток.</li>
-    <li>Сеть: VLAN/IGMP, ping, RDM discovery, latency/flicker тест.</li>
-    <li>Шоу: плейбек/таймкод, приоритеты sACN, бэкап‑сессия.</li>
-  </ul>
-
-  <h3>Таблица соответствий (пример)</h3>
-  <figure class="ls-figure">
-    <figcaption>Universe → sACN Multicast / Art‑Net Port‑Addr</figcaption>
-    <table style="width:100%;border-collapse:collapse">
-      <thead>
-        <tr>
-          <th style="text-align:left;border-bottom:1px solid var(--lg-border)">Universe</th>
-          <th style="text-align:left;border-bottom:1px solid var(--lg-border)">sACN Multicast</th>
-          <th style="text-align:left;border-bottom:1px solid var(--lg-border)">Art‑Net (Net/SubUni)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>239.255.0.1</td><td>0/0.1</td></tr>
-        <tr><td>2</td><td>239.255.0.2</td><td>0/0.2</td></tr>
-        <tr><td>3</td><td>239.255.0.3</td><td>0/0.3</td></tr>
-        <tr><td>4</td><td>239.255.0.4</td><td>0/0.4</td></tr>
-        <tr><td>5</td><td>239.255.0.5</td><td>0/0.5</td></tr>
-        <tr><td>6</td><td>239.255.0.6</td><td>0/0.6</td></tr>
-        <tr><td>7</td><td>239.255.0.7</td><td>0/0.7</td></tr>
-        <tr><td>8</td><td>239.255.0.8</td><td>0/0.8</td></tr>
-        <tr><td>9</td><td>239.255.0.9</td><td>0/0.9</td></tr>
-        <tr><td>10</td><td>239.255.0.10</td><td>0/0.10</td></tr>
-      </tbody>
-    </table>
-  </figure>
-
-  <h3>Калькулятор стоимости и маржинальности проката</h3>
-  <figure class="ls-figure">
-    <figcaption>Стоимость, скидки, маржа</figcaption>
-    <form id="calc-cost" aria-label="Калькулятор стоимости проката">
-      <fieldset>
-        <label for="cs-lines">Позиции (строки): name, ставка/день, qty, дни (например: Wash 350, 12, 2)</label>
-        <textarea id="cs-lines" rows="5" style="width:100%;font-family:var(--lg-mono);"></textarea>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-top:.5rem">
-          <label>Скидка (%) <input type="number" id="cs-disc" min="0" max="100" step="1" value="10" required></label>
-          <label>Доставка (₽) <input type="number" id="cs-del" min="0" step="100" value="25000" required></label>
-          <label>Персонал (₽) <input type="number" id="cs-staff" min="0" step="100" value="60000" required></label>
-          <label>Оверхед (%) <input type="number" id="cs-oh" min="0" max="100" step="1" value="15" required></label>
-          <label>Прочие издержки (₽) <input type="number" id="cs-oth" min="0" step="100" value="0" required></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="cs-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="cs-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <h3>Калькулятор резервирования (N/N+1)</h3>
-  <figure class="ls-figure">
-    <figcaption>Оценка риска отказов</figcaption>
-    <form id="calc-red" aria-label="Калькулятор резервирования">
-      <fieldset>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem">
-          <label>Узел 1: P отказа <input type="number" id="rd-p1" min="0" max="1" step="0.001" value="0.03"></label>
-          <label>Резерв <select id="rd-r1"><option value="none">N</option><option value="n1" selected>N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d1" value="Консоль"></label>
-
-          <label>Узел 2: P отказа <input type="number" id="rd-p2" min="0" max="1" step="0.001" value="0.02"></label>
-          <label>Резерв <select id="rd-r2"><option value="none">N</option><option value="n1">N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d2" value="Свитч"></label>
-
-          <label>Узел 3: P отказа <input type="number" id="rd-p3" min="0" max="1" step="0.001" value="0.05"></label>
-          <label>Резерв <select id="rd-r3"><option value="none" selected>N</option><option value="n1">N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d3" value="Нода"></label>
-
-          <label>Узел 4: P отказа <input type="number" id="rd-p4" min="0" max="1" step="0.001" value="0.01"></label>
-          <label>Резерв <select id="rd-r4"><option value="none">N</option><option value="n1" selected>N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d4" value="PSU 24 В"></label>
-
-          <label>Узел 5: P отказа <input type="number" id="rd-p5" min="0" max="1" step="0.001" value="0.02"></label>
-          <label>Резерв <select id="rd-r5"><option value="none" selected>N</option><option value="n1">N+1</option></select></label>
-          <label>Описание <input type="text" id="rd-d5" value="Сеть uplink"></label>
-        </div>
-        <div class="ls-actions">
-          <button type="button" id="rd-run">Рассчитать</button>
-          <button type="reset">Сброс</button>
-        </div>
-        <output class="ls-results" id="rd-out" aria-live="polite"></output>
-      </fieldset>
-    </form>
-  </figure>
-
-  <p><a href="#ls-toc">← Назад к содержанию</a></p>
-</section>
+  <section id="ls-end" aria-labelledby="ls-end-title">
+    <h2 id="ls-end-title">Заключение</h2>
+    <p>Риггинг — это культура вопросов: «Где моя модель?», «Что с углами?», «Что говорит производитель?», «Кто подписывает ответственность?». В этой культуре сцена звучит безопасно, а свет рисует музыку без риска для людей.</p>
+    <aside aria-label="Дисклеймер безопасности" style="border:1px solid var(--lg-border); border-radius:var(--lg-radius); padding:.75rem; background:var(--lg-warn);">
+      Еще раз: материал образовательный. Любые вычисления — ориентировочные. Решения — по стандартам, документам производителей и через сертифицированных специалистов.
+    </aside>
+    <p><a href="#ls-toc">Назад к содержанию</a> · <a href="#ls-top">Наверх</a></p>
+  </section>
 
 </main>
 
 <footer>
-  <p>Памятка: делайте бэкап всего — от файла шоу до плана эвакуации. Пробуйте отказоустойчивость на репетиции, а не на шоу. И держите под рукой белую страницу плейбека и фонари для команды.</p>
-  <p><a href="#ls-top">↑ Наверх</a> · <a href="#ls-toc">← Назад к содержанию</a></p>
+  <p>© Сообщество профессионалов сценической механики и света. Делайте трудное понятным, и оно станет безопасным.</p>
 </footer>
 
-<script>
-(function(){
-  const root = document.querySelector('#ls-article');
-  if(!root) return;
-
-  function fmt(x, digits=2){ return Number.isFinite(x) ? Number(x).toFixed(digits) : '—'; }
-  function err(msg){ return '<span class="ls-error">' + msg + '</span>'; }
-  function parseLines(text){
-    return text.split(/\n+/).map(l => l.trim()).filter(Boolean);
-  }
-
-  // Toggle custom phase distribution
-  const cpDist = root.querySelector('#cp-dist');
-  const cpCustom = root.querySelector('#cp-custom');
-  if(cpDist && cpCustom){
-    cpDist.addEventListener('change', () => {
-      cpCustom.style.display = cpDist.value === 'custom' ? 'grid' : 'none';
-    });
-  }
-  const cpReset = root.querySelector('#cp-reset');
-  if(cpReset && cpCustom){
-    cpReset.addEventListener('click', () => { cpCustom.style.display = 'none'; });
-  }
-
-  // Calculator: Advanced Power
-  (function(){
-    const n1 = root.querySelector('#cp-n1'), p1 = root.querySelector('#cp-p1'), c1 = root.querySelector('#cp-c1');
-    const n2 = root.querySelector('#cp-n2'), p2 = root.querySelector('#cp-p2'), c2 = root.querySelector('#cp-c2');
-    const n3 = root.querySelector('#cp-n3'), p3 = root.querySelector('#cp-p3'), c3 = root.querySelector('#cp-c3');
-    const u1 = root.querySelector('#cp-u1'), u3 = root.querySelector('#cp-u3'), kd = root.querySelector('#cp-kd');
-    const dist = root.querySelector('#cp-dist'), l1 = root.querySelector('#cp-l1'), l2 = root.querySelector('#cp-l2'), l3 = root.querySelector('#cp-l3');
-    const out = root.querySelector('#cp-out-adv');
-    const run = root.querySelector('#cp-run-adv');
-
-    function breakerSuggest(I){
-      const sizes = [16, 20, 25, 32, 40, 63, 80, 100, 125];
-      const suggested = sizes.find(s => s >= I) || '125+';
-      return suggested;
-    }
-
-    function calc(){
-      const arr = [
-        {n: parseFloat(n1.value), P: parseFloat(p1.value), cos: parseFloat(c1.value)},
-        {n: parseFloat(n2.value||0), P: parseFloat(p2.value||0), cos: parseFloat(c2.value||1)},
-        {n: parseFloat(n3.value||0), P: parseFloat(p3.value||0), cos: parseFloat(c3.value||1)}
-      ];
-      const U1 = parseFloat(u1.value), U3 = parseFloat(u3.value), KD = parseFloat(kd.value);
-      if(![U1,U3,KD].every(v => Number.isFinite(v) && v>0)){ out.innerHTML = err('Проверьте напряжение и коэффициент спроса.'); return; }
-      let Ptot=0, S=0; // Вт, сумма  P_i
-      let Itot=0; // A эквивалент на 1ф при cosφ усредненном
-      for(const t of arr){
-        if(!Number.isFinite(t.n) || !Number.isFinite(t.P) || t.n<=0 || t.P<=0) continue;
-        if(!(t.cos>=0.5 && t.cos<=1)){ out.innerHTML = err('cos φ должен быть в пределах 0.5–1.0'); return; }
-        Ptot += t.n * t.P;
-      }
-      if(Ptot<=0){ out.innerHTML = err('Добавьте хотя бы один тип прибора с ненулевой мощностью.'); return; }
-
-      const Pask = Ptot * KD; // Вт
-      // Примем средний cosφ как взвешенный по мощности
-      let weighted = 0, pw=0;
-      for(const t of arr){
-        if(!Number.isFinite(t.n) || !Number.isFinite(t.P) || t.n<=0 || t.P<=0) continue;
-        weighted += (t.n * t.P) * (t.cos || 1);
-        pw += t.n * t.P;
-      }
-      const cosAvg = pw>0 ? (weighted/pw) : 0.95;
-
-      // Токи по фазам при 3ф
-      let share = [1/3,1/3,1/3];
-      if(dist.value==='custom'){
-        const L1 = parseFloat(l1.value), L2 = parseFloat(l2.value), L3 = parseFloat(l3.value);
-        if(![L1,L2,L3].every(v => Number.isFinite(v) && v>=0) || Math.abs((L1+L2+L3)-1)>0.01){
-          out.innerHTML = err('Доли фаз должны быть неотрицательны и суммой 1.00');
-          return;
-        }
-        share = [L1,L2,L3];
-      }
-      const Pph = share.map(s => Pask * s); // Вт
-      const Iph = Pph.map(p => p / (U1 * cosAvg)); // А, каждый прибор в основном 1ф
-      const Imax = Math.max(...Iph);
-
-      const bkr = breakerSuggest(Imax);
-
-      out.innerHTML = [
-        'ΣP = ' + fmt(Ptot,0) + ' Вт; P(спрос) = ' + fmt(Pask,0) + ' Вт;',
-        'cos φ(avg) ≈ ' + fmt(cosAvg,2),
-        'I(L1/L2/L3) ≈ ' + Iph.map(i=>fmt(i,1)).join(' / ') + ' А',
-        'Рекомендуемый автомат (тип C/D): ≥ ' + bkr + ' А на фазу',
-        (Imax> (parseFloat(bkr)||125) ? '<br>'+err('Предупреждение: ток фазы превышает номинал автомата!') : '')
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Voltage Drop
-  (function(){
-    const P = root.querySelector('#vd-p');
-    const U = root.querySelector('#vd-u');
-    const COS = root.querySelector('#vd-cos');
-    const L = root.querySelector('#vd-l');
-    const MAT = root.querySelector('#vd-mat');
-    const PH = root.querySelector('#vd-phase');
-    const DU = root.querySelector('#vd-du');
-    const SP = root.querySelector('#vd-s-preset');
-    const OUT = root.querySelector('#vd-out');
-    const RUN = root.querySelector('#vd-run');
-
-    function nearestS(target){
-      const list=[1.5,2.5,4,6,10,16,25,35,50,70,95,120];
-      for(const s of list){ if(s>=target) return s; }
-      return list[list.length-1];
-    }
-    function resistivity(mat){
-      // Ом*мм2/м
-      return mat==='al' ? 0.0282 : 0.0175; // алюминий/медь
-    }
-
-    function calc(){
-      const p = parseFloat(P.value), u = parseFloat(U.value), c = parseFloat(COS.value);
-      const l = parseFloat(L.value), du = parseFloat(DU.value);
-      const mat = MAT.value, ph = PH.value;
-      const preset = SP.value;
-
-      if([p,u,c,l,du].some(v => !Number.isFinite(v) || v<=0) || c>1){ OUT.innerHTML = err('Проверьте ввод.'); return; }
-
-      const I = p / (u * c); // A
-      const rho = resistivity(mat);
-      // ΔU = k * I * ρ * L / S, где k=2 для 1ф, k=√3 для 3ф
-      const k = ph==='3f' ? Math.sqrt(3) : 2;
-      const duAllow = u * (du/100);
-      const Sreq = (k * I * rho * l) / duAllow; // мм2
-
-      let Suse = preset==='auto' ? nearestS(Sreq) : parseFloat(preset);
-      if(!Number.isFinite(Suse) || Suse<=0){ Suse = nearestS(Sreq); }
-
-      const dUactual = (k * I * rho * l) / Suse; // В
-      const dUpct = dUactual/u*100;
-
-      OUT.innerHTML = [
-        'I ≈ ' + fmt(I,2) + ' А; ρ = ' + (mat==='al'?'0.0282':'0.0175') + ' Ω·мм²/м',
-        'Необходимое S ≥ ' + fmt(Sreq,2) + ' мм²; Выбрано: ' + fmt(Suse,0) + ' мм²',
-        'ΔU ≈ ' + fmt(dUactual,2) + ' В (' + fmt(dUpct,2) + ' %)',
-        (dUpct>du ? err('Превышение допустимой просадки! Увеличьте сечение или сократите длину.') : '<span style="color:var(--lg-ok)">OK по ΔU</span>')
-      ].join('<br>');
-    }
-    if(RUN) RUN.addEventListener('click', calc);
-  })();
-
-  // Calculator: DMX addressing
-  (function(){
-    const lines = root.querySelector('#dmx-lines');
-    const u = root.querySelector('#dmx-u');
-    const addr = root.querySelector('#dmx-addr');
-    const order = root.querySelector('#dmx-order');
-    const run = root.querySelector('#dmx-run');
-    const out = root.querySelector('#dmx-out');
-
-    function parseFixture(line){
-      // formats: "8 x 25; Wash" or "8,25,Wash"
-      const m = line.match(/^(\d+)\s*(?:x|,)\s*(\d+)(?:\s*;|,)?\s*(.*)?$/i);
-      if(!m) return null;
-      return {qty: parseInt(m[1],10), ch: parseInt(m[2],10), name: (m[3]||'Fixture').trim() || 'Fixture'};
-    }
-
-    function calc(){
-      const L = parseLines(lines.value);
-      if(L.length===0){ out.innerHTML = err('Добавьте хотя бы одну строку с приборами.'); return; }
-      let U = parseInt(u.value,10), A = parseInt(addr.value,10);
-      if(!(U>=1 && A>=1 && A<=512)){ out.innerHTML = err('Некорректный стартовый universe/адрес.'); return; }
-      let rows = [];
-      for(const ln of L){
-        const f = parseFixture(ln);
-        if(!f){ out.innerHTML = err('Ошибка парсинга: "'+ln+'". Ожидается "qty x channels; name".'); return; }
-        for(let i=1;i<=f.qty;i++){
-          let start = A;
-          let end = A + f.ch - 1;
-          if(end>512){
-            // перенос на следующий universe
-            U += Math.floor((end-1)/512);
-            A = 1;
-            start = A;
-            end = A + f.ch - 1;
-          }
-          rows.push('U'+U+' | ' + f.name + ' #' + i + ' → ' + start + '–' + end + ' ('+f.ch+'ch)');
-          A = end + 1;
-          if(order.value==='page512' && A<=512){
-            // округление к следующей сотне для удобства
-            const nextPage = Math.ceil(A/32)*32;
-            A = Math.min(nextPage, 512 - f.ch + 1);
-          }
-          if(A>512){ U++; A=1; }
-        }
-      }
-      out.innerHTML = rows.map(r=>r).join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Network planning
-  (function(){
-    const U = root.querySelector('#np-u');
-    const mode = root.querySelector('#np-mode');
-    const nodes = root.querySelector('#np-nodes');
-    const ports = root.querySelector('#np-ports');
-    const unPerSw = root.querySelector('#np-unpsw');
-    const run = root.querySelector('#np-run');
-    const out = root.querySelector('#np-out');
-
-    function calc(){
-      const Nu = parseInt(U.value,10);
-      const Nn = parseInt(nodes.value,10);
-      const Np = parseInt(ports.value,10);
-      const Upsw = parseInt(unPerSw.value,10);
-      if([Nu,Nn,Np,Upsw].some(v=>!(v>0))) { out.innerHTML = err('Проверьте ввод.'); return; }
-
-      // Оценка PPS и трафика (грубая): ~44 pps/универсум, ~6000 байт/с ≈ 48 кбит/с
-      const pps = 44*Nu;
-      const kbps = 48*Nu; // оценка
-      const totalPorts = Nn*Np;
-      const suggestedVlans = Math.ceil(Nu / Upsw);
-      const vlanList = Array.from({length:suggestedVlans}, (_,i)=> 10 + i);
-
-      let tips = [];
-      if(mode.value.includes('multi')){
-        tips.push('Включите IGMP Snooping на всех свитчах; один IGMP Querier на корневом (core).');
-        if(Nu>4) tips.push('Разделите универсумы по VLAN: ' + vlanList.map((v,i)=>'VLAN '+v+': U'+(i*Upsw+1)+'–U'+Math.min((i+1)*Upsw,Nu)).join('; '));
-      }else{
-        tips.push('Unicast: настройте статические цели (IP нод) и отключите широковещание.');
-      }
-      tips.push('План IP: 10.10.VLAN.X/24; Консоли/кор: .1/.2; Ноды: .100+.');
-
-      out.innerHTML = [
-        'Универсумов: '+Nu+', PPS≈'+pps+'/с, ~'+kbps+' кбит/с суммарно',
-        'Портов вывода DMX: '+totalPorts+' (узлов '+Nn+' × портов '+Np+')',
-        tips.join('<br>')
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Logistics
-  (function(){
-    const lines = root.querySelector('#lg-lines');
-    const truckM = root.querySelector('#lg-truck-m');
-    const truckV = root.querySelector('#lg-truck-v');
-    const lift = root.querySelector('#lg-lift');
-    const liftT = root.querySelector('#lg-lift-t');
-    const run = root.querySelector('#lg-run');
-    const out = root.querySelector('#lg-out');
-
-    function parseItem(line){
-      // "4, 85, 1.2x0.6x0.7"
-      const m = line.match(/^\s*(\d+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*[x×]\s*([\д.]+)\s*[x×]\s*([\д.]+)\s*$/i);
-      if(!m) return null;
-      return {qty:+m[1], mass:+m[2], L:+m[3], W:+m[4], H:+m[5]};
-    }
-
-    function calc(){
-      const L = parseLines(lines.value);
-      if(L.length===0){ out.innerHTML = err('Добавьте строки с кейсами.'); return; }
-      const capM = parseFloat(truckM.value), capV = parseFloat(truckV.value);
-      const liftCap = parseFloat(lift.value), liftTime = parseFloat(liftT.value);
-      if([capM,capV,liftCap,liftTime].some(v=>!(v>0))){ out.innerHTML = err('Проверьте параметры фуры/лифта.'); return; }
-
-      let totalM=0, totalV=0, maxItemM=0;
-      for(const ln of L){
-        const it = parseItem(ln);
-        if(!it){ out.innerHTML = err('Ошибка парсинга: "'+ln+'". Ожидается "qty, масса, LxWxH".'); return; }
-        totalM += it.qty * it.mass;
-        totalV += it.qty * (it.L*it.W*it.H);
-        maxItemM = Math.max(maxItemM, it.mass);
-      }
-      const trucksByMass = Math.ceil(totalM / capM);
-      const trucksByVol = Math.ceil(totalV / capV);
-      const trucks = Math.max(trucksByMass, trucksByVol);
-
-      const liftTrips = Math.ceil(totalM / liftCap);
-      const timeMin = liftTrips * liftTime;
-
-      out.innerHTML = [
-        'ΣM = ' + fmt(totalM,0) + ' кг; ΣV = ' + fmt(totalV,1) + ' м³',
-        'Фур потребуется: ' + trucks + ' (по массе: '+trucksByMass+', по объёму: '+trucksByVol+')',
-        'Рейсов лифта: ' + liftTrips + ' (~' + fmt(timeMin,0) + ' мин)'
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Cost & Margin
-  (function(){
-    const lines = root.querySelector('#cs-lines');
-    const disc = root.querySelector('#cs-disc');
-    const del = root.querySelector('#cs-del');
-    const staff = root.querySelector('#cs-staff');
-    const oh = root.querySelector('#cs-oh');
-    const oth = root.querySelector('#cs-oth');
-    const run = root.querySelector('#cs-run');
-    const out = root.querySelector('#cs-out');
-
-    function parseRow(line){
-      // "Wash 350, 12, 2" or "350,12,2"
-      const parts = line.split(',').map(s=>s.trim());
-      if(parts.length<3) return null;
-      let name = parts.length===3 ? 'Item' : parts[0];
-      let idx = parts.length===3 ? 0 : 1;
-      const rate = parseFloat(parts[idx]);
-      const qty = parseFloat(parts[idx+1]);
-      const days = parseFloat(parts[idx+2]);
-      if(![rate,qty,days].every(v=>Number.isFinite(v) && v>=0)) return null;
-      return {name, rate, qty, days};
-    }
-
-    function calc(){
-      const L = parseLines(lines.value);
-      if(L.length===0){ out.innerHTML = err('Добавьте строки позиций.'); return; }
-      let gross=0;
-      for(const ln of L){
-        const r = parseRow(ln);
-        if(!r){ out.innerHTML = err('Ошибка парсинга: "'+ln+'". Ожидается "name, ставка, qty, дни".'); return; }
-        gross += r.rate * r.qty * r.days;
-      }
-      const Disc = parseFloat(disc.value)||0;
-      const D = parseFloat(del.value)||0;
-      const S = parseFloat(staff.value)||0;
-      const OH = parseFloat(oh.value)||0;
-      const OTH = parseFloat(oth.value)||0;
-
-      const revenue = gross * (1 - Disc/100);
-      const costs = D + S + OTH + (revenue * OH/100);
-      const margin = revenue - costs;
-      const marPct = revenue>0 ? (margin/revenue*100) : 0;
-
-      out.innerHTML = [
-        'Выручка после скидки: ' + fmt(revenue,0) + ' ₽',
-        'Себестоимость (примерно): ' + fmt(costs,0) + ' ₽',
-        'Маржа: ' + fmt(margin,0) + ' ₽ (' + fmt(marPct,1) + ' %)'
-      ].join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-  // Calculator: Redundancy
-  (function(){
-    const fields = [1,2,3,4,5].map(i=>({
-      p: root.querySelector('#rd-p'+i),
-      r: root.querySelector('#rd-r'+i),
-      d: root.querySelector('#rd-d'+i)
-    }));
-    const run = root.querySelector('#rd-run');
-    const out = root.querySelector('#rd-out');
-
-    function calc(){
-      let lines = [];
-      let sysOkProb = 1;
-      for(const f of fields){
-        if(!f.p || !f.r) continue;
-        const p = parseFloat(f.p.value);
-        if(!Number.isFinite(p) || p<0 || p>1) continue;
-        const mode = f.r.value;
-        const effFail = (mode==='n1') ? p*p : p; // N+1: отказ обоих
-        const ok = 1 - effFail;
-        sysOkProb *= ok;
-        lines.push((f.d?.value || 'Узел') + ': P отказа=' + fmt(p,3) + (mode==='n1'?' (N+1 → P²)':'') + ', P(эфф)=' + fmt(effFail,4));
-      }
-      const sysFail = 1 - sysOkProb;
-      lines.push('Итого: P отказа системы ≈ ' + fmt(sysFail,4) + ' (' + fmt(sysFail*100,2) + ' %)');
-
-      out.innerHTML = lines.join('<br>');
-    }
-    if(run) run.addEventListener('click', calc);
-  })();
-
-})();
-</script>
 </article>
-      <!-- Конец вставленной статьи -->
     </main>
   </div>
 
