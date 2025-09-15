@@ -1,6 +1,45 @@
 // assets/main.js
 'use strict';
 
+/*
+  Важно для GitHub Pages:
+  Сайт размещён в подпапке /LighManual/.
+  Ниже мы жёстко задаём базовый путь сайта и нормализуем ссылки так,
+  чтобы результаты поиска всегда вели на https://3devent.github.io/LighManual/...
+*/
+
+// Базовый путь сайта (измените при переносе в другой репозиторий/подпапку)
+const SITE_BASE_PATH = '/LighManual/'; // обязательно со слешами с обеих сторон
+const SITE_BASE_ABS = `${location.origin}${SITE_BASE_PATH}`;
+// База ассетов (абсолютный путь внутри сайта)
+const ASSETS_BASE = `${SITE_BASE_PATH}assets`;
+
+// Нормализация ссылок из поискового индекса под SITE_BASE_PATH
+function resolveUrl(u) {
+  if (!u) return SITE_BASE_ABS;
+  // Внешние ссылки — оставляем как есть
+  if (/^[a-z]+:\/\//i.test(u)) return u;
+
+  // Убираем чужой origin, ведущие /, ./ и ../ — чтобы не вылезать из /LighManual/
+  let v = String(u).trim();
+
+  // если случайно попал абсолютный URL с тем же/другим origin — удалим часть до пути
+  v = v.replace(/^https?:\/\/[^/]+/i, '');
+
+  // запрещаем выход из подпапки — удаляем ведущие ../
+  v = v.replace(/^(\.\.\/)+/g, '');
+  // убираем ведущие ./ и /
+  v = v.replace(/^\.\/+/g, '').replace(/^\/+/, '');
+
+  // В итоге собираем абсолютный URL внутри /LighManual/
+  try {
+    return new URL(v, SITE_BASE_ABS).href;
+  } catch {
+    // Фолбэк
+    return SITE_BASE_ABS + v;
+  }
+}
+
 // ===== Базовые ссылки на DOM =====
 const rootEl = document.documentElement;
 const themeBtn = document.getElementById('themeToggleBtn');
@@ -67,30 +106,6 @@ function closeModal(el) {
   if (!anyModalOpen()) {
     document.body.classList.remove('modal-open');
   }
-}
-
-// ===== База сайта (важно для GitHub Pages под /LighManual/) =====
-const pathParts = location.pathname.split('/').filter(Boolean);
-// Если сайт в подпапке (например, /LighManual/), возьмём первый сегмент как BASE
-const SITE_BASE = pathParts.length ? `/${pathParts[0]}/` : '/';
-// База для ассетов — абсолютный путь внутри сайта
-const ASSETS_BASE = `${SITE_BASE}assets`;
-
-// Нормализация ссылок из поискового индекса под SITE_BASE
-function resolveUrl(u) {
-  if (!u) return '#';
-  if (/^https?:\/\//i.test(u)) return u; // внешняя ссылка
-  if (u.startsWith('#')) return u;       // якорь
-
-  // Если ссылка уже абсолютная внутри сайта, но без BASE (например, /sections/..),
-  // добавим BASE. Если уже начинается с SITE_BASE — оставим как есть.
-  if (u.startsWith(SITE_BASE)) return u;
-  if (u.startsWith('/')) return SITE_BASE + u.replace(/^\//, '');
-
-  // Уберём ./ и ../ в начале и префиксуем BASE
-  let v = u.replace(/^\.\/+/, '');
-  while (v.startsWith('../')) v = v.slice(3);
-  return SITE_BASE + v;
 }
 
 // ===== Поиск =====
@@ -203,7 +218,7 @@ menuPanel?.addEventListener('click', e => {
   const link = t?.closest?.('a[href]');
   if (link) {
     closeMenu();
-    return;
+    return; // не блокируем переход
   }
 
   // 2) Клик по крестику или подложке — просто закрываем
